@@ -1,5 +1,6 @@
 from manim import *
 import numpy as np
+import os, json, subprocess
 config.background_color = "#FFFFFF"
 FONT = "Inter"
 INK, GREY, UF = "#111827", "#6B7280", "#0021A5"
@@ -16,14 +17,37 @@ class Clip(Scene):
         self.title = T(self.TITLE, 28, UF, BOLD).to_corner(UL, buff=0.35)
         self.add(self.title)
         self._cap = None
+        # Narration mode: if NARRATION_AUDIO points to a folder with <clip>_sNN.mp3 files, each caption
+        # stays on screen at least as long as its narration, and the start times are written to marks_<clip>.json.
+        self._clip = "clip" + self.__class__.__name__[1:]
+        self._durs, self._marks, self._t0 = None, [], None
+        adir = os.environ.get("NARRATION_AUDIO")
+        if adir:
+            files = sorted(f for f in os.listdir(adir) if f.startswith(self._clip + "_s") and f.endswith(".mp3"))
+            self._durs = [float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", os.path.join(adir, f)]).decode().strip()) for f in files]
+            self._files = files
+        inner = self.construct
+        def wrapped():
+            inner(); self._finish_segment(tail=0.9)
+            if self._durs is not None:
+                assert len(self._marks) == len(self._durs), (self._clip, len(self._marks), len(self._durs))
+                json.dump({"clip": self._clip, "segments": [{"file": f, "start": round(t, 3)} for f, t in zip(self._files, self._marks)]}, open(f"marks_{self._clip}.json", "w"), indent=1)
+        self.construct = wrapped
+    def _finish_segment(self, tail=0.45):
+        """In narration mode, wait until the narration of the current caption has finished."""
+        if self._durs is None or self._t0 is None: return
+        need = self._durs[len(self._marks) - 1] + tail - (self.renderer.time - self._t0)
+        if need > 0.03: self.wait(need)
     def cap(self, s, hold=3.2, size=30):
         """Caption at the bottom; replaces the previous one."""
         new = T(s, size, INK)
         if new.width > 13.2: new.scale_to_fit_width(13.2)
         new.move_to(DOWN * 3.45)
-        if self._cap is None: self.play(FadeIn(new, shift=UP * 0.15), run_time=0.5)
-        else: self.play(FadeOut(self._cap, run_time=0.3)); self.play(FadeIn(new, shift=UP * 0.15), run_time=0.4)
+        self._finish_segment()
+        if self._cap is None: t0 = self.renderer.time; self.play(FadeIn(new, shift=UP * 0.15), run_time=0.5)
+        else: self.play(FadeOut(self._cap, run_time=0.3)); t0 = self.renderer.time; self.play(FadeIn(new, shift=UP * 0.15), run_time=0.4)
         self._cap = new
+        if self._durs is not None: self._t0 = t0 + 0.15; self._marks.append(self._t0)
         if hold: self.wait(hold)
 
 def tok(s, color=INK, w=1.35, h=0.5, size=22, fill="#F3F4F6"):

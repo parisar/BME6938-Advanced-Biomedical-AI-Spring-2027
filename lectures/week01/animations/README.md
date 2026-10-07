@@ -17,3 +17,14 @@ manim -qh --fps 30 clip2_attention.py C2
 | clip4_encoder_decoder.py | C4 | Encoder versus decoder, and masking |
 
 The clips use only text objects, so LaTeX is not required. Manim needs the Pango and Cairo system libraries. The font is Inter; if it is not installed, Manim falls back to a default font.
+
+## Narrated versions
+
+With the per-line audio files from `../narration/audio/` available, render in narration mode. Each caption then stays on screen for as long as its narration, and the start times are written to `marks_clipN.json`:
+
+```bash
+NARRATION_AUDIO=../narration/audio manim -qh --fps 30 --media_dir media_n clip2_attention.py C2
+python add_narration.py     # merges the audio into each rendered clip
+```
+
+`add_narration.py` expects the scene files under the short names used during development (`c1.py` to `c4.py` rendered into `media_n/`); adjust the paths at the top if you rename things.

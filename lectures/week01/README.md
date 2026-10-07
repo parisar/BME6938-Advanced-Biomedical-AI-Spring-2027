@@ -8,16 +8,16 @@
 
 ## Animation clips
 
-Silent, with on-screen captions, about one minute each.
+Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
 
-| Clip | File |
-|---|---|
-| 1. Tokenization and embeddings | [clips/week01-clip1-tokenization-and-embeddings.mp4](clips/week01-clip1-tokenization-and-embeddings.mp4) |
-| 2. Query, key, value: how attention works | [clips/week01-clip2-query-key-value-attention.mp4](clips/week01-clip2-query-key-value-attention.mp4) |
-| 3. Inside an encoder block | [clips/week01-clip3-encoder-block.mp4](clips/week01-clip3-encoder-block.mp4) |
-| 4. Encoder versus decoder, and masking | [clips/week01-clip4-encoder-vs-decoder-and-masking.mp4](clips/week01-clip4-encoder-vs-decoder-and-masking.mp4) |
+| Clip | Narrated | Silent |
+|---|---|---|
+| 1. Tokenization and embeddings | [1 min 15 s](clips/narrated/week01-clip1-tokenization-and-embeddings-narrated.mp4) | [46 s](clips/silent/week01-clip1-tokenization-and-embeddings.mp4) |
+| 2. Query, key, value: how attention works | [1 min 36 s](clips/narrated/week01-clip2-query-key-value-attention-narrated.mp4) | [61 s](clips/silent/week01-clip2-query-key-value-attention.mp4) |
+| 3. Inside an encoder block | [1 min 14 s](clips/narrated/week01-clip3-encoder-block-narrated.mp4) | [50 s](clips/silent/week01-clip3-encoder-block.mp4) |
+| 4. Encoder versus decoder, and masking | [1 min 29 s](clips/narrated/week01-clip4-encoder-vs-decoder-and-masking-narrated.mp4) | [48 s](clips/silent/week01-clip4-encoder-vs-decoder-and-masking.mp4) |
 
-The source code for the clips is in [animations/](animations/).
+The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [narration/](narration/).
 
 ## Notebook: setup check and refresher
 
