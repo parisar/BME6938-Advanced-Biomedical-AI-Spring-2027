@@ -1,0 +1,204 @@
+{
+ "note": "Narration for the Week 1 animation clips. One audio file is generated per segment. Edit the 'text' fields freely; 'caption' is the on-screen caption for reference.",
+ "clips": [
+  {
+   "clip": "clip1",
+   "video": "week01-clip1-tokenization-and-embeddings.mp4",
+   "segments": [
+    {
+     "id": "clip1_s01",
+     "caption": "A transformer cannot read text. It only computes with numbers.",
+     "text": "A transformer cannot read text. Everything it does is arithmetic on numbers, so the first job is to turn a sentence into numbers."
+    },
+    {
+     "id": "clip1_s02",
+     "caption": "Step 1: the tokenizer splits the text into tokens.",
+     "text": "Step one. A tokenizer splits the sentence into tokens. Here each word is one token, but rare words are often split into smaller pieces."
+    },
+    {
+     "id": "clip1_s03",
+     "caption": "Each token is replaced by its integer ID in a fixed vocabulary.",
+     "text": "Each token is then replaced by an integer ID, which is simply its index in a fixed vocabulary."
+    },
+    {
+     "id": "clip1_s04",
+     "caption": "Step 2: each ID selects one row of the embedding matrix.",
+     "text": "Step two. Each ID selects one row of the embedding matrix. This matrix has one row for every entry in the vocabulary."
+    },
+    {
+     "id": "clip1_s05",
+     "caption": "That row is a learned vector of 256 numbers: the token's embedding.",
+     "text": "That row is a learned vector of two hundred fifty-six numbers. It is called the token's embedding."
+    },
+    {
+     "id": "clip1_s06",
+     "caption": "The sentence is now a 4 × 256 matrix.",
+     "text": "Doing this for all four tokens gives a matrix with four rows and two hundred fifty-six columns."
+    },
+    {
+     "id": "clip1_s07",
+     "caption": "Step 3: add a positional encoding, because attention has no built-in sense of word order.",
+     "text": "Step three. Attention has no built-in sense of word order, so we add a positional encoding to each embedding. It tells the model where each token sits in the sentence."
+    },
+    {
+     "id": "clip1_s08",
+     "caption": "This matrix is the input to the first encoder block.",
+     "text": "The result is the input to the first encoder block."
+    }
+   ]
+  },
+  {
+   "clip": "clip2",
+   "video": "week01-clip2-query-key-value-attention.mp4",
+   "segments": [
+    {
+     "id": "clip2_s01",
+     "caption": "Start with one embedding vector per token.",
+     "text": "We start with one embedding vector for each token in the sentence."
+    },
+    {
+     "id": "clip2_s02",
+     "caption": "Three learned projections turn each embedding into a query, a key, and a value.",
+     "text": "Three learned weight matrices project each embedding into three new vectors: a query, a key, and a value."
+    },
+    {
+     "id": "clip2_s03",
+     "caption": "Query: what this token is looking for.  Key: what each token offers.  Value: what it passes on.",
+     "text": "Think of the query as what a token is looking for, the key as what each token offers, and the value as the information it will pass on."
+    },
+    {
+     "id": "clip2_s04",
+     "caption": "Follow one token. The query of \"My\" is compared with the key of every token.",
+     "text": "Let's follow a single token, the word My. Its query is compared with the key of every token in the sentence, including its own."
+    },
+    {
+     "id": "clip2_s05",
+     "caption": "Each comparison is a dot product: a large score means the key matches the query.",
+     "text": "Each comparison is a dot product, scaled by the square root of the dimension. A large score means that key is a good match for the query."
+    },
+    {
+     "id": "clip2_s06",
+     "caption": "Softmax turns the four scores into attention weights that sum to 1.",
+     "text": "A softmax then turns the four scores into attention weights. They are all positive, and they sum to one."
+    },
+    {
+     "id": "clip2_s07",
+     "caption": "The weights say how much of each token's value to take.",
+     "text": "The weights decide how much of each token's value vector to take."
+    },
+    {
+     "id": "clip2_s08",
+     "caption": "The output for \"My\" is the weighted sum of the values: now it carries context from the whole sentence.",
+     "text": "The output for My is the weighted sum of all four value vectors. It is no longer just the word My. It now carries context from the whole sentence."
+    },
+    {
+     "id": "clip2_s09",
+     "caption": "Repeat for every token to get the full attention matrix. Each row sums to 1.",
+     "text": "Repeating this for every token gives the full attention matrix. Each row belongs to one query, and each row sums to one."
+    },
+    {
+     "id": "clip2_s10",
+     "caption": "All of it in one line: scores, softmax, weighted sum.",
+     "text": "The whole computation fits in one line: the softmax of Q times K transpose, divided by the square root of d, multiplied by V."
+    }
+   ]
+  },
+  {
+   "clip": "clip3",
+   "video": "week01-clip3-encoder-block.mp4",
+   "segments": [
+    {
+     "id": "clip3_s01",
+     "caption": "An encoder block takes the token matrix and refines it in four steps.",
+     "text": "An encoder block takes the matrix of token vectors and refines it in four steps."
+    },
+    {
+     "id": "clip3_s02",
+     "caption": "1. Multi-head attention: several attention heads run in parallel, each with its own Q, K, V projections.",
+     "text": "First, multi-head attention. Several attention heads run in parallel, and each has its own query, key, and value projections."
+    },
+    {
+     "id": "clip3_s03",
+     "caption": "Each head can track a different relationship. Their outputs are concatenated.",
+     "text": "Each head can learn to track a different kind of relationship between tokens. Their outputs are concatenated."
+    },
+    {
+     "id": "clip3_s04",
+     "caption": "2. Add & Norm: the block's input is added back to the attention output, then normalized.",
+     "text": "Second, add and normalize. The input to the block is added back to the attention output, and the result is normalized."
+    },
+    {
+     "id": "clip3_s05",
+     "caption": "This residual path keeps gradients flowing when many blocks are stacked.",
+     "text": "This skip connection, also called a residual connection, keeps gradients flowing when many blocks are stacked."
+    },
+    {
+     "id": "clip3_s06",
+     "caption": "3. Feed forward: a small network transforms each token's vector separately.",
+     "text": "Third, a feed-forward network. It transforms the vector of each token separately, using the same weights for every token."
+    },
+    {
+     "id": "clip3_s07",
+     "caption": "4. A second Add & Norm, again with a skip connection.",
+     "text": "Fourth, a second add and normalize step, again with a skip connection."
+    },
+    {
+     "id": "clip3_s08",
+     "caption": "The output has the same shape as the input: one refined vector per token.",
+     "text": "The output has exactly the same shape as the input: one refined vector for each token."
+    },
+    {
+     "id": "clip3_s09",
+     "caption": "Because shapes match, blocks stack. The original transformer used six.",
+     "text": "Because the shapes match, blocks can be stacked. The original transformer used six of them."
+    }
+   ]
+  },
+  {
+   "clip": "clip4",
+   "video": "week01-clip4-encoder-vs-decoder-and-masking.mp4",
+   "segments": [
+    {
+     "id": "clip4_s01",
+     "caption": "The encoder reads the whole input at once. Every token attends to every other token.",
+     "text": "The encoder reads the whole input sentence at once. Every token can attend to every other token, and the output is one vector per token."
+    },
+    {
+     "id": "clip4_s02",
+     "caption": "The decoder writes the output one token at a time.",
+     "text": "The decoder works differently. It writes the output one token at a time."
+    },
+    {
+     "id": "clip4_s03",
+     "caption": "Each predicted token is fed back in as the next decoder input.",
+     "text": "Each token it predicts is fed back in as the next input, so the decoder always conditions on what it has written so far."
+    },
+    {
+     "id": "clip4_s04",
+     "caption": "Cross-attention: queries come from the decoder; keys and values come from the encoder output.",
+     "text": "The two halves are linked by cross-attention. Here the queries come from the decoder, while the keys and values come from the encoder output."
+    },
+    {
+     "id": "clip4_s05",
+     "caption": "Problem: while training, the decoder could look ahead at the words it is supposed to predict.",
+     "text": "There is one problem. During training the full target sentence is available, so the decoder could simply look ahead at the words it is supposed to predict."
+    },
+    {
+     "id": "clip4_s06",
+     "caption": "Masking: scores for future positions are set to −∞ before the softmax.",
+     "text": "The fix is masking. The scores for all future positions are set to negative infinity before the softmax."
+    },
+    {
+     "id": "clip4_s07",
+     "caption": "Future positions get weight 0, so each token attends only to itself and earlier tokens.",
+     "text": "After the softmax those positions have a weight of zero, so each token attends only to itself and to earlier tokens."
+    },
+    {
+     "id": "clip4_s08",
+     "caption": "Three families of transformer models follow from these two parts.",
+     "text": "Three families of models follow from these two parts. Encoder-only models such as BERT are used for understanding. Decoder-only models such as G P T are used for generation. Encoder-decoder models such as T five map one sequence to another."
+    }
+   ]
+  }
+ ]
+}
