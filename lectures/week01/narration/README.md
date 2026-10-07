@@ -1,50 +1,34 @@
 # Narration for the Week 1 clips (ElevenLabs)
 
-## What is here
+## Everyday use
+
+1. **Once per computer:** double-click `1 - Save API key (run once).bat` and paste your ElevenLabs API key. It is saved for your Windows account, not in this folder.
+2. **Whenever you need audio:** double-click `2 - Generate narration.bat`. It generates every narration line that does not have an mp3 yet and saves it in `audio/`.
+
+No typing of folders, keys, or voice IDs is needed after step 1.
+
+## Files
 
 | File | Purpose |
 |---|---|
 | narration.json | The spoken script: one line per on-screen caption, for all four clips |
+| voice_config.json | Voice ID, model, and voice settings. Edit this to change the voice |
 | make_voice.py | Sends each line to ElevenLabs and saves one mp3 per line in `audio/` |
 
-## Steps (Windows PowerShell)
+## Changing a line
 
-1. Open PowerShell in this folder.
-2. Set your API key for this window only (it is not saved anywhere):
+Edit its `text` in narration.json, delete (or rename) that line's mp3 in `audio/`, and double-click `2 - Generate narration.bat` again. Lines that already have audio are skipped, so nothing is generated twice.
 
-   ```powershell
-   $env:ELEVENLABS_API_KEY = "paste-your-key-here"
-   ```
+## From a terminal (optional)
 
-3. Check the script and the character count, without calling the API:
-
-   ```powershell
-   python make_voice.py --dry-run
-   ```
-
-4. List your voices and copy the ID of the one you want:
-
-   ```powershell
-   python make_voice.py --list-voices
-   ```
-
-5. Test on one clip first:
-
-   ```powershell
-   python make_voice.py --voice-id YOUR_VOICE_ID --clip clip2
-   ```
-
-6. Listen to the files in `audio/`. If a line sounds wrong, edit its `text` in narration.json, delete that mp3, and run the command again. Existing files are skipped.
-7. When you are happy, generate the rest:
-
-   ```powershell
-   python make_voice.py --voice-id YOUR_VOICE_ID
-   ```
-
-Then tell Claude the audio is ready. The clips are re-rendered so each caption stays on screen for as long as its narration, and the audio is merged in.
+```powershell
+python make_voice.py --dry-run          # show the script and character count, no API call
+python make_voice.py --clip clip2       # one clip only
+python make_voice.py --list-voices      # your voices and their IDs
+python make_voice.py --force            # regenerate everything
+```
 
 ## Notes
 
 - Numbers and symbols are spelled out in the script ("two hundred fifty-six", "Q times K transpose") so they are read correctly.
-- The default model is `eleven_multilingual_v2`. Use `--model` to choose another.
-- `--stability` and `--similarity` adjust the voice settings (defaults 0.5 and 0.75).
+- To remove the saved key later: Windows Settings, search "environment variables", delete ELEVENLABS_API_KEY under user variables.

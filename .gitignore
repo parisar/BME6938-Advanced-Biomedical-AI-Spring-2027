@@ -4,3 +4,5 @@ Thumbs.db
 *.tmp
 __pycache__/
 .ipynb_checkpoints/
+voice_config.json
+lectures/**/narration/audio/
