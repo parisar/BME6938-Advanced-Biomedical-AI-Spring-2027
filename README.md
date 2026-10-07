@@ -12,10 +12,11 @@ A graduate course on current research in biomedical AI: self-supervised represen
 
 | Session | What happens |
 |---|---|
-| Tuesday lecture | Instructor mini-lecture on the core concept of the week, a curated video, and a preview of the papers for Thursday |
+| Tuesday lecture | Instructor mini-lecture on the core concept of the week with short animation clips, and a preview of the papers for Thursday |
 | Thursday paper sessions | Two papers, one per period. Each has a presentation group (20 min), a critique group (15 min), and class discussion (15 min) |
 | Reading responses | One paragraph and one discussion question per paper, due before the Thursday class |
 | Term project | Teams of three write a research paper on an open problem in biomedical AI |
+| Week 1 | Tuesday is course logistics. Thursday is a transformer refresher, a course overview, and an instructor-led model paper session |
 | Final two weeks | Reserved for project presentations: no lectures or paper sessions |
 
 ## Where things are
@@ -26,7 +27,7 @@ A graduate course on current research in biomedical AI: self-supervised represen
 | [papers/](papers/) | Reading list with links to every assigned paper |
 | [presentations/](presentations/) | Paper presentation and critique rubric, reading response guidelines |
 | [project/](project/) | Term project guidelines, milestones, rubric, suggested problems, templates |
-| [lectures/](lectures/) | Tuesday slides and video links, posted weekly |
+| [lectures/](lectures/) | Slides, animation clips, and code notebooks, posted weekly |
 
 Submissions, grades, and announcements are on Canvas.
 
@@ -34,7 +35,7 @@ Submissions, grades, and announcements are on Canvas.
 
 | Week | Tue | Thu | Topic | Thursday papers | Project |
 |---|---|---|---|---|---|
-| 1 | Jan 12 | Jan 14 | From task-specific models to foundation models; transformer refresher | Transformer refresher; Instructor-led model paper session: [Moor et al., Foundation models for generalist medical artificial intelligence](https://doi.org/10.1038/s41586-023-05881-4). Group sign-ups. | Start data-access training (MIMIC credentialing) |
+| 1 | Jan 12 | Jan 14 | Course logistics (Tue); transformer refresher, course overview, and model paper session (Thu) | Transformer refresher (Spring 2026 transformer deck) with four animation clips<br>Overview lecture (20 min): from task-specific models to foundation models. Instructor-led model paper session (30 min): [Moor et al., Foundation models for generalist medical artificial intelligence](https://doi.org/10.1038/s41586-023-05881-4) | Canvas sign-up for paper slots opens Tue Jan 12, closes Fri Jan 15. Setup-check notebook due before Week 2. Start data-access training (MIMIC credentialing). |
 | 2 | Jan 19 | Jan 21 | Self-supervised representation learning | [He et al., Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/abs/2111.06377)<br>[Zhou et al., A foundation model for generalizable disease detection from retinal images (RETFound)](https://doi.org/10.1038/s41586-023-06555-x) |  |
 | 3 | Jan 26 | Jan 28 | Foundation models for medical imaging | [Oquab et al., DINOv2: Learning Robust Visual Features without Supervision](https://arxiv.org/abs/2304.07193)<br>[Chen et al., Towards a general-purpose foundation model for computational pathology (UNI)](https://doi.org/10.1038/s41591-024-02857-3) | Teams formed (Thu Jan 28) |
 | 4 | Feb 2 | Feb 4 | Vision-language models | [Radford et al., Learning Transferable Visual Models From Natural Language Supervision (CLIP)](https://proceedings.mlr.press/v139/radford21a.html)<br>[Li et al., LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day](https://arxiv.org/abs/2306.00890) |  |
