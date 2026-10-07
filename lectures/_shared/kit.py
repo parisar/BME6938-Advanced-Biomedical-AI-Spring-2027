@@ -1,6 +1,13 @@
 from manim import *
 import numpy as np
 import os, json, subprocess
+import glob
+try:                                   # use the bundled Inter font so clips look the same on every machine
+    import manimpango
+    for _f in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "*.otf")):
+        manimpango.register_font(_f)
+except Exception:
+    pass
 config.background_color = "#FFFFFF"
 FONT = "Inter"
 INK, GREY, UF = "#111827", "#6B7280", "#0021A5"
@@ -19,7 +26,7 @@ class Clip(Scene):
         self._cap = None
         # Narration mode: if NARRATION_AUDIO points to a folder with <clip>_sNN.mp3 files, each caption
         # stays on screen at least as long as its narration, and the start times are written to marks_<clip>.json.
-        self._clip = "clip" + self.__class__.__name__[1:]
+        self._clip = getattr(self, "CLIP_ID", None) or "clip" + self.__class__.__name__[1:]
         self._durs, self._marks, self._t0 = None, [], None
         adir = os.environ.get("NARRATION_AUDIO")
         if adir:

@@ -2,5 +2,6 @@
  "voice_id": "",
  "model": "eleven_multilingual_v2",
  "stability": 0.5,
- "similarity": 0.75
+ "similarity": 0.75,
+ "copy_clips_to": ""
 }

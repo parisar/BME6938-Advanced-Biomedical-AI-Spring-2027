@@ -17,7 +17,7 @@ Each clip comes in two versions: narrated (voice-over plus on-screen captions) a
 | 3. Inside an encoder block | [1 min 14 s](clips/narrated/week01-clip3-encoder-block-narrated.mp4) | [50 s](clips/silent/week01-clip3-encoder-block.mp4) |
 | 4. Encoder versus decoder, and masking | [1 min 29 s](clips/narrated/week01-clip4-encoder-vs-decoder-and-masking-narrated.mp4) | [48 s](clips/silent/week01-clip4-encoder-vs-decoder-and-masking.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [narration/](narration/).
+The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
 ## Notebook: setup check and refresher
 
