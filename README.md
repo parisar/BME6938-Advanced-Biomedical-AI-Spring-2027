@@ -16,6 +16,7 @@ A graduate course on current research in biomedical AI: self-supervised represen
 | Thursday paper sessions | Two papers, one per period. Each has a presentation group (20 min), a critique group (15 min), and class discussion (15 min) |
 | Reading responses | One paragraph and one discussion question per paper, due before the Thursday class |
 | Term project | Teams of three write a research paper on an open problem in biomedical AI |
+| Final two weeks | Reserved for project presentations: no lectures or paper sessions |
 
 ## Where things are
 
@@ -46,8 +47,8 @@ Submissions, grades, and announcements are on Canvas.
 | 11 | Mar 23 | Mar 25 | Evaluation: benchmarks versus clinical trials | [Goh et al., Large Language Model Influence on Diagnostic Reasoning: A Randomized Clinical Trial](https://doi.org/10.1001/jamanetworkopen.2024.40969)<br>[Lång et al., Artificial intelligence-supported screen reading versus standard double reading in the Mammography Screening with Artificial Intelligence trial (MASAI)](https://doi.org/10.1016/S1470-2045(23)00298-X) | Progress report due Fri Mar 26 |
 | 12 | Mar 30 | Apr 1 | Robustness, shortcut learning, and fairness | [DeGrave et al., AI for radiographic COVID-19 detection selects shortcuts over signal](https://doi.org/10.1038/s42256-021-00338-7)<br>[Gichoya et al., AI recognition of patient race in medical imaging: a modelling study](https://doi.org/10.1016/S2589-7500(22)00063-2) |  |
 | 13 | Apr 6 | Apr 8 | Deployment, human-AI teaming, and ambient intelligence | [Wong et al., External Validation of a Widely Implemented Proprietary Sepsis Prediction Model in Hospitalized Patients](https://doi.org/10.1001/jamainternmed.2021.2626)<br>[Haque et al., Illuminating the dark spaces of healthcare with ambient intelligence](https://doi.org/10.1038/s41586-020-2669-y) |  |
-| 14 | Apr 13 | Apr 15 | Synthesis and open problems; final presentations | Final project presentations | Final presentations Thu Apr 15 (7 teams) |
-| 15 | Apr 20 |  | Final presentations and wrap-up | Final presentations on Tuesday | Final presentations Tue Apr 20 (3 teams); paper and repository due Wed Apr 21 |
+| 14 | Apr 13 | Apr 15 | Final project presentations | Final project presentations (Tuesday and Thursday) | Final presentations Tue Apr 13 (3 teams) and Thu Apr 15 (5 teams); all slides due before Tue Apr 13 |
+| 15 | Apr 20 |  | Final project presentations and wrap-up | Final project presentations (Tuesday) | Final presentations Tue Apr 20 (2 teams); paper and repository due Wed Apr 21 |
 
 ## Grading
 

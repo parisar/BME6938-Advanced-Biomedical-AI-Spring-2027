@@ -16,5 +16,3 @@ Tuesday slides and video links are posted here each week.
 | 11 | Mar 23 | Evaluation: benchmarks versus clinical trials | | |
 | 12 | Mar 30 | Robustness, shortcut learning, and fairness | | |
 | 13 | Apr 6 | Deployment, human-AI teaming, and ambient intelligence | | |
-| 14 | Apr 13 | Synthesis and open problems; final presentations | | |
-| 15 | Apr 20 | Final presentations and wrap-up | | |

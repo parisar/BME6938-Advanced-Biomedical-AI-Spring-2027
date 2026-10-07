@@ -19,7 +19,7 @@ Every paper must include:
 | Proposal | Feb 19 | One page: open problem and why it matters, data, models and methods, hypothesis, evaluation plan | 5% |
 | Pitch and peer review | Feb 23 | 2-min pitch in class; written review of one other proposal (counts toward participation) |  |
 | Progress report | Mar 26 | One page with baseline results and remaining plan | 5% |
-| Final presentation | Apr 15 | 9 min talk + 3 min questions; Thu Apr 15 (7 teams) and Tue Apr 20 (3 teams) | 10% |
+| Final presentation | Apr 13 | 12 min talk + 4 min questions; Tue Apr 13 (3 teams), Thu Apr 15 (5 teams), Tue Apr 20 (2 teams). Slides from all teams due before Tue Apr 13. | 10% |
 | Final paper and repository | Apr 21 | 4-page conference-style paper; reproducible GitHub repository with README | 20% |
 
 Templates: [proposal](proposal_template.md), [peer review](peer_review_form.md), [progress report](progress_report_template.md).
