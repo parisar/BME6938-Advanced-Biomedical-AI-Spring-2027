@@ -4,7 +4,7 @@ Slides, animation clips, and code notebooks are posted here each week.
 
 | Week | Date | Topic | Slides | Clips | Notebook |
 |---|---|---|---|---|---|
-| 1 | Jan 12 | Course logistics (Tue); transformer refresher, course overview, and model paper session (Thu) | | | |
+| 1 | Jan 12 | Course logistics (Tue); transformer refresher, course overview, and model paper session (Thu) | | [4 clips](week01/) | [notebook](week01/week01_transformer_refresher.ipynb) |
 | 2 | Jan 19 | Self-supervised representation learning | | | |
 | 3 | Jan 26 | Foundation models for medical imaging | | | |
 | 4 | Feb 2 | Vision-language models | | | |
