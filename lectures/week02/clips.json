@@ -1,0 +1,53 @@
+{
+  "week": "week02",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_masked_reconstruction.py",
+      "scene": "C1",
+      "output": "week02-clip1-masked-reconstruction",
+      "segments": [
+        {"caption": "Start with an ECG recording that has no label.", "text": "We start with a ten second ECG recording. Nobody has labeled it with a diagnosis, and most recordings in a hospital archive look just like this."},
+        {"caption": "Cut the signal into one-second patches: each patch becomes a token.", "text": "We cut the signal into one second patches. Just like words in a sentence, each patch becomes one token for a transformer encoder."},
+        {"caption": "Hide most of the patches at random.", "text": "Then we hide most of the patches at random. Here, six of the ten patches are masked out."},
+        {"caption": "The encoder sees only the visible patches.", "text": "The encoder sees only the four visible patches, and turns each of them into an embedding vector."},
+        {"caption": "A small decoder predicts the missing waveform from the encoder's output.", "text": "A small decoder takes these embeddings, plus a placeholder mask token for every hidden patch, and predicts the missing waveform."},
+        {"caption": "The loss compares prediction and truth only on the hidden patches.", "text": "The loss is the mean squared error between the prediction and the true signal, computed only on the patches that were hidden."},
+        {"caption": "To fill the gaps, the encoder has to learn what a heartbeat looks like.", "text": "Over many training steps, the predictions improve. To fill the gaps well, the encoder has to learn the structure of a heartbeat: the P wave, the Q R S complex, and the T wave."},
+        {"caption": "After pretraining, keep the encoder and discard the decoder.", "text": "After pretraining, the decoder has done its job and is discarded. We keep the encoder, which now produces useful representations of ECG signals."}
+      ]
+    },
+    {
+      "id": "clip2",
+      "scene_file": "animations/clip2_contrastive.py",
+      "scene": "C2",
+      "output": "week02-clip2-contrastive-learning",
+      "segments": [
+        {"caption": "Make two augmented views of the same ECG.", "text": "Contrastive learning starts by making two different views of the same ECG, using random augmentations."},
+        {"caption": "Augmentations change the recording, not the diagnosis.", "text": "Here, view one is cropped and has added noise, and view two is rescaled with a slow baseline drift. The heart rhythm, and so the diagnosis, stays the same."},
+        {"caption": "One shared encoder maps each view to a point in embedding space.", "text": "Both views pass through the same encoder, with shared weights. Each view becomes one point in the embedding space."},
+        {"caption": "The other ECGs in the batch add more points.", "text": "In practice we train on a batch, so the other ECGs in the batch, here B, C, and D, also become points."},
+        {"caption": "Training pulls the two views together and pushes the other ECGs apart.", "text": "Training pulls the two views of ECG A toward each other, and pushes the other ECGs in the batch further away."},
+        {"caption": "The loss asks: which view in the batch is my partner?", "text": "The loss turns this into a classification problem: compare view one with every other view in the batch, apply a softmax, and the partner, view two, should win."},
+        {"caption": "This is the InfoNCE loss: a softmax over similarities with temperature τ.", "text": "This is the info N C E loss. It is a softmax over the similarities, each divided by a temperature tau, and we minimize the negative log probability of the true partner."},
+        {"caption": "Without any labels, similar ECGs tend to end up close together.", "text": "After training on many unlabeled ECGs, recordings with similar rhythms tend to land close together, even though the model never saw a single diagnosis."}
+      ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_linear_probe.py",
+      "scene": "C3",
+      "output": "week02-clip3-linear-probing",
+      "segments": [
+        {"caption": "Take the pretrained encoder and freeze its weights.", "text": "Now we test what pretraining learned. Take the pretrained encoder and freeze it, so none of its weights can change."},
+        {"caption": "Now use a small labeled set: atrial fibrillation versus normal sinus rhythm.", "text": "We need only a small labeled dataset. Here, each ECG is labeled either atrial fibrillation, A F, or normal sinus rhythm."},
+        {"caption": "The frozen encoder turns each ECG into a 256-dimensional embedding.", "text": "The frozen encoder maps each ECG to an embedding of two hundred fifty-six numbers. We draw these embeddings as points in two dimensions."},
+        {"caption": "Add one linear prediction head: a weighted sum of the embedding plus a bias.", "text": "On top, we add a single linear prediction head. It computes a weighted sum of the embedding plus a bias, and a sigmoid turns that into the probability of A F."},
+        {"caption": "Training updates only the head; the encoder gets no gradient.", "text": "During training, gradients flow into the head only. The encoder is frozen, so its weights never change."},
+        {"caption": "If one line separates the classes, the information is already in the embedding.", "text": "If one straight line can separate A F from normal, the information was already in the embedding. The head only has to read it out."},
+        {"caption": "Fine-tuning updates the encoder too, so a probe is the cleaner test of pretraining.", "text": "Fine-tuning would also update the encoder, which often improves accuracy but adds new learning. A linear probe, with two hundred fifty-seven weights, measures the pretrained representation itself."}
+      ]
+    }
+  ]
+}

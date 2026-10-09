@@ -103,3 +103,25 @@ def heat(vals, cell=0.62, color=KC, size=17, labels_r=None, labels_c=None, mask=
 def wsub(sub, color, size=22):
     w = T("× W", size, color, BOLD); s = T(sub, int(size * 0.68), color, BOLD).next_to(w, RIGHT, buff=0.03).shift(DOWN * 0.1)
     return VGroup(w, s)
+
+# ---- synthetic ECG (no patient data): P, QRS, and T waves as Gaussian bumps
+def ecg_fn(dur=10, hr=72, af=False, seed=0):
+    """Returns y(t) for a single-lead ECG of `dur` seconds. af=True: irregular beats, no P waves, fibrillatory baseline."""
+    rng = np.random.default_rng(seed); b = [rng.uniform(0.25, 0.55)]
+    while b[-1] < dur + 1: b.append(b[-1] + (rng.uniform(0.42, 0.95) if af else 60 / hr * rng.uniform(0.97, 1.03)))
+    ph = rng.uniform(0, 6.28, 2)
+    def y(t):
+        t = np.asarray(t, float); out = np.zeros_like(t)
+        g = lambda c, a, w: a * np.exp(-0.5 * ((t - c) / w) ** 2)
+        for c in b:
+            if not af: out += g(c - 0.17, 0.13, 0.025)
+            out += g(c - 0.03, -0.12, 0.009) + g(c, 1.0, 0.011) + g(c + 0.035, -0.28, 0.011) + g(c + 0.28, 0.27, 0.045)
+        if af: out += 0.045 * np.sin(2 * np.pi * 6.3 * t + ph[0]) + 0.03 * np.sin(2 * np.pi * 8.9 * t + ph[1])
+        return out
+    return y
+
+def wave(fn, t0, t1, width, height, color=INK, sw=3, n_per_s=160):
+    """Polyline of fn over [t0, t1]: left end at x=0, baseline at y=0, so place it with .shift(), not .move_to()."""
+    ts = np.linspace(t0, t1, max(40, int((t1 - t0) * n_per_s)))
+    pts = [np.array([(t - t0) / (t1 - t0) * width, v * height, 0]) for t, v in zip(ts, fn(ts))]
+    return VMobject(stroke_color=color, stroke_width=sw).set_points_as_corners(pts)

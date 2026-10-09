@@ -31,7 +31,7 @@ def die(msg):
 
 
 def run(cmd, **kw):
-    r = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, **kw)
+    r = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", **kw)
     if r.returncode != 0:
         die("command failed: " + " ".join(map(str, cmd[:6])) + " ...\n" + r.stdout[-3000:])
     return r.stdout
