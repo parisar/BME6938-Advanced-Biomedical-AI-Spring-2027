@@ -37,9 +37,9 @@ Submissions, grades, and announcements are on Canvas.
 | Week | Topic | Thursday papers | Project |
 |---|---|---|---|
 | 1 | Course logistics; how to read, present, and critique papers | Model session: [Moor et al.: GMAI](https://doi.org/10.1038/s41586-023-05881-4) | Paper and group assignments posted on Canvas by Fri Jan 15. Start data-access training (MIMIC credentialing). |
-| 2 | Transformer review, Part 1: attention and the encoder | [Devlin et al.: BERT](https://aclanthology.org/N19-1423/)<br>[Yang et al.: GatorTron](https://doi.org/10.1038/s41746-022-00742-2) | Setup check due Tue Jan 19 |
+| 2 | Transformer review, Part 1: attention and the encoder | [Devlin et al.: BERT](https://aclanthology.org/N19-1423/)<br>[Yang et al.: GatorTron](https://doi.org/10.1038/s41746-022-00742-2) |  |
 | 3 | Transformer review, Part 2: decoder, masking, and model families | [Luo et al.: BioGPT](https://doi.org/10.1093/bib/bbac409)<br>[Dosovitskiy et al.: ViT](https://arxiv.org/abs/2010.11929) | Teams formed (Thu Jan 28) |
-| 4 | Self-supervised learning and imaging foundation models | [He et al.: MAE](https://arxiv.org/abs/2111.06377)<br>[Chen et al.: UNI](https://doi.org/10.1038/s41591-024-02857-3) | Transformer notebook exercises due Tue Feb 2 |
+| 4 | Self-supervised learning and imaging foundation models | [He et al.: MAE](https://arxiv.org/abs/2111.06377)<br>[Chen et al.: UNI](https://doi.org/10.1038/s41591-024-02857-3) |  |
 | 5 | Vision-language and multimodal models | [Radford et al.: CLIP](https://proceedings.mlr.press/v139/radford21a.html)<br>[Tu et al.: Med-PaLM M](https://doi.org/10.1056/AIoa2300138) |  |
 | 6 | Foundation models for EHR and physiological time series | [Wornow et al.: Shaky foundations of EHR foundation models](https://doi.org/10.1038/s41746-023-00879-8)<br>[Renc et al.: ETHOS](https://doi.org/10.1038/s41746-024-01235-0) | Proposal due Fri Feb 19 |
 | 7 | Adapting LLMs: retrieval and parameter-efficient fine-tuning | [Hu et al.: LoRA](https://arxiv.org/abs/2106.09685)<br>[Zakka et al.: Almanac](https://doi.org/10.1056/AIoa2300068) | 2-min pitches in class Tue Feb 23; peer reviews assigned |
