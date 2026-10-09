@@ -53,7 +53,7 @@ Use `lectures/week01` as the reference for all of this.
 - White background, Inter font (bundled in `lectures/_shared/fonts`), title at top left, caption at the bottom.
 - Text only: do not use `MathTex` or `Tex`, so LaTeX is never required. Write formulas with Unicode, for example `softmax( Q·Kᵀ / √d ) · V`.
 - Colors carry meaning and stay fixed across the course: queries red (`QC`), keys green (`KC`), values blue (`VC`), UF blue for titles.
-- Reuse the running example from the instructor's slides where possible ("My name is John" to "Me llamo John", 4 × 256 matrices).
+- Every example must be biomedical (clinical text, ECG, pathology, imaging, EHR). Never use generic examples such as translation sentences. Reuse the running example of the matching lecture ("The patient has a cold" for the transformer review; a single-lead ECG and pathology tiles for self-supervised learning).
 - Make everything large enough for a lecture hall projector: matrix cells at least 0.36 units, labels at least 20 pt.
 - Captions are one sentence, plain and exact. Every caption must be readable for at least three seconds.
 - After rendering, always inspect frames for overlapping or clipped elements before calling a clip finished.
@@ -69,6 +69,7 @@ Use `lectures/week01` as the reference for all of this.
 
 - No em-dashes. Use commas, colons, or separate sentences.
 - Use standard AI/ML terminology (encoder, prediction head, fine-tuning, linear probe), not vague lay verbs.
+- All examples in slides, clips, notebooks, and rubrics are biomedical.
 - Keep the syllabus general; put term-specific details (team size, dates, specific topics) in the READMEs.
 - The final two weeks of the term are reserved for project presentations: no lectures or paper sessions.
 
