@@ -28,7 +28,7 @@ Every paper is linked to its publisher or arXiv page. PDFs are not stored in thi
 | 13 | Apr 8 | Period 7 | Wong et al., [External Validation of a Widely Implemented Proprietary Sepsis Prediction Model in Hospitalized Patients](https://doi.org/10.1001/jamainternmed.2021.2626) | JAMA Internal Medicine, 2021 |
 | 13 | Apr 8 | Period 8 | Haque et al., [Illuminating the dark spaces of healthcare with ambient intelligence](https://doi.org/10.1038/s41586-020-2669-y) | Nature, 2020 |
 
-Week 1 is an instructor-led model session. All other sessions are student-led; group assignments are posted on Canvas after sign-ups.
+Week 1 is an instructor-led model session. All other sessions are student-led; the instructor assigns papers and groups, posted on Canvas by Friday, January 15.
 
 ## Further reading (not assigned)
 

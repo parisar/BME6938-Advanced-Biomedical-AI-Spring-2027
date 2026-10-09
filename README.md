@@ -34,23 +34,25 @@ Submissions, grades, and announcements are on Canvas.
 
 ## Schedule
 
-| Week | Tue | Thu | Topic | Thursday papers | Project |
-|---|---|---|---|---|---|
-| 1 | Jan 12 | Jan 14 | Course logistics (Tue); how to read, present, and critique papers (Thu) | How to read, present, and critique a paper (instructor; rubric walk-through)<br>Instructor-led model paper session: [Moor et al., Foundation models for generalist medical artificial intelligence](https://doi.org/10.1038/s41586-023-05881-4) | Canvas sign-up for paper slots opens Tue Jan 12, closes Fri Jan 15. Start data-access training (MIMIC credentialing). |
-| 2 | Jan 19 | Jan 21 | Transformer review, Part 1: attention and the encoder | [Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://aclanthology.org/N19-1423/)<br>[Yang et al., A large language model for electronic health records (GatorTron)](https://doi.org/10.1038/s41746-022-00742-2) | Setup check due Tue Jan 19 |
-| 3 | Jan 26 | Jan 28 | Transformer review, Part 2: decoder, masking, and model families | [Luo et al., BioGPT: generative pre-trained transformer for biomedical text generation and mining](https://doi.org/10.1093/bib/bbac409)<br>[Dosovitskiy et al., An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929) | Teams formed (Thu Jan 28) |
-| 4 | Feb 2 | Feb 4 | Self-supervised learning and imaging foundation models | [He et al., Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/abs/2111.06377)<br>[Chen et al., Towards a general-purpose foundation model for computational pathology (UNI)](https://doi.org/10.1038/s41591-024-02857-3) | Transformer notebook exercises due Tue Feb 2 |
-| 5 | Feb 9 | Feb 11 | Vision-language and multimodal models | [Radford et al., Learning Transferable Visual Models From Natural Language Supervision (CLIP)](https://proceedings.mlr.press/v139/radford21a.html)<br>[Tu et al., Towards Generalist Biomedical AI (Med-PaLM M)](https://doi.org/10.1056/AIoa2300138) |  |
-| 6 | Feb 16 | Feb 18 | Foundation models for EHR and physiological time series | [Wornow et al., The shaky foundations of large language models and foundation models for electronic health records](https://doi.org/10.1038/s41746-023-00879-8)<br>[Renc et al., Zero shot health trajectory prediction using transformer (ETHOS)](https://doi.org/10.1038/s41746-024-01235-0) | Proposal due Fri Feb 19 |
-| 7 | Feb 23 | Feb 25 | Adapting LLMs: retrieval and parameter-efficient fine-tuning | [Hu et al., LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)<br>[Zakka et al., Almanac: Retrieval-Augmented Language Models for Clinical Medicine](https://doi.org/10.1056/AIoa2300068) | 2-min pitches in class Tue Feb 23; peer reviews assigned |
-| 8 | Mar 2 | Mar 4 | Agentic systems and tool use | [Yao et al., ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)<br>[Tu et al., Towards conversational diagnostic artificial intelligence (AMIE)](https://doi.org/10.1038/s41586-025-08866-7) | Peer reviews due |
-| 9 | Mar 9 | Mar 11 | Generative models and AI for science | [Watson et al., De novo design of protein structure and function with RFdiffusion](https://doi.org/10.1038/s41586-023-06415-8)<br>[Abramson et al., Accurate structure prediction of biomolecular interactions with AlphaFold 3](https://doi.org/10.1038/s41586-024-07487-w) |  |
-| 10 | Mar 16 | Mar 18 | Spring break | No class |  |
-| 11 | Mar 23 | Mar 25 | Evaluation: benchmarks versus clinical trials | [Goh et al., Large Language Model Influence on Diagnostic Reasoning: A Randomized Clinical Trial](https://doi.org/10.1001/jamanetworkopen.2024.40969)<br>[Lång et al., Artificial intelligence-supported screen reading versus standard double reading in the Mammography Screening with Artificial Intelligence trial (MASAI)](https://doi.org/10.1016/S1470-2045(23)00298-X) | Progress report due Fri Mar 26 |
-| 12 | Mar 30 | Apr 1 | Robustness, shortcut learning, and fairness | [DeGrave et al., AI for radiographic COVID-19 detection selects shortcuts over signal](https://doi.org/10.1038/s42256-021-00338-7)<br>[Gichoya et al., AI recognition of patient race in medical imaging: a modelling study](https://doi.org/10.1016/S2589-7500(22)00063-2) |  |
-| 13 | Apr 6 | Apr 8 | Deployment, human-AI teaming, and ambient intelligence | [Wong et al., External Validation of a Widely Implemented Proprietary Sepsis Prediction Model in Hospitalized Patients](https://doi.org/10.1001/jamainternmed.2021.2626)<br>[Haque et al., Illuminating the dark spaces of healthcare with ambient intelligence](https://doi.org/10.1038/s41586-020-2669-y) |  |
-| 14 | Apr 13 | Apr 15 | Final project presentations | Final project presentations (Tuesday and Thursday) | Final presentations Tue Apr 13 (3 teams) and Thu Apr 15 (5 teams); all slides due before Tue Apr 13 |
-| 15 | Apr 20 |  | Final project presentations and wrap-up | Final project presentations (Tuesday) | Final presentations Tue Apr 20 (2 teams); paper and repository due Wed Apr 21 |
+| Week | Topic | Thursday papers | Project |
+|---|---|---|---|
+| 1 | Course logistics; how to read, present, and critique papers | Model session: [Moor et al.: GMAI](https://doi.org/10.1038/s41586-023-05881-4) | Paper and group assignments posted on Canvas by Fri Jan 15. Start data-access training (MIMIC credentialing). |
+| 2 | Transformer review, Part 1: attention and the encoder | [Devlin et al.: BERT](https://aclanthology.org/N19-1423/)<br>[Yang et al.: GatorTron](https://doi.org/10.1038/s41746-022-00742-2) | Setup check due Tue Jan 19 |
+| 3 | Transformer review, Part 2: decoder, masking, and model families | [Luo et al.: BioGPT](https://doi.org/10.1093/bib/bbac409)<br>[Dosovitskiy et al.: ViT](https://arxiv.org/abs/2010.11929) | Teams formed (Thu Jan 28) |
+| 4 | Self-supervised learning and imaging foundation models | [He et al.: MAE](https://arxiv.org/abs/2111.06377)<br>[Chen et al.: UNI](https://doi.org/10.1038/s41591-024-02857-3) | Transformer notebook exercises due Tue Feb 2 |
+| 5 | Vision-language and multimodal models | [Radford et al.: CLIP](https://proceedings.mlr.press/v139/radford21a.html)<br>[Tu et al.: Med-PaLM M](https://doi.org/10.1056/AIoa2300138) |  |
+| 6 | Foundation models for EHR and physiological time series | [Wornow et al.: Shaky foundations of EHR foundation models](https://doi.org/10.1038/s41746-023-00879-8)<br>[Renc et al.: ETHOS](https://doi.org/10.1038/s41746-024-01235-0) | Proposal due Fri Feb 19 |
+| 7 | Adapting LLMs: retrieval and parameter-efficient fine-tuning | [Hu et al.: LoRA](https://arxiv.org/abs/2106.09685)<br>[Zakka et al.: Almanac](https://doi.org/10.1056/AIoa2300068) | 2-min pitches in class Tue Feb 23; peer reviews assigned |
+| 8 | Agentic systems and tool use | [Yao et al.: ReAct](https://arxiv.org/abs/2210.03629)<br>[Tu et al.: AMIE](https://doi.org/10.1038/s41586-025-08866-7) | Peer reviews due |
+| 9 | Generative models and AI for science | [Watson et al.: RFdiffusion](https://doi.org/10.1038/s41586-023-06415-8)<br>[Abramson et al.: AlphaFold 3](https://doi.org/10.1038/s41586-024-07487-w) |  |
+| 10 | Spring break | No class |  |
+| 11 | Evaluation: benchmarks versus clinical trials | [Goh et al.: LLMs and diagnostic reasoning: an RCT](https://doi.org/10.1001/jamanetworkopen.2024.40969)<br>[Lång et al.: MASAI trial](https://doi.org/10.1016/S1470-2045(23)00298-X) | Progress report due Fri Mar 26 |
+| 12 | Robustness, shortcut learning, and fairness | [DeGrave et al.: COVID-19 shortcuts](https://doi.org/10.1038/s42256-021-00338-7)<br>[Gichoya et al.: AI recognition of patient race](https://doi.org/10.1016/S2589-7500(22)00063-2) |  |
+| 13 | Deployment, human-AI teaming, and ambient intelligence | [Wong et al.: External validation of a sepsis model](https://doi.org/10.1001/jamainternmed.2021.2626)<br>[Haque et al.: Ambient intelligence](https://doi.org/10.1038/s41586-020-2669-y) |  |
+| 14 | Final project presentations | Final project presentations (Tuesday and Thursday) | Final presentations Tue Apr 13 (3 teams) and Thu Apr 15 (5 teams); all slides due before Tue Apr 13 |
+| 15 | Final project presentations and wrap-up | Final project presentations (Tuesday) | Final presentations Tue Apr 20 (2 teams); paper and repository due Wed Apr 21 |
+
+Full citations and links are in [papers/](papers/).
 
 ## Grading
 
