@@ -39,11 +39,11 @@ Templates: [proposal](proposal_template.md), [peer review](peer_review_form.md),
 
 | Problem | Course week | Possible open data |
 |---|---|---|
-| Label efficiency of imaging foundation models: linear probe versus LoRA fine-tuning as labeled data shrinks | 2-3 | MedMNIST, TCGA |
-| Self-supervised pretraining for ECG: masked modeling versus contrastive objectives | 2 | PTB-XL |
-| Zero-shot versus fine-tuned vision-language models for chest X-ray findings, with a subgroup performance audit | 4 | CheXpert, MIMIC-CXR (credentialed) |
-| Tokenized-timeline EHR transformer versus gradient-boosted baseline for ICU outcome prediction; calibration under temporal shift | 5 | MIMIC-IV, eICU (credentialed) |
-| Does multimodal fusion help when a modality is missing? Late versus intermediate fusion of notes, vitals, or images | 6 | MIMIC-IV with MIMIC-CXR (credentialed) |
+| Label efficiency of imaging foundation models: linear probe versus LoRA fine-tuning as labeled data shrinks | 4 | MedMNIST, TCGA |
+| Self-supervised pretraining for ECG: masked modeling versus contrastive objectives | 4 | PTB-XL |
+| Zero-shot versus fine-tuned vision-language models for chest X-ray findings, with a subgroup performance audit | 5 | CheXpert, MIMIC-CXR (credentialed) |
+| Tokenized-timeline EHR transformer versus gradient-boosted baseline for ICU outcome prediction; calibration under temporal shift | 6 | MIMIC-IV, eICU (credentialed) |
+| Does multimodal fusion help when a modality is missing? Late versus intermediate fusion of notes, vitals, or images | 5 | MIMIC-IV with MIMIC-CXR (credentialed) |
 | Retrieval augmentation for clinical question answering: accuracy and faithfulness of cited evidence | 7 | MedQA, PubMedQA |
 | Tool-using LLM agent for a structured clinical task; taxonomy of failure modes | 8 | Public benchmarks or synthetic cases |
 | Shortcut audit of a medical imaging classifier: can site or scanner be decoded from embeddings, and does it hurt external validity? | 12 | CheXpert, MedMNIST |

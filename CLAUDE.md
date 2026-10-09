@@ -10,7 +10,8 @@ The weekly plan is in `README.md`.
 |---|---|
 | `README.md` | Course overview and dated schedule |
 | `syllabus/`, `papers/`, `presentations/`, `project/` | Syllabus PDF, reading list, rubrics, project guidelines |
-| `lectures/weekNN/` | One folder per week: `clips.json`, `animations/`, `clips/`, a notebook, a README |
+| `lectures/weekNN/` | One folder per week: `clips.json`, `animations/`, `clips/`, a README |
+| `lectures/notebooks/` | Ungraded reference notebooks, one per lecture |
 | `lectures/_shared/kit.py` | Shared Manim kit used by every clip (colors, caption bar, token boxes, matrices) |
 | `tools/build_clips.py` | Builds a week's clips end to end |
 | `local_config.json` | Local only, never committed: ElevenLabs voice ID and an optional copy destination |
@@ -52,7 +53,7 @@ Use `lectures/week01` as the reference for all of this.
 - White background, Inter font (bundled in `lectures/_shared/fonts`), title at top left, caption at the bottom.
 - Text only: do not use `MathTex` or `Tex`, so LaTeX is never required. Write formulas with Unicode, for example `softmax( Q·Kᵀ / √d ) · V`.
 - Colors carry meaning and stay fixed across the course: queries red (`QC`), keys green (`KC`), values blue (`VC`), UF blue for titles.
-- Reuse the running example from the instructor's slides where possible ("My name is John" to "Me llamo John", 4 × 256 matrices).
+- Every example must be biomedical (clinical text, ECG, pathology, imaging, EHR). Never use generic examples such as translation sentences. Reuse the running example of the matching lecture ("The patient has a cold" for the transformer review; a single-lead ECG and pathology tiles for self-supervised learning).
 - Make everything large enough for a lecture hall projector: matrix cells at least 0.36 units, labels at least 20 pt.
 - Captions are one sentence, plain and exact. Every caption must be readable for at least three seconds.
 - After rendering, always inspect frames for overlapping or clipped elements before calling a clip finished.
@@ -68,13 +69,16 @@ Use `lectures/week01` as the reference for all of this.
 
 - No em-dashes. Use commas, colons, or separate sentences.
 - Use standard AI/ML terminology (encoder, prediction head, fine-tuning, linear probe), not vague lay verbs.
+- All examples in slides, clips, notebooks, and rubrics are biomedical.
 - Keep the syllabus general; put term-specific details (team size, dates, specific topics) in the READMEs.
 - The final two weeks of the term are reserved for project presentations: no lectures or paper sessions.
 
 ## Notebooks
 
-Each week's notebook must run on a free Google Colab GPU in under 15 minutes and on HiPerGator with only the
-Settings cell changed. Use open datasets only. Never commit patient data, credentials, or credentialed datasets.
+Notebooks are ungraded reference code in `lectures/notebooks/`, one per lecture. Each follows its lecture step by step,
+names the slide each section matches, uses the same running example and numbers as the slides, explains every step in
+text before the code, and comments every line. They must run on Google Colab and on HiPerGator on CPU. Use open data or
+synthetic data only. Never commit patient data, credentials, or credentialed datasets.
 
 ## Git
 
