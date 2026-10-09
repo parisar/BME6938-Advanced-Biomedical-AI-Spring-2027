@@ -1,0 +1,51 @@
+{
+  "week": "week03",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_next_token_generation.py",
+      "scene": "C1",
+      "output": "week03-clip1-next-token-generation",
+      "segments": [
+        {"caption": "A decoder writes text one token at a time, from left to right.", "text": "A decoder, like the one in G P T, writes text one token at a time from left to right. Here the note so far reads: the patient denies chest."},
+        {"caption": "It predicts a probability for every token in the vocabulary.", "text": "Given everything written so far, the decoder outputs a probability for every token in its vocabulary. The numbers on screen are illustrative."},
+        {"caption": "Greedy decoding picks the most likely token: “pain”.", "text": "Greedy decoding simply takes the most likely token, so the model writes pain, with a probability of zero point six two."},
+        {"caption": "The new token is appended, and the model runs again.", "text": "The chosen token is appended to the input, and the whole model runs again on the longer sequence to predict the next position."},
+        {"caption": "Each forward pass adds one token: first “and”, then “dyspnea”.", "text": "Each forward pass adds exactly one token. The second step adds and, and the third step adds dyspnea, meaning shortness of breath."},
+        {"caption": "Greedy takes the top token; sampling draws by probability; temperature sets how random.", "text": "Greedy decoding always takes the top token. Sampling draws a token according to the probabilities, and the temperature controls how random that draw is: low is nearly greedy, high is more varied."}
+      ]
+    },
+    {
+      "id": "clip2",
+      "scene_file": "animations/clip2_causal_mask.py",
+      "scene": "C2",
+      "output": "week03-clip2-causal-mask",
+      "segments": [
+        {"caption": "Attention scores for five tokens: one row per query, one column per key.", "text": "Here are the attention scores for five tokens: the patient denies chest pain. Each row is one token's query, and each column is a key."},
+        {"caption": "“patient” must not see the words that come after it.", "text": "But a decoder is trained to predict the next token. If patient could look at denies, chest, and pain, it would simply copy the answer."},
+        {"caption": "The causal mask sets every score above the diagonal to minus infinity.", "text": "The causal mask fixes this. Every score above the diagonal, where a query would look at a later token, is set to minus infinity."},
+        {"caption": "After softmax, each row sums to 1 over allowed tokens; masked cells get 0.", "text": "After the softmax, minus infinity becomes zero. Each row now sums to one over the tokens it is allowed to see: itself and the tokens before it."},
+        {"caption": "“chest” attends only to The, patient, denies, and itself.", "text": "For example, the row for chest spreads its attention over the, patient, denies, and chest itself, and gives nothing to pain."},
+        {"caption": "One forward pass trains every position to predict its next token.", "text": "Because of the mask, a single forward pass trains every position at once: each token's output is used to predict the token that follows it."}
+      ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_vit_patches.py",
+      "scene": "C3",
+      "output": "week03-clip3-vit-patches",
+      "segments": [
+        {"caption": "A vision transformer reads an image as a sequence of patches.", "text": "A vision transformer, or V i T, uses the same encoder as a language model. It simply reads an image as a sequence of patches."},
+        {"caption": "Cut the pathology tile into a 4 × 4 grid of patches.", "text": "Here is a pathology tile stained with H and E: pink tissue and purple nuclei. We cut it into a four by four grid of patches."},
+        {"caption": "The 16 patches line up into a sequence of 16 tokens.", "text": "The sixteen patches are lined up in reading order, from top left to bottom right. Each patch now plays the role of a word token."},
+        {"caption": "A linear projection turns each patch into a d-dimensional vector.", "text": "Each patch is flattened into a list of pixel values, and a shared linear projection maps it to a vector with d dimensions."},
+        {"caption": "A position vector tells the model where each patch came from.", "text": "A position vector is added to each patch vector. Without it, the model would not know where in the image a patch came from."},
+        {"caption": "A learnable [CLS] token is added at the front of the sequence.", "text": "A learnable C L S token is placed at the front of the sequence. Its output will summarize the whole image."},
+        {"caption": "The sequence of 17 tokens enters a standard transformer encoder.", "text": "These seventeen tokens enter a standard transformer encoder. Nothing in the encoder is specific to images: it is the same architecture used for text."},
+        {"caption": "The [CLS] output feeds a prediction head: tumor or normal.", "text": "The output at the C L S position goes to a small prediction head, which classifies the tile as tumor or normal."},
+        {"caption": "A 224 × 224 image with 16 × 16 patches gives 196 tokens.", "text": "In practice, a two hundred twenty-four by two hundred twenty-four image with sixteen by sixteen pixel patches gives a fourteen by fourteen grid: one hundred ninety-six tokens."}
+      ]
+    }
+  ]
+}
