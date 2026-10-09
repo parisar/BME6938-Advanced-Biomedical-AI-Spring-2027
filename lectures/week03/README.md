@@ -7,7 +7,7 @@
 
 ## Animation clips
 
-The running examples are the clinical phrase "The patient denies chest pain" and a synthetic H&E pathology tile generated in code, so no patient data is used. The numbers match the slides. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
+The running examples are the clinical phrase "The patient denies chest pain" and a real H&E tile of colorectal cancer from an open dataset ([Kather et al. 2016](https://doi.org/10.5281/zenodo.53169), CC BY 4.0). The numbers match the slides. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
 
 | Clip | Narrated | Silent |
 |---|---|---|

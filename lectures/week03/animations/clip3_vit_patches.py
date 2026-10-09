@@ -1,29 +1,13 @@
 from kit import *
 TS, NP = 3.6, 4                                    # tile size on screen, patches per side
-def he_tile(n=320, seed=3):
-    """Synthetic H&E tile: pink stroma, purple nuclei, denser nuclei in one corner. Not patient data."""
-    rng = np.random.default_rng(seed)
-    yy, xx = np.mgrid[0:n, 0:n]
-    img = np.zeros((n, n, 3)); img[:] = [246, 205, 222]
-    f = np.sin(xx / 23 + 2 * np.sin(yy / 41)) + 0.6 * np.sin(yy / 17 + xx / 53)
-    img[f > 0.9] = [234, 166, 200]
-    img[(f > 0.2) & (f < 0.35)] = [240, 184, 210]
-    for k in range(190):
-        if k < 70: cx, cy = rng.uniform(0.55 * n, n), rng.uniform(0, 0.45 * n)      # crowded region
-        else: cx, cy = rng.uniform(0, n, 2)
-        a, b, t = rng.uniform(5, 10), rng.uniform(3.5, 6.5), rng.uniform(0, np.pi)
-        dx, dy = xx - cx, yy - cy
-        u = (dx * np.cos(t) + dy * np.sin(t)) / a; v = (-dx * np.sin(t) + dy * np.cos(t)) / b
-        img[u * u + v * v < 1] = np.array([88, 42, 128]) * rng.uniform(0.85, 1.15)
-    return np.clip(img, 0, 255).astype(np.uint8)
 class C3(Clip):
     TITLE = "Vision transformer: an image as a sequence of patches"
     PACE, HOLD = 1.2, 0.8
     def construct(self):
-        arr = he_tile(); n = arr.shape[0]; ps = n // NP; cp = TS / NP
+        arr = he_image("he_tumor.png", 320); n = arr.shape[0]; ps = n // NP; cp = TS / NP
         ctr = np.array([-3.4, 0.1, 0])
         tile = ImageMobject(arr).set_height(TS).move_to(ctr)
-        tl = T("H&E pathology tile (synthetic)", 22, GREY).next_to(tile, DOWN, buff=0.25)
+        tl = VGroup(T("H&E tile, colorectal cancer", 22, GREY), T("Kather et al. 2016, CC BY 4.0", 20, GREY)).arrange(DOWN, buff=0.1).next_to(tile, DOWN, buff=0.25)
         self.play(FadeIn(tile), FadeIn(tl), run_time=0.8)
         self.cap("A vision transformer reads an image as a sequence of patches.", hold=2.6)
         x0, y0 = ctr[0] - TS / 2, ctr[1] + TS / 2

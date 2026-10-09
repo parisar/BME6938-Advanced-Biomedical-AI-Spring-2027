@@ -100,3 +100,22 @@ class C2(Clip):
         note = T("labels not used in training", 20, GREY, slant=ITALIC).next_to(lgd, DOWN, buff=0.5).align_to(lgd, LEFT)
         self.play(*[D[i].animate.set_color(RHY[i // 12][1]) for i in range(36)], FadeIn(lgd), FadeIn(note), run_time=1.0)
         self.cap("Without any labels, similar ECGs tend to end up close together.", hold=3.4)
+        # pathology views
+        self.play(FadeOut(VGroup(pl2, D, lgd, note)), run_time=0.6)
+        from PIL import Image
+        arr = he_image("he_tumor.png", 320)
+        crop = np.array(Image.fromarray(arr[40:232, 70:262]).resize((320, 320), Image.LANCZOS))
+        flip = np.ascontiguousarray(np.rot90(arr[:, ::-1]))
+        stain = np.clip(arr.astype(float) * [1.08, 0.80, 1.12], 0, 255).astype(np.uint8)
+        A = ImageMobject(arr).set_height(2.6).move_to([-4.9, 0.45, 0])
+        al = T("tile A", 24, INK, BOLD).next_to(A, DOWN, buff=0.25)
+        Vs = [ImageMobject(v).set_height(2.4).move_to([x, 0.45, 0]) for v, x in zip((crop, flip, stain), (-0.9, 2.3, 5.5))]
+        Fr = VGroup(*[SurroundingRectangle(v, color=OC, buff=0.04, stroke_width=4) for v in Vs])
+        Vl = VGroup(*[T(s, 22, GREY).next_to(v, DOWN, buff=0.25) for s, v in zip(("crop", "flip + rotate", "stain color change"), Vs)])
+        ar = Arrow(A.get_right(), Vs[0].get_left(), buff=0.15, stroke_width=4, color=INK, max_tip_length_to_length_ratio=0.2)
+        at_ = T("augment", 20, INK).next_to(ar, UP, buff=0.1)
+        cr = T(HE_CREDIT, 20, GREY).move_to(DOWN * 2.55)
+        self.play(FadeIn(A), FadeIn(al), FadeIn(cr), run_time=0.6)
+        self.play(GrowArrow(ar), FadeIn(at_), run_time=0.5)
+        self.play(LaggedStart(*[AnimationGroup(FadeIn(v), Create(f), FadeIn(l)) for v, f, l in zip(Vs, Fr, Vl)], lag_ratio=0.3), run_time=1.6)
+        self.cap("For pathology tiles, views come from crops, flips, and stain color changes.", hold=3.6)

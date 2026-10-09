@@ -14,4 +14,4 @@ Build all three clips, silent and narrated, from the repository root:
 python tools/build_clips.py week03
 ```
 
-The narration lines are in [`../clips.json`](../clips.json). See [`tools/README.md`](../../../tools/README.md) for setup. The clips use only text objects and a pathology tile generated in code, so LaTeX and image files are not required.
+The narration lines are in [`../clips.json`](../clips.json). See [`tools/README.md`](../../../tools/README.md) for setup. The clips use only text objects, so LaTeX is not required. The H&E tile is in [`lectures/_shared/assets/`](../../_shared/assets/) with its attribution.

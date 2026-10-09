@@ -1,6 +1,6 @@
 # Animation source
 
-The Week 4 clips are written with [Manim Community](https://www.manim.community/). Each clip is one scene class. The shared colors, caption bar, and helpers, including the synthetic ECG generator (`ecg_fn`, `wave`), are in [`lectures/_shared/kit.py`](../../_shared/kit.py).
+The Week 4 clips are written with [Manim Community](https://www.manim.community/). Each clip is one scene class. The shared colors, caption bar, and helpers, including the synthetic ECG generator (`ecg_fn`, `wave`) and the H&E tile loader (`he_image`), are in [`lectures/_shared/kit.py`](../../_shared/kit.py).
 
 | File | Scene | Clip |
 |---|---|---|

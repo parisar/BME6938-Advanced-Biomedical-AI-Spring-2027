@@ -7,13 +7,13 @@
 
 ## Animation clips
 
-The running example is a single-lead ECG. The signal is synthetic, generated in code, so no patient data is used. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
+The running examples are a single-lead ECG and H&E pathology tiles. The ECG is synthetic, generated in code. The tiles are real colorectal tissue from an open dataset ([Kather et al. 2016](https://doi.org/10.5281/zenodo.53169), CC BY 4.0). Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
 
 | Clip | Narrated | Silent |
 |---|---|---|
-| 1. Masked reconstruction: learning by filling in gaps | [1 min 25 s](clips/narrated/week04-clip1-masked-reconstruction-narrated.mp4) | [49 s](clips/silent/week04-clip1-masked-reconstruction.mp4) |
-| 2. Contrastive learning: two views, one embedding | [1 min 28 s](clips/narrated/week04-clip2-contrastive-learning-narrated.mp4) | [51 s](clips/silent/week04-clip2-contrastive-learning.mp4) |
-| 3. Linear probing: what did the encoder learn? | [1 min 17 s](clips/narrated/week04-clip3-linear-probing-narrated.mp4) | [42 s](clips/silent/week04-clip3-linear-probing.mp4) |
+| 1. Masked reconstruction: learning by filling in gaps | [1 min 38 s](clips/narrated/week04-clip1-masked-reconstruction-narrated.mp4) | [57 s](clips/silent/week04-clip1-masked-reconstruction.mp4) |
+| 2. Contrastive learning: two views, one embedding | [1 min 42 s](clips/narrated/week04-clip2-contrastive-learning-narrated.mp4) | [58 s](clips/silent/week04-clip2-contrastive-learning.mp4) |
+| 3. Linear probing: what did the encoder learn? | [1 min 29 s](clips/narrated/week04-clip3-linear-probing-narrated.mp4) | [49 s](clips/silent/week04-clip3-linear-probing.mp4) |
 
 The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 

@@ -133,3 +133,11 @@ def wave(fn, t0, t1, width, height, color=INK, sw=3, n_per_s=160):
     ts = np.linspace(t0, t1, max(40, int((t1 - t0) * n_per_s)))
     pts = [np.array([(t - t0) / (t1 - t0) * width, v * height, 0]) for t, v in zip(ts, fn(ts))]
     return VMobject(stroke_color=color, stroke_width=sw).set_points_as_corners(pts)
+
+# ---- real H&E tiles (Kather et al. 2016, CC BY 4.0; see assets/README.md)
+ASSETS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
+HE_CREDIT = "H&E tiles: Kather et al. 2016, CC BY 4.0"
+def he_image(name="he_tumor.png", px=320):
+    """RGB array of an H&E tile from lectures/_shared/assets, resized to px × px."""
+    from PIL import Image
+    return np.array(Image.open(os.path.join(ASSETS, name)).convert("RGB").resize((px, px), Image.LANCZOS))
