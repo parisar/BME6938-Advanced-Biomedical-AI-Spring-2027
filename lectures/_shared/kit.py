@@ -13,7 +13,6 @@ FONT = "Inter"
 INK, GREY, UF = "#111827", "#6B7280", "#0021A5"
 QC, KC, VC = "#E4572E", "#2E9E5B", "#3B6FD4"      # query red, key green, value blue (as in the Spring 2026 deck)
 EC, PC, OC, AMB = "#64748B", "#8B5CF6", "#D4A017", "#F59E0B"
-TOK = ["My", "name", "is", "John"]
 
 def T(s, size=24, color=INK, weight=NORMAL, **k):
     return Text(s, font=FONT, font_size=size, color=color, weight=weight, **k)

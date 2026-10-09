@@ -12,7 +12,7 @@ The running example is the sentence "The patient has a cold", with the same numb
 | Clip | Narrated | Silent |
 |---|---|---|
 | 1. From tokens to vectors | [1 min 25 s](clips/narrated/week02-clip1-tokens-to-vectors-narrated.mp4) | [59 s](clips/silent/week02-clip1-tokens-to-vectors.mp4) |
-| 2. Attention for one token | [1 min 8 s](clips/narrated/week02-clip2-attention-one-token-narrated.mp4) | [55 s](clips/silent/week02-clip2-attention-one-token.mp4) |
+| 2. Attention for one token | [1 min 13 s](clips/narrated/week02-clip2-attention-one-token-narrated.mp4) | [55 s](clips/silent/week02-clip2-attention-one-token.mp4) |
 | 3. Inside the encoder block | [1 min 20 s](clips/narrated/week02-clip3-encoder-block-narrated.mp4) | [55 s](clips/silent/week02-clip3-encoder-block.mp4) |
 
 The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).

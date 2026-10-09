@@ -25,7 +25,7 @@
       "output": "week02-clip2-attention-one-token",
       "segments": [
         {"caption": "Take the token “cold”: its query is compared with the key of every token.", "text": "Let's follow the token cold. Its query vector, in red, is compared with the key vector of every token in the sentence, in green."},
-        {"caption": "Each score is a dot product: how well that key matches the query.", "text": "Each comparison is a dot product, scaled by the square root of d. A higher score means that key is a better match for the query."},
+        {"caption": "Each score is a dot product: how well that key matches the query.", "text": "Each score is the query for cold dotted with a key, then divided by the square root of d. The scaled scores are minus zero point five, zero point two, one point three, zero point six, and one point six."},
         {"caption": "The highest scores go to “has” and to “cold” itself.", "text": "The highest scores go to cold itself, at one point six, and to has, at one point three. These are the tokens that matter most here."},
         {"caption": "Softmax turns the scores into weights between 0 and 1 that sum to 1.", "text": "A softmax turns the five scores into attention weights. They are all between zero and one, and together they sum to one."},
         {"caption": "The new vector for “cold” is the weighted sum of the five value vectors.", "text": "The new vector for cold is the weighted sum of the five value vectors, in blue. The values of has and cold contribute the most."},

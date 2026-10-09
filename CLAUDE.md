@@ -57,6 +57,9 @@ Use `lectures/week04` as the reference for all of this.
 - Make everything large enough for a lecture hall projector: matrix cells at least 0.36 units, labels at least 20 pt.
 - Captions are one sentence, plain and exact. Every caption must be readable for at least three seconds.
 - After rendering, always inspect frames for overlapping or clipped elements before calling a clip finished.
+- To reach the target length, set the optional class settings on the scene instead of editing every timing: `PACE` multiplies
+  every `run_time` passed to `play()`, and `HOLD` adds seconds after every caption. Waits are not affected.
+- Kit helpers: `ecg_fn()` and `wave()` draw a synthetic ECG; `vdots()` draws a vertical ellipsis (Inter has no `⋮` glyph).
 
 ## Narration conventions
 
