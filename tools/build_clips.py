@@ -1,10 +1,10 @@
 """Build the animation clips for one week: narration audio, silent and narrated videos.
 
-    python tools/build_clips.py week01                 build every clip of week 1
-    python tools/build_clips.py week01 --clip clip2    one clip only
-    python tools/build_clips.py week01 --only silent   skip narration (no API call)
-    python tools/build_clips.py week01 --quality l     fast low-resolution preview
-    python tools/build_clips.py week01 --dry-run       show the plan and the characters to be sent to ElevenLabs
+    python tools/build_clips.py week04                 build every clip of week 4
+    python tools/build_clips.py week04 --clip clip2    one clip only
+    python tools/build_clips.py week04 --only silent   skip narration (no API call)
+    python tools/build_clips.py week04 --quality l     fast low-resolution preview
+    python tools/build_clips.py week04 --dry-run       show the plan and the characters to be sent to ElevenLabs
 
 What it does
     1. Reads lectures/<week>/clips.json (scene files and the narration line for every caption).
@@ -91,7 +91,7 @@ def encode(args_in, out):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("week", help="for example week01")
+    ap.add_argument("week", help="for example week04")
     ap.add_argument("--clip", action="append", help="clip id from clips.json; repeat for several")
     ap.add_argument("--only", choices=["silent", "narrated"])
     ap.add_argument("--quality", choices=list(QUALITY), default="h")
