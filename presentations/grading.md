@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | Paper presentation (2 per student) | 100 each | Instructor | Scored live during the session; final grade and a short written comment within one week | [Presentation rubric](rubric.md#presentation-group-100-points-20-minutes) |
 | Paper critique (2 per student) | 100 each | Instructor | Scored live during the session; final grade and a short written comment within one week | [Critique rubric](rubric.md#critique-group-100-points-15-minutes) |
-| Reading responses (one per paper) | 2 each | Instructor | Before the following Thursday | [0 / 1 / 2 rubric](reading_responses.md) |
+| Reading responses (one per paper) | 1 each | Canvas, automatically | On submission, before 1:00 PM Thursday | [On-time submission](reading_responses.md) |
 | Peer contribution survey | Participation | Teammates (confidential) | Within 48 hours of each session | [Survey](peer_contribution_survey.md) |
 | Audience feedback | Ungraded | Classmates | During the discussion | One strength and one suggestion, shared anonymously with the group |
 
