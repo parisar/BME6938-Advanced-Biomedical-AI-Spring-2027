@@ -19,11 +19,6 @@ Each clip comes in two versions: narrated (voice-over plus on-screen captions) a
 
 The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
-## Notebook: setup check and refresher
+## Notebooks
 
-[week01_transformer_refresher.ipynb](week01_transformer_refresher.ipynb) confirms that your environment works and walks through the four clips in code. It runs in about 5 minutes on a GPU and needs no dataset.
-
-- **Google Colab:** [open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/week01/week01_transformer_refresher.ipynb), then choose *Runtime > Change runtime type > T4 GPU*.
-- **HiPerGator:** open the notebook in a Jupyter session and set `CACHE_DIR` in the Settings cell to a folder on your group's `/blue` storage.
-
-Submit the output of the setup-check cell and your answers to the three exercises on Canvas before Week 2.
+The reference notebooks for the transformer review are in [../notebooks/](../notebooks/).
