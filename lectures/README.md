@@ -5,7 +5,7 @@ Slides, animation clips, and reference notebooks are posted here each week. Note
 | Week | Topic | Clips | Notebook |
 |---|---|---|---|
 | 1 | Course logistics; how to read, present, and critique papers | | |
-| 2 | Transformer review, Part 1: attention and the encoder | | [Part 1 notebook](notebooks/week02_transformer_review_part1.ipynb) |
+| 2 | Transformer review, Part 1: attention and the encoder | [3 clips](week02/) | [Part 1 notebook](notebooks/week02_transformer_review_part1.ipynb) |
 | 3 | Transformer review, Part 2: decoder, masking, and model families | | [Part 2 notebook](notebooks/week03_transformer_review_part2.ipynb) |
 | 4 | Self-supervised learning and imaging foundation models | [3 clips](week04/) | [Week 4 notebook](notebooks/week04_self_supervised_learning.ipynb) |
 | 5 | Vision-language and multimodal models | | |

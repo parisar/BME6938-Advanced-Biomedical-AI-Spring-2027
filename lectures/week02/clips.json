@@ -1,0 +1,51 @@
+{
+  "week": "week02",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_tokens_to_vectors.py",
+      "scene": "C1",
+      "output": "week02-clip1-tokens-to-vectors",
+      "segments": [
+        {"caption": "A transformer cannot read text: it needs numbers.", "text": "Take a short sentence from a clinical note: the patient has a cold. A transformer cannot work with text directly. Everything has to become numbers first."},
+        {"caption": "A tokenizer splits the sentence into tokens.", "text": "First, a tokenizer splits the sentence into tokens. Here we get five: the, patient, has, a, and cold."},
+        {"caption": "Each token gets an integer ID from the tokenizer's vocabulary.", "text": "Each token is mapped to an integer ID from the tokenizer's vocabulary. The exact numbers on screen are only illustrative."},
+        {"caption": "Each ID looks up one row of a learned embedding table.", "text": "Each ID selects one row of a learned embedding table, which has one row for every entry in the vocabulary. That row becomes the token's vector."},
+        {"caption": "The five vectors stack into a 5 × d matrix: one row per token.", "text": "Stacking the five vectors gives a five by d matrix, with one row per token. We draw d as four. In BERT base, d is seven hundred sixty-eight."},
+        {"caption": "Problem: the token “cold” always gets the same vector.", "text": "But there is a problem. The token cold always has the same ID, thirty-one forty-seven, so it always gets exactly the same vector."},
+        {"caption": "But the meanings differ: an infection versus a temperature.", "text": "In the patient has a cold, the word means an infection. In the patient feels cold, it means a low temperature. The embedding cannot tell them apart."},
+        {"caption": "Attention fixes this by giving each token a vector that depends on its context.", "text": "Attention solves this. It updates each token's vector using the other tokens in the sentence, so the vector depends on context."}
+      ]
+    },
+    {
+      "id": "clip2",
+      "scene_file": "animations/clip2_attention_one_token.py",
+      "scene": "C2",
+      "output": "week02-clip2-attention-one-token",
+      "segments": [
+        {"caption": "Take the token “cold”: its query is compared with the key of every token.", "text": "Let's follow the token cold. Its query vector, in red, is compared with the key vector of every token in the sentence, in green."},
+        {"caption": "Each score is a dot product: how well that key matches the query.", "text": "Each comparison is a dot product, scaled by the square root of d. A higher score means that key is a better match for the query."},
+        {"caption": "The highest scores go to “has” and to “cold” itself.", "text": "The highest scores go to cold itself, at one point six, and to has, at one point three. These are the tokens that matter most here."},
+        {"caption": "Softmax turns the scores into weights between 0 and 1 that sum to 1.", "text": "A softmax turns the five scores into attention weights. They are all between zero and one, and together they sum to one."},
+        {"caption": "The new vector for “cold” is the weighted sum of the five value vectors.", "text": "The new vector for cold is the weighted sum of the five value vectors, in blue. The values of has and cold contribute the most."},
+        {"caption": "Now 'cold' carries its context: has a cold means an infection.", "text": "Now the vector for cold carries its context. In the phrase has a cold, the model can represent cold as an infection, not a temperature."}
+      ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_encoder_block.py",
+      "scene": "C3",
+      "output": "week02-clip3-encoder-block",
+      "segments": [
+        {"caption": "The encoder starts from the token vectors plus position information.", "text": "An encoder block starts from the five token vectors. Each one is combined with a position vector, because attention by itself ignores word order."},
+        {"caption": "Multi-head self-attention lets every token look at every other token.", "text": "Multi-head self-attention lets every token look at every other token. BERT base runs twelve attention heads in parallel, each with its own queries, keys, and values."},
+        {"caption": "Add & normalize: the input is added back around attention, then normalized.", "text": "Then comes add and normalize. A residual connection adds the block's input back to the attention output, and layer normalization keeps the values well scaled."},
+        {"caption": "A feed-forward network then transforms each token on its own: d to 4d to d.", "text": "Next, a feed-forward network transforms each token separately. It expands each vector from d to four d dimensions, then projects it back down to d."},
+        {"caption": "A second add & normalize wraps the feed-forward network.", "text": "A second add and normalize wraps the feed-forward network, again with a residual connection around it."},
+        {"caption": "The output has the same shape as the input: one vector per token.", "text": "The output has exactly the same shape as the input: five by d in, five by d out, with one updated vector per token."},
+        {"caption": "Because shapes match, blocks stack: BERT-base uses 12 of them.", "text": "Because the shapes match, blocks can be stacked one on top of another. BERT base stacks twelve encoder blocks, each with its own weights."}
+      ]
+    }
+  ]
+}

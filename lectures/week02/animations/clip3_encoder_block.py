@@ -1,0 +1,61 @@
+from kit import *
+XB, WB = -1.6, 4.6                                 # block column: center x and box width
+def blk(s, fill, y, h):
+    r = RoundedRectangle(corner_radius=0.12, width=WB, height=h, stroke_color=INK, stroke_width=2, fill_color=fill, fill_opacity=1).move_to(RIGHT * XB + UP * y)
+    return VGroup(r, T(s, 24, INK, BOLD).move_to(r))
+def up(a, b):
+    return Arrow(a.get_top(), b.get_bottom(), buff=0.04, stroke_width=3.5, color=INK, max_tip_length_to_length_ratio=0.35)
+def note(s, y):
+    return T(s, 22, GREY).move_to(UP * y).align_to(RIGHT * 1.2, LEFT)
+def residual(y0, y1):
+    p = [np.array([XB, y0, 0]), np.array([-4.3, y0, 0]), np.array([-4.3, y1, 0]), np.array([XB - WB / 2 - 0.02, y1, 0])]
+    path = VMobject(stroke_color=AMB, stroke_width=5).set_points_as_corners(p)
+    tip = Triangle(fill_color=AMB, fill_opacity=1, stroke_width=0).scale(0.11).rotate(-PI / 2).move_to(p[3] + LEFT * 0.1)
+    lab = T("residual", 20, "#B45309", BOLD).move_to(RIGHT * -5.3 + UP * (y0 + y1) / 2)
+    return VGroup(path, tip, lab)
+class C3(Clip):
+    TITLE = "Inside the encoder block"
+    PACE, HOLD = 1.5, 1.4
+    def construct(self):
+        shp = box("5 × d in, 5 × d out", 3.7, 0.6, "#DBEAFE", size=24, stroke=UF).move_to(RIGHT * 4.85 + UP * 2.7)
+        inp = blk("token vectors + positions", "#E5E7EB", -2.4, 0.6)
+        att = blk("Multi-head self-attention", "#FAD7A0", -1.3, 0.7)
+        an1 = blk("Add & Normalize", "#F7F3A6", -0.3, 0.55)
+        ffn = blk("Feed-forward network", "#BFE3F2", 0.7, 0.7)
+        an2 = blk("Add & Normalize", "#F7F3A6", 1.7, 0.55)
+        n0 = note("5 tokens, each plus a position vector", -2.4)
+        self.play(FadeIn(inp, shift=UP * 0.2), FadeIn(n0), FadeIn(shp), run_time=0.8)
+        self.cap("The encoder starts from the token vectors plus position information.", hold=2.8)
+        a1 = up(inp, att); n1 = note("12 heads in parallel in BERT-base", -1.3)
+        self.play(GrowArrow(a1), FadeIn(att, shift=UP * 0.2), FadeIn(n1), run_time=0.8)
+        self.cap("Multi-head self-attention lets every token look at every other token.", hold=2.8)
+        a2 = up(att, an1); r1 = residual(-1.85, -0.3); n2 = note("x + Attention(x), then layer norm", -0.3)
+        self.play(GrowArrow(a2), FadeIn(an1, shift=UP * 0.2), run_time=0.6)
+        self.play(Create(r1[0]), run_time=0.9); self.play(FadeIn(r1[1:]), FadeIn(n2), run_time=0.4)
+        self.cap("Add & normalize: the input is added back around attention, then normalized.", hold=3.2)
+        a3 = up(an1, ffn); n3 = note("d → 4d → d, per token", 0.7)
+        self.play(GrowArrow(a3), FadeIn(ffn, shift=UP * 0.2), FadeIn(n3), run_time=0.8)
+        self.cap("A feed-forward network then transforms each token on its own: d to 4d to d.", hold=3.2)
+        a4 = up(ffn, an2); r2 = residual(0.17, 1.7); n4 = note("x + FFN(x), then layer norm", 1.7)
+        self.play(GrowArrow(a4), FadeIn(an2, shift=UP * 0.2), run_time=0.6)
+        self.play(Create(r2[0]), run_time=0.9); self.play(FadeIn(r2[1:]), FadeIn(n4), run_time=0.4)
+        self.cap("A second add & normalize wraps the feed-forward network.", hold=2.6)
+        a5 = Arrow(an2.get_top(), RIGHT * XB + UP * 2.6, buff=0.04, stroke_width=3.5, color=INK, max_tip_length_to_length_ratio=0.35)
+        ol = T("output", 22, GREY).next_to(a5, RIGHT, buff=0.2)
+        self.play(GrowArrow(a5), FadeIn(ol), run_time=0.6)
+        self.play(Indicate(shp, color=UF, scale_factor=1.12), run_time=0.9)
+        self.cap("The output has the same shape as the input: one vector per token.", hold=2.8)
+        # collapse and stack
+        parts = VGroup(inp, att, an1, ffn, an2)
+        self.play(FadeOut(VGroup(a1, a2, a3, a4, a5, ol, r1, r2, n0, n1, n2, n3, n4)), run_time=0.5)
+        one = box("Encoder block", WB, 0.75, "#DBEAFE", size=26, stroke=UF).move_to(RIGHT * XB + DOWN * 0.3)
+        self.play(ReplacementTransform(parts, one), run_time=0.9)
+        st = VGroup(*[box(s, WB, 0.7, "#DBEAFE", size=24, stroke=UF) for s in ("Encoder block 1", "Encoder block 2", "Encoder block 3")])
+        dots = vdots(UF, r=0.06, gap=0.1)
+        top = box("Encoder block 12", WB, 0.7, "#DBEAFE", size=24, stroke=UF)
+        VGroup(*st, dots, top).arrange(UP, buff=0.18).move_to(RIGHT * XB + DOWN * 0.15)
+        self.play(ReplacementTransform(one, st[0]), run_time=0.6)
+        self.play(LaggedStart(*[FadeIn(m, shift=UP * 0.2) for m in (st[1], st[2], dots, top)], lag_ratio=0.25), run_time=1.4)
+        xn = VGroup(T("× 12", 44, UF, BOLD), T("BERT-base", 24, GREY)).arrange(DOWN, buff=0.15).move_to(RIGHT * 3.2 + DOWN * 0.1)
+        self.play(FadeIn(xn), run_time=0.6)
+        self.cap("Because shapes match, blocks stack: BERT-base uses 12 of them.", hold=3.2)

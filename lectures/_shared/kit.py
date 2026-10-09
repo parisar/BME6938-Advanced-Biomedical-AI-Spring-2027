@@ -20,6 +20,11 @@ def T(s, size=24, color=INK, weight=NORMAL, **k):
 
 class Clip(Scene):
     TITLE = ""
+    PACE = 1.0                         # multiplies the run_time passed to play() (above 1 is slower); waits are not affected
+    HOLD = 0.0                         # extra seconds each caption stays before the next step
+    def play(self, *a, **k):
+        if "run_time" in k: k["run_time"] *= self.PACE
+        super().play(*a, **k)
     def setup(self):
         self.title = T(self.TITLE, 28, UF, BOLD).to_corner(UL, buff=0.35)
         self.add(self.title)
@@ -55,7 +60,11 @@ class Clip(Scene):
         else: self.play(FadeOut(self._cap, run_time=0.3)); t0 = self.renderer.time; self.play(FadeIn(new, shift=UP * 0.15), run_time=0.4)
         self._cap = new
         if self._durs is not None: self._t0 = t0 + 0.15; self._marks.append(self._t0)
-        if hold: self.wait(hold)
+        if hold: self.wait(hold + self.HOLD)
+
+def vdots(color=GREY, r=0.045, gap=0.11):
+    """Vertical ellipsis drawn as dots (Inter has no ⋮ glyph)."""
+    return VGroup(*[Dot(radius=r, color=color) for _ in range(3)]).arrange(DOWN, buff=gap)
 
 def tok(s, color=INK, w=1.35, h=0.5, size=22, fill="#F3F4F6"):
     r = RoundedRectangle(corner_radius=0.1, width=w, height=h, stroke_color=color, stroke_width=2, fill_color=fill, fill_opacity=1)
