@@ -86,4 +86,8 @@ synthetic data only. Never commit patient data, credentials, or credentialed dat
 ## Git
 
 Commit finished clips, source, and manifests. Do not commit `local_config.json`, `.cache/`, or Manim `media/` folders.
-Ask before pushing if the user has not asked for it. The repository is private for now and will be made public before the term.
+Ask before pushing if the user has not asked for it. The repository is private for now and will be made public in January 2027, before the term. Keep everything in it
+safe to publish: no student names, group assignments, or grades (those stay on Canvas); no paper PDFs, only links;
+no API keys or local config; no slide decks with third-party figures unless the instructor has reviewed them.
+Each notebook starts with an Open in Colab badge (added by `add_badge.py` in the build folder); the badges work for
+students once the repository is public.
