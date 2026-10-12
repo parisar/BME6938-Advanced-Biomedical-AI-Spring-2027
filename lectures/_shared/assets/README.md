@@ -7,4 +7,4 @@
 
 Source: Kather JN, Weis CA, Bianconi F, et al. Multi-class texture analysis in colorectal cancer histology. *Scientific Reports* 6, 27988 (2016). Dataset: "Collection of textures in colorectal cancer histology", Zenodo, [doi:10.5281/zenodo.53169](https://doi.org/10.5281/zenodo.53169), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-The tiles are 150 × 150 pixel H&E images (0.495 µm per pixel) from an open, de-identified public dataset. They were converted from TIFF to PNG without other changes. The clips resize them and, in the Week 4 contrastive clip, crop, flip, and recolor them to illustrate augmentations.
+The tiles are 150 × 150 pixel H&E images (0.495 µm per pixel) from an open, de-identified public dataset. They were converted from TIFF to PNG without other changes. The clips resize them and, in the Week 6 contrastive clip, crop, flip, and recolor them to illustrate augmentations.

@@ -6,7 +6,7 @@ University of Florida, J. Crayton Pruitt Family Department of Biomedical Enginee
 
 **Meetings:** Tuesdays 1:55-2:45 PM (Period 7) and Thursdays 1:55-3:50 PM (Periods 7-8), Black Hall BLK 0315
 
-A graduate course on current research in biomedical AI: self-supervised representation learning, foundation models for imaging, EHR, and physiological time series, vision-language and multimodal models, LLM adaptation, agentic systems, generative models, clinical evaluation, robustness and fairness, and deployment.
+A graduate course on current research in biomedical AI: modern LLM architectures, post-training and reasoning, self-supervised representation learning, foundation models for imaging, EHR, and physiological time series, vision-language and multimodal models, retrieval and agentic systems, generative models, clinical evaluation, robustness and fairness, and deployment.
 
 ## How the course works
 
@@ -39,15 +39,15 @@ Submissions, grades, and announcements are on Canvas.
 | 1 | Course logistics; how to read, present, and critique papers | Model session: [Moor et al.: GMAI](https://doi.org/10.1038/s41586-023-05881-4) | Paper and group assignments posted on Canvas by Fri Jan 15. Start data-access training (MIMIC credentialing). |
 | 2 | Transformer review, Part 1: attention and the encoder | [Devlin et al.: BERT](https://aclanthology.org/N19-1423/)<br>[Yang et al.: GatorTron](https://doi.org/10.1038/s41746-022-00742-2) |  |
 | 3 | Transformer review, Part 2: decoder, masking, and model families | [Luo et al.: BioGPT](https://doi.org/10.1093/bib/bbac409)<br>[Dosovitskiy et al.: ViT](https://arxiv.org/abs/2010.11929) | Teams formed (Thu Jan 28) |
-| 4 | Self-supervised learning and imaging foundation models | [He et al.: MAE](https://arxiv.org/abs/2111.06377)<br>[Chen et al.: UNI](https://doi.org/10.1038/s41591-024-02857-3) |  |
-| 5 | Vision-language and multimodal models | [Radford et al.: CLIP](https://proceedings.mlr.press/v139/radford21a.html)<br>[Tu et al.: Med-PaLM M](https://doi.org/10.1056/AIoa2300138) |  |
-| 6 | Foundation models for EHR and physiological time series | [Wornow et al.: Shaky foundations of EHR foundation models](https://doi.org/10.1038/s41746-023-00879-8)<br>[Renc et al.: ETHOS](https://doi.org/10.1038/s41746-024-01235-0) | Proposal due Fri Feb 19 |
-| 7 | Adapting LLMs: retrieval and parameter-efficient fine-tuning | [Hu et al.: LoRA](https://arxiv.org/abs/2106.09685)<br>[Zakka et al.: Almanac](https://doi.org/10.1056/AIoa2300068) | 2-min pitches in class Tue Feb 23; peer reviews assigned |
-| 8 | Agentic systems and tool use | [Yao et al.: ReAct](https://arxiv.org/abs/2210.03629)<br>[Tu et al.: AMIE](https://doi.org/10.1038/s41586-025-08866-7) | Peer reviews due |
-| 9 | Generative models and AI for science | [Watson et al.: RFdiffusion](https://doi.org/10.1038/s41586-023-06415-8)<br>[Abramson et al.: AlphaFold 3](https://doi.org/10.1038/s41586-024-07487-w) |  |
+| 4 | Inside modern LLMs: architectures in 2026 | [DeepSeek-AI: DeepSeek-V3](https://arxiv.org/abs/2412.19437)<br>[Sellergren et al.: MedGemma](https://arxiv.org/abs/2507.05201) |  |
+| 5 | Post-training and reasoning: from pretrained model to clinical assistant | [Guo et al.: DeepSeek-R1](https://doi.org/10.1038/s41586-025-09422-z)<br>[Singhal et al.: Med-PaLM 2](https://doi.org/10.1038/s41591-024-03423-7) |  |
+| 6 | Self-supervised learning and imaging foundation models | [He et al.: MAE](https://arxiv.org/abs/2111.06377)<br>[Chen et al.: UNI](https://doi.org/10.1038/s41591-024-02857-3) | Proposal due Fri Feb 19 |
+| 7 | Vision-language and multimodal models | [Radford et al.: CLIP](https://proceedings.mlr.press/v139/radford21a.html)<br>[Tu et al.: Med-PaLM M](https://doi.org/10.1056/AIoa2300138) | 2-min pitches in class Tue Feb 23; peer reviews assigned |
+| 8 | Foundation models for EHR and physiological time series | [Wornow et al.: Shaky foundations of EHR foundation models](https://doi.org/10.1038/s41746-023-00879-8)<br>[Renc et al.: ETHOS](https://doi.org/10.1038/s41746-024-01235-0) | Peer reviews due |
+| 9 | Retrieval, tool use, and agentic systems | [Yao et al.: ReAct](https://arxiv.org/abs/2210.03629)<br>[Zakka et al.: Almanac](https://doi.org/10.1056/AIoa2300068) |  |
 | 10 | Spring break | No class |  |
-| 11 | Evaluation: benchmarks versus clinical trials | [Goh et al.: LLMs and diagnostic reasoning: an RCT](https://doi.org/10.1001/jamanetworkopen.2024.40969)<br>[Lång et al.: MASAI trial](https://doi.org/10.1016/S1470-2045(23)00298-X) | Progress report due Fri Mar 26 |
-| 12 | Robustness, shortcut learning, and fairness | [DeGrave et al.: COVID-19 shortcuts](https://doi.org/10.1038/s42256-021-00338-7)<br>[Gichoya et al.: AI recognition of patient race](https://doi.org/10.1016/S2589-7500(22)00063-2) |  |
+| 11 | Generative models and AI for science | [Watson et al.: RFdiffusion](https://doi.org/10.1038/s41586-023-06415-8)<br>[Abramson et al.: AlphaFold 3](https://doi.org/10.1038/s41586-024-07487-w) | Progress report due Fri Mar 26 |
+| 12 | Evaluation, robustness, and fairness | [Goh et al.: LLMs and diagnostic reasoning: an RCT](https://doi.org/10.1001/jamanetworkopen.2024.40969)<br>[DeGrave et al.: COVID-19 shortcuts](https://doi.org/10.1038/s42256-021-00338-7) |  |
 | 13 | Deployment, human-AI teaming, and ambient intelligence | [Wong et al.: External validation of a sepsis model](https://doi.org/10.1001/jamainternmed.2021.2626)<br>[Haque et al.: Ambient intelligence](https://doi.org/10.1038/s41586-020-2669-y) |  |
 | 14 | Final project presentations | Final project presentations (Tuesday and Thursday) | Final presentations Tue Apr 13 (3 teams) and Thu Apr 15 (5 teams); all slides due before Tue Apr 13 |
 | 15 | Final project presentations and wrap-up | Final project presentations (Tuesday) | Final presentations Tue Apr 20 (2 teams); paper and repository due Wed Apr 21 |
