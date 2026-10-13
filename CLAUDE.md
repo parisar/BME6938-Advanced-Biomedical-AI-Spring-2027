@@ -21,10 +21,10 @@ Slide decks (PowerPoint) are kept outside this repository in the instructor's Dr
 ## Building clips
 
 ```
-python tools/build_clips.py week04            # all clips of the week, silent and narrated
-python tools/build_clips.py week04 --clip clip2
-python tools/build_clips.py week04 --quality l   # fast preview
-python tools/build_clips.py week04 --dry-run     # shows how many characters would be sent to ElevenLabs
+python tools/build_clips.py week06            # all clips of the week, silent and narrated
+python tools/build_clips.py week06 --clip clip2
+python tools/build_clips.py week06 --quality l   # fast preview
+python tools/build_clips.py week06 --dry-run     # shows how many characters would be sent to ElevenLabs
 ```
 
 The script generates narration audio (ElevenLabs), renders each scene with Manim, merges the audio, and writes only
@@ -45,7 +45,7 @@ The API key comes from the `ELEVENLABS_API_KEY` environment variable. Never prin
 4. Preview with `--quality l`, look at frames from the result, fix layout problems, then build at full quality.
 5. Update `lectures/weekNN/README.md` and the table in `lectures/README.md`.
 
-Use `lectures/week04` as the reference for all of this.
+Use `lectures/week06` as the reference for all of this.
 
 ## Clip conventions
 
@@ -75,6 +75,9 @@ Use `lectures/week04` as the reference for all of this.
 - All examples in slides, clips, notebooks, and rubrics are biomedical.
 - Keep the syllabus general; put term-specific details (team size, dates, specific topics) in the READMEs.
 - The final two weeks of the term are reserved for project presentations: no lectures or paper sessions.
+- Weeks 4 and 5 (modern LLM architectures; post-training and reasoning) draw on Sebastian Raschka's Ahead of AI articles and his
+  LLMs-from-scratch repository. His code is Apache 2.0: it may be adapted into notebooks with a credit line and link. His figures
+  have no reuse license: redraw them in the course style with biomedical examples and cite him; never paste his figures.
 
 ## Notebooks
 

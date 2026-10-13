@@ -5,7 +5,7 @@
 Builds the animation clips for one week: narration audio, a silent video and a narrated video per clip.
 
 ```
-python tools/build_clips.py week04
+python tools/build_clips.py week06
 ```
 
 See the top of the script for all options, and `CLAUDE.md` in the repository root for the conventions.

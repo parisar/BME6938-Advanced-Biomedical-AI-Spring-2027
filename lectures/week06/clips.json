@@ -1,12 +1,12 @@
 {
-  "week": "week04",
+  "week": "week06",
   "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
   "clips": [
     {
       "id": "clip1",
       "scene_file": "animations/clip1_masked_reconstruction.py",
       "scene": "C1",
-      "output": "week04-clip1-masked-reconstruction",
+      "output": "week06-clip1-masked-reconstruction",
       "segments": [
         {"caption": "Start with an ECG recording that has no label.", "text": "We start with a ten second ECG recording. Nobody has labeled it with a diagnosis, and most recordings in a hospital archive look just like this."},
         {"caption": "Cut the signal into one-second patches: each patch becomes a token.", "text": "We cut the signal into one second patches. Just like words in a sentence, each patch becomes one token for a transformer encoder."},
@@ -23,7 +23,7 @@
       "id": "clip2",
       "scene_file": "animations/clip2_contrastive.py",
       "scene": "C2",
-      "output": "week04-clip2-contrastive-learning",
+      "output": "week06-clip2-contrastive-learning",
       "segments": [
         {"caption": "Make two augmented views of the same ECG.", "text": "Contrastive learning starts by making two different views of the same ECG, using random augmentations."},
         {"caption": "Augmentations change the recording, not the diagnosis.", "text": "Here, view one is cropped and has added noise, and view two is rescaled with a slow baseline drift. The heart rhythm, and so the diagnosis, stays the same."},
@@ -40,7 +40,7 @@
       "id": "clip3",
       "scene_file": "animations/clip3_linear_probe.py",
       "scene": "C3",
-      "output": "week04-clip3-linear-probing",
+      "output": "week06-clip3-linear-probing",
       "segments": [
         {"caption": "Take the pretrained encoder and freeze its weights.", "text": "Now we test what pretraining learned. Take the pretrained encoder and freeze it, so none of its weights can change."},
         {"caption": "Now use a small labeled set: atrial fibrillation versus normal sinus rhythm.", "text": "We need only a small labeled dataset. Here, each ECG is labeled either atrial fibrillation, A F, or normal sinus rhythm."},
