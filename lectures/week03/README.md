@@ -11,9 +11,9 @@ The running examples are the clinical phrase "The patient denies chest pain" and
 
 | Clip | Narrated | Silent |
 |---|---|---|
-| 1. Generating text one token at a time | [1 min 14 s](clips/narrated/week03-clip1-next-token-generation-narrated.mp4) | [57 s](clips/silent/week03-clip1-next-token-generation.mp4) |
-| 2. The causal mask | [1 min 11 s](clips/narrated/week03-clip2-causal-mask-narrated.mp4) | [55 s](clips/silent/week03-clip2-causal-mask.mp4) |
-| 3. Vision transformer: an image as a sequence of patches | [1 min 36 s](clips/narrated/week03-clip3-vit-patches-narrated.mp4) | [50 s](clips/silent/week03-clip3-vit-patches.mp4) |
+| 1. Generating text one token at a time | [1 min 11 s](clips/narrated/week03-clip1-next-token-generation-narrated.mp4) | [57 s](clips/silent/week03-clip1-next-token-generation.mp4) |
+| 2. The causal mask | [1 min 8 s](clips/narrated/week03-clip2-causal-mask-narrated.mp4) | [54 s](clips/silent/week03-clip2-causal-mask.mp4) |
+| 3. Vision transformer: an image as a sequence of patches | [1 min 32 s](clips/narrated/week03-clip3-vit-patches-narrated.mp4) | [50 s](clips/silent/week03-clip3-vit-patches.mp4) |
 
 The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 

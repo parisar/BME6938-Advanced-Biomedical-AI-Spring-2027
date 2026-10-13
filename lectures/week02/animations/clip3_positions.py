@@ -10,23 +10,23 @@ class C3(Clip):
     PACE, HOLD = 1.2, 0.6
     def construct(self):
         # 1. attention ignores order
-        A = ["chest", "pain", ",", "no", "pressure"]
-        perm = [3, 1, 2, 0, 4]                     # where each token of row A sits in "no pain, chest pressure"
-        xs = [-3.0 + k * 1.75 for k in range(5)]; ya, yb = 2.1, -0.35
-        RA = VGroup(*[tok(w, INK, w=1.62, h=0.55, size=22).move_to([x, ya, 0]) for w, x in zip(A, xs)])
-        OA = VGroup(*[mat(3, 1, OC, cell=0.36, seed=200 + i).move_to([x, ya - 0.95, 0]) for i, x in enumerate(xs)])
-        la = T("Patient 1", 22, INK, BOLD).move_to([-5.4, ya, 0]); lb = T("Patient 2", 22, INK, BOLD).move_to([-5.4, yb, 0])
-        lo = T("attention outputs", 20, "#A16207", BOLD).move_to([-5.4, ya - 0.95, 0])
-        self.play(FadeIn(la), LaggedStart(*[FadeIn(b, shift=DOWN * 0.2) for b in RA], lag_ratio=0.1), run_time=1.0)
-        self.play(FadeIn(lo), LaggedStart(*[FadeIn(o) for o in OA], lag_ratio=0.1), run_time=0.9)
+        self.cap("Attention ignores word order.", hold=0)
+        A = ["chest", "pain"]
+        xs = [-1.1, 1.1]; ya, yb = 2.1, -0.35
+        RA = VGroup(*[tok(w, INK, w=1.9, h=0.6, size=26).move_to([x, ya, 0]) for w, x in zip(A, xs)])
+        OA = VGroup(*[mat(3, 1, OC, cell=0.4, seed=200 + i).move_to([x, ya - 1.05, 0]) for i, x in enumerate(xs)])
+        lo = T("attention outputs", 22, "#A16207", BOLD).move_to([-4.6, ya - 1.05, 0])
+        self.play(LaggedStart(*[FadeIn(b, shift=DOWN * 0.2) for b in RA], lag_ratio=0.2), run_time=0.9)
+        self.play(FadeIn(lo), LaggedStart(*[FadeIn(o) for o in OA], lag_ratio=0.2), run_time=0.9)
         RB, OB = RA.copy(), OA.copy()
-        self.play(FadeIn(lb), *[RB[i].animate.move_to([xs[perm[i]], yb, 0]) for i in range(5)],
-                  *[OB[i].animate.move_to([xs[perm[i]], yb - 0.95, 0]) for i in range(5)], run_time=1.8)
-        nt = T("same five output vectors, only reordered", 22, GREY).move_to([0.5, -2.45, 0])
-        self.play(FadeIn(nt), Indicate(VGroup(OB[0], OB[3]), color=OC, scale_factor=1.15), run_time=1.0)
-        self.cap("Attention ignores word order.", hold=2.6)
+        self.play(*[RB[i].animate.move_to([xs[1 - i], yb, 0]) for i in range(2)],
+                  *[OB[i].animate.move_to([xs[1 - i], yb - 1.05, 0]) for i in range(2)], run_time=1.8)
+        nt = T("same two output vectors, only swapped", 22, GREY).move_to([0, -2.5, 0])
+        self.play(FadeIn(nt), Indicate(OB, color=OC, scale_factor=1.15), run_time=1.0)
+        self.rest(2.6)
         # 2. add a position vector
-        self.play(*[FadeOut(x) for x in (RA, OA, RB, OB, la, lb, lo, nt)], run_time=0.6)
+        self.cap("Fix: add a position vector to each token embedding.", hold=0)
+        self.play(*[FadeOut(x) for x in (RA, OA, RB, OB, lo, nt)], run_time=0.6)
         TK = ["The", "patient", "has", "a", "cold"]; gx = [-5.0, -2.5, 0.0, 2.5, 5.0]; yv = 0.85
         W = VGroup(*[tok(t, INK, w=1.6, h=0.55, size=24).move_to([x, 2.3, 0]) for t, x in zip(TK, gx)])
         tv = VGroup(*[mat(4, 1, EC, cell=0.36, seed=300 + i).move_to([x - 0.9, yv, 0]) for i, x in enumerate(gx)])
@@ -38,8 +38,9 @@ class C3(Clip):
         self.play(FadeIn(W), LaggedStart(*[FadeIn(v) for v in tv], lag_ratio=0.1), run_time=1.0)
         self.play(LaggedStart(*[AnimationGroup(FadeIn(o[0]), FadeIn(p), FadeIn(l)) for o, p, l in zip(ops, pv, pl)], lag_ratio=0.15), run_time=1.2)
         self.play(LaggedStart(*[AnimationGroup(FadeIn(o[1]), FadeIn(v, shift=RIGHT * 0.2)) for o, v in zip(ops, iv)], lag_ratio=0.15), FadeIn(lg), run_time=1.2)
-        self.cap("Fix: add a position vector to each token embedding.", hold=2.8)
+        self.rest(2.8)
         # 3. learned table
+        self.cap("Option 1: learn one vector per position (BERT).", hold=0)
         self.play(*[FadeOut(x) for x in (W, tv, pv, iv, ops, pl, lg)], run_time=0.6)
         rows = ["1", "2", "3", "4", "5", None, "512"]; x0 = -2.4; ty = [1.9 - 0.45 * i for i in range(8)]
         R = VGroup(); L = VGroup()
@@ -60,8 +61,9 @@ class C3(Clip):
         n513 = T("longer input: no row to look up", 22, GREY).next_to(r513, RIGHT, buff=0.4)
         self.play(FadeIn(r513), FadeIn(l513), run_time=0.6)
         self.play(Create(xx), FadeIn(n513), run_time=0.7)
-        self.cap("Option 1: learn one vector per position (BERT).", hold=2.8)
+        self.rest(2.8)
         # 4. sine and cosine waves at two speeds
+        self.cap("Option 2: compute positions from waves (original transformer).", hold=0)
         self.play(*[FadeOut(x) for x in (tt, R, L, hb, hn, r513, l513, xx, n513)], run_time=0.6)
         wy = [1.9, 0.7, -0.5, -1.7]; amp = 0.42
         px = lambda p: -4.0 + p * 1.2
@@ -76,8 +78,9 @@ class C3(Clip):
         pn = T("position", 20, GREY).move_to([-4.25, -2.45, 0], aligned_edge=RIGHT)
         self.play(FadeIn(Ax), FadeIn(WL), LaggedStart(*[Create(w) for w in Wv], lag_ratio=0.25), run_time=1.8)
         self.play(FadeIn(PN), FadeIn(pn), *[LaggedStart(*[FadeIn(d, scale=0.5) for d in row], lag_ratio=0.1) for row in Dt], run_time=1.0)
-        self.cap("Option 2: compute positions from waves (original transformer).", hold=2.8)
+        self.rest(2.8)
         # 5. read the waves at one position: the values are the position vector
+        self.cap("Read every wave at one position: those values are the position vector.", hold=0)
         vx = 5.3
         V = VGroup(*[Rectangle(width=1.3, height=0.55, stroke_color=POS, stroke_width=3, fill_color="#FFEDD5", fill_opacity=1).move_to([vx, y, 0]) for y in wy])
         vh = T("position vector", 22, POS, BOLD).move_to([vx, 2.95, 0])
@@ -89,15 +92,17 @@ class C3(Clip):
         vl, pl = vals(1), plab(1)
         self.play(FadeIn(V), FadeIn(vh), FadeIn(pl), Create(ln), *[d[0].animate.set_color(AMB).scale(1.5) for d in Dt], run_time=0.9)
         self.play(LaggedStart(*[TransformFromCopy(d[0], v) for d, v in zip(Dt, vl)], lag_ratio=0.25), run_time=1.6)
-        self.cap("Read every wave at one position: those values are the position vector.", hold=2.8)
+        self.rest(2.8)
         # 6. step through positions: fast rows jump, slow rows drift
-        self.cap("Fast waves separate neighbors; slow waves separate distant positions.", hold=0.6)
+        self.cap("Fast waves separate neighbors; slow waves separate distant positions.", hold=0)
+        self.rest(0.6)
         for p in range(2, 6):
             self.play(ln.animate.move_to([px(p), ln.get_center()[1], 0]), Transform(vl, vals(p)), Transform(pl, plab(p)),
                       *[d[p - 2].animate.set_color(INK).scale(1 / 1.5) for d in Dt], *[d[p - 1].animate.set_color(AMB).scale(1.5) for d in Dt], run_time=0.9)
             self.wait(0.8)
         self.wait(0.6)
-        # 6. added once, at the input
+        # 7. added once, at the input
+        self.cap("Both are added once, at the input.", hold=0)
         self.play(*[FadeOut(x) for x in (Wv, Ax, WL, PN, pn, ln, V, vh, vl, pl, *[d for row in Dt for d in row])], run_time=0.6)
         inp = box("token + position", 2.9, 0.9, "#E2E8F0", size=24, stroke=INP).move_to([-4.7, 0.3, 0])
         B = [box(s, 1.9, 0.9, "#DBEAFE", size=24, stroke=UF).move_to([x, 0.3, 0]) for s, x in (("Block 1", -1.6), ("Block 2", 0.8), ("Block 12", 4.6))]
@@ -110,4 +115,4 @@ class C3(Clip):
         self.play(FadeIn(inp), FadeIn(ad), run_time=0.7)
         self.play(LaggedStart(*[FadeIn(x) for x in (ar[0], B[0], ar[1], B[1], ar[2], dots, ar[3], B[2])], lag_ratio=0.15), run_time=1.4)
         self.play(FadeIn(cf), run_time=0.5)
-        self.cap("Both are added once, at the input.", hold=3.2)
+        self.rest(3.2)

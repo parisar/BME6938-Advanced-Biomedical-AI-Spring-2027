@@ -11,9 +11,9 @@ The running examples are a single-lead ECG and H&E pathology tiles. The ECG is s
 
 | Clip | Narrated | Silent |
 |---|---|---|
-| 1. Masked reconstruction: learning by filling in gaps | [1 min 38 s](clips/narrated/week06-clip1-masked-reconstruction-narrated.mp4) | [57 s](clips/silent/week06-clip1-masked-reconstruction.mp4) |
-| 2. Contrastive learning: two views, one embedding | [1 min 42 s](clips/narrated/week06-clip2-contrastive-learning-narrated.mp4) | [58 s](clips/silent/week06-clip2-contrastive-learning.mp4) |
-| 3. Linear probing: what did the encoder learn? | [1 min 29 s](clips/narrated/week06-clip3-linear-probing-narrated.mp4) | [49 s](clips/silent/week06-clip3-linear-probing.mp4) |
+| 1. Masked reconstruction: learning by filling in gaps | [1 min 35 s](clips/narrated/week06-clip1-masked-reconstruction-narrated.mp4) | [57 s](clips/silent/week06-clip1-masked-reconstruction.mp4) |
+| 2. Contrastive learning: two views, one embedding | [1 min 40 s](clips/narrated/week06-clip2-contrastive-learning-narrated.mp4) | [58 s](clips/silent/week06-clip2-contrastive-learning.mp4) |
+| 3. Linear probing: what did the encoder learn? | [1 min 25 s](clips/narrated/week06-clip3-linear-probing-narrated.mp4) | [49 s](clips/silent/week06-clip3-linear-probing.mp4) |
 
 The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 

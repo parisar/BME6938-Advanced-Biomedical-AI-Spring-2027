@@ -8,7 +8,7 @@
       "scene": "C1",
       "output": "week06-clip1-masked-reconstruction",
       "segments": [
-        {"caption": "Start with an ECG recording that has no label.", "text": "We start with a ten second ECG recording. Nobody has labeled it with a diagnosis, and most recordings in a hospital archive look just like this."},
+        {"caption": "Start with an ECG recording that has no label.", "text": "We start with a single lead ECG recording, ten seconds long. Nobody has labeled it with a diagnosis, so all we have is the raw signal."},
         {"caption": "Cut the signal into one-second patches: each patch becomes a token.", "text": "We cut the signal into one second patches. Just like words in a sentence, each patch becomes one token for a transformer encoder."},
         {"caption": "Hide most of the patches at random.", "text": "Then we hide most of the patches at random. Here, six of the ten patches are masked out."},
         {"caption": "The encoder sees only the visible patches.", "text": "The encoder sees only the four visible patches, and turns each of them into an embedding vector."},
@@ -30,7 +30,7 @@
         {"caption": "One shared encoder maps each view to a point in embedding space.", "text": "Both views pass through the same encoder, with shared weights. Each view becomes one point in the embedding space."},
         {"caption": "The other ECGs in the batch add more points.", "text": "In practice we train on a batch, so the other ECGs in the batch, here B, C, and D, also become points."},
         {"caption": "Training pulls the two views together and pushes the other ECGs apart.", "text": "Training pulls the two views of ECG A toward each other, and pushes the other ECGs in the batch further away."},
-        {"caption": "The loss asks: which view in the batch is my partner?", "text": "The loss turns this into a classification problem: compare view one with every other view in the batch, apply a softmax, and the partner, view two, should win."},
+        {"caption": "The loss asks: which view in the batch is my partner?", "text": "The loss turns this into a classification. Compare A one with every other view in the batch, apply a softmax, and its partner, A two, should win, here with zero point five nine."},
         {"caption": "This is the InfoNCE loss: a softmax over similarities with temperature τ.", "text": "This is the info N C E loss. It is a softmax over the similarities, each divided by a temperature tau, and we minimize the negative log probability of the true partner."},
         {"caption": "Without any labels, similar ECGs tend to end up close together.", "text": "After training on many unlabeled ECGs, recordings with similar rhythms tend to land close together, even though the model never saw a single diagnosis."},
         {"caption": "For pathology tiles, views come from crops, flips, and stain color changes.", "text": "For pathology tiles, the two views come from random crops, flips and rotations, and changes in stain color, because tissue has no fixed orientation and staining varies between labs."}
@@ -48,7 +48,7 @@
         {"caption": "Add one linear prediction head: a weighted sum of the embedding plus a bias.", "text": "On top, we add a single linear prediction head. It computes a weighted sum of the embedding plus a bias, and a sigmoid turns that into the probability of A F."},
         {"caption": "Training updates only the head; the encoder gets no gradient.", "text": "During training, gradients flow into the head only. The encoder is frozen, so its weights never change."},
         {"caption": "If one line separates the classes, the information is already in the embedding.", "text": "If one straight line can separate A F from normal, the information was already in the embedding. The head only has to read it out."},
-        {"caption": "Fine-tuning updates the encoder too, so a probe is the cleaner test of pretraining.", "text": "Fine-tuning would also update the encoder, which often improves accuracy but adds new learning. A linear probe, with two hundred fifty-seven weights, measures the pretrained representation itself."},
+        {"caption": "Fine-tuning updates the encoder too, so a probe is the cleaner test of pretraining.", "text": "With fine-tuning, every weight is trainable, including the encoder. A linear probe trains only two hundred fifty-seven weights, so it measures what the pretrained encoder already learned."},
         {"caption": "The same probe works for pathology: tumor versus normal mucosa.", "text": "The same linear probe works for pathology. A frozen encoder embeds each H and E tile, and a single linear head separates tumor from normal mucosa."}
       ]
     }

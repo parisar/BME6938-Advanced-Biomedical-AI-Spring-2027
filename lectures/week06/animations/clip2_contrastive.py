@@ -7,6 +7,7 @@ def dot(p, color, lab=None):
 class C2(Clip):
     TITLE = "Contrastive learning: two views, one embedding"
     def construct(self):
+        self.cap("Make two augmented views of the same ECG.", hold=0)
         fa = ecg_fn(4, hr=75, seed=11)
         A = wave(fa, 0.2, 3.2, 4.2, 0.85).shift(LEFT * 6.4 + UP * 0.1)
         Al = T("ECG A", 24, INK, BOLD).next_to(A, UP, buff=0.4).align_to(A, LEFT)
@@ -21,12 +22,14 @@ class C2(Clip):
         r2 = Arrow(A.get_right() + UP * 0.3, V2.get_left() + UP * 0.3, buff=0.25, stroke_width=3.5, color=INK, max_tip_length_to_length_ratio=0.08)
         self.play(GrowArrow(r1), GrowArrow(r2), run_time=0.6)
         self.play(Create(V1), Create(V2), FadeIn(L1), FadeIn(L2), run_time=1.2)
-        self.cap("Make two augmented views of the same ECG.", hold=2.4)
+        self.rest(2.4)
+        self.cap("Augmentations change the recording, not the diagnosis.", hold=0)
         g1 = T("crop + noise", 22, GREY).move_to(r1.point_from_proportion(0.5) + UP * 0.45 + LEFT * 0.4)
         g2 = T("scaling + baseline wander", 22, GREY).move_to(RIGHT * -0.9 + DOWN * 1.15)
         self.play(FadeIn(g1), FadeIn(g2), run_time=0.6)
-        self.cap("Augmentations change the recording, not the diagnosis.", hold=3.0)
+        self.rest(3.0)
         # shared encoder and embedding space
+        self.cap("One shared encoder maps each view to a point in embedding space.", hold=0)
         self.play(*[FadeOut(m) for m in (A, Al, r1, r2, g1, g2, L1, L2)], run_time=0.5)
         ys = [2.0, 0.95, -0.15, -1.2, -2.25]; sx = -4.2
         self.play(V1.animate.scale(2.8 / 4.2).move_to(RIGHT * sx + UP * ys[0]), V2.animate.scale(2.8 / 4.2).move_to(RIGHT * sx + UP * ys[1]), run_time=0.8)
@@ -43,12 +46,14 @@ class C2(Clip):
         P1, P2 = dot((2.6, 1.3), OC, "A1"), dot((5.0, -0.9), OC, "A2")
         self.play(FadeIn(SL[:2]), FadeIn(enc), FadeIn(shl), GrowArrow(ia[0]), GrowArrow(ia[1]), run_time=0.7)
         self.play(GrowArrow(oa), Create(pl), FadeIn(pll), FadeIn(P1, scale=0.5), FadeIn(P2, scale=0.5), run_time=0.9)
-        self.cap("One shared encoder maps each view to a point in embedding space.", hold=3.0)
+        self.rest(3.0)
+        self.cap("The other ECGs in the batch add more points.", hold=0)
         N = [dot(p, NEG, n) for p, n in zip([(2.4, -1.4), (5.6, 1.7), (2.1, 0.5)], names[2:])]
         self.play(LaggedStart(*[AnimationGroup(Create(s), FadeIn(l), GrowArrow(a)) for s, l, a in zip(S, SL[2:], ia[2:])], lag_ratio=0.25), run_time=1.3)
         self.play(LaggedStart(*[FadeIn(n, scale=0.5) for n in N], lag_ratio=0.2), run_time=0.8)
-        self.cap("The other ECGs in the batch add more points.", hold=2.6)
+        self.rest(2.6)
         # pull together, push apart
+        self.cap("Training pulls the two views together and pushes the other ECGs apart.", hold=0)
         def spring():
             a, b = P1[0].get_center(), P2[0].get_center(); d = b - a; n = np.array([-d[1], d[0], 0]) / (np.linalg.norm(d) + 1e-6)
             pts = [a + d * (i / 14) + (0.12 * n * (1 if i % 2 else -1) if 0 < i < 14 else 0) for i in range(15)]
@@ -60,8 +65,9 @@ class C2(Clip):
         self.play(Create(sp), LaggedStart(*[GrowArrow(a) for a in pa], lag_ratio=0.15), run_time=0.8)
         self.play(P1.animate.shift(np.array([3.55, 0.4, 0]) - P1[0].get_center()), P2.animate.shift(np.array([4.15, 0.0, 0]) - P2[0].get_center()),
                   FadeOut(pa), *[n.animate.shift(t - n[0].get_center()) for n, t in zip(N, tgt)], run_time=1.6)
-        self.cap("Training pulls the two views together and pushes the other ECGs apart.", hold=3.2)
+        self.rest(3.2)
         # the loss as a classification over the batch
+        self.cap("The loss asks: which view in the batch is my partner?", hold=0)
         self.play(*[FadeOut(m) for m in (V1, V2, *S, SL, enc, shl, *ia, oa)], run_time=0.6)
         sims, probs = [0.9, 0.2, -0.1, 0.3], [0.59, 0.15, 0.08, 0.18]
         ry = [1.4, 0.7, 0.0, -0.7]
@@ -77,14 +83,16 @@ class C2(Clip):
         self.play(GrowArrow(sm), FadeIn(smt), FadeIn(h2), LaggedStart(*[AnimationGroup(GrowFromEdge(b, LEFT), FadeIn(n)) for b, n in zip(bars, bn)], lag_ratio=0.2), run_time=1.4)
         hl = SurroundingRectangle(VGroup(rl[0], bn[0]), color=OC, buff=0.12, stroke_width=4)
         self.play(Create(hl), run_time=0.5)
-        self.cap("The loss asks: which view in the batch is my partner?", hold=3.0)
+        self.rest(3.0)
+        self.cap("This is the InfoNCE loss: a softmax over similarities with temperature τ.", hold=0)
         tab = VGroup(rl, sb, h1, sm, smt, bars, bn, h2, hl)
         self.play(FadeOut(VGroup(pl, pll, P1, P2, sp, *N)), tab.animate.shift(RIGHT * 3.4 + UP * 0.25), run_time=0.8)
         fm = T("loss = −log( exp(sim(z, z⁺) / τ)  /  Σ exp(sim(z, z′) / τ) )", 30, INK, BOLD).move_to(DOWN * 1.65)
         lg = T("z: A1     z⁺: its partner A2     z′: every other view in the batch     τ: temperature", 20, GREY).next_to(fm, DOWN, buff=0.3)
         self.play(FadeIn(fm), run_time=0.8); self.play(FadeIn(lg), run_time=0.5)
-        self.cap("This is the InfoNCE loss: a softmax over similarities with temperature τ.", hold=3.4)
+        self.rest(3.4)
         # what the embedding space looks like after training
+        self.cap("Without any labels, similar ECGs tend to end up close together.", hold=0)
         self.play(FadeOut(VGroup(tab, fm, lg)), run_time=0.6)
         pl2 = Rectangle(width=8.4, height=5.2, stroke_color=GREY, stroke_width=2).move_to(LEFT * 2.2 + UP * 0.1)
         rng = np.random.default_rng(4)
@@ -99,8 +107,9 @@ class C2(Clip):
         lgd = VGroup(*[VGroup(Dot(radius=0.11, color=col), T(n, 20, col, BOLD)).arrange(RIGHT, buff=0.2) for n, col in RHY]).arrange(DOWN, aligned_edge=LEFT, buff=0.35).move_to(RIGHT * 4.6 + UP * 0.9)
         note = T("labels not used in training", 20, GREY, slant=ITALIC).next_to(lgd, DOWN, buff=0.5).align_to(lgd, LEFT)
         self.play(*[D[i].animate.set_color(RHY[i // 12][1]) for i in range(36)], FadeIn(lgd), FadeIn(note), run_time=1.0)
-        self.cap("Without any labels, similar ECGs tend to end up close together.", hold=3.4)
+        self.rest(3.4)
         # pathology views
+        self.cap("For pathology tiles, views come from crops, flips, and stain color changes.", hold=0)
         self.play(FadeOut(VGroup(pl2, D, lgd, note)), run_time=0.6)
         from PIL import Image
         arr = he_image("he_tumor.png", 320)
@@ -118,4 +127,4 @@ class C2(Clip):
         self.play(FadeIn(A), FadeIn(al), FadeIn(cr), run_time=0.6)
         self.play(GrowArrow(ar), FadeIn(at_), run_time=0.5)
         self.play(LaggedStart(*[AnimationGroup(FadeIn(v), Create(f), FadeIn(l)) for v, f, l in zip(Vs, Fr, Vl)], lag_ratio=0.3), run_time=1.6)
-        self.cap("For pathology tiles, views come from crops, flips, and stain color changes.", hold=3.6)
+        self.rest(3.6)

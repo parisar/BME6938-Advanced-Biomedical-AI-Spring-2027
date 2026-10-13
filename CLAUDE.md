@@ -49,7 +49,7 @@ Use `lectures/week06` as the reference for all of this.
 
 ## Clip conventions
 
-- Two or three clips per session, each on one concept, about one minute silent and under two minutes narrated.
+- Two or three clips per session, each on one concept. Clarity comes first: about one minute silent and two minutes narrated is a guide, not a limit, so let a clip run longer when the explanation needs it.
 - White background, Inter font (bundled in `lectures/_shared/fonts`), title at top left, caption at the bottom.
 - Text only: do not use `MathTex` or `Tex`, so LaTeX is never required. Write formulas with Unicode, for example `softmax( Q·Kᵀ / √d ) · V`.
 - Colors carry meaning and stay fixed across the course: queries red (`QC`), keys green (`KC`), values blue (`VC`), UF blue for titles.
@@ -57,6 +57,7 @@ Use `lectures/week06` as the reference for all of this.
 - Make everything large enough for a lecture hall projector: matrix cells at least 0.36 units, labels at least 20 pt.
 - Captions are one sentence, plain and exact. Every caption must be readable for at least three seconds.
 - After rendering, always inspect frames for overlapping or clipped elements before calling a clip finished.
+- Caption first: start each segment with `self.cap("...", hold=0)`, then play that segment's animations (including fading out the previous ones), then `self.rest(h)`. The narration of a segment starts with its caption, so this keeps every picture under its own narration and avoids a silent lag at the start.
 - To reach the target length, set the optional class settings on the scene instead of editing every timing: `PACE` multiplies
   every `run_time` passed to `play()`, and `HOLD` adds seconds after every caption. Waits are not affected.
 - Kit helpers: `ecg_fn()` and `wave()` draw a synthetic ECG; `vdots()` draws a vertical ellipsis (Inter has no `⋮` glyph).
@@ -65,6 +66,7 @@ Use `lectures/week06` as the reference for all of this.
 
 - One narration line per caption. It says the caption's idea in fuller spoken form, not the caption word for word.
 - Spell out what a voice would stumble on: "two hundred fifty-six", "Q times K transpose", "the square root of d", "G P T".
+- Respell words the voice mispronounces, in the narration only (captions keep the normal spelling): "co-sine", "rope" for RoPE, "Alibi" for ALiBi, "Kwen" for Qwen, "Modern BERT".
 - Aim for 15 to 35 words per line.
 - The narration is an AI-generated voice. Say so wherever narrated clips are published.
 

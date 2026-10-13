@@ -60,6 +60,9 @@ class Clip(Scene):
         self._cap = new
         if self._durs is not None: self._t0 = t0 + 0.15; self._marks.append(self._t0)
         if hold: self.wait(hold + self.HOLD)
+    def rest(self, t):
+        """Pause at the end of a segment (captions come first, so each segment's animations play under its own narration)."""
+        self.wait(t + self.HOLD)
 
 def vdots(color=GREY, r=0.045, gap=0.11):
     """Vertical ellipsis drawn as dots (Inter has no ⋮ glyph)."""
