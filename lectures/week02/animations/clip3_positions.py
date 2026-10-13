@@ -1,6 +1,6 @@
 from kit import *
 POS, INP = "#EA580C", "#334155"                    # position vector (orange), input vector (dark slate)
-SPEEDS = [1.0, 0.45, 0.2, 0.08]                    # sine speeds of the four dimension pairs drawn (pair 1 is exact)
+WAVES = [(np.sin, 1.0), (np.cos, 1.0), (np.sin, 0.25), (np.cos, 0.25)]   # dims 1-4 of the position vector: sin and cos at a fast and a slow speed
 def swatch(color, s):
     return VGroup(Square(0.3, stroke_width=0, fill_color=color, fill_opacity=1), T(s, 22, INK)).arrange(RIGHT, buff=0.15)
 def m(v):
@@ -61,35 +61,44 @@ class C3(Clip):
         self.play(FadeIn(r513), FadeIn(l513), run_time=0.6)
         self.play(Create(xx), FadeIn(n513), run_time=0.7)
         self.cap("Option 1: learn one vector per position (BERT).", hold=2.8)
-        # 4. sine waves
+        # 4. sine and cosine waves at two speeds
         self.play(*[FadeOut(x) for x in (tt, R, L, hb, hn, r513, l513, xx, n513)], run_time=0.6)
         wy = [1.9, 0.7, -0.5, -1.7]; amp = 0.42
-        px = lambda p: -4.6 + p * 1.6
+        px = lambda p: -4.0 + p * 1.2
         Wv = VGroup(); Ax = VGroup(); Dt = []
-        for w, y in zip(SPEEDS, wy):
-            ts = np.linspace(0, 6.2, 320)
-            Wv.add(VMobject(stroke_color=POS, stroke_width=4).set_points_smoothly([np.array([px(t), y + amp * np.sin(w * t), 0]) for t in ts]))
-            Ax.add(Line([px(0), y, 0], [px(6.2), y, 0], color="#E5E7EB", stroke_width=2))
-            Dt.append([Dot([px(p), y + amp * np.sin(w * p), 0], radius=0.09, color=INK).set_z_index(3) for p in range(1, 6)])
-        WL = VGroup(*[T(s, 20, GREY).move_to([-4.85, y, 0], aligned_edge=RIGHT) for s, y in zip(("pair 1 (fast)", "pair 2", "pair 3", "pair 4 (slow)"), wy)])
+        for (f, w), y in zip(WAVES, wy):
+            ts = np.linspace(0, 6.0, 320)
+            Wv.add(VMobject(stroke_color=POS, stroke_width=4).set_points_smoothly([np.array([px(t), y + amp * f(w * t), 0]) for t in ts]))
+            Ax.add(Line([px(0), y, 0], [px(6.0), y, 0], color="#E5E7EB", stroke_width=2))
+            Dt.append([Dot([px(p), y + amp * f(w * p), 0], radius=0.09, color=INK).set_z_index(3) for p in range(1, 6)])
+        WL = VGroup(*[T(s, 20, GREY).move_to([-4.25, y, 0], aligned_edge=RIGHT) for s, y in zip(("sin, fast", "cos, fast", "sin, slow", "cos, slow"), wy)])
         PN = VGroup(*[T(str(p), 22, INK, BOLD).move_to([px(p), -2.45, 0]) for p in range(1, 6)])
-        pn = T("position", 20, GREY).move_to([-4.85, -2.45, 0], aligned_edge=RIGHT)
+        pn = T("position", 20, GREY).move_to([-4.25, -2.45, 0], aligned_edge=RIGHT)
         self.play(FadeIn(Ax), FadeIn(WL), LaggedStart(*[Create(w) for w in Wv], lag_ratio=0.25), run_time=1.8)
         self.play(FadeIn(PN), FadeIn(pn), *[LaggedStart(*[FadeIn(d, scale=0.5) for d in row], lag_ratio=0.1) for row in Dt], run_time=1.0)
         self.cap("Option 2: compute positions from waves (original transformer).", hold=2.8)
-        # 5. reading positions off the waves
+        # 5. read the waves at one position: the values are the position vector
+        vx = 5.3
+        V = VGroup(*[Rectangle(width=1.3, height=0.55, stroke_color=POS, stroke_width=3, fill_color="#FFEDD5", fill_opacity=1).move_to([vx, y, 0]) for y in wy])
+        vh = T("position vector", 22, POS, BOLD).move_to([vx, 2.95, 0])
+        def vals(p):
+            return VGroup(*[T(m(f(w * p)), 22, INK, BOLD).move_to([vx, y, 0]) for (f, w), y in zip(WAVES, wy)])
+        def plab(p):
+            return T(f"position {p}", 22, INK, BOLD).move_to([vx, 2.5, 0])
         ln = DashedLine([px(1), 2.45, 0], [px(1), -2.15, 0], color=INK, stroke_width=3)
-        rd = T(f"position 1: pair 1 = (sin, cos) = ({m(np.sin(1))}, {m(np.cos(1))})", 24, INK, BOLD).move_to([1.4, 2.75, 0])
-        self.play(Create(ln), FadeIn(rd), *[d[0].animate.set_color(AMB).scale(1.5) for d in Dt], run_time=0.8)
-        self.cap("Fast waves separate neighbors; slow waves separate distant positions.", hold=1.2)
+        vl, pl = vals(1), plab(1)
+        self.play(FadeIn(V), FadeIn(vh), FadeIn(pl), Create(ln), *[d[0].animate.set_color(AMB).scale(1.5) for d in Dt], run_time=0.9)
+        self.play(LaggedStart(*[TransformFromCopy(d[0], v) for d, v in zip(Dt, vl)], lag_ratio=0.25), run_time=1.6)
+        self.cap("Read every wave at one position: those values are the position vector.", hold=2.8)
+        # 6. step through positions: fast rows jump, slow rows drift
+        self.cap("Fast waves separate neighbors; slow waves separate distant positions.", hold=0.6)
         for p in range(2, 6):
-            self.play(ln.animate.move_to([px(p), ln.get_center()[1], 0]),
-                      Transform(rd, T(f"position {p}: pair 1 = (sin, cos) = ({m(np.sin(p))}, {m(np.cos(p))})", 24, INK, BOLD).move_to([1.4, 2.75, 0])),
+            self.play(ln.animate.move_to([px(p), ln.get_center()[1], 0]), Transform(vl, vals(p)), Transform(pl, plab(p)),
                       *[d[p - 2].animate.set_color(INK).scale(1 / 1.5) for d in Dt], *[d[p - 1].animate.set_color(AMB).scale(1.5) for d in Dt], run_time=0.9)
-            self.wait(0.6)
-        self.wait(1.0)
+            self.wait(0.8)
+        self.wait(0.6)
         # 6. added once, at the input
-        self.play(*[FadeOut(x) for x in (Wv, Ax, WL, PN, pn, ln, rd, *[d for row in Dt for d in row])], run_time=0.6)
+        self.play(*[FadeOut(x) for x in (Wv, Ax, WL, PN, pn, ln, V, vh, vl, pl, *[d for row in Dt for d in row])], run_time=0.6)
         inp = box("token + position", 2.9, 0.9, "#E2E8F0", size=24, stroke=INP).move_to([-4.7, 0.3, 0])
         B = [box(s, 1.9, 0.9, "#DBEAFE", size=24, stroke=UF).move_to([x, 0.3, 0]) for s, x in (("Block 1", -1.6), ("Block 2", 0.8), ("Block 12", 4.6))]
         dots = T("…", 32, UF, BOLD).move_to([2.7, 0.3, 0])
