@@ -13,7 +13,7 @@ def residual(y0, y1):
     tip = Triangle(fill_color=AMB, fill_opacity=1, stroke_width=0).scale(0.11).rotate(-PI / 2).move_to(p[3] + LEFT * 0.1)
     lab = T("residual", 20, "#B45309", BOLD).move_to(RIGHT * -5.3 + UP * (y0 + y1) / 2)
     return VGroup(path, tip, lab)
-class C3(Clip):
+class C5(Clip):
     TITLE = "Inside the encoder block"
     PACE, HOLD = 1.5, 1.4
     def construct(self):
