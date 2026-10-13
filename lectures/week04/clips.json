@@ -1,0 +1,60 @@
+{
+  "week": "week04",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_modern_block.py",
+      "scene": "C1",
+      "output": "week04-clip1-modern-block",
+      "segments": [
+        {"caption": "A 2026 LLM is still a stack of decoder blocks, like the 2017 transformer.", "text": "A large language model in twenty twenty-six is still a stack of decoder blocks, much like the twenty seventeen transformer: attention, then a feed-forward network, each with a residual connection."},
+        {"caption": "Normalization moves before each sublayer and becomes RMSNorm.", "text": "The first change is normalization. It now comes before each sublayer instead of after, and it uses R M S norm, which only rescales each vector by its root mean square."},
+        {"caption": "The feed-forward network becomes SwiGLU, a gated version.", "text": "Second, the feed-forward network becomes swig-loo. The token is projected twice, and one projection passes through a smooth activation and acts as a gate on the other."},
+        {"caption": "Positions move inside attention: RoPE rotates each query and key.", "text": "Third, positions are no longer added at the input. Instead, rope rotates every query and key inside each attention layer, as we saw in week two."},
+        {"caption": "Attention becomes grouped-query attention: query heads share keys and values.", "text": "Fourth, attention becomes grouped-query attention. In the small Kwen three model, sixteen query heads share eight key and value heads, which saves memory during generation."},
+        {"caption": "The shape is unchanged: stack the blocks, then predict the next token.", "text": "The overall shape is unchanged. The twenty seventeen decoder stacked six blocks, the small Kwen three model stacks twenty-eight, and the last block feeds the prediction of the next token."}
+      ]
+    },
+    {
+      "id": "clip2",
+      "scene_file": "animations/clip2_kv_cache.py",
+      "scene": "C2",
+      "output": "week04-clip2-kv-cache",
+      "segments": [
+        {"caption": "Each new token needs the keys and values of every earlier token.", "text": "When a decoder writes the next token, its query is compared with the keys of every earlier token, and their values are mixed in. Here the note so far is: the patient denies chest pain."},
+        {"caption": "The model stores them instead of recomputing them: the KV cache.", "text": "Those keys and values do not change, so the model stores them instead of recomputing them at every step. This store is the K V cache, and each new token adds its own keys and values."},
+        {"caption": "The cache grows with every token, in every layer and every head.", "text": "The cache grows with every token, in every layer and every head. For a model shaped like Llama three, eight B, that is half a megabyte per token, so a patient record of thirty-two thousand seven hundred sixty-eight tokens needs sixteen gigabytes."},
+        {"caption": "Grouped-query attention: 8 key/value heads instead of 32, a 4× smaller cache.", "text": "Grouped-query attention shrinks it. Thirty-two query heads share eight key and value heads, so only eight are stored, and the same record needs four gigabytes instead of sixteen."},
+        {"caption": "Latent attention (DeepSeek-V3) caches one small compressed vector per token.", "text": "DeepSeek V three goes further with multi-head latent attention. It caches one compressed vector of five hundred seventy-six numbers per token and layer, instead of forty thousand nine hundred sixty: about seventy-one times smaller."},
+        {"caption": "Sliding-window attention: most layers look only at the most recent tokens.", "text": "Sliding-window attention is a third approach. In Gemma three, the base of Med Gemma, five local layers look only at the last one thousand twenty-four tokens for every global layer that sees everything."}
+      ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_mixture_of_experts.py",
+      "scene": "C3",
+      "output": "week04-clip3-mixture-of-experts",
+      "segments": [
+        {"caption": "In a dense model, every token goes through the same feed-forward network.", "text": "In a dense model, every token passes through the same feed-forward network, and all of its weights are used for every token."},
+        {"caption": "A mixture of experts splits it into many smaller networks, called experts.", "text": "A mixture of experts splits this network into many smaller networks, called experts. Here we draw sixteen of them, and the numbers in this clip are illustrative."},
+        {"caption": "A router scores the experts for each token and picks the top two.", "text": "A small router scores every expert for each token. For chest, experts three and eleven score highest, zero point three eight and zero point two five, so only those two run."},
+        {"caption": "Different tokens go to different experts.", "text": "Other tokens are routed to other experts: denies to experts one and nine, and pain to experts seven and fourteen. Experts that no token chose stay idle."},
+        {"caption": "Each token's output is a weighted sum of its chosen experts.", "text": "The output for chest is a weighted sum of its two experts: zero point six times expert three, plus zero point four times expert eleven. The router weights are rescaled to sum to one."},
+        {"caption": "DeepSeek-V3 has 671B parameters in total, but uses only 37B for each token.", "text": "DeepSeek V three has two hundred fifty-six experts plus one shared expert in each layer, and picks eight per token. It has six hundred seventy-one billion parameters, but uses only thirty-seven billion for each token."}
+      ]
+    },
+    {
+      "id": "clip4",
+      "scene_file": "animations/clip4_more_changes.py",
+      "scene": "C4",
+      "output": "week04-clip4-more-changes",
+      "segments": [
+        {"caption": "Bigger vocabularies: the same clinical note in fewer tokens.", "text": "Vocabularies have grown. G P T two, from twenty nineteen, splits this clinical sentence into twenty-one tokens and cuts tachycardia into four pieces. DeepSeek V three, with about one hundred twenty-nine thousand tokens in its vocabulary, needs only fourteen."},
+        {"caption": "Longer context: train on short text, then stretch the RoPE angles.", "text": "Long patient records need long context. A model is trained on shorter text; rotating eight times slower lets position thirty-two thousand seven hundred sixty-eight land where four thousand ninety-six was. DeepSeek V three was stretched from four thousand to thirty-two thousand, then one hundred twenty-eight thousand tokens."},
+        {"caption": "Multi-token prediction: in training, also predict the token after next.", "text": "Multi-token prediction adds a second target during training. From the patient denies chest, the main head predicts pain, and an extra module predicts the token after next: and. This gives more training signal and can speed up generation."},
+        {"caption": "MedGemma: Gemma 3 adapted to medical text and images.", "text": "This week's paper, Med Gemma, starts from Gemma three and continues training on medical text and medical images. It comes in four billion and twenty-seven billion parameter versions, built from the pieces in these clips."}
+      ]
+    }
+  ]
+}
