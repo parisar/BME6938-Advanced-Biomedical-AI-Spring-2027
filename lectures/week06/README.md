@@ -19,4 +19,9 @@ The narration is an AI-generated voice reading a script written for the course. 
 
 ## Notebook
 
-The ungraded reference notebook for this lecture is [week06_self_supervised_learning.ipynb](../notebooks/week06_self_supervised_learning.ipynb).
+The ungraded reference notebook for this lecture is [week06_self_supervised_learning.ipynb](../notebooks/week06_self_supervised_learning.ipynb). It
+follows the three clips step by step with the same running examples: the synthetic ECG from the clip generator (10 one-second
+patches, 6 hidden) and the Kather 2016 H&E tiles (12 of 16 patches hidden). It pretrains small masked-reconstruction and
+contrastive encoders without labels, then compares them with random encoders of the same architecture under a linear probe
+(257 trainable weights) and under fine-tuning, for AF versus normal rhythm and for tumor versus normal mucosa. It runs on
+Colab or HiPerGator on CPU in about 12 minutes.
