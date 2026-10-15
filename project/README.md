@@ -52,6 +52,8 @@ Templates: [proposal](proposal_template.md), [peer review](peer_review_form.md),
 | Uncertainty under distribution shift: conformal prediction for a medical classifier | 12 | Any of the above |
 | Reproduce a key result from a course paper and add one extension | any | Dataset of the chosen paper |
 
+Each problem has a starter kit (data and access, a baseline to beat, a plan, evaluation, and pitfalls): [starter_kits.md](starter_kits.md).
+
 ## Data and computing
 
 - Datasets that require credentialed access (for example MIMIC-IV and MIMIC-CXR) need human-subjects training that can take several weeks. Start in Week 1 if you plan to use them.
