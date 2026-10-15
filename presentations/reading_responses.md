@@ -14,6 +14,8 @@ Each paper is a separate Canvas assignment. The paper you present or critique th
 | 1 (automatic) | Submitted on Canvas before 1:00 PM on Thursday. Canvas awards the point automatically on submission. |
 | 0 (automatic) | Missing or late: the survey locks at 1:00 PM, and Canvas enters 0 for missing submissions. |
 
+The lowest two reading-response scores are dropped; papers you present or critique are excused and do not count.
+
 Responses are read to seed the Thursday discussion. Responses that are off-topic or not your own work receive 0.
 
 ## What a good response includes

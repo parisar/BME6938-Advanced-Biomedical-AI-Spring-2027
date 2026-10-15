@@ -68,3 +68,7 @@ Full citations and links are in [papers/](papers/).
 ## Prerequisites
 
 BME 6938 Medical Artificial Intelligence (Fundamentals of Biomedical AI) or an equivalent machine learning or deep learning course, and proficiency in Python. The transformer architecture is reviewed in Weeks 2 and 3.
+
+## License
+
+Code (tools, notebooks, and animation source) is licensed under the [Apache License 2.0](LICENSE). Course content (text, notebook explanations, and animation clips) is licensed under [CC BY 4.0](LICENSE-CONTENT.md). Third-party material keeps its own license: the Kather H&E tiles (CC BY 4.0) and the Inter font (SIL Open Font License) are credited where used, and notebook code adapted from Sebastian Raschka's LLMs-from-scratch keeps its Apache 2.0 notice.
