@@ -19,10 +19,10 @@ class C4(Clip):
                     T("ST elevation in II, III, and aVF", 22, TH), T("points to the inferior wall.", 22, TH),
                     T("The inferior wall is usually supplied", 22, TH), T("by the right coronary artery.", 22, TH),
                     T("</think>", 22, TH, BOLD), T("Answer: B", 24, INK, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.12).move_to([0.9, 0.6, 0], aligned_edge=LEFT)
-        il = T("illustrative output", 20, GREY).next_to(th, DOWN, buff=0.25).align_to(th, LEFT)
-        self.play(FadeIn(Q, shift=RIGHT * 0.15), run_time=0.8)
+        il = T("Illustrative reasoning trace", 20, GREY, BOLD).next_to(th, DOWN, buff=0.25).align_to(th, LEFT)
+        self.play(FadeIn(Q, shift=RIGHT * 0.15), FadeIn(il), run_time=0.8)
         self.play(LaggedStart(*[FadeIn(l, shift=RIGHT * 0.1) for l in th], lag_ratio=0.25), run_time=2.2)
-        self.play(FadeIn(il), run_time=0.4)
+        self.wait(0.4)
         self.rest(2.4)
         # 2. rule-based rewards (DeepSeek-R1)
         self.cap("DeepSeek-R1 learned this with rule-based rewards that a program can check.", hold=0)
