@@ -1,0 +1,51 @@
+{
+  "week": "week07",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_clip.py",
+      "scene": "C1",
+      "output": "week07-clip1-clip",
+      "segments": [
+        {"caption": "CLIP pairs an image with its caption, instead of two views of one image.", "text": "In week six, contrastive learning matched two views of the same ECG. CLIP keeps the same idea, but matches an image with the text that describes it, such as an H and E tile and its caption."},
+        {"caption": "An image encoder and a text encoder map both into one shared embedding space.", "text": "CLIP has two encoders. A vision transformer encodes the image, and a text transformer encodes the caption. Both produce five hundred twelve numbers, scaled to length one, in the same embedding space."},
+        {"caption": "A batch of four pairs gives a 4 × 4 grid of similarities; the matching pairs lie on the diagonal.", "text": "Take a batch of four tiles and their four captions. Comparing every tile with every caption gives a four by four grid of co-sine similarities. The true pairs sit on the diagonal."},
+        {"caption": "Each row becomes a softmax: the tumor tile gives its own caption 0.82.", "text": "Each row is divided by a temperature, here zero point zero seven, and passed through a softmax. The tumor tile then gives its own caption a probability of zero point eight two."},
+        {"caption": "The loss is cross-entropy along every row and every column, averaged.", "text": "The loss is cross-entropy in both directions. Along each row, a tile must pick its caption. Down each column, a caption must pick its tile. The two are averaged, here to zero point one eight."},
+        {"caption": "CLIP trained on 400 million image–text pairs from the web, with batches of 32,768.", "text": "CLIP was trained on four hundred million image and text pairs collected from the web, in batches of thirty-two thousand, seven hundred sixty-eight pairs. The temperature starts at zero point zero seven and is learned."},
+        {"caption": "BiomedCLIP uses the same recipe on 15 million figure–caption pairs from PubMed Central.", "text": "Biomed CLIP uses the same recipe on biomedical data: fifteen million figures and their captions, taken from four point four million articles in PubMed Central."}
+      ]
+    },
+    {
+      "id": "clip2",
+      "scene_file": "animations/clip2_zero_shot.py",
+      "scene": "C2",
+      "output": "week07-clip2-zero-shot",
+      "segments": [
+        {"caption": "Zero-shot classification starts with one text prompt per class.", "text": "Once images and text share one space, we can classify without any training. We write one text prompt for each of the eight tissue classes, such as an H and E image of tumor stroma."},
+        {"caption": "The text encoder turns the prompts into class vectors: a linear classifier written in text.", "text": "The text encoder turns each prompt into a vector. Together, the eight vectors act as the weights of a linear classifier, written in text instead of learned from labels."},
+        {"caption": "A tile is compared with every class vector, and the softmax picks a class: no training needed.", "text": "A new tile goes through the image encoder, its embedding is compared with every class vector, and a softmax picks the class. Biomed CLIP gives this tumor tile zero point five seven for adenocarcinoma: correct, but not confident."},
+        {"caption": "On ImageNet, CLIP's best model reaches 76.2% zero-shot, matching a supervised ResNet-50.", "text": "On natural images this works remarkably well. CLIP's best model reaches seventy-six point two percent on ImageNet without a single ImageNet label, matching a Res Net fifty trained on one point two eight million labeled images. The same paper notes it is weak on lymph node tumor detection."},
+        {"caption": "On 5,000 H&E tiles in 8 classes, general CLIP scores 5.6 to 15.1%; chance is 12.5%.", "text": "On our five thousand H and E tiles in eight classes, general CLIP scores between five point six and fifteen point one percent, depending only on the wording of the prompt. Chance is twelve point five percent, so the worst prompt is below chance."},
+        {"caption": "BiomedCLIP, trained on biomedical figures, scores 34 to 39%: better, but far from reliable.", "text": "Biomed CLIP, trained on figures and captions from biomedical papers, does much better, at thirty-four to thirty-nine percent. That is still far from reliable, and the wording of the prompt still changes the result."},
+        {"caption": "A linear probe with only 10 labels per class reaches 64% with CLIP and 77% with BiomedCLIP.", "text": "Now train a linear probe on the same frozen embeddings, with only ten labeled tiles per class. It reaches sixty-four percent with CLIP and seventy-seven percent with Biomed CLIP. A few labels beat a clever prompt."}
+      ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_med_palm_m.py",
+      "scene": "C3",
+      "output": "week07-clip3-med-palm-m",
+      "segments": [
+        {"caption": "CLIP can match an image with a caption, but it cannot write a report.", "text": "CLIP can score how well each caption fits a chest X-ray, but it can only choose among captions we give it. A radiology report has to be written, word by word."},
+        {"caption": "A vision transformer turns the X-ray into patch vectors, and a projection resizes them to tokens.", "text": "So we feed the image into a language model. A vision transformer cuts the X-ray into patches and turns each one into a vector. A projection then resizes these vectors to the size of the model's word tokens."},
+        {"caption": "Image tokens and text tokens form one sequence for the same decoder as in Weeks 4 and 5.", "text": "The image tokens go in front of the instruction, write the findings for this X-ray, and the whole sequence enters the same decoder we saw in weeks four and five. It writes the report one token at a time."},
+        {"caption": "Training uses the same next-token loss, counted only on the report tokens.", "text": "Training uses the same next-token loss as supervised fine-tuning in week five. It is counted only on the report tokens, not on the image or the instruction."},
+        {"caption": "Med-PaLM M fine-tunes PaLM-E on 14 biomedical tasks, with one set of weights for all of them.", "text": "Med Palm M starts from Palm E, a Palm language model joined to a vision transformer, in sizes from twelve billion to five hundred sixty-two billion parameters. It is fine-tuned on fourteen tasks across seven modalities, with one set of weights for all of them."},
+        {"caption": "Clinicians preferred its chest X-ray report to the radiologist's in up to 40.5% of 246 cases.", "text": "On two hundred forty-six chest X-rays, clinicians preferred Med Palm M's report to the radiologist's in up to forty point five percent of cases. Without any training examples, it detected tuberculosis with eighty-seven point seven percent accuracy, against ninety-two point six for a specialist model."},
+        {"caption": "That is a retrospective ranking, not clinical use: in most cases, the model's report was not preferred.", "text": "But this was a side-by-side ranking of past cases, not use in the clinic, and in most cases the model's report was not the one preferred. We return to evaluation and deployment in week twelve."}
+      ]
+    }
+  ]
+}
