@@ -1,0 +1,50 @@
+{
+  "week": "week08",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_timeline_tokens.py",
+      "scene": "C1",
+      "output": "week08-clip1-timeline-tokens",
+      "segments": [
+        {"caption": "A hospital record is a timeline of events at irregular times.", "text": "A hospital record is a timeline of events at irregular times. Our synthetic patient arrives in the emergency department, has a lactate of four point one, gets norepinephrine, is diagnosed with sepsis, and moves to the ICU three and a half hours later."},
+        {"caption": "Codes become tokens: ETHOS splits each code into its parts.", "text": "Codes become tokens. Ethos splits each code into parts: the sepsis code A forty-one point nine becomes two tokens, and the drug code for norepinephrine becomes three, from the broad group down to the drug."},
+        {"caption": "Numbers become quantile tokens: each lab is cut into 10 bins computed on the training data.", "text": "Numbers become quantile tokens. The lactate values in the training data are cut into ten bins with equal counts. A lactate of four point one falls in the top bin, so it becomes lactate, then Q ten."},
+        {"caption": "Time gaps become interval tokens: ETHOS uses 13, and none for gaps under 5 minutes.", "text": "Time gaps become interval tokens. Ethos uses thirteen of them, and adds none for gaps under five minutes. Our three gaps of under an hour become fifteen minutes to one hour, and the last gap becomes one to two hours."},
+        {"caption": "Static tokens come first, and the whole record becomes one sequence of 19 tokens.", "text": "Six static tokens come first, such as sex and age in five-year bins. Then the events follow in time order, so the whole record becomes one sequence of nineteen tokens."},
+        {"caption": "A decoder learns to predict the next token, as in Weeks 3 to 5.", "text": "A decoder transformer then learns to predict the next token, exactly as in weeks three to five. Ethos was trained on two hundred forty-one thousand patients from MIMIC four, and it sees the most recent two thousand forty-eight tokens of each timeline."}
+      ]
+    },
+    {
+      "id": "clip2",
+      "scene_file": "animations/clip2_rollouts.py",
+      "scene": "C2",
+      "output": "week08-clip2-rollouts",
+      "segments": [
+        {"caption": "Will this patient die in the ICU? ETHOS answers without any task-specific training.", "text": "Now we ask a clinical question: will this patient die in the ICU? Ethos answers it with no labels, no fine-tuning, and no extra model, using only the timeline it was trained to continue."},
+        {"caption": "From the ICU transfer, the model samples one token at a time until DISCHARGE or DEATH.", "text": "Starting from the ICU transfer, the model samples the next token, adds it to the timeline, and repeats, until it writes either discharge or death. Once the context holds two thousand forty-eight tokens, the oldest one drops off."},
+        {"caption": "Repeat 20 times: here, 7 of the 20 simulated futures end in DEATH.", "text": "Because each token is sampled, every run tells a different story. Ethos simulates twenty futures for each patient. In this example, seven of the twenty end in death."},
+        {"caption": "The estimate is 7 / 20 = 0.35; with 20 rollouts, only 21 values are possible.", "text": "The estimated risk is seven out of twenty, or zero point three five. With twenty rollouts, the estimate can only take twenty-one values, from zero to one in steps of zero point zero five."},
+        {"caption": "ETHOS reports an ICU mortality AUC of 0.927, at 7.0% prevalence.", "text": "The same simulations answer other questions too, such as the length of the ICU stay, by adding up the interval tokens. Ethos reports an AUC of zero point nine two seven for ICU mortality, where seven percent of patients died, and zero point nine two one for hospital mortality."},
+        {"caption": "At low prevalence, a high AUC can still mean many false alarms.", "text": "But when few patients die, a high AUC can still mean many false alarms. In this illustration, flagging twenty of a hundred patients catches six of the seven deaths, yet fourteen of the twenty alarms are false."},
+        {"caption": "Read the results with care: other studies' numbers, one hospital, and a 2,048-token window.", "text": "Read the results with care. The baselines are numbers reported by other studies, with their own exclusion criteria. MIMIC comes from one hospital, and dense records lose early history in the window. Wornow and colleagues found that most EHR models are tested on tasks that say little about their value to a health system."}
+      ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_irregular_signals.py",
+      "scene": "C3",
+      "output": "week08-clip3-irregular-signals",
+      "segments": [
+        {"caption": "Measurements arrive at irregular times: heart rate about hourly, lactate only three times.", "text": "In the ICU, measurements arrive at irregular times. Heart rate is charted about every hour, with a long gap overnight, and lactate is drawn only three times in the whole day."},
+        {"caption": "Option 1: put the values on an hourly grid, fill the gaps, and add a mask of what was measured.", "text": "The first option is to put everything on an hourly grid. Empty hours are filled with the last measured value, and a mask of ones and zeros records which values were actually measured."},
+        {"caption": "Missing values carry information: a lactate drawn at 2 a.m. signals that someone was worried.", "text": "The mask matters, because missing values carry information. Nobody draws a lactate at two in the morning without a reason. The mask lets the model use when a test was ordered, not just its result."},
+        {"caption": "Option 2: interval tokens, as in clip 1, so the gap itself becomes part of the input.", "text": "The second option is the one from clip one: interval tokens between events. The overnight gap is no longer missing data. It becomes a token, two to six hours, that the model can read."},
+        {"caption": "Option 3: a time embedding, like the Week 2 position waves but in real hours.", "text": "The third option is a time embedding, like the sine and co-sine position waves from week two, but measured in real hours. At two and a half hours, the eight-hour wave gives zero point nine two and minus zero point three eight, and the twenty-four-hour wave gives zero point six one and zero point seven nine."},
+        {"caption": "Dense signals are cut into patches, as in Week 6: ten one-second patches of 500 samples.", "text": "Dense signals such as the ECG are cut into patches, exactly as in week six. A ten-second ECG at five hundred samples per second becomes ten one-second patches of five hundred samples each."},
+        {"caption": "Every clinical data type can become tokens; each choice decides what the model can see.", "text": "So every clinical data type can become tokens: codes, lab values, time, missing values, and signals. Each choice decides what the model can see, and what it cannot."}
+      ]
+    }
+  ]
+}
