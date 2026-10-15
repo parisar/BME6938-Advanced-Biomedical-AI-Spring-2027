@@ -10,7 +10,7 @@ Slides, animation clips, and reference notebooks are posted here each week. Note
 | 4 | Inside modern LLMs: architectures in 2026 | [4 clips](week04/) | [Week 4 notebook](notebooks/week04_modern_llms.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week04_modern_llms.ipynb) |
 | 5 | Post-training and reasoning: from pretrained model to clinical assistant | [4 clips](week05/) | [Week 5 notebook](notebooks/week05_post_training.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week05_post_training.ipynb) |
 | 6 | Self-supervised learning and imaging foundation models | [3 clips](week06/) | [Week 6 notebook](notebooks/week06_self_supervised_learning.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week06_self_supervised_learning.ipynb) |
-| 7 | Vision-language and multimodal models | | |
+| 7 | Vision-language and multimodal models | [3 clips](week07/) | [Week 7 notebook](notebooks/week07_vision_language.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week07_vision_language.ipynb) |
 | 8 | Foundation models for EHR and physiological time series | | |
 | 9 | Retrieval, tool use, and agentic systems | | |
 | 11 | Generative models and AI for science | | |
