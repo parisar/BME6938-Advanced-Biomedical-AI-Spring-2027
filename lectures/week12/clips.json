@@ -1,0 +1,20 @@
+{
+  "week": "week12",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_trial.py",
+      "scene": "C1",
+      "output": "week12-clip1-trial",
+      "segments": [
+        {"caption": "A model can score well on its own and still not change what clinicians do.", "text": "A benchmark asks whether the model can answer. A trial asks whether clinicians do better with it. These are different questions, and only the second one decides whether a tool helps patients."},
+        {"caption": "Goh et al. randomized 50 physicians into two groups of 25.", "text": "Goh and colleagues randomized fifty physicians: twenty-five to G P T four plus their usual resources, and twenty-five to usual resources alone. Both groups worked up to six vignettes in sixty minutes, graded blind on a structured reflection rubric."},
+        {"caption": "Median score per case: 76% with GPT-4, 74% without.", "text": "The median diagnostic reasoning score per case was seventy-six percent with G P T four and seventy-four percent without. The adjusted difference was two percentage points, with a ninety-five percent interval from minus four to eight and a P value of zero point six zero. The interval includes zero."},
+        {"caption": "Nor was it faster: 519 seconds per case against 565.", "text": "Nor was it faster. Physicians with the model took five hundred nineteen seconds per case against five hundred sixty-five, a difference of minus eighty-two seconds, with a ninety-five percent interval from minus one hundred ninety-five to thirty-one. That interval includes zero too."},
+        {"caption": "GPT-4 alone scored 92%, 16 points above the control group.", "text": "In an exploratory arm of three runs, the model alone scored a median of ninety-two percent, sixteen points above the control group. But the physicians who had that same model scored seventy-six. The gap is about how people use the tool, not about the tool."},
+        {"caption": "Each rung of the evaluation ladder answers a question the one below cannot.", "text": "Benchmark, retrospective study, reader study, prospective trial, then deployment with monitoring. Each rung answers a question the one below it cannot. This trial is the fourth rung, and most published results stop at the first."}
+      ]
+    }
+  ]
+}
