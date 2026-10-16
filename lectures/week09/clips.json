@@ -33,6 +33,20 @@
         {"caption": "HotpotQA: ReAct alone trailed chain of thought; combining the two did best.", "text": "On HotpotQA, multi-hop questions answered from Wikipedia, ReAct alone scored twenty-seven point four, below chain of thought at twenty-nine point four. Falling back to chain of thought with self-consistency when ReAct got stuck did best, at thirty-five point one."},
         {"caption": "Grounding removed hallucinations, but ReAct failed through reasoning errors instead.", "text": "The authors labelled fifty failed runs of each method by hand. Hallucination caused fifty-six percent of chain-of-thought failures and none of ReAct's. But forty-seven percent of ReAct's failures were reasoning errors, such as repeating the same step."}
       ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_compounding.py",
+      "scene": "C3",
+      "output": "week09-clip3-compounding",
+      "segments": [
+        {"caption": "Every step of an agent can fail.", "text": "Every step of an agent is a chance to fail. It can pick the wrong tool, pass the wrong patient number, misread a result, or repeat the same call again and again. In ReAct, most failures were reasoning errors like these."},
+        {"caption": "If each step succeeds with probability 0.95, n steps succeed with 0.95ⁿ.", "text": "Suppose each step succeeds ninety-five percent of the time, and steps fail independently. Then a task of n steps succeeds with zero point nine five to the power n: zero point seven seven for five steps, zero point six for ten, and only zero point three six for twenty."},
+        {"caption": "At 0.99 per step: 0.90 for 10 steps and 0.82 for 20.", "text": "Raise each step to ninety-nine percent, and ten steps succeed ninety percent of the time, twenty steps eighty-two percent. A small gain per step makes a large difference for long tasks."},
+        {"caption": "Check results, and give the agent read-only tools.", "text": "Mitigations start with the tools. The agent checks its own results, for example by re-reading the lab table, and a mismatch stops the task. It gets only read-only tools, such as get labs and get meds, never one that places orders or sends messages."},
+        {"caption": "Any action that changes care waits for a clinician's approval.", "text": "Any action that changes care, such as an order or a message to a patient, stops at a checkpoint. The agent proposes it, here a repeat potassium and an ECG, and a clinician approves or rejects it before anything happens."},
+        {"caption": "Retrieval grounds answers, tools let the model act, and every step can fail.", "text": "To sum up: retrieval grounds answers in sources, tools let the model act on real data through text it writes, and every added step is another chance to fail. So check results, limit the tools, and ask a clinician."}
+      ]
     }
   ]
 }
