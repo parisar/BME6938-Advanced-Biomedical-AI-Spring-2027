@@ -138,7 +138,7 @@ class C2(Clip):
         self.play(FadeIn(nt5[0]), LaggedStart(*[FadeIn(p, shift=RIGHT * 0.1) for p in nt5[1]], lag_ratio=0.25), run_time=1.5)
         self.rest(2.6)
         # 6. what pairing buys
-        self.cap("Pairing matters: ignoring it makes the interval nearly twice as wide.", hold=0)
+        self.cap("Pairing matters: ignoring it makes the interval two thirds wider.", hold=0)
         self.play(FadeOut(VGroup(n5, l5, nt5)), run_time=0.6)
         tk6 = (-0.08, -0.04, 0.0, 0.04, 0.08, 0.12)
         p6 = ci(CI_D[0], CI_D[1], 0.03, -0.09, 0.13, 1.5, tk6, AMB, cx=0.6, span=9.6)
