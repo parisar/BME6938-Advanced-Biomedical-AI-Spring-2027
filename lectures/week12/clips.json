@@ -29,6 +29,20 @@
         {"caption": "The paired difference is 0.03, with an interval that includes 0.", "text": "Bootstrapping the difference on the same resampled patients gives zero point zero three, with a ninety-five percent interval from minus zero point zero one five to zero point zero seven five. It includes zero, so these data do not show that A is better. They do not show the models are equal either."},
         {"caption": "Pairing matters: ignoring it makes the interval nearly twice as wide.", "text": "Pairing matters. On the same data, ignoring it widens the interval to minus zero point zero four five to zero point one zero five, nearly twice as wide. Report intervals rather than point estimates, and compare models on the same patients."}
       ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_shortcuts.py",
+      "scene": "C3",
+      "output": "week12-clip3-shortcuts",
+      "segments": [
+        {"caption": "A model can reach a high score by reading the wrong thing.", "text": "A model can reach a high score by reading the wrong thing. The score tells you the label came out right. It does not tell you which part of the image produced it."},
+        {"caption": "DeGrave et al. built two datasets, and the second was the favorable case.", "text": "De Grave and colleagues built two datasets. The first takes positives from GitHub COVID and negatives from Chest X ray fourteen, so source and label line up almost exactly. The second, from B I M C V and Pad Chest, is one region and one research team: the favorable case."},
+        {"caption": "Saliency maps and counterfactuals found it reading the margins, not the lungs.", "text": "Saliency maps and generative counterfactuals showed what the models used: laterality markers, arrows and text found only in one archive, the radiopacity of the image borders, and patient positioning. Moving the clavicle region to the top border raised the predicted odds of COVID nineteen."},
+        {"caption": "On radiographs from a new hospital system, half the performance was gone.", "text": "On radiographs from a new hospital system, half of the predictive performance was lost. The authors concluded that only a minority of it was ever genuine COVID nineteen pathology. The rest was the source, not the disease."},
+        {"caption": "Some shortcuts transfer, so passing external validation proves less than it seems.", "text": "Here is the part that catches people out. Some shortcuts do not transfer, so the score falls and you see it. Others, like patient positioning, are consistent in both datasets: the score holds up and the model is still not reading the lungs. External validation is necessary, not sufficient."},
+        {"caption": "One more way an average lies: it hides the group it works worst on.", "text": "An average hides the group a model works worst on. Sensitivity of zero point eight five overall can be zero point nine zero in eighty percent of patients and zero point six five in the other twenty. Report subgroups with intervals, validate externally, look at what the model uses, and test whether the site can be predicted from its features."}
+      ]
     }
   ]
 }

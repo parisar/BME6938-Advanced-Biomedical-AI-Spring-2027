@@ -8,7 +8,8 @@ def W(s, size=24, color=INK, weight=NORMAL, w=13.0):
     return t
 def card(title, lines, color, w, at, size=22):
     body = VGroup(T(title, 26, color, BOLD), *[T(s, size, INK) for s in lines]).arrange(DOWN, aligned_edge=LEFT, buff=0.24)
-    r = RoundedRectangle(corner_radius=0.12, width=max(w, body.width + 0.8), height=body.height + 0.65,
+    if body.width > w - 0.8: body.scale_to_fit_width(w - 0.8)      # never let a card grow past the width asked for
+    r = RoundedRectangle(corner_radius=0.12, width=w, height=body.height + 0.65,
                          stroke_color=color, stroke_width=2, fill_color=FILLS[color], fill_opacity=1)
     return VGroup(r, body.move_to(r)).move_to(at)
 def vbar(x, v, vmax, base, h, color, label, iqr=None, suffix="%", bw=1.1):
