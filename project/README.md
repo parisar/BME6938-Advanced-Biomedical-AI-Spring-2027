@@ -41,13 +41,13 @@ Templates: [proposal](proposal_template.md), [peer review](peer_review_form.md),
 |---|---|---|
 | Long clinical notes with a small open LLM: sliding-window or compressed attention versus retrieval for discharge-summary question answering | 4 | MIMIC-IV-Note (credentialed), MedQA |
 | Reasoning versus non-reasoning modes on medical question answering: accuracy, token cost, and calibration; LoRA fine-tuning versus prompting | 5 | MedQA, PubMedQA |
-| Label efficiency of imaging foundation models: linear probe versus LoRA fine-tuning as labeled data shrinks | 6 | MedMNIST, TCGA |
+| Label efficiency of imaging foundation models: linear probe versus LoRA fine-tuning as labeled data shrinks | 6 | MedMNIST, Kather H&E tiles (NCT-CRC-HE-100K) |
 | Self-supervised pretraining for ECG: masked modeling versus contrastive objectives | 6 | PTB-XL |
 | Zero-shot versus fine-tuned vision-language models for chest X-ray findings, with a subgroup performance audit | 7 | CheXpert, MIMIC-CXR (credentialed) |
 | Tokenized-timeline EHR transformer versus gradient-boosted baseline for ICU outcome prediction; calibration under temporal shift | 8 | MIMIC-IV, eICU (credentialed) |
 | Does multimodal fusion help when a modality is missing? Late versus intermediate fusion of notes, vitals, or images | 7 | MIMIC-IV with MIMIC-CXR (credentialed) |
 | Retrieval augmentation for clinical question answering: accuracy and faithfulness of cited evidence | 9 | MedQA, PubMedQA |
-| Tool-using LLM agent for a structured clinical task; taxonomy of failure modes | 9 | Public benchmarks or synthetic cases |
+| Tool-using LLM agent for a structured clinical task; taxonomy of failure modes | 9 | Synthea synthetic patients, MIMIC-IV Clinical Database Demo |
 | Shortcut audit of a medical imaging classifier: can site or scanner be decoded from embeddings, and does it hurt external validity? | 12 | CheXpert, MedMNIST |
 | Uncertainty under distribution shift: conformal prediction for a medical classifier | 12 | Any of the above |
 | Reproduce a key result from a course paper and add one extension | any | Dataset of the chosen paper |

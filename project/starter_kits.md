@@ -9,7 +9,7 @@ point: a good proposal narrows the question, names a hypothesis, and says what r
 - **Open data** (download now): MedMNIST, the Kather colorectal H&E datasets, PTB-XL, MedQA, PubMedQA, the MIMIC-IV
   Clinical Database Demo (100 patients), and Synthea synthetic patients.
 - **Credentialed or registration data** (start in Week 1): MIMIC-IV, MIMIC-IV-Note, MIMIC-CXR, and eICU on PhysioNet
-  need CITI human-subjects training plus a PhysioNet credentialing request, which can take one to two weeks. CheXpert
+  need CITI human-subjects training plus a PhysioNet credentialing request, which together can take several weeks. CheXpert
   needs a free registration with Stanford.
 - **Rules for credentialed data:** work on HiPerGator, never on Colab or a personal laptop you share; never paste or
   upload records to online AI services (ChatGPT, Claude, Gemini, or any hosted API); never commit data to GitHub.
