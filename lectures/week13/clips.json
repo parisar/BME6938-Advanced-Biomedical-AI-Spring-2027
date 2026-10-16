@@ -29,6 +29,20 @@
         {"caption": "So watch it: a control chart turns drift into something you can see.", "text": "So watch it. Plot the monthly A U C against limits set from a period you agree was stable. Here it drifts below the lower limit and stays there for three months, which is a signal rather than a bad month."},
         {"caption": "Write the monitoring plan before go-live, not after the first surprise.", "text": "Write the plan before go-live. Track inputs, outputs and outcomes. Set the limits in advance. Name the person who is paged when one is crossed, and decide now whether the answer is to retrain, retune, or switch it off."}
       ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_teaming.py",
+      "scene": "C3",
+      "output": "week13-clip3-teaming",
+      "segments": [
+        {"caption": "Put a clinician and a model together and there are two obvious rules.", "text": "Put a clinician and a model together and there are two obvious rules: flag if either flags, or flag only if both do. Say the clinician catches eighty percent of cases and the model seventy-five. Which rule is better depends on something nobody measures."},
+        {"caption": "Assume their errors are independent, and either-flags reaches 0.95.", "text": "Assume their errors are independent. Of a hundred real cases, both catch sixty, the clinician alone twenty, the model alone fifteen, and five are missed by both. Either-flags reaches zero point nine five, and both-flags falls to zero point six zero."},
+        {"caption": "Assume the clinician's misses are a subset of the model's, and both numbers flip.", "text": "Now assume the model misses whatever the clinician misses. Both catch seventy-five, the clinician alone five, and twenty are missed by both. Either-flags falls to zero point eight zero, which is the clinician alone, so the model adds nothing. Both-flags rises to zero point seven five. The same two sensitivities, opposite conclusions."},
+        {"caption": "And people are not rules: the combination has to be measured.", "text": "And people are not rules. A confident score can talk a clinician out of a correct judgement, and at one true case in every eight alerts the rational response is to stop reading them. Goh and colleagues measured exactly this: the model alone scored ninety-two percent, and the physicians using it scored seventy-six, against seventy-four without."},
+        {"caption": "Ambient intelligence watches the room instead of waiting to be told.", "text": "Ambient intelligence watches the room instead of waiting for someone to type. Sixteen depth sensors detected hand hygiene at ninety-two point one percent sensitivity, better than the human observers at eighty-five point two. But that came from only eighty-eight events, so read the interval. In an I C U, seven sensors detected mobility at eighty-seven percent, and counted the staff involved correctly only sixty-nine percent of the time."},
+        {"caption": "Sensing a care space is a governance question before it is a technical one.", "text": "Sensing a care space is a governance question first. Depth sensing keeps identifiable images out of the room, which helps, but it does not settle who consents, who sees the data, or how long it is kept, and the staff are being observed too. Validate locally, watch it after go-live, and measure the team rather than the model."}
+      ]
     }
   ]
 }
