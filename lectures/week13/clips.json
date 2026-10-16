@@ -15,6 +15,20 @@
         {"caption": "The question is not what the model scored, but what the alert added.", "text": "Now ask what the alert added. Of the two thousand five hundred fifty-two sepsis cases, eight hundred forty-three were flagged, and of those only one hundred eighty-three had not already received timely antibiotics. Of the one thousand seven hundred nine that were missed, one thousand and thirty were treated in time anyway."},
         {"caption": "Validate locally, and measure what the alert adds to current practice.", "text": "Two lessons. Validate locally before deployment, because a vendor's A U C came from a vendor's population, not yours. And measure the increment over current practice, not the model on its own. A model is worth deploying only if it changes what happens to a patient."}
       ]
+    },
+    {
+      "id": "clip2",
+      "scene_file": "animations/clip2_thresholds.py",
+      "scene": "C2",
+      "output": "week13-clip2-thresholds",
+      "segments": [
+        {"caption": "Once the model is fixed, the threshold is the decision you still make.", "text": "Once the model is trained, one decision is left: where to put the threshold. These two curves are drawn to the same height, but sepsis is only seven percent of patients, so the red one is really much smaller. Moving the line trades missed cases against false alarms."},
+        {"caption": "At 7% prevalence, three thresholds give very different alert loads.", "text": "At seven percent prevalence, sensitivity of eighty percent with a positive predictive value of ten percent means fifty-six alerts for every hundred admissions. Fifty percent with twenty percent means seventeen and a half. Twenty-five percent with thirty-five percent means five."},
+        {"caption": "The honest unit is patients reviewed per true case.", "text": "The honest unit is how many patients a clinician reviews for each real case: ten, five, and about three at those three points. The real sepsis model sat at eight, and it alerted on eighteen percent of all hospitalizations."},
+        {"caption": "And none of it holds still: the inputs change underneath you.", "text": "None of this holds still. A lab changes an assay, a diagnosis moves to a new code, a unit reopens and the case mix shifts. None of these generates a ticket. The model keeps producing scores that look plausible while the performance moves."},
+        {"caption": "So watch it: a control chart turns drift into something you can see.", "text": "So watch it. Plot the monthly A U C against limits set from a period you agree was stable. Here it drifts below the lower limit and stays there for three months, which is a signal rather than a bad month."},
+        {"caption": "Write the monitoring plan before go-live, not after the first surprise.", "text": "Write the plan before go-live. Track inputs, outputs and outcomes. Set the limits in advance. Name the person who is paged when one is crossed, and decide now whether the answer is to retrain, retune, or switch it off."}
+      ]
     }
   ]
 }
