@@ -13,7 +13,7 @@ Slides, animation clips, and reference notebooks are posted here each week. Note
 | 7 | Vision-language and multimodal models | [3 clips](week07/) | [Week 7 notebook](notebooks/week07_vision_language.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week07_vision_language.ipynb) |
 | 8 | Foundation models for EHR and physiological time series | [3 clips](week08/) | [Week 8 notebook](notebooks/week08_ehr_time_series.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week08_ehr_time_series.ipynb) |
 | 9 | Retrieval, tool use, and agentic systems | [3 clips](week09/) | [Week 9 notebook](notebooks/week09_retrieval_agents.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week09_retrieval_agents.ipynb) |
-| 11 | Generative models and AI for science | | |
+| 11 | Generative models and AI for science | [3 clips](week11/) | [Week 11 notebook](notebooks/week11_diffusion.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week11_diffusion.ipynb) |
 | 12 | Evaluation, robustness, and fairness | | |
 | 13 | Deployment, human-AI teaming, and ambient intelligence | | |
 
