@@ -1,0 +1,20 @@
+{
+  "week": "week13",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_external.py",
+      "scene": "C1",
+      "output": "week13-clip1-external",
+      "segments": [
+        {"caption": "A sepsis model running in hundreds of hospitals, scored every 15 minutes.", "text": "The Epic Sepsis Model ships with a widely used health record and runs at hundreds of US hospitals. It scores every adult inpatient every fifteen minutes and alerts when that score crosses a threshold. Its vendor reported an A U C between zero point seven six and zero point eight three."},
+        {"caption": "Wong et al. validated it on 38,455 hospitalizations at one health system.", "text": "Wong and colleagues validated it at Michigan Medicine: twenty-seven thousand six hundred ninety-seven patients and thirty-eight thousand four hundred fifty-five hospitalizations, of which two thousand five hundred fifty-two, or seven percent, had sepsis."},
+        {"caption": "The AUC was 0.63, well below the 0.76 to 0.83 the vendor reported.", "text": "The A U C was zero point six three, with a ninety-five percent interval from zero point six two to zero point six four. The authors also report per-horizon A U Cs of zero point seven two to zero point seven six, then explain why those are misleading: the predictions are not independent of each other."},
+        {"caption": "At the recommended threshold it missed two thirds of sepsis and alerted on 18%.", "text": "At the vendor's threshold of six, sensitivity was thirty-three percent, so two thirds of sepsis cases were never flagged. The positive predictive value was twelve percent. Alerts fired on eighteen percent of all hospitalizations: eight patients to evaluate for every sepsis case."},
+        {"caption": "The question is not what the model scored, but what the alert added.", "text": "Now ask what the alert added. Of the two thousand five hundred fifty-two sepsis cases, eight hundred forty-three were flagged, and of those only one hundred eighty-three had not already received timely antibiotics. Of the one thousand seven hundred nine that were missed, one thousand and thirty were treated in time anyway."},
+        {"caption": "Validate locally, and measure what the alert adds to current practice.", "text": "Two lessons. Validate locally before deployment, because a vendor's A U C came from a vendor's population, not yours. And measure the increment over current practice, not the model on its own. A model is worth deploying only if it changes what happens to a patient."}
+      ]
+    }
+  ]
+}
