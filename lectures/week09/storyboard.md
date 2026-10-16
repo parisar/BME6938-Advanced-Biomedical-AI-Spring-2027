@@ -13,13 +13,15 @@ Show the storyboard you derive from this before building, as for Weeks 7 and 8. 
    (Almanac used 1,536-number embeddings in an approximate nearest-neighbor index).
 3. Embed the question and compare it with every chunk by cosine similarity. Top 3 scores: 0.86, 0.79, 0.62
    (illustrative).
-4. Almanac abstains when the best match is below a threshold (lambda = 0.83). Here only the first chunk passes.
-   Show a second question whose best score is 0.71: the system answers "not found in the sources".
+4. Almanac passes only chunks above a threshold (lambda = 0.83). Here only the first chunk passes.
+   Show a second question whose best score is 0.71: the published Almanac falls back on the model's own knowledge
+   (the preprint abstained, answering "not found in the sources").
 5. The passing chunk is inserted into the prompt with its source; the model answers "within 1 hour" (from the
    synthetic protocol) and cites it.
-6. Almanac results: factuality 18 points higher than ChatGPT averaged over specialties; adversarial prompts 95%
-   versus 0%, largely by abstaining; yet physicians preferred ChatGPT's answers 57% of the time. Caution: abstention
-   inflates the adversarial score, and the benchmark has 130 questions written by the authors' group.
+6. Almanac results (published NEJM AI version): on 314 questions across 9 specialties, ranked first of four systems
+   (ChatGPT-4, Bing, Bard) for factuality, completeness, and preference; adversarial prompts 100% versus 7% for
+   ChatGPT-4, mostly by declining to answer. Caution: the questions and grading came from the study's own clinicians,
+   and only 25 questions are public. (The preprint's numbers differ; see the Week 9 README.)
 
 ## Clip 2: Reason, act, observe (ReAct) and tool calls
 
@@ -30,10 +32,12 @@ Show the storyboard you derive from this before building, as for Weeks 7 and 8. 
 3. Observation from the tool: 4.6, 5.1, 5.6 mmol/L (synthetic).
 4. Thought: "Rising; 5.6 is above the usual upper limit of about 5.0." Action: finish with the answer and the values.
 5. A tool call is just text the model writes in an agreed format; the program runs the tool and appends the result
-   to the context. This is the Week 5 decoder, post-trained to write tool calls.
-6. ReAct results: ALFWorld 57% average success versus 45% for acting without reasoning (best of 6); on HotpotQA,
-   ReAct alone scored 27.4 exact match, below chain of thought with self-consistency (33.4); the hybrid won.
-   Hallucination caused 56% of chain-of-thought failures and 0% of ReAct failures.
+   to the context. ReAct learned the format from a few examples in the prompt; today's models are post-trained to
+   write tool calls (Week 5).
+6. ReAct results: on ALFWorld, best of 6 prompts, 71% success versus 45% for acting without reasoning, and even
+   the worst ReAct prompt (48%) beat the best acting-only one; on HotpotQA, ReAct alone scored 27.4 exact match, below
+   chain of thought (29.4) and chain of thought with self-consistency (33.4); the hybrid scored 35.1. Hallucination
+   caused 56% of chain-of-thought failures and 0% of ReAct failures; 47% of ReAct failures were reasoning errors.
 
 ## Clip 3: Errors compound over steps
 
