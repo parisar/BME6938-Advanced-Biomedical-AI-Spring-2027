@@ -17,6 +17,22 @@
         {"caption": "Almanac ranked first of four systems on 314 clinical questions.", "text": "Clinicians compared Almanac with Chat G P T four, Bing, and Bard on three hundred fourteen clinical questions. Almanac ranked first for factuality, completeness, and preference, and its citations were correct ninety-one percent of the time."},
         {"caption": "Read with care: the adversarial wins come mostly from declining to answer.", "text": "Read these results with care. Against adversarial prompts, Almanac scored one hundred percent and Chat G P T four seven percent, mostly because Almanac declined to answer. The questions and the grading came from the study's own clinicians, and only twenty-five questions are public."}
       ]
+    },
+    {
+      "id": "clip2",
+      "scene_file": "animations/clip2_react.py",
+      "scene": "C2",
+      "output": "week09-clip2-react",
+      "segments": [
+        {"caption": "An agent repeats a cycle: thought, action, observation.", "text": "An agent works in a loop of thought, action, and observation. Our task, for the synthetic patient P zero zero one: is the potassium rising, and is it abnormal?"},
+        {"caption": "Thought, then action: the model writes the tool call as JSON.", "text": "First the model writes a thought: I need the last three potassium results. Then it writes an action, a tool call in JSON, naming the tool, get labs, and its arguments: the patient, the test, and how many results."},
+        {"caption": "Observation: the program runs the tool and adds the result to the context.", "text": "The program, not the model, runs the tool against the record and appends the result to the context: four point six, five point one, and five point six millimoles per liter."},
+        {"caption": "Thought: rising, and 5.6 is above the usual upper limit of about 5.0.", "text": "The model reads the observation and writes a new thought: the potassium is rising, and five point six is above the usual upper limit of about five point zero. Its last action is finish, with the answer and the values."},
+        {"caption": "A tool call is just text in an agreed format; ReAct learned it from a few examples.", "text": "A tool call is just text that the model writes in an agreed format. ReAct got this behavior from a few worked examples in the prompt, with no training at all. Today's models are post-trained to write tool calls, as in week five."},
+        {"caption": "ALFWorld: ReAct succeeded 71% of the time, versus 45% for acting without thoughts.", "text": "On ALFWorld, a text-based benchmark of household tasks, the best of six ReAct prompts succeeded seventy-one percent of the time, versus forty-five for acting without thoughts. Even the worst ReAct prompt beat the best acting-only one."},
+        {"caption": "HotpotQA: ReAct alone trailed chain of thought; combining the two did best.", "text": "On HotpotQA, multi-hop questions answered from Wikipedia, ReAct alone scored twenty-seven point four, below chain of thought at twenty-nine point four. Falling back to chain of thought with self-consistency when ReAct got stuck did best, at thirty-five point one."},
+        {"caption": "Grounding removed hallucinations, but ReAct failed through reasoning errors instead.", "text": "The authors labelled fifty failed runs of each method by hand. Hallucination caused fifty-six percent of chain-of-thought failures and none of ReAct's. But forty-seven percent of ReAct's failures were reasoning errors, such as repeating the same step."}
+      ]
     }
   ]
 }
