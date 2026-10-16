@@ -69,6 +69,38 @@
           "text": "Alpha Fold three uses a diffusion module as well, but it predicts raw atom coordinates directly, with no amino acid frames and no torsion angles. Dropping that protein-specific machinery is what lets one model cover proteins, nucleic acids, ligands, and ions."
         }
       ]
+    },
+    {
+      "id": "clip3",
+      "scene_file": "animations/clip3_conditioning.py",
+      "scene": "C3",
+      "output": "week11-clip3-conditioning",
+      "segments": [
+        {
+          "caption": "Unconditional sampling makes some protein, not the one you need.",
+          "text": "Unconditional sampling gives you a valid structure, but not the one you need. A real design project asks for something specific: hold this functional motif in place, or bind this target protein."
+        },
+        {
+          "caption": "Conditioning pins part of the structure and lets the rest form around it.",
+          "text": "Conditioning is the direct answer. Give the denoiser the motif's coordinates and hold them fixed at every step. The motif never moves, and the scaffold is sampled, so one motif gives you many different scaffolds."
+        },
+        {
+          "caption": "Guidance is a different lever, from image diffusion, not used by RFdiffusion.",
+          "text": "Guidance is a different lever, borrowed from image diffusion. Mix the conditional and unconditional predictions: zero point two, plus three times zero point five minus zero point two, gives one point one. A larger w follows the condition harder and cuts diversity. R F diffusion does not do this; it conditions the denoiser directly."
+        },
+        {
+          "caption": "On 25 motif-scaffolding benchmarks, RFdiffusion solved 23.",
+          "text": "On twenty-five motif-scaffolding benchmarks, R F diffusion solved twenty-three, against nineteen for R F joint inpainting and fifteen for hallucination, using one set of settings for every problem. Note that this success is scored in silico."
+        },
+        {
+          "caption": "Binders against five targets: 19% worked in the lab.",
+          "text": "Designed binders were tested against five targets, among them influenza hemagglutinin and P D L one. Nineteen percent worked experimentally, from fewer than a hundred designs per target. The best flu binder reached twenty-eight nanomolar, and a cryo E M map matched the design to zero point six three angstroms."
+        },
+        {
+          "caption": "The in silico judge can share the designer's blind spots.",
+          "text": "Read the in silico numbers with care. The designs are scored by Alpha Fold family predictors trained on the same structures, so the designer and the judge can agree and both be wrong. The nineteen percent is the number that counts, because it came from a wet lab."
+        }
+      ]
     }
   ]
 }
