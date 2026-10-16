@@ -5,6 +5,8 @@
 | Tue Apr 6 | Deployment, human-AI teaming, and ambient intelligence, with three animation clips |
 | Thu Apr 8 | Paper sessions: [Wong et al., External Validation of a Widely Implemented Proprietary Sepsis Prediction Model in Hospitalized Patients](https://doi.org/10.1001/jamainternmed.2021.2626) and [Haque et al., Illuminating the dark spaces of healthcare with ambient intelligence](https://doi.org/10.1038/s41586-020-2669-y) |
 
+Slides: [13-1 slides (PDF)](slides/13-1-deployment-and-human-ai-teaming.pdf)
+
 ## Animation clips
 
 The Wong numbers in clip 1 and the two sensing studies in clip 3 were checked against the papers. The three operating

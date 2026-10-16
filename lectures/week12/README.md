@@ -5,6 +5,8 @@
 | Tue Mar 30 | Evaluation, robustness, and fairness, with three animation clips |
 | Thu Apr 1 | Paper sessions: [Goh et al., Large Language Model Influence on Diagnostic Reasoning: A Randomized Clinical Trial](https://doi.org/10.1001/jamanetworkopen.2024.40969) and [DeGrave et al., AI for radiographic COVID-19 detection selects shortcuts over signal](https://doi.org/10.1038/s42256-021-00338-7) |
 
+Slides: [12-1 slides (PDF)](slides/12-1-evaluation-robustness-and-fairness.pdf)
+
 ## Animation clips
 
 The Goh and DeGrave numbers were checked against the papers. The 200-patient test set in clip 2, the subgroup split in
