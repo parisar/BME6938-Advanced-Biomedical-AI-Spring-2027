@@ -1,0 +1,20 @@
+{
+  "week": "week11",
+  "note": "One entry per clip. 'segments' is the narration: one line per on-screen caption, in the order the captions appear in the scene.",
+  "clips": [
+    {
+      "id": "clip1",
+      "scene_file": "animations/clip1_forward.py",
+      "scene": "C1",
+      "output": "week11-clip1-forward",
+      "segments": [
+        {"caption": "Diffusion models learn to generate by learning to undo noise.", "text": "Diffusion models learn to generate by learning to undo noise. We start from a real backbone, x zero, drawn here as sixteen C alpha points in a short helix. Training runs in two directions."},
+        {"caption": "One forward step adds a little Gaussian noise to every point.", "text": "The forward direction adds a little Gaussian noise at every step. Each point drifts by a random amount, and after the first few steps the helix is still obvious."},
+        {"caption": "After t steps the result is one weighted mix of structure and noise.", "text": "You never have to take the steps one at a time. After t steps, x t is a single weighted mix: the square root of the signal weight times x zero, plus the square root of one minus that weight, times one Gaussian draw."},
+        {"caption": "The schedule sets those weights: at t = 500 the structure is nearly gone.", "text": "The schedule fixes those weights. With beta rising from zero point zero zero zero one to zero point zero two over a thousand steps, the signal weight is zero point nine five at step one hundred, zero point seven two at two hundred fifty, and zero point two eight at five hundred."},
+        {"caption": "By the last step nothing of the original structure is left.", "text": "By step nine hundred ninety-nine the signal weight is zero point zero zero six: a Gaussian cloud. Every protein ends in the same place, which is exactly why sampling can start from noise alone."},
+        {"caption": "Noising needs no learning, so training pairs are free.", "text": "Noising needs no learning at all, just a random number generator. The network only ever learns the way back. One real structure gives a thousand training examples, one for every step."}
+      ]
+    }
+  ]
+}
