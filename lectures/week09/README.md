@@ -5,6 +5,8 @@
 | Tue Mar 9 | Retrieval, tool use, and agentic systems, with three animation clips |
 | Thu Mar 11 | Paper sessions: [Yao et al., ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) and [Zakka et al., Almanac: Retrieval-Augmented Language Models for Clinical Medicine](https://doi.org/10.1056/AIoa2300068) |
 
+Slides: [9-1 slides (PDF)](slides/9-1-retrieval-tool-use-and-agentic-systems.pdf)
+
 ## Animation clips
 
 The running example is a synthetic hospital (no real patient data): a sepsis protocol whose section 2 says to start antibiotics within 1 hour, and patient P-001, whose potassium is 4.6, 5.1, then 5.6 mmol/L. The Almanac numbers in clip 1 are from the published article (NEJM AI 2024) and the ReAct numbers in clip 2 from the ICLR 2023 paper; all were checked against the papers. The similarity scores in clip 1 and the per-step success rates in clip 3 are illustrative. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).

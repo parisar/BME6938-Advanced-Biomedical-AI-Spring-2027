@@ -5,6 +5,8 @@
 | Tue Feb 23 | Project pitches (2 minutes each) and a short lecture on vision-language models with three animation clips |
 | Thu Feb 25 | Paper sessions: [Radford et al., CLIP](https://proceedings.mlr.press/v139/radford21a.html) and [Tu et al., Med-PaLM M](https://doi.org/10.1056/AIoa2300138) |
 
+Slides: [7-1 slides (PDF)](slides/7-1-vision-language-and-multimodal-models.pdf)
+
 ## Animation clips
 
 The running example continues Week 6: H&E tiles of colorectal tissue from an open dataset ([Kather et al. 2016](https://doi.org/10.5281/zenodo.53169), CC BY 4.0). Clip 3 uses a stylized chest X-ray drawn in code, not a patient image. The zero-shot and linear-probe accuracies and the tumor tile's class probabilities in clip 2 are real outputs of CLIP ViT-B/32 and BiomedCLIP on all 5,000 Kather tiles, reproduced in the notebook. The similarity grid in clip 1 and the scores and report text in clip 3 are illustrative. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).

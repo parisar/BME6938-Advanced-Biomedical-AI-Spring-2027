@@ -5,6 +5,8 @@
 | Tue Feb 16 | Self-supervised representation learning, with three animation clips |
 | Thu Feb 18 | Paper sessions: [He et al., Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/abs/2111.06377) and [Chen et al., Towards a general-purpose foundation model for computational pathology (UNI)](https://doi.org/10.1038/s41591-024-02857-3) |
 
+Slides: [6-1 slides (PDF)](slides/6-1-self-supervised-learning-and-imaging-foundation-models.pdf)
+
 ## Animation clips
 
 The running examples are a single-lead ECG and H&E pathology tiles. The ECG is synthetic, generated in code. The tiles are real colorectal tissue from an open dataset ([Kather et al. 2016](https://doi.org/10.5281/zenodo.53169), CC BY 4.0). Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).

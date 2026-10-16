@@ -5,6 +5,8 @@
 | Tue Mar 2 | Foundation models for EHR and physiological time series, with three animation clips |
 | Thu Mar 4 | Paper sessions: [Wornow et al., The shaky foundations of large language models and foundation models for electronic health records](https://doi.org/10.1038/s41746-023-00879-8) and [Renc et al., Zero shot health trajectory prediction using transformer (ETHOS)](https://doi.org/10.1038/s41746-024-01235-0) |
 
+Slides: [8-1 slides (PDF)](slides/8-1-foundation-models-for-ehr-and-time-series.pdf)
+
 ## Animation clips
 
 The running example is one synthetic ICU patient (no real patient data): ED admission at 0 h, lactate 4.1 mmol/L at 0.6 h, norepinephrine at 1.5 h, sepsis (A41.9) at 2.2 h, and ICU transfer at 3.5 h. The tokenization rules and the results in clips 1 and 2 follow ETHOS and were checked against both the arXiv preprint and the published article. The 20 rollouts, the false-alarm example, the quantile cutoffs, and the ICU-day values in clip 3 are illustrative. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).

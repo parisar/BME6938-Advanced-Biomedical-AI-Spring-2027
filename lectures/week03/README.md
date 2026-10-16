@@ -5,6 +5,8 @@
 | Tue Jan 26 | Transformer review, Part 2, with three animation clips |
 | Thu Jan 28 | Paper sessions: [Luo et al., BioGPT: generative pre-trained transformer for biomedical text generation and mining](https://doi.org/10.1093/bib/bbac409) and [Dosovitskiy et al., An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT)](https://arxiv.org/abs/2010.11929) |
 
+Slides: [3-1 slides (PDF)](slides/3-1-transformer-review-part-2.pdf)
+
 ## Animation clips
 
 The running examples are the clinical phrase "The patient denies chest pain" and a real H&E tile of colorectal cancer from an open dataset ([Kather et al. 2016](https://doi.org/10.5281/zenodo.53169), CC BY 4.0). The numbers match the slides. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).

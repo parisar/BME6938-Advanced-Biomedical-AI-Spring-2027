@@ -10,13 +10,15 @@ The weekly plan is in `README.md`.
 |---|---|
 | `README.md` | Course overview and dated schedule |
 | `syllabus/`, `papers/`, `presentations/`, `project/` | Syllabus PDF, reading list, rubrics, project guidelines |
-| `lectures/weekNN/` | One folder per week: `clips.json`, `animations/`, `clips/`, a README |
+| `lectures/weekNN/` | One folder per week: `clips.json`, `animations/`, `clips/`, `slides/` (deck PDF), a README |
 | `lectures/notebooks/` | Ungraded reference notebooks, one per lecture |
 | `lectures/_shared/kit.py` | Shared Manim kit used by every clip (colors, caption bar, token boxes, matrices) |
 | `tools/build_clips.py` | Builds a week's clips end to end |
 | `local_config.json` | Local only, never committed: ElevenLabs voice ID and an optional copy destination |
 
-Slide decks (PowerPoint) are kept outside this repository in the instructor's Dropbox course folder.
+Slide decks (PowerPoint) are built and kept outside this repository, in the instructor's Dropbox course folder. A
+PDF of each deck, exported without the embedded clips, is committed to `lectures/weekNN/slides/` so that students have
+the slides alongside the clips and notebooks. Re-export that PDF whenever a deck changes.
 
 ## Building clips
 

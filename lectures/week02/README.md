@@ -5,6 +5,8 @@
 | Tue Jan 19 | Transformer review, Part 1, with five animation clips |
 | Thu Jan 21 | Paper sessions: [Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://aclanthology.org/N19-1423/) and [Yang et al., A large language model for electronic health records (GatorTron)](https://doi.org/10.1038/s41746-022-00742-2) |
 
+Slides: [2-1 slides (PDF)](slides/2-1-transformer-review-part-1.pdf)
+
 ## Animation clips
 
 The running example is the sentence "The patient has a cold" (clip 3 also contrasts "chest pain, no pressure" with "no pain, chest pressure"), with the same numbers as the slides. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).

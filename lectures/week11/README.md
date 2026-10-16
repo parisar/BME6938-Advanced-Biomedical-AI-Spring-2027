@@ -7,6 +7,8 @@
 
 Progress report due Fri Mar 26.
 
+Slides: [11-1 slides (PDF)](slides/11-1-generative-models-and-ai-for-science.pdf)
+
 ## Animation clips
 
 The running example is a short protein backbone drawn as a chain of 16 C-alpha points, illustrative rather than real
