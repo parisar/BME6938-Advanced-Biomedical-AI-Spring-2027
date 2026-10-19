@@ -2,122 +2,122 @@ WEBVTT
 
 NOTE week08-clip2-rollouts
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:05.388 line:2 align:center
+00:00:00.150 --> 00:00:05.388
 Now we ask a clinical question:
 will this patient die in the ICU?
 
 2
-00:00:05.388 --> 00:00:10.612 line:2 align:center
+00:00:05.388 --> 00:00:10.612
 Ethos answers it with no labels,
 no fine-tuning, and no extra model,
 
 3
-00:00:10.612 --> 00:00:14.950 line:2 align:center
+00:00:10.612 --> 00:00:14.950
 using only the timeline it
 was trained to continue.
 
 4
-00:00:15.150 --> 00:00:19.367 line:2 align:center
+00:00:15.150 --> 00:00:19.367
 Starting from the ICU transfer,
 the model samples the next token,
 
 5
-00:00:19.367 --> 00:00:25.000 line:2 align:center
+00:00:19.367 --> 00:00:25.000
 adds it to the timeline, and repeats,
 until it writes either discharge or death.
 
 6
-00:00:25.000 --> 00:00:32.017 line:2 align:center
+00:00:25.000 --> 00:00:32.017
 Once the context holds 2,048
 tokens, the oldest one drops off.
 
 7
-00:00:32.217 --> 00:00:36.769 line:2 align:center
+00:00:32.217 --> 00:00:36.769
 Because each token is sampled,
 every run tells a different story.
 
 8
-00:00:36.769 --> 00:00:41.979 line:2 align:center
+00:00:36.769 --> 00:00:41.979
 Ethos simulates 20 futures for
 each patient. In this example,
 
 9
-00:00:41.979 --> 00:00:45.483 line:2 align:center
+00:00:41.979 --> 00:00:45.483
 7 of the 20 end in death.
 
 10
-00:00:45.683 --> 00:00:52.384 line:2 align:center
+00:00:45.683 --> 00:00:52.384
 The estimated risk is 7 out of
 20, or 0.35. With 20 rollouts,
 
 11
-00:00:52.384 --> 00:00:59.883 line:2 align:center
+00:00:52.384 --> 00:00:59.883
 the estimate can only take 21
 values, from 0 to 1 in steps of 0.05.
 
 12
-00:01:00.083 --> 00:01:03.927 line:2 align:center
+00:01:00.083 --> 00:01:03.927
 The same simulations
 answer other questions too,
 
 13
-00:01:03.927 --> 00:01:09.970 line:2 align:center
+00:01:03.927 --> 00:01:09.970
 such as the length of the ICU stay,
 by adding up the interval tokens.
 
 14
-00:01:09.970 --> 00:01:14.791 line:2 align:center
+00:01:09.970 --> 00:01:14.791
 Ethos reports an AUC of
 0.927 for ICU mortality,
 
 15
-00:01:14.791 --> 00:01:22.883 line:2 align:center
+00:01:14.791 --> 00:01:22.883
 where 7% of patients died, and
 0.921 for hospital mortality.
 
 16
-00:01:23.083 --> 00:01:27.985 line:2 align:center
+00:01:23.083 --> 00:01:27.985
 But when few patients die, a high
 AUC can still mean many false alarms.
 
 17
-00:01:27.985 --> 00:01:30.232 line:2 align:center
+00:01:27.985 --> 00:01:30.232
 In this illustration,
 
 18
-00:01:30.232 --> 00:01:35.079 line:2 align:center
+00:01:30.232 --> 00:01:35.079
 flagging 20 of a hundred patients
 catches 6 of the 7 deaths,
 
 19
-00:01:35.079 --> 00:01:39.417 line:2 align:center
+00:01:35.079 --> 00:01:39.417
 yet 14 of the 20 alarms are false.
 
 20
-00:01:39.617 --> 00:01:45.143 line:2 align:center
+00:01:39.617 --> 00:01:45.143
 Read the results with care. The baselines
 are numbers reported by other studies,
 
 21
-00:01:45.143 --> 00:01:49.686 line:2 align:center
+00:01:45.143 --> 00:01:49.686
 with their own exclusion criteria.
 MIMIC comes from one hospital,
 
 22
-00:01:49.686 --> 00:01:53.718 line:2 align:center
+00:01:49.686 --> 00:01:53.718
 and dense records lose
 early history in the window.
 
 23
-00:01:53.718 --> 00:01:57.949 line:2 align:center
+00:01:53.718 --> 00:01:57.949
 Wornow and colleagues found that
 most EHR models are tested on tasks
 
 24
-00:01:57.949 --> 00:02:02.380 line:2 align:center
+00:01:57.949 --> 00:02:02.380
 that say little about their
 value to a health system.

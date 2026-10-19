@@ -2,97 +2,97 @@ WEBVTT
 
 NOTE week11-clip1-forward
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:04.428 line:2 align:center
+00:00:00.150 --> 00:00:04.428
 Diffusion models learn to generate
 by learning to undo noise.
 
 2
-00:00:04.428 --> 00:00:07.349 line:2 align:center
+00:00:04.428 --> 00:00:07.349
 We start from a real backbone,
 
 3
-00:00:07.349 --> 00:00:12.549 line:2 align:center
+00:00:07.349 --> 00:00:12.549
 x 0, drawn here as 16 C-alpha
 points in a short helix.
 
 4
-00:00:12.549 --> 00:00:15.683 line:2 align:center
+00:00:12.549 --> 00:00:15.683
 Training runs in two directions.
 
 5
-00:00:15.883 --> 00:00:20.254 line:2 align:center
+00:00:15.883 --> 00:00:20.254
 The forward direction adds a little
 Gaussian noise at every step.
 
 6
-00:00:20.254 --> 00:00:23.288 line:2 align:center
+00:00:20.254 --> 00:00:23.288
 Each point drifts by a random amount,
 
 7
-00:00:23.288 --> 00:00:28.083 line:2 align:center
+00:00:23.288 --> 00:00:28.083
 and after the first few steps
 the helix is still obvious.
 
 8
-00:00:28.283 --> 00:00:33.030 line:2 align:center
+00:00:28.283 --> 00:00:33.030
 You never have to take the steps
 one at a time. After t steps,
 
 9
-00:00:33.030 --> 00:00:39.587 line:2 align:center
+00:00:33.030 --> 00:00:39.587
 x t is a single weighted mix: the square
 root of the signal weight times x zero,
 
 10
-00:00:39.587 --> 00:00:45.817 line:2 align:center
+00:00:39.587 --> 00:00:45.817
 plus the square root of one minus
 that weight, times one Gaussian draw.
 
 11
-00:00:46.017 --> 00:00:48.175 line:2 align:center
+00:00:46.017 --> 00:00:48.175
 The schedule fixes those weights.
 
 12
-00:00:48.175 --> 00:00:55.498 line:2 align:center
+00:00:48.175 --> 00:00:55.498
 With beta rising from 0.0001
 to 0.02 over a thousand steps,
 
 13
-00:00:55.498 --> 00:01:00.201 line:2 align:center
+00:00:55.498 --> 00:01:00.201
 the signal weight is 0.95 at step 100,
 
 14
-00:01:00.201 --> 00:01:07.483 line:2 align:center
+00:01:00.201 --> 00:01:07.483
 0.72 at 250, and 0.28 at 500.
 
 15
-00:01:07.683 --> 00:01:14.887 line:2 align:center
+00:01:07.683 --> 00:01:14.887
 By step 999 the signal weight
 is 0.006: a Gaussian cloud.
 
 16
-00:01:14.887 --> 00:01:17.604 line:2 align:center
+00:01:14.887 --> 00:01:17.604
 Every protein ends in the same place,
 
 17
-00:01:17.604 --> 00:01:22.350 line:2 align:center
+00:01:17.604 --> 00:01:22.350
 which is exactly why sampling
 can start from noise alone.
 
 18
-00:01:22.550 --> 00:01:27.637 line:2 align:center
+00:01:22.550 --> 00:01:27.637
 Noising needs no learning at all,
 just a random number generator.
 
 19
-00:01:27.637 --> 00:01:30.061 line:2 align:center
+00:01:27.637 --> 00:01:30.061
 The network only ever learns the way back.
 
 20
-00:01:30.061 --> 00:01:36.480 line:2 align:center
+00:01:30.061 --> 00:01:36.480
 One real structure gives a thousand
 training examples, one for every step.

@@ -2,86 +2,86 @@ WEBVTT
 
 NOTE week02-clip5-encoder-block
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:03.262 line:2 align:center
+00:00:00.150 --> 00:00:03.262
 An encoder block starts
 from the five token vectors.
 
 2
-00:00:03.262 --> 00:00:06.269 line:2 align:center
+00:00:03.262 --> 00:00:06.269
 Each one is combined
 with a position vector,
 
 3
-00:00:06.269 --> 00:00:10.350 line:2 align:center
+00:00:06.269 --> 00:00:10.350
 so the block knows where every token sits.
 
 4
-00:00:10.550 --> 00:00:15.313 line:2 align:center
+00:00:10.550 --> 00:00:15.313
 Multi-head self-attention lets every
 token look at every other token.
 
 5
-00:00:15.313 --> 00:00:19.817 line:2 align:center
+00:00:15.313 --> 00:00:19.817
 BERT base runs 12 attention
 heads in parallel.
 
 6
-00:00:20.017 --> 00:00:22.219 line:2 align:center
+00:00:20.017 --> 00:00:22.219
 Then comes add and normalize.
 
 7
-00:00:22.219 --> 00:00:26.401 line:2 align:center
+00:00:22.219 --> 00:00:26.401
 A residual connection adds the block's
 input back to the attention output,
 
 8
-00:00:26.401 --> 00:00:30.817 line:2 align:center
+00:00:26.401 --> 00:00:30.817
 and layer normalization
 keeps the values well scaled.
 
 9
-00:00:31.017 --> 00:00:35.408 line:2 align:center
+00:00:31.017 --> 00:00:35.408
 Next, a feed-forward network
 transforms each token separately.
 
 10
-00:00:35.408 --> 00:00:39.362 line:2 align:center
+00:00:35.408 --> 00:00:39.362
 It expands each vector from
 d to four d dimensions,
 
 11
-00:00:39.362 --> 00:00:42.350 line:2 align:center
+00:00:39.362 --> 00:00:42.350
 then projects it back down to d.
 
 12
-00:00:42.550 --> 00:00:46.768 line:2 align:center
+00:00:42.550 --> 00:00:46.768
 A second add and normalize
 wraps the feed-forward network,
 
 13
-00:00:46.768 --> 00:00:50.683 line:2 align:center
+00:00:46.768 --> 00:00:50.683
 again with a residual
 connection around it.
 
 14
-00:00:50.883 --> 00:00:57.041 line:2 align:center
+00:00:50.883 --> 00:00:57.041
 The output has exactly the same shape as
 the input: five by d in, five by d out,
 
 15
-00:00:57.041 --> 00:01:00.750 line:2 align:center
+00:00:57.041 --> 00:01:00.750
 with one updated vector per token.
 
 16
-00:01:00.950 --> 00:01:07.332 line:2 align:center
+00:01:00.950 --> 00:01:07.332
 Because the shapes match, blocks can
 be stacked one on top of another.
 
 17
-00:01:07.332 --> 00:01:14.080 line:2 align:center
+00:01:07.332 --> 00:01:14.080
 BERT base stacks 12 encoder
 blocks, each with its own weights.

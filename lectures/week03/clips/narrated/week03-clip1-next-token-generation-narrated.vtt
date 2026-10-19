@@ -2,83 +2,83 @@ WEBVTT
 
 NOTE week03-clip1-next-token-generation
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:02.848 line:2 align:center
+00:00:00.150 --> 00:00:02.848
 A decoder, like the one in GPT,
 
 2
-00:00:02.848 --> 00:00:09.356 line:2 align:center
+00:00:02.848 --> 00:00:09.356
 writes text one token at a time from left
 to right. Here the note so far reads:
 
 3
-00:00:09.356 --> 00:00:12.617 line:2 align:center
+00:00:09.356 --> 00:00:12.617
 the patient denies chest.
 
 4
-00:00:12.817 --> 00:00:14.733 line:2 align:center
+00:00:12.817 --> 00:00:14.733
 Given everything written so far,
 
 5
-00:00:14.733 --> 00:00:20.234 line:2 align:center
+00:00:14.733 --> 00:00:20.234
 the decoder outputs a probability
 for every token in its vocabulary.
 
 6
-00:00:20.234 --> 00:00:23.817 line:2 align:center
+00:00:20.234 --> 00:00:23.817
 The numbers on screen are illustrative.
 
 7
-00:00:24.017 --> 00:00:29.195 line:2 align:center
+00:00:24.017 --> 00:00:29.195
 Greedy decoding simply takes the most
 likely token, so the model writes pain,
 
 8
-00:00:29.195 --> 00:00:33.483 line:2 align:center
+00:00:29.195 --> 00:00:33.483
 with a probability of 0.62.
 
 9
-00:00:33.683 --> 00:00:36.840 line:2 align:center
+00:00:33.683 --> 00:00:36.840
 The chosen token, pain,
 is appended to the input.
 
 10
-00:00:36.840 --> 00:00:41.245 line:2 align:center
+00:00:36.840 --> 00:00:41.245
 In step two, the decoder runs
 again on the longer sequence
 
 11
-00:00:41.245 --> 00:00:44.150 line:2 align:center
+00:00:41.245 --> 00:00:44.150
 and writes the next token: and.
 
 12
-00:00:44.350 --> 00:00:48.794 line:2 align:center
+00:00:44.350 --> 00:00:48.794
 Each forward pass adds exactly
 one token. In step three,
 
 13
-00:00:48.794 --> 00:00:55.150 line:2 align:center
+00:00:48.794 --> 00:00:55.150
 the model runs once more and adds
 dyspnea, meaning shortness of breath.
 
 14
-00:00:55.350 --> 00:00:58.587 line:2 align:center
+00:00:55.350 --> 00:00:58.587
 Greedy decoding always
 takes the top token.
 
 15
-00:00:58.587 --> 00:01:02.623 line:2 align:center
+00:00:58.587 --> 00:01:02.623
 Sampling draws a token
 according to the probabilities,
 
 16
-00:01:02.623 --> 00:01:07.811 line:2 align:center
+00:01:02.623 --> 00:01:07.811
 and the temperature controls how random
 that draw is: low is nearly greedy,
 
 17
-00:01:07.811 --> 00:01:10.513 line:2 align:center
+00:01:07.811 --> 00:01:10.513
 high is more varied.

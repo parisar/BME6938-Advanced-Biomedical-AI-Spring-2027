@@ -2,77 +2,77 @@ WEBVTT
 
 NOTE week04-clip3-mixture-of-experts
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:04.413 line:2 align:center
+00:00:00.150 --> 00:00:04.413
 In a dense model, every token passes
 through the same feed-forward network,
 
 2
-00:00:04.413 --> 00:00:08.350 line:2 align:center
+00:00:04.413 --> 00:00:08.350
 and all of its weights
 are used for every token.
 
 3
-00:00:08.550 --> 00:00:13.286 line:2 align:center
+00:00:08.550 --> 00:00:13.286
 A mixture of experts splits this
 network into many smaller networks,
 
 4
-00:00:13.286 --> 00:00:16.269 line:2 align:center
+00:00:13.286 --> 00:00:16.269
 called experts. Here we draw 16 of them,
 
 5
-00:00:16.269 --> 00:00:19.950 line:2 align:center
+00:00:16.269 --> 00:00:19.950
 and the numbers in this
 clip are illustrative.
 
 6
-00:00:20.150 --> 00:00:23.782 line:2 align:center
+00:00:20.150 --> 00:00:23.782
 A small router scores every
 expert for each token.
 
 7
-00:00:23.782 --> 00:00:32.034 line:2 align:center
+00:00:23.782 --> 00:00:32.034
 For chest, experts 3 and 11
 score highest, 0.38 and 0.25,
 
 8
-00:00:32.034 --> 00:00:34.683 line:2 align:center
+00:00:32.034 --> 00:00:34.683
 so only those 2 run.
 
 9
-00:00:34.883 --> 00:00:41.204 line:2 align:center
+00:00:34.883 --> 00:00:41.204
 Other tokens are routed to other
 experts: denies to experts 1 and 9,
 
 10
-00:00:41.204 --> 00:00:48.883 line:2 align:center
+00:00:41.204 --> 00:00:48.883
 and pain to experts 7 and 14. Experts
 that no token chose stay idle.
 
 11
-00:00:49.083 --> 00:00:56.361 line:2 align:center
+00:00:49.083 --> 00:00:56.361
 The output for chest is a weighted sum
 of its 2 experts: 0.6 times expert 3,
 
 12
-00:00:56.361 --> 00:01:04.017 line:2 align:center
+00:00:56.361 --> 00:01:04.017
 plus 0.4 times expert 11. The router
 weights are rescaled to sum to one.
 
 13
-00:01:04.217 --> 00:01:10.949 line:2 align:center
+00:01:04.217 --> 00:01:10.949
 DeepSeek-V3 has 256 experts plus
 one shared expert in each layer,
 
 14
-00:01:10.949 --> 00:01:16.246 line:2 align:center
+00:01:10.949 --> 00:01:16.246
 and picks 8 per token. It
 has 671 billion parameters,
 
 15
-00:01:16.246 --> 00:01:21.180 line:2 align:center
+00:01:16.246 --> 00:01:21.180
 but uses only 37 billion for each token.

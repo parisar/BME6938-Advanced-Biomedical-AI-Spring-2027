@@ -50,10 +50,16 @@ WEIGHT_MAX = 105      # a cue of about CUE_MAX plain characters, allowing for a 
 TAIL = 0.85           # how far a segment's last cue may run into the silence after it
 PAUSE_MIN = 0.18      # a gap this long in the narration counts as a break between phrases
 PAUSE_DB = -32        # below this level the narration counts as silent
-# The clip draws its own caption along the bottom of the frame, where a player puts
-# subtitles by default, so the cues go near the top instead. Line 2 clears the title in
-# the top left corner.
-CUE_POS = "line:2 align:center"
+# Where the cues sit in the frame, as a WebVTT cue setting; empty means the player's
+# own default, which is the bottom.
+#
+# These clips have no empty band. The kit draws a caption along the bottom and the
+# animation fills everything above it, so a subtitle covers one or the other. Cues were
+# placed at line:2 at first, which cleared the drawn caption but hid part of the diagram.
+# The bottom is the better trade: it overlaps only the drawn caption, which says the
+# same thing, so nothing a student needs is ever hidden, and a player's default position
+# is also the one a student expects. Decided Oct 19, 2026.
+CUE_POS = ""
 
 # where a clause can break, strongest first
 SOFT = [" and ", " but ", " so ", " because ", " which ", " where ", " that ", " then ",
@@ -325,10 +331,10 @@ def build(week, clip, cfg, force=False):
         cues[-1] = (a, min(b, duration(mp4) - 0.02), body)
     lines = ["WEBVTT", "", f'NOTE {clip["output"]}',
              "NOTE Narration read by an AI-generated voice.",
-             "NOTE The clip has its own caption along the bottom of the frame, so these cues",
-             "NOTE are placed near the top to keep the two from overlapping.", ""]
+             "NOTE The clip draws its own caption along the bottom of the frame. These cues",
+             "NOTE sit there too, so that no part of the animation is ever covered.", ""]
     for n, (a, b, body) in enumerate(cues, 1):
-        lines += [str(n), f"{ts(a)} --> {ts(b)} {CUE_POS}", *body, ""]
+        lines += [str(n), f"{ts(a)} --> {ts(b)} {CUE_POS}".rstrip(), *body, ""]
     return "\n".join(lines), cues
 
 

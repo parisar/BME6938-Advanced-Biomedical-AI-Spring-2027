@@ -2,84 +2,84 @@ WEBVTT
 
 NOTE week04-clip4-more-changes
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:04.907 line:2 align:center
+00:00:00.150 --> 00:00:04.907
 Vocabularies have grown. GPT-2, from 2019,
 
 2
-00:00:04.907 --> 00:00:11.979 line:2 align:center
+00:00:04.907 --> 00:00:11.979
 splits this clinical sentence into 21
 tokens and cuts tachycardia into 4 pieces.
 
 3
-00:00:11.979 --> 00:00:17.642 line:2 align:center
+00:00:11.979 --> 00:00:17.642
 DeepSeek-V3, with about 129,000
 tokens in its vocabulary,
 
 4
-00:00:17.642 --> 00:00:20.617 line:2 align:center
+00:00:17.642 --> 00:00:20.617
 needs only 14.
 
 5
-00:00:20.817 --> 00:00:26.116 line:2 align:center
+00:00:20.817 --> 00:00:26.116
 Long patient records need long context.
 A model is trained on shorter text;
 
 6
-00:00:26.116 --> 00:00:29.014 line:2 align:center
+00:00:26.116 --> 00:00:29.014
 rotating 8 times slower lets position
 
 7
-00:00:29.014 --> 00:00:33.359 line:2 align:center
+00:00:29.014 --> 00:00:33.359
 32,768 land where 4,096 was.
 
 8
-00:00:33.359 --> 00:00:39.761 line:2 align:center
+00:00:33.359 --> 00:00:39.761
 DeepSeek-V3 was stretched
 from 4,000 to 32,000,
 
 9
-00:00:39.761 --> 00:00:43.750 line:2 align:center
+00:00:39.761 --> 00:00:43.750
 then 128,000 tokens.
 
 10
-00:00:43.950 --> 00:00:48.651 line:2 align:center
+00:00:43.950 --> 00:00:48.651
 Multi-token prediction adds a
 second target during training.
 
 11
-00:00:48.651 --> 00:00:51.892 line:2 align:center
+00:00:48.651 --> 00:00:51.892
 From the patient denies chest,
 the main head predicts pain,
 
 12
-00:00:51.892 --> 00:00:55.849 line:2 align:center
+00:00:51.892 --> 00:00:55.849
 and an extra module predicts
 the token after next:
 
 13
-00:00:55.849 --> 00:01:01.350 line:2 align:center
+00:00:55.849 --> 00:01:01.350
 and. This gives more training
 signal and can speed up generation.
 
 14
-00:01:01.550 --> 00:01:05.186 line:2 align:center
+00:01:01.550 --> 00:01:05.186
 This week's paper, MedGemma,
 starts from Gemma 3
 
 15
-00:01:05.186 --> 00:01:09.068 line:2 align:center
+00:01:05.186 --> 00:01:09.068
 and continues training on
 medical text and medical images.
 
 16
-00:01:09.068 --> 00:01:13.867 line:2 align:center
+00:01:09.068 --> 00:01:13.867
 It comes in 4 billion and 27
 billion parameter versions,
 
 17
-00:01:13.867 --> 00:01:17.313 line:2 align:center
+00:01:13.867 --> 00:01:17.313
 built from the pieces in these clips.

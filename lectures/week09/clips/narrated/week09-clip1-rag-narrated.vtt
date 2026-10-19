@@ -2,137 +2,137 @@ WEBVTT
 
 NOTE week09-clip1-rag
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:02.822 line:2 align:center
+00:00:00.150 --> 00:00:02.822
 A language model learns from public text,
 
 2
-00:00:02.822 --> 00:00:06.702 line:2 align:center
+00:00:02.822 --> 00:00:06.702
 so it cannot know your
 hospital's own protocols.
 
 3
-00:00:06.702 --> 00:00:12.307 line:2 align:center
+00:00:06.702 --> 00:00:12.307
 Asked when antibiotics must start under
 our sepsis protocol, it says three hours:
 
 4
-00:00:12.307 --> 00:00:16.817 line:2 align:center
+00:00:12.307 --> 00:00:16.817
 a reasonable national
 figure, but not our rule.
 
 5
-00:00:17.017 --> 00:00:21.550 line:2 align:center
+00:00:17.017 --> 00:00:21.550
 Retrieval starts by splitting the
 hospital's documents into chunks.
 
 6
-00:00:21.550 --> 00:00:27.744 line:2 align:center
+00:00:21.550 --> 00:00:27.744
 Almanac used chunks of 1,000 tokens. Each
 chunk is embedded once into a vector,
 
 7
-00:00:27.744 --> 00:00:32.683 line:2 align:center
+00:00:27.744 --> 00:00:32.683
 which in Almanac had 1,536 numbers.
 
 8
-00:00:32.883 --> 00:00:37.742 line:2 align:center
+00:00:32.883 --> 00:00:37.742
 At question time, the question
 is embedded the same way
 
 9
-00:00:37.742 --> 00:00:41.187 line:2 align:center
+00:00:37.742 --> 00:00:41.187
 and compared with every
 chunk by cosine similarity.
 
 10
-00:00:41.187 --> 00:00:50.683 line:2 align:center
+00:00:41.187 --> 00:00:50.683
 Here the 3 best chunks
 score 0.86, 0.79, and 0.62.
 
 11
-00:00:50.883 --> 00:00:56.792 line:2 align:center
+00:00:50.883 --> 00:00:56.792
 Only chunks that score above a threshold
 are passed on. Almanac used a threshold,
 
 12
-00:00:56.792 --> 00:01:05.217 line:2 align:center
+00:00:56.792 --> 00:01:05.217
 lambda, of 0.83, so here only the first
 chunk, from the sepsis protocol, passes.
 
 13
-00:01:05.417 --> 00:01:10.068 line:2 align:center
+00:01:05.417 --> 00:01:10.068
 A second question, about rattlesnake
 bites, finds no good match:
 
 14
-00:01:10.068 --> 00:01:13.123 line:2 align:center
+00:01:10.068 --> 00:01:13.123
 its best score is only 0.71.
 
 15
-00:01:13.123 --> 00:01:18.649 line:2 align:center
+00:01:13.123 --> 00:01:18.649
 The published Almanac then falls
 back on the model's own knowledge.
 
 16
-00:01:18.649 --> 00:01:20.972 line:2 align:center
+00:01:18.649 --> 00:01:20.972
 The preprint version abstained instead,
 
 17
-00:01:20.972 --> 00:01:25.217 line:2 align:center
+00:01:20.972 --> 00:01:25.217
 and said the answer was
 not found in the sources.
 
 18
-00:01:25.417 --> 00:01:29.736 line:2 align:center
+00:01:25.417 --> 00:01:29.736
 The passing chunk is pasted into the
 prompt, together with its source.
 
 19
-00:01:29.736 --> 00:01:35.772 line:2 align:center
+00:01:29.736 --> 00:01:35.772
 The model now answers within one hour,
 which is what the synthetic protocol says,
 
 20
-00:01:35.772 --> 00:01:39.350 line:2 align:center
+00:01:35.772 --> 00:01:39.350
 and it cites section two of that protocol.
 
 21
-00:01:39.550 --> 00:01:42.892 line:2 align:center
+00:01:39.550 --> 00:01:42.892
 Clinicians compared
 Almanac with ChatGPT-4,
 
 22
-00:01:42.892 --> 00:01:50.899 line:2 align:center
+00:01:42.892 --> 00:01:50.899
 Bing, and Bard on 314 clinical questions.
 Almanac ranked first for factuality,
 
 23
-00:01:50.899 --> 00:01:58.683 line:2 align:center
+00:01:50.899 --> 00:01:58.683
 completeness, and preference, and its
 citations were correct 91% of the time.
 
 24
-00:01:58.883 --> 00:02:02.784 line:2 align:center
+00:01:58.883 --> 00:02:02.784
 Read these results with care.
 Against adversarial prompts,
 
 25
-00:02:02.784 --> 00:02:08.325 line:2 align:center
+00:02:02.784 --> 00:02:08.325
 Almanac scored 100% and ChatGPT-4 7%,
 
 26
-00:02:08.325 --> 00:02:10.680 line:2 align:center
+00:02:08.325 --> 00:02:10.680
 mostly because Almanac declined to answer.
 
 27
-00:02:10.680 --> 00:02:15.861 line:2 align:center
+00:02:10.680 --> 00:02:15.861
 The questions and the grading came
 from the study's own clinicians,
 
 28
-00:02:15.861 --> 00:02:19.513 line:2 align:center
+00:02:15.861 --> 00:02:19.513
 and only 25 questions are public.

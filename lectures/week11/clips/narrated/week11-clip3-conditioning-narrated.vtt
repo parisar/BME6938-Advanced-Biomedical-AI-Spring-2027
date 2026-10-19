@@ -2,126 +2,126 @@ WEBVTT
 
 NOTE week11-clip3-conditioning
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:05.026 line:2 align:center
+00:00:00.150 --> 00:00:05.026
 Unconditional sampling gives you a valid
 structure, but not the one you need.
 
 2
-00:00:05.026 --> 00:00:08.521 line:2 align:center
+00:00:05.026 --> 00:00:08.521
 A real design project asks
 for something specific:
 
 3
-00:00:08.521 --> 00:00:13.883 line:2 align:center
+00:00:08.521 --> 00:00:13.883
 hold this functional motif in
 place, or bind this target protein.
 
 4
-00:00:14.083 --> 00:00:16.601 line:2 align:center
+00:00:14.083 --> 00:00:16.601
 Conditioning is the direct answer.
 
 5
-00:00:16.601 --> 00:00:21.826 line:2 align:center
+00:00:16.601 --> 00:00:21.826
 Give the denoiser the motif's coordinates
 and hold them fixed at every step.
 
 6
-00:00:21.826 --> 00:00:25.213 line:2 align:center
+00:00:21.826 --> 00:00:25.213
 The motif never moves, and
 the scaffold is sampled,
 
 7
-00:00:25.213 --> 00:00:29.083 line:2 align:center
+00:00:25.213 --> 00:00:29.083
 so one motif gives you
 many different scaffolds.
 
 8
-00:00:29.283 --> 00:00:34.066 line:2 align:center
+00:00:29.283 --> 00:00:34.066
 Guidance is a different lever,
 borrowed from image diffusion.
 
 9
-00:00:34.066 --> 00:00:38.261 line:2 align:center
+00:00:34.066 --> 00:00:38.261
 Mix the conditional and
 unconditional predictions:
 
 10
-00:00:38.261 --> 00:00:43.547 line:2 align:center
+00:00:38.261 --> 00:00:43.547
 0.2, plus 3 times 0.5 minus 0.2,
 
 11
-00:00:43.547 --> 00:00:49.422 line:2 align:center
+00:00:43.547 --> 00:00:49.422
 gives 1.1. A larger w follows the
 condition harder and cuts diversity.
 
 12
-00:00:49.422 --> 00:00:55.417 line:2 align:center
+00:00:49.422 --> 00:00:55.417
 RFdiffusion does not do this; it
 conditions the denoiser directly.
 
 13
-00:00:55.617 --> 00:01:01.256 line:2 align:center
+00:00:55.617 --> 00:01:01.256
 On 25 motif-scaffolding
 benchmarks, RFdiffusion solved 23,
 
 14
-00:01:01.256 --> 00:01:06.605 line:2 align:center
+00:01:01.256 --> 00:01:06.605
 against 19 for RFjoint inpainting
 and 15 for hallucination,
 
 15
-00:01:06.605 --> 00:01:10.316 line:2 align:center
+00:01:06.605 --> 00:01:10.316
 using one set of settings
 for every problem.
 
 16
-00:01:10.316 --> 00:01:13.883 line:2 align:center
+00:01:10.316 --> 00:01:13.883
 Note that this success
 is scored in silico.
 
 17
-00:01:14.083 --> 00:01:17.793 line:2 align:center
+00:01:14.083 --> 00:01:17.793
 Designed binders were
 tested against five targets,
 
 18
-00:01:17.793 --> 00:01:23.707 line:2 align:center
+00:01:17.793 --> 00:01:23.707
 among them influenza hemagglutinin
 and PD-L1. 19% worked experimentally,
 
 19
-00:01:23.707 --> 00:01:27.334 line:2 align:center
+00:01:23.707 --> 00:01:27.334
 from fewer than a hundred
 designs per target.
 
 20
-00:01:27.334 --> 00:01:30.929 line:2 align:center
+00:01:27.334 --> 00:01:30.929
 The best flu binder reached 28 nanomolar,
 
 21
-00:01:30.929 --> 00:01:36.550 line:2 align:center
+00:01:30.929 --> 00:01:36.550
 and a cryo-EM map matched
 the design to 0.63 angstroms.
 
 22
-00:01:36.750 --> 00:01:39.400 line:2 align:center
+00:01:36.750 --> 00:01:39.400
 Read the in silico numbers with care.
 
 23
-00:01:39.400 --> 00:01:43.542 line:2 align:center
+00:01:39.400 --> 00:01:43.542
 The designs are scored by
 AlphaFold family predictors trained
 
 24
-00:01:43.542 --> 00:01:48.982 line:2 align:center
+00:01:43.542 --> 00:01:48.982
 on the same structures, so the designer
 and the judge can agree and both be wrong.
 
 25
-00:01:48.982 --> 00:01:55.713 line:2 align:center
+00:01:48.982 --> 00:01:55.713
 The 19% is the number that counts,
 because it came from a wet lab.

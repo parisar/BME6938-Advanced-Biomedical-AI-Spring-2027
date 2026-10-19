@@ -2,138 +2,138 @@ WEBVTT
 
 NOTE week11-clip2-reverse
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:04.929 line:2 align:center
+00:00:00.150 --> 00:00:04.929
 A single network sees the noisy
 structure x t and the step number t,
 
 2
-00:00:04.929 --> 00:00:08.501 line:2 align:center
+00:00:04.929 --> 00:00:08.501
 and predicts the noise that was added.
 
 3
-00:00:08.501 --> 00:00:13.072 line:2 align:center
+00:00:08.501 --> 00:00:13.072
 Predicting the noise and predicting
 the clean structure are the same job:
 
 4
-00:00:13.072 --> 00:00:16.283 line:2 align:center
+00:00:13.072 --> 00:00:16.283
 either one gives you the other.
 
 5
-00:00:16.483 --> 00:00:21.786 line:2 align:center
+00:00:16.483 --> 00:00:21.786
 One reverse step moves a little way
 toward the predicted clean structure,
 
 6
-00:00:21.786 --> 00:00:25.833 line:2 align:center
+00:00:21.786 --> 00:00:25.833
 then adds a little fresh noise.
 Repeat from a thousand down to one.
 
 7
-00:00:25.833 --> 00:00:30.550 line:2 align:center
+00:00:25.833 --> 00:00:30.550
 The fresh noise is what
 keeps the samples diverse.
 
 8
-00:00:30.750 --> 00:00:32.893 line:2 align:center
+00:00:30.750 --> 00:00:32.893
 Run that step a thousand times
 
 9
-00:00:32.893 --> 00:00:37.466 line:2 align:center
+00:00:32.893 --> 00:00:37.466
 and the Gaussian cloud tightens
 into a backbone that could fold.
 
 10
-00:00:37.466 --> 00:00:41.467 line:2 align:center
+00:00:37.466 --> 00:00:41.467
 The drawing is illustrative,
 but the trajectory is real:
 
 11
-00:00:41.467 --> 00:00:45.350 line:2 align:center
+00:00:41.467 --> 00:00:45.350
 structure appears
 gradually, not all at once.
 
 12
-00:00:45.550 --> 00:00:50.838 line:2 align:center
+00:00:45.550 --> 00:00:50.838
 Start from different noise and you get a
 different structure. This is generation,
 
 13
-00:00:50.838 --> 00:00:57.083 line:2 align:center
+00:00:50.838 --> 00:00:57.083
 not retrieval: none of these has to
 appear anywhere in the training set.
 
 14
-00:00:57.283 --> 00:01:03.570 line:2 align:center
+00:00:57.283 --> 00:01:03.570
 RFdiffusion fine-tunes the structure
 predictor RoseTTAFold into its denoiser.
 
 15
-00:01:03.570 --> 00:01:08.000 line:2 align:center
+00:01:03.570 --> 00:01:08.000
 It works on residue frames, a
 C-alpha position plus an orientation,
 
 16
-00:01:08.000 --> 00:01:13.350 line:2 align:center
+00:01:08.000 --> 00:01:13.350
 predicts the clean structure at every
 step and feeds it back as a template,
 
 17
-00:01:13.350 --> 00:01:19.274 line:2 align:center
+00:01:13.350 --> 00:01:19.274
 and runs about 200 steps. One
 twist: for motif scaffolding,
 
 18
-00:01:19.274 --> 00:01:22.482 line:2 align:center
+00:01:19.274 --> 00:01:22.482
 adding no fresh noise
 on the way back worked
 
 19
-00:01:22.482 --> 00:01:27.683 line:2 align:center
+00:01:22.482 --> 00:01:27.683
 better in 17 of the 23 solved problems.
 
 20
-00:01:27.883 --> 00:01:31.093 line:2 align:center
+00:01:27.883 --> 00:01:31.093
 RFdiffusion makes a shape, not a protein.
 
 21
-00:01:31.093 --> 00:01:35.676 line:2 align:center
+00:01:31.093 --> 00:01:35.676
 ProteinMPNN then designs
 sequences for that backbone,
 
 22
-00:01:35.676 --> 00:01:41.168 line:2 align:center
+00:01:35.676 --> 00:01:41.168
 typically about eight of them. Those
 sequences are what you can actually order,
 
 23
-00:01:41.168 --> 00:01:43.750 line:2 align:center
+00:01:41.168 --> 00:01:43.750
 express, and test.
 
 24
-00:01:43.950 --> 00:01:47.898 line:2 align:center
+00:01:43.950 --> 00:01:47.898
 AlphaFold 3 uses a
 diffusion module as well,
 
 25
-00:01:47.898 --> 00:01:51.331 line:2 align:center
+00:01:47.898 --> 00:01:51.331
 but it predicts raw atom
 coordinates directly,
 
 26
-00:01:51.331 --> 00:01:55.172 line:2 align:center
+00:01:51.331 --> 00:01:55.172
 with no amino acid frames
 and no torsion angles.
 
 27
-00:01:55.172 --> 00:02:01.133 line:2 align:center
+00:01:55.172 --> 00:02:01.133
 Dropping that protein-specific machinery
 is what lets one model cover proteins,
 
 28
-00:02:01.133 --> 00:02:04.480 line:2 align:center
+00:02:01.133 --> 00:02:04.480
 nucleic acids, ligands, and ions.

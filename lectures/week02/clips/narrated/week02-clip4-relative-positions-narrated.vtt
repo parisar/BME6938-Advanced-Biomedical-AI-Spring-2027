@@ -2,148 +2,148 @@ WEBVTT
 
 NOTE week02-clip4-relative-positions
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:03.427 line:2 align:center
+00:00:00.150 --> 00:00:03.427
 Chest pain means the same
 thing wherever it appears.
 
 2
-00:00:03.427 --> 00:00:08.342 line:2 align:center
+00:00:03.427 --> 00:00:08.342
 Here it moves from positions two and
 three to positions seven and eight,
 
 3
-00:00:08.342 --> 00:00:14.617 line:2 align:center
+00:00:08.342 --> 00:00:14.617
 but pain is still one position after
 chest. What matters is the distance.
 
 4
-00:00:14.817 --> 00:00:20.049 line:2 align:center
+00:00:14.817 --> 00:00:20.049
 First, a reminder. An attention score
 is the dot product of a query and a key,
 
 5
-00:00:20.049 --> 00:00:25.094 line:2 align:center
+00:00:20.049 --> 00:00:25.094
 and a dot product depends on the
 angle between the two vectors:
 
 6
-00:00:25.094 --> 00:00:29.553 line:2 align:center
+00:00:25.094 --> 00:00:29.553
 the smaller the angle, the higher
 the score. For chest and pain,
 
 7
-00:00:29.553 --> 00:00:35.083 line:2 align:center
+00:00:29.553 --> 00:00:35.083
 the angle is 15 degrees
 and the score is 1.04.
 
 8
-00:00:35.283 --> 00:00:40.605 line:2 align:center
+00:00:35.283 --> 00:00:40.605
 Rotary position embeddings, or RoPE,
 encode position by turning these vectors,
 
 9
-00:00:40.605 --> 00:00:43.242 line:2 align:center
+00:00:40.605 --> 00:00:43.242
 15 degrees per position.
 
 10
-00:00:43.242 --> 00:00:49.906 line:2 align:center
+00:00:43.242 --> 00:00:49.906
 Chest at position 2 turns 30 degrees
 and pain at position 3 turns 45,
 
 11
-00:00:49.906 --> 00:00:57.083 line:2 align:center
+00:00:49.906 --> 00:00:57.083
 so the angle between them grows to 30
 degrees and the score becomes 0.93.
 
 12
-00:00:57.283 --> 00:01:00.915 line:2 align:center
+00:00:57.283 --> 00:01:00.915
 Now move the same phrase to
 positions seven and eight.
 
 13
-00:01:00.915 --> 00:01:07.005 line:2 align:center
+00:01:00.915 --> 00:01:07.005
 Both vectors turn much further, but the
 gap between them is still 30 degrees,
 
 14
-00:01:07.005 --> 00:01:13.750 line:2 align:center
+00:01:07.005 --> 00:01:13.750
 so the score is still 0.93. Only the
 distance between the tokens matters.
 
 15
-00:01:13.950 --> 00:01:18.453 line:2 align:center
+00:01:13.950 --> 00:01:18.453
 If pain comes 4 positions
 after chest instead of 1,
 
 16
-00:01:18.453 --> 00:01:24.130 line:2 align:center
+00:01:18.453 --> 00:01:24.130
 the gap grows to 75 degrees
 and the score drops to 0.28.
 
 17
-00:01:24.130 --> 00:01:29.321 line:2 align:center
+00:01:24.130 --> 00:01:29.321
 Real models rotate many pairs of
 dimensions, each at its own speed,
 
 18
-00:01:29.321 --> 00:01:32.683 line:2 align:center
+00:01:29.321 --> 00:01:32.683
 like the waves in the previous clip.
 
 19
-00:01:32.883 --> 00:01:34.746 line:2 align:center
+00:01:32.883 --> 00:01:34.746
 A simpler idea is ALiBi.
 
 20
-00:01:34.746 --> 00:01:40.502 line:2 align:center
+00:01:34.746 --> 00:01:40.502
 It leaves the vectors alone and subtracts
 a penalty from each attention score,
 
 21
-00:01:40.502 --> 00:01:48.870 line:2 align:center
+00:01:40.502 --> 00:01:48.870
 proportional to distance. For cold, with
 a slope of 0.25, the scores minus 0.5,
 
 22
-00:01:48.870 --> 00:01:55.459 line:2 align:center
+00:01:48.870 --> 00:01:55.459
 0.2, 1.3, 0.6, and 1.6 become minus 1.5,
 
 23
-00:01:55.459 --> 00:02:02.817 line:2 align:center
+00:01:55.459 --> 00:02:02.817
 minus 0.55, 0.8, 0.35, and 1.6.
 
 24
-00:02:03.017 --> 00:02:09.641 line:2 align:center
+00:02:03.017 --> 00:02:09.641
 After softmax, the weights shift
 toward nearby tokens: from 0.05, 0.1,
 
 25
-00:02:09.641 --> 00:02:17.448 line:2 align:center
+00:02:09.641 --> 00:02:17.448
 0.3, 0.15, and 0.4, to 0.02, 0.06,
 
 26
-00:02:17.448 --> 00:02:22.883 line:2 align:center
+00:02:17.448 --> 00:02:22.883
 0.24, 0.15, and 0.53.
 
 27
-00:02:23.083 --> 00:02:29.128 line:2 align:center
+00:02:23.083 --> 00:02:29.128
 Today, RoPE is used in nearly every open
 large language model, including Llama,
 
 28
-00:02:29.128 --> 00:02:33.614 line:2 align:center
+00:02:29.128 --> 00:02:33.614
 Qwen, DeepSeek, and Gemma, and even
 in newer encoders like ModernBERT.
 
 29
-00:02:33.614 --> 00:02:37.077 line:2 align:center
+00:02:33.614 --> 00:02:37.077
 To read longer records
 than they were trained on,
 
 30
-00:02:37.077 --> 00:02:41.580 line:2 align:center
+00:02:37.077 --> 00:02:41.580
 models stretch the rotation
 angles after pretraining.

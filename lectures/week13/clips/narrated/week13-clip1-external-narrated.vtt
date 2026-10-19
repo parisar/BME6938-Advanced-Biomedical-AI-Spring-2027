@@ -2,132 +2,132 @@ WEBVTT
 
 NOTE week13-clip1-external
 NOTE Narration read by an AI-generated voice.
-NOTE The clip has its own caption along the bottom of the frame, so these cues
-NOTE are placed near the top to keep the two from overlapping.
+NOTE The clip draws its own caption along the bottom of the frame. These cues
+NOTE sit there too, so that no part of the animation is ever covered.
 
 1
-00:00:00.150 --> 00:00:05.149 line:2 align:center
+00:00:00.150 --> 00:00:05.149
 The Epic Sepsis Model ships
 with a widely used health record
 
 2
-00:00:05.149 --> 00:00:07.059 line:2 align:center
+00:00:05.149 --> 00:00:07.059
 and runs at hundreds of US hospitals.
 
 3
-00:00:07.059 --> 00:00:11.985 line:2 align:center
+00:00:07.059 --> 00:00:11.985
 It scores every adult
 inpatient every 15 minutes
 
 4
-00:00:11.985 --> 00:00:15.573 line:2 align:center
+00:00:11.985 --> 00:00:15.573
 and alerts when that
 score crosses a threshold.
 
 5
-00:00:15.573 --> 00:00:22.283 line:2 align:center
+00:00:15.573 --> 00:00:22.283
 Its vendor reported an
 AUC between 0.76 and 0.83.
 
 6
-00:00:22.483 --> 00:00:26.816 line:2 align:center
+00:00:22.483 --> 00:00:26.816
 Wong and colleagues validated
 it at Michigan Medicine:
 
 7
-00:00:26.816 --> 00:00:34.706 line:2 align:center
+00:00:26.816 --> 00:00:34.706
 27,697 patients and
 38,455 hospitalizations,
 
 8
-00:00:34.706 --> 00:00:40.283 line:2 align:center
+00:00:34.706 --> 00:00:40.283
 of which 2,552, or 7%, had sepsis.
 
 9
-00:00:40.483 --> 00:00:42.822 line:2 align:center
+00:00:40.483 --> 00:00:42.822
 The AUC was 0.63,
 
 10
-00:00:42.822 --> 00:00:48.492 line:2 align:center
+00:00:42.822 --> 00:00:48.492
 with a 95% interval from 0.62 to 0.64.
 
 11
-00:00:48.492 --> 00:00:55.320 line:2 align:center
+00:00:48.492 --> 00:00:55.320
 The authors also report
 per-horizon AUCs of 0.72 to 0.76,
 
 12
-00:00:55.320 --> 00:00:58.501 line:2 align:center
+00:00:55.320 --> 00:00:58.501
 then explain why those are misleading:
 
 13
-00:00:58.501 --> 00:01:02.483 line:2 align:center
+00:00:58.501 --> 00:01:02.483
 the predictions are not
 independent of each other.
 
 14
-00:01:02.683 --> 00:01:07.756 line:2 align:center
+00:01:02.683 --> 00:01:07.756
 At the vendor's threshold
 of 6, sensitivity was 33%,
 
 15
-00:01:07.756 --> 00:01:10.635 line:2 align:center
+00:01:07.756 --> 00:01:10.635
 so two thirds of sepsis
 cases were never flagged.
 
 16
-00:01:10.635 --> 00:01:14.556 line:2 align:center
+00:01:10.635 --> 00:01:14.556
 The positive predictive value was 12%.
 
 17
-00:01:14.556 --> 00:01:18.592 line:2 align:center
+00:01:14.556 --> 00:01:18.592
 Alerts fired on 18% of
 all hospitalizations:
 
 18
-00:01:18.592 --> 00:01:23.283 line:2 align:center
+00:01:18.592 --> 00:01:23.283
 8 patients to evaluate
 for every sepsis case.
 
 19
-00:01:23.483 --> 00:01:28.564 line:2 align:center
+00:01:23.483 --> 00:01:28.564
 Now ask what the alert added.
 Of the 2,552 sepsis cases,
 
 20
-00:01:28.564 --> 00:01:31.164 line:2 align:center
+00:01:28.564 --> 00:01:31.164
 843 were flagged,
 
 21
-00:01:31.164 --> 00:01:36.231 line:2 align:center
+00:01:31.164 --> 00:01:36.231
 and of those only 183 had not
 already received timely antibiotics.
 
 22
-00:01:36.231 --> 00:01:44.017 line:2 align:center
+00:01:36.231 --> 00:01:44.017
 Of the 1,709 that were missed,
 1,030 were treated in time anyway.
 
 23
-00:01:44.217 --> 00:01:48.027 line:2 align:center
+00:01:44.217 --> 00:01:48.027
 Two lessons. Validate
 locally before deployment,
 
 24
-00:01:48.027 --> 00:01:51.823 line:2 align:center
+00:01:48.027 --> 00:01:51.823
 because a vendor's AUC came
 from a vendor's population,
 
 25
-00:01:51.823 --> 00:01:56.068 line:2 align:center
+00:01:51.823 --> 00:01:56.068
 not yours. And measure the
 increment over current practice,
 
 26
-00:01:56.068 --> 00:01:57.616 line:2 align:center
+00:01:56.068 --> 00:01:57.616
 not the model on its own.
 
 27
-00:01:57.616 --> 00:02:03.880 line:2 align:center
+00:01:57.616 --> 00:02:03.880
 A model is worth deploying only if
 it changes what happens to a patient.
