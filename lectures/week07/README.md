@@ -21,6 +21,16 @@ The narration is an AI-generated voice reading a script written for the course. 
 
 **Note for the lecture (clip 2).** On the Kather tiles, general CLIP's zero-shot accuracy is 5.6 to 15.1% depending only on the prompt wording, and chance is 12.5% for 8 classes, so the worst wording is below chance. A linear probe with 10 labels per class does far better on the same embeddings.
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1), and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. CLIP: matching images with their captions | [week07-clip1-clip.md](clips/transcripts/week07-clip1-clip.md) |
+| 2. Zero-shot classification, and where it breaks | [week07-clip2-zero-shot.md](clips/transcripts/week07-clip2-zero-shot.md) |
+| 3. Images as tokens: Med-PaLM M | [week07-clip3-med-palm-m.md](clips/transcripts/week07-clip3-med-palm-m.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week07_vision_language.ipynb](../notebooks/week07_vision_language.ipynb). It
