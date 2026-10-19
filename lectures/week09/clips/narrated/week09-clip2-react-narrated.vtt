@@ -1,0 +1,134 @@
+WEBVTT
+
+NOTE week09-clip2-react
+NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
+
+1
+00:00:00.150 --> 00:00:04.556 line:2 align:center
+An agent works in a loop of
+thought, action, and observation.
+
+2
+00:00:04.556 --> 00:00:11.115 line:2 align:center
+Our task, for the synthetic patient
+P001: is the potassium rising,
+
+3
+00:00:11.115 --> 00:00:13.550 line:2 align:center
+and is it abnormal?
+
+4
+00:00:13.750 --> 00:00:19.280 line:2 align:center
+First the model writes a thought: I
+need the last three potassium results.
+
+5
+00:00:19.280 --> 00:00:23.255 line:2 align:center
+Then it writes an action, a tool
+call in JSON, naming the tool,
+
+6
+00:00:23.255 --> 00:00:29.083 line:2 align:center
+get labs, and its arguments: the
+patient, the test, and how many results.
+
+7
+00:00:29.283 --> 00:00:31.065 line:2 align:center
+The program, not the model,
+
+8
+00:00:31.065 --> 00:00:36.396 line:2 align:center
+runs the tool against the record and
+appends the result to the context:
+
+9
+00:00:36.396 --> 00:00:42.083 line:2 align:center
+4.6, 5.1, and 5.6 millimoles per liter.
+
+10
+00:00:42.283 --> 00:00:48.372 line:2 align:center
+The model reads the observation and writes
+a new thought: the potassium is rising,
+
+11
+00:00:48.372 --> 00:00:55.745 line:2 align:center
+and 5.6 is above the usual upper limit
+of about 5.0. Its last action is finish,
+
+12
+00:00:55.745 --> 00:00:58.750 line:2 align:center
+with the answer and the values.
+
+13
+00:00:58.950 --> 00:01:03.613 line:2 align:center
+A tool call is just text that the
+model writes in an agreed format.
+
+14
+00:01:03.613 --> 00:01:08.022 line:2 align:center
+ReAct got this behavior from a
+few worked examples in the prompt,
+
+15
+00:01:08.022 --> 00:01:13.621 line:2 align:center
+with no training at all. Today's models
+are post-trained to write tool calls,
+
+16
+00:01:13.621 --> 00:01:15.950 line:2 align:center
+as in week five.
+
+17
+00:01:16.150 --> 00:01:20.125 line:2 align:center
+On ALFWorld, a text-based
+benchmark of household tasks,
+
+18
+00:01:20.125 --> 00:01:25.666 line:2 align:center
+the best of 6 ReAct prompts
+succeeded 71% of the time,
+
+19
+00:01:25.666 --> 00:01:29.180 line:2 align:center
+versus 45 for acting without thoughts.
+
+20
+00:01:29.180 --> 00:01:34.150 line:2 align:center
+Even the worst ReAct prompt
+beat the best acting-only one.
+
+21
+00:01:34.350 --> 00:01:41.649 line:2 align:center
+On HotpotQA, multi-hop questions answered
+from Wikipedia, ReAct alone scored 27.4,
+
+22
+00:01:41.649 --> 00:01:46.675 line:2 align:center
+below chain of thought at 29.4.
+Falling back to chain of thought
+
+23
+00:01:46.675 --> 00:01:52.683 line:2 align:center
+with self-consistency when ReAct
+got stuck did best, at 35.1.
+
+24
+00:01:52.883 --> 00:01:57.252 line:2 align:center
+The authors labelled 50 failed
+runs of each method by hand.
+
+25
+00:01:57.252 --> 00:02:01.645 line:2 align:center
+Hallucination caused
+56% of chain-of-thought
+
+26
+00:02:01.645 --> 00:02:03.532 line:2 align:center
+failures and none of ReAct's.
+
+27
+00:02:03.532 --> 00:02:11.080 line:2 align:center
+But 47% of ReAct's failures were reasoning
+errors, such as repeating the same step.
