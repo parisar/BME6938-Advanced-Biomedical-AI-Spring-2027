@@ -8,3 +8,6 @@ local_config.json
 .cache/
 media/
 *.part.mp4
+
+# Agent instructions: kept on disk for Claude Code, not published.
+CLAUDE.md
