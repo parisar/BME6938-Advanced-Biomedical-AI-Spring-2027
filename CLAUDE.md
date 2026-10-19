@@ -138,6 +138,13 @@ banners have a light background and will look like a bright panel in GitHub's da
 
 ## Notebooks
 
+Every notebook carries one animation, inserted after the section it illustrates: the attention matrix filling in row by
+row, the KV cache growing, the mask ratio climbing, the bootstrap interval appearing. They are written in
+`tools/animations/` and written into the notebooks by `tools/animations/insert.py`, which is idempotent; edit the cell
+there and re-run it rather than editing a notebook by hand. `tools/animations/README.md` has the conventions, the main
+ones being numpy and matplotlib only, self-contained so they can be tested without running the notebook, and
+`to_jshtml` so no ffmpeg is needed.
+
 Notebooks are ungraded reference code in `lectures/notebooks/`, one per lecture. Each follows its lecture step by step,
 names the slide each section matches, uses the same running example and numbers as the slides, explains every step in
 text before the code, and comments every line. They must run on Google Colab and on HiPerGator on CPU. Use open data or
