@@ -102,6 +102,21 @@ repeats the title and instructor underneath it and has empty alt, which is what 
 it twice. `assets/banners/alt.json` holds the descriptions, and the Canvas package reads the same file. The week
 banners have a light background and will look like a bright panel in GitHub's dark theme.
 
+## The website
+
+`tools/build_site.py` writes a GitHub Pages site from what is already in the repository: `index.html` at the root and
+`lectures/weekNN/index.html` for each week. Run it after anything that changes a week's title, clips, slides or papers.
+
+Pages serves from the root of the default branch rather than from `docs/`, so the week pages sit beside the clips they
+play and nothing is copied. `.nojekyll` is required: Jekyll would hide `lectures/_shared`.
+
+The site exists because GitHub will not play a video from a README. A relative path does not render and
+raw.githubusercontent.com serves `.mp4` as `application/octet-stream`, so the browser downloads it. Pages serves the
+same file as `video/mp4`, which also lets each player carry its `.vtt` as a `<track>`, so the captions finally reach a
+viewer. The site is light only, because the banners are light artwork.
+
+It goes live when the repository becomes public in January; Pages on a private repository needs a paid plan.
+
 ## Clip conventions
 
 - Two or three clips per session, each on one concept. Clarity comes first: about one minute silent and two minutes narrated is a guide, not a limit, so let a clip run longer when the explanation needs it.

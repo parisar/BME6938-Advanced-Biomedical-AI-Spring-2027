@@ -1,0 +1,33 @@
+/* Written by tools/build_site.py. The palette matches the week banners, which are
+   light artwork, so the site is light as well rather than following the system theme. */
+:root{--uf:#0021A5;--orange:#FA4616;--ink:#11161f;--muted:#5a6474;--line:#e2e6ed;--bg:#f7f8fa;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 "Inter",-apple-system,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:18px 0}
+header .wrap{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
+header a{color:var(--muted);text-decoration:none;font-size:.92rem}
+header a:hover,header a[aria-current]{color:var(--uf)}
+header .brand{font-weight:600;color:var(--ink);font-size:1rem}
+main{padding:26px 0 70px}
+h1{font-size:1.5rem;letter-spacing:-.01em;margin:0 0 6px}
+h2{font-size:1.1rem;margin:2.1em 0 .6em}
+p{margin:.6em 0}
+a{color:var(--uf)}
+.lede{color:var(--muted);margin-bottom:1.4em}
+img.banner{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);margin-bottom:22px}
+a.weeklink{display:block;margin-bottom:14px}
+a.weeklink img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line)}
+a.weeklink:hover img{border-color:var(--uf)}
+.meta{color:var(--muted);font-size:.9rem;margin:-8px 0 20px}
+.clip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 18px}
+.clip h3{margin:0 0 4px;font-size:1.02rem}
+.clip .sub{color:var(--muted);font-size:.87rem;margin:0 0 10px}
+video{width:100%;height:auto;display:block;border-radius:8px;background:#000}
+.row{display:flex;gap:16px;flex-wrap:wrap;font-size:.9rem;margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:.94rem;margin:.6em 0}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--card);font-weight:600}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.86rem;padding:18px 0 40px}
+@media(max-width:600px){.wrap{padding:0 16px}}
