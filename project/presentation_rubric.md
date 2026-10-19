@@ -1,7 +1,8 @@
 # Final project presentation rubric (100 points)
 
 Each team presents for 12 minutes and answers questions for 4 minutes. The talk is 10% of the course grade. Slides
-from every team are due through the Canvas assignment before Tuesday, April 13, whichever day the team presents.
+from every team are due through the Canvas assignment by 1:00 PM on Tuesday, April 13, whichever day the team
+presents.
 
 Each criterion is worth 20 points and is scored in one of four bands. All members of a team receive the team grade.
 

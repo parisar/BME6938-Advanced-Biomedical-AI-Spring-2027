@@ -16,11 +16,11 @@ Every paper must include:
 |---|---|---|---|
 | Start data-access training (if using credentialed data) | Jan 14 | CITI training and PhysioNet credentialing started |  |
 | Teams formed | Jan 28 | Teams of three; names submitted |  |
-| Proposal | Feb 19 | One page: open problem and why it matters, data, models and methods, hypothesis, evaluation plan | 5% |
-| Pitch and peer review | Feb 23 | 2-min pitch in class; written review of one other proposal (counts toward participation) |  |
-| Progress report | Mar 26 | One page with baseline results and remaining plan | 5% |
-| Final presentation | Apr 13 | 12 min talk + 4 min questions; Tue Apr 13 (3 teams), Thu Apr 15 (5 teams), Tue Apr 20 (2 teams). Slides from all teams due before Tue Apr 13. | 10% |
-| Final paper and repository | Apr 21 | 4-page conference-style paper; reproducible GitHub repository with README | 20% |
+| Proposal | Feb 19 | One page: open problem and why it matters, data, models and methods, hypothesis, evaluation plan. Due 11:59 PM | 5% |
+| Pitch, then peer review | Feb 23 | 2-min pitch in class Feb 23 (slide due 1:00 PM); written review of one other proposal due Thu Mar 4, 11:59 PM (counts toward participation) |  |
+| Progress report | Mar 26 | One page with baseline results and remaining plan. Due 11:59 PM | 5% |
+| Final presentation | Apr 13 | 12 min talk + 4 min questions; Tue Apr 13 (3 teams), Thu Apr 15 (5 teams), Tue Apr 20 (2 teams). Every team's slides due 1:00 PM Tue Apr 13. | 10% |
+| Final paper and repository | Apr 21 | 4-page conference-style paper; reproducible GitHub repository with README. Due 11:59 PM | 20% |
 
 Templates: [proposal](proposal_template.md), [peer review](peer_review_form.md), [progress report](progress_report_template.md).
 

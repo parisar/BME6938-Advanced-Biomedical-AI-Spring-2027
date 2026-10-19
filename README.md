@@ -14,7 +14,7 @@ A graduate course on current research in biomedical AI: modern LLM architectures
 |---|---|
 | Tuesday lecture | Instructor mini-lecture on the core concept of the week with short animation clips, and a preview of the papers for Thursday |
 | Thursday paper sessions | Two papers, one per period. Each has a presentation group (20 min), a critique group (15 min), and class discussion (15 min) |
-| Reading responses | One paragraph and one discussion question per paper, due before the Thursday class |
+| Reading responses | One paragraph and one discussion question per paper, due by 1:00 PM Thursday |
 | Term project | Teams of three write a research paper on an open problem in biomedical AI |
 | Week 1 | Tuesday is course logistics. Thursday covers how to read, present, and critique a paper, followed by an instructor-led model paper session |
 | Weeks 2 and 3 | The Tuesday lectures review the transformer architecture in two parts; student paper sessions start on the Thursday of Week 2 |
@@ -32,6 +32,8 @@ A graduate course on current research in biomedical AI: modern LLM architectures
 
 Submissions, grades, and announcements are on Canvas.
 
+**Deadlines.** Reading responses are due at 1:00 PM on Thursday and the survey locks then. Written work is due at 11:59 PM on the stated day. Anything presented in class is due at 1:00 PM that day. Late work loses 5% per late day unless the assignment says otherwise.
+
 ## Schedule
 
 | Week | Topic | Thursday papers | Project |
@@ -41,16 +43,16 @@ Submissions, grades, and announcements are on Canvas.
 | 3 | Transformer review, Part 2: decoder, masking, and model families | [Luo et al.: BioGPT](https://doi.org/10.1093/bib/bbac409)<br>[Dosovitskiy et al.: ViT](https://arxiv.org/abs/2010.11929) | Teams formed (Thu Jan 28) |
 | 4 | Inside modern LLMs: architectures in 2026 | [DeepSeek-AI: DeepSeek-V3](https://arxiv.org/abs/2412.19437)<br>[Sellergren et al.: MedGemma](https://arxiv.org/abs/2507.05201) |  |
 | 5 | Post-training and reasoning: from pretrained model to clinical assistant | [Guo et al.: DeepSeek-R1](https://doi.org/10.1038/s41586-025-09422-z)<br>[Singhal et al.: Med-PaLM 2](https://doi.org/10.1038/s41591-024-03423-7) |  |
-| 6 | Self-supervised learning and imaging foundation models | [He et al.: MAE](https://arxiv.org/abs/2111.06377)<br>[Chen et al.: UNI](https://doi.org/10.1038/s41591-024-02857-3) | Proposal due Fri Feb 19 |
-| 7 | Vision-language and multimodal models | [Radford et al.: CLIP](https://proceedings.mlr.press/v139/radford21a.html)<br>[Tu et al.: Med-PaLM M](https://doi.org/10.1056/AIoa2300138) | 2-min pitches in class Tue Feb 23; peer reviews assigned |
-| 8 | Foundation models for EHR and physiological time series | [Wornow et al.: Shaky foundations of EHR foundation models](https://doi.org/10.1038/s41746-023-00879-8)<br>[Renc et al.: ETHOS](https://doi.org/10.1038/s41746-024-01235-0) | Peer reviews due |
+| 6 | Self-supervised learning and imaging foundation models | [He et al.: MAE](https://arxiv.org/abs/2111.06377)<br>[Chen et al.: UNI](https://doi.org/10.1038/s41591-024-02857-3) | Proposal due Fri Feb 19, 11:59 PM |
+| 7 | Vision-language and multimodal models | [Radford et al.: CLIP](https://proceedings.mlr.press/v139/radford21a.html)<br>[Tu et al.: Med-PaLM M](https://doi.org/10.1056/AIoa2300138) | Pitch slide due 1:00 PM Tue Feb 23; 2-min pitches in class; peer reviews assigned |
+| 8 | Foundation models for EHR and physiological time series | [Wornow et al.: Shaky foundations of EHR foundation models](https://doi.org/10.1038/s41746-023-00879-8)<br>[Renc et al.: ETHOS](https://doi.org/10.1038/s41746-024-01235-0) | Peer reviews due Thu Mar 4, 11:59 PM |
 | 9 | Retrieval, tool use, and agentic systems | [Yao et al.: ReAct](https://arxiv.org/abs/2210.03629)<br>[Zakka et al.: Almanac](https://doi.org/10.1056/AIoa2300068) |  |
 | 10 | Spring break | No class |  |
-| 11 | Generative models and AI for science | [Watson et al.: RFdiffusion](https://doi.org/10.1038/s41586-023-06415-8)<br>[Abramson et al.: AlphaFold 3](https://doi.org/10.1038/s41586-024-07487-w) | Progress report due Fri Mar 26 |
+| 11 | Generative models and AI for science | [Watson et al.: RFdiffusion](https://doi.org/10.1038/s41586-023-06415-8)<br>[Abramson et al.: AlphaFold 3](https://doi.org/10.1038/s41586-024-07487-w) | Progress report due Fri Mar 26, 11:59 PM |
 | 12 | Evaluation, robustness, and fairness | [Goh et al.: LLMs and diagnostic reasoning: an RCT](https://doi.org/10.1001/jamanetworkopen.2024.40969)<br>[DeGrave et al.: COVID-19 shortcuts](https://doi.org/10.1038/s42256-021-00338-7) |  |
 | 13 | Deployment, human-AI teaming, and ambient intelligence | [Wong et al.: External validation of a sepsis model](https://doi.org/10.1001/jamainternmed.2021.2626)<br>[Haque et al.: Ambient intelligence](https://doi.org/10.1038/s41586-020-2669-y) |  |
-| 14 | Final project presentations | Final project presentations (Tuesday and Thursday) | Final presentations Tue Apr 13 (3 teams) and Thu Apr 15 (5 teams); all slides due before Tue Apr 13 |
-| 15 | Final project presentations and wrap-up | Final project presentations (Tuesday) | Final presentations Tue Apr 20 (2 teams); paper and repository due Wed Apr 21 |
+| 14 | Final project presentations | Final project presentations (Tuesday and Thursday) | Final presentations Tue Apr 13 (3 teams) and Thu Apr 15 (5 teams); every team's slides due 1:00 PM Tue Apr 13 |
+| 15 | Final project presentations and wrap-up | Final project presentations (Tuesday) | Final presentations Tue Apr 20 (2 teams); paper and repository due Wed Apr 21, 11:59 PM |
 
 Full citations and links are in [papers/](papers/).
 

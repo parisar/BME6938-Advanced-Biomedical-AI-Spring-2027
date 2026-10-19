@@ -1,6 +1,6 @@
 # License for course content
 
-Copyright 2026 Parisa Rashidi, University of Florida.
+Copyright 2026-2027 Parisa Rashidi, University of Florida.
 
 Course content in this repository (README and Markdown pages, the explanatory text of the notebooks, rubrics, and the
 animation clips) is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0):

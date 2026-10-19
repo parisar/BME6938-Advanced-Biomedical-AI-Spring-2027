@@ -26,7 +26,7 @@ No results are expected. Say what you do not know yet; that is what the reviews 
 | 1:55 | Instructor opens the pitch file, assembled from the slides submitted by 1:00 PM; order is posted on Canvas |
 | 1:57-2:17 | Ten pitches, 2 minutes each, no questions between them |
 | 2:17-2:27 | Open questions and suggestions from the class |
-| 2:27-2:45 | Short mini-lecture on vision-language models, continuing from Week 7 |
+| 2:27-2:45 | Short mini-lecture on vision-language models: the Week 7 topic, shortened to make room for the pitches |
 
 Hold questions until all pitches are done, so timing does not slip. Anyone who wants a longer conversation can use
 the discussion board or office hours.
