@@ -17,7 +17,7 @@ The running example is one synthetic ICU patient (no real patient data): ED admi
 | 2. Zero-shot prediction by simulating the future | [2 min 2 s](clips/narrated/week08-clip2-rollouts-narrated.mp4) | [52 s](clips/silent/week08-clip2-rollouts.mp4) |
 | 3. Irregular sampling and physiological signals | [1 min 46 s](clips/narrated/week08-clip3-irregular-signals-narrated.mp4) | [51 s](clips/silent/week08-clip3-irregular-signals.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json). The storyboard brief is in [storyboard.md](storyboard.md).
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json). The storyboard brief is in [storyboard.md](storyboard.md).
 
 **Note for the lecture (clip 2).** The ETHOS baselines are numbers reported by other studies, which the authors note used their own exclusion criteria and often no public code; they were not re-run on the ETHOS test set. MIMIC-IV comes from one hospital, and ETHOS keeps only the most recent 2,048 tokens, so dense records lose their earliest history.
 

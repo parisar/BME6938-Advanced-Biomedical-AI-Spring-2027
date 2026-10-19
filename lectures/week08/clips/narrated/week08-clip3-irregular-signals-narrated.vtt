@@ -1,0 +1,111 @@
+WEBVTT
+
+NOTE week08-clip3-irregular-signals
+NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
+
+1
+00:00:00.150 --> 00:00:03.646 line:2 align:center
+In the ICU, measurements
+arrive at irregular times.
+
+2
+00:00:03.646 --> 00:00:07.850 line:2 align:center
+Heart rate is charted about every
+hour, with a long gap overnight,
+
+3
+00:00:07.850 --> 00:00:12.350 line:2 align:center
+and lactate is drawn only
+three times in the whole day.
+
+4
+00:00:12.550 --> 00:00:16.087 line:2 align:center
+The first option is to put
+everything on an hourly grid.
+
+5
+00:00:16.087 --> 00:00:20.226 line:2 align:center
+Empty hours are filled with
+the last measured value,
+
+6
+00:00:20.226 --> 00:00:26.083 line:2 align:center
+and a mask of ones and zeros records
+which values were actually measured.
+
+7
+00:00:26.283 --> 00:00:30.136 line:2 align:center
+The mask matters, because
+missing values carry information.
+
+8
+00:00:30.136 --> 00:00:34.353 line:2 align:center
+Nobody draws a lactate at two
+in the morning without a reason.
+
+9
+00:00:34.353 --> 00:00:40.283 line:2 align:center
+The mask lets the model use when a
+test was ordered, not just its result.
+
+10
+00:00:40.483 --> 00:00:45.408 line:2 align:center
+The second option is the one from clip
+one: interval tokens between events.
+
+11
+00:00:45.408 --> 00:00:50.780 line:2 align:center
+The overnight gap is no longer
+missing data. It becomes a token,
+
+12
+00:00:50.780 --> 00:00:54.350 line:2 align:center
+two to six hours, that the model can read.
+
+13
+00:00:54.550 --> 00:00:56.989 line:2 align:center
+The third option is a time embedding,
+
+14
+00:00:56.989 --> 00:01:03.366 line:2 align:center
+like the sine and cosine position waves
+from week two, but measured in real hours.
+
+15
+00:01:03.366 --> 00:01:11.039 line:2 align:center
+At two and a half hours, the eight-hour
+wave gives 0.92 and minus 0.38,
+
+16
+00:01:11.039 --> 00:01:17.750 line:2 align:center
+and the 24-hour wave gives 0.61 and 0.79.
+
+17
+00:01:17.950 --> 00:01:23.204 line:2 align:center
+Dense signals such as the ECG are cut
+into patches, exactly as in week six.
+
+18
+00:01:23.204 --> 00:01:29.140 line:2 align:center
+A ten-second ECG at 500 samples per
+second becomes 10 one-second patches
+
+19
+00:01:29.140 --> 00:01:32.150 line:2 align:center
+of 500 samples each.
+
+20
+00:01:32.350 --> 00:01:37.344 line:2 align:center
+So every clinical data type can
+become tokens: codes, lab values,
+
+21
+00:01:37.344 --> 00:01:39.917 line:2 align:center
+time, missing values, and signals. Each
+choice decides what the model can see,
+
+22
+00:01:39.917 --> 00:01:45.547 line:2 align:center
+and what it cannot.

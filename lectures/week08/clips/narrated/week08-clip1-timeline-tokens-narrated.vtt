@@ -1,0 +1,109 @@
+WEBVTT
+
+NOTE week08-clip1-timeline-tokens
+NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
+
+1
+00:00:00.150 --> 00:00:04.186 line:2 align:center
+A hospital record is a timeline
+of events at irregular times.
+
+2
+00:00:04.186 --> 00:00:08.406 line:2 align:center
+Our synthetic patient arrives
+in the emergency department,
+
+3
+00:00:08.406 --> 00:00:13.817 line:2 align:center
+has a lactate of 4.1, gets
+norepinephrine, is diagnosed with sepsis,
+
+4
+00:00:13.817 --> 00:00:18.017 line:2 align:center
+and moves to the ICU three
+and a half hours later.
+
+5
+00:00:18.217 --> 00:00:23.079 line:2 align:center
+Codes become tokens. Ethos
+splits each code into parts:
+
+6
+00:00:23.079 --> 00:00:27.604 line:2 align:center
+the sepsis code A41.9 becomes two tokens,
+
+7
+00:00:27.604 --> 00:00:31.099 line:2 align:center
+and the drug code for
+norepinephrine becomes three,
+
+8
+00:00:31.099 --> 00:00:35.017 line:2 align:center
+from the broad group down to the drug.
+
+9
+00:00:35.217 --> 00:00:37.538 line:2 align:center
+Numbers become quantile tokens.
+
+10
+00:00:37.538 --> 00:00:43.084 line:2 align:center
+The lactate values in the training data
+are cut into ten bins with equal counts.
+
+11
+00:00:43.084 --> 00:00:50.617 line:2 align:center
+A lactate of 4.1 falls in the top
+bin, so it becomes lactate, then Q10.
+
+12
+00:00:50.817 --> 00:00:54.824 line:2 align:center
+Time gaps become interval
+tokens. Ethos uses 13 of them,
+
+13
+00:00:54.824 --> 00:00:57.765 line:2 align:center
+and adds none for gaps under 5 minutes.
+
+14
+00:00:57.765 --> 00:01:01.917 line:2 align:center
+Our 3 gaps of under an hour
+become 15 minutes to one hour,
+
+15
+00:01:01.917 --> 00:01:05.550 line:2 align:center
+and the last gap becomes 1 to 2 hours.
+
+16
+00:01:05.750 --> 00:01:10.867 line:2 align:center
+Six static tokens come first, such
+as sex and age in five-year bins.
+
+17
+00:01:10.867 --> 00:01:13.649 line:2 align:center
+Then the events follow in time order,
+
+18
+00:01:13.649 --> 00:01:19.017 line:2 align:center
+so the whole record becomes
+one sequence of 19 tokens.
+
+19
+00:01:19.217 --> 00:01:23.069 line:2 align:center
+A decoder transformer then
+learns to predict the next token,
+
+20
+00:01:23.069 --> 00:01:26.126 line:2 align:center
+exactly as in weeks three to five.
+
+21
+00:01:26.126 --> 00:01:31.374 line:2 align:center
+Ethos was trained on 241,000
+patients from MIMIC-IV,
+
+22
+00:01:31.374 --> 00:01:37.613 line:2 align:center
+and it sees the most recent
+2,048 tokens of each timeline.
