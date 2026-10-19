@@ -52,6 +52,18 @@ data privacy, model transparency), and takes the measured results from the studi
 teaching: the hand-hygiene result rests on a test set of 88 dispenser-use events, and the ICU system detects a mobility
 event 87% of the time but counts how many staff were involved correctly only 69% of the time.
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The
+transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1),
+and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. What external validation found | [week13-clip1-external.md](clips/transcripts/week13-clip1-external.md) |
+| 2. Thresholds, alert burden, and drift | [week13-clip2-thresholds.md](clips/transcripts/week13-clip2-thresholds.md) |
+| 3. Humans and models together | [week13-clip3-teaming.md](clips/transcripts/week13-clip3-teaming.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week13_deployment.ipynb](../notebooks/week13_deployment.ipynb). It
