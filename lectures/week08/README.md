@@ -21,6 +21,16 @@ The narration is an AI-generated voice reading a script written for the course. 
 
 **Note for the lecture (clip 2).** The ETHOS baselines are numbers reported by other studies, which the authors note used their own exclusion criteria and often no public code; they were not re-run on the ETHOS test set. MIMIC-IV comes from one hospital, and ETHOS keeps only the most recent 2,048 tokens, so dense records lose their earliest history.
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1), and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. A patient timeline as tokens | [week08-clip1-timeline-tokens.md](clips/transcripts/week08-clip1-timeline-tokens.md) |
+| 2. Zero-shot prediction by simulating the future | [week08-clip2-rollouts.md](clips/transcripts/week08-clip2-rollouts.md) |
+| 3. Irregular sampling and physiological signals | [week08-clip3-irregular-signals.md](clips/transcripts/week08-clip3-irregular-signals.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week08_ehr_time_series.ipynb](../notebooks/week08_ehr_time_series.ipynb). It
