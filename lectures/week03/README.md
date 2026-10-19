@@ -19,6 +19,16 @@ The running examples are the clinical phrase "The patient denies chest pain" and
 
 The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1), and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. Generating text one token at a time | [week03-clip1-next-token-generation.md](clips/transcripts/week03-clip1-next-token-generation.md) |
+| 2. The causal mask | [week03-clip2-causal-mask.md](clips/transcripts/week03-clip2-causal-mask.md) |
+| 3. Vision transformer: an image as a sequence of patches | [week03-clip3-vit-patches.md](clips/transcripts/week03-clip3-vit-patches.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week03_transformer_review_part2.ipynb](../notebooks/week03_transformer_review_part2.ipynb).
