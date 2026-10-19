@@ -1,0 +1,99 @@
+WEBVTT
+
+NOTE week07-clip1-clip
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:05.992
+In week six, contrastive learning
+matched two views of the same ECG.
+
+2
+00:00:05.992 --> 00:00:11.940
+CLIP keeps the same idea, but matches an
+image with the text that describes it,
+
+3
+00:00:11.940 --> 00:00:15.683
+such as an H&E tile and its caption.
+
+4
+00:00:15.883 --> 00:00:20.596
+CLIP has two encoders. A vision
+transformer encodes the image,
+
+5
+00:00:20.596 --> 00:00:26.309
+and a text transformer encodes the
+caption. Both produce 512 numbers,
+
+6
+00:00:26.309 --> 00:00:30.817
+scaled to length 1, in
+the same embedding space.
+
+7
+00:00:31.017 --> 00:00:36.275
+Take a batch of four tiles and their
+four captions. Comparing every tile
+
+8
+00:00:36.275 --> 00:00:41.865
+with every caption gives a four by
+four grid of cosine similarities.
+
+9
+00:00:41.865 --> 00:00:45.283
+The true pairs sit on the diagonal.
+
+10
+00:00:45.483 --> 00:00:52.544
+Each row is divided by a temperature,
+here 0.07, and passed through a softmax.
+
+11
+00:00:52.544 --> 00:00:59.550
+The tumor tile then gives its own
+caption a probability of 0.82.
+
+12
+00:00:59.750 --> 00:01:04.214
+The loss is cross-entropy in
+both directions. Along each row,
+
+13
+00:01:04.214 --> 00:01:09.850
+a tile must pick its caption. Down each
+column, a caption must pick its tile.
+
+14
+00:01:09.850 --> 00:01:14.417
+The 2 are averaged, here to 0.18.
+
+15
+00:01:14.617 --> 00:01:21.480
+CLIP was trained on 400 million image
+and text pairs collected from the web,
+
+16
+00:01:21.480 --> 00:01:24.530
+in batches of 32,768 pairs.
+
+17
+00:01:24.530 --> 00:01:29.950
+The temperature starts
+at 0.07 and is learned.
+
+18
+00:01:30.150 --> 00:01:34.418
+BiomedCLIP uses the same
+recipe on biomedical data:
+
+19
+00:01:34.418 --> 00:01:38.290
+15 million figures and their captions,
+
+20
+00:01:38.290 --> 00:01:43.247
+taken from 4.4 million
+articles in PubMed Central.

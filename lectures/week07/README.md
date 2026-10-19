@@ -17,7 +17,7 @@ The running example continues Week 6: H&E tiles of colorectal tissue from an ope
 | 2. Zero-shot classification, and where it breaks | [1 min 58 s](clips/narrated/week07-clip2-zero-shot-narrated.mp4) | [47 s](clips/silent/week07-clip2-zero-shot.mp4) |
 | 3. Images as tokens: Med-PaLM M | [1 min 52 s](clips/narrated/week07-clip3-med-palm-m-narrated.mp4) | [52 s](clips/silent/week07-clip3-med-palm-m.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
 **Note for the lecture (clip 2).** On the Kather tiles, general CLIP's zero-shot accuracy is 5.6 to 15.1% depending only on the prompt wording, and chance is 12.5% for 8 classes, so the worst wording is below chance. A linear probe with 10 labels per class does far better on the same embeddings.
 

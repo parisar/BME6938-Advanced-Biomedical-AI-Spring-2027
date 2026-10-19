@@ -1,0 +1,119 @@
+WEBVTT
+
+NOTE week07-clip3-med-palm-m
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:04.249
+CLIP can score how well each
+caption fits a chest X-ray,
+
+2
+00:00:04.249 --> 00:00:07.406
+but it can only choose
+among captions we give it.
+
+3
+00:00:07.406 --> 00:00:11.550
+A radiology report has to
+be written, word by word.
+
+4
+00:00:11.750 --> 00:00:14.835
+So we feed the image
+into a language model.
+
+5
+00:00:14.835 --> 00:00:20.649
+A vision transformer cuts the X-ray into
+patches and turns each one into a vector.
+
+6
+00:00:20.649 --> 00:00:27.150
+A projection then resizes these vectors
+to the size of the model's word tokens.
+
+7
+00:00:27.350 --> 00:00:30.917
+The image tokens go in
+front of the instruction,
+
+8
+00:00:30.917 --> 00:00:33.085
+write the findings for this X-ray,
+
+9
+00:00:33.085 --> 00:00:39.164
+and the whole sequence enters the same
+decoder we saw in weeks four and five.
+
+10
+00:00:39.164 --> 00:00:42.883
+It writes the report one token at a time.
+
+11
+00:00:43.083 --> 00:00:49.064
+Training uses the same next-token loss
+as supervised fine-tuning in week five.
+
+12
+00:00:49.064 --> 00:00:56.017
+It is counted only on the report tokens,
+not on the image or the instruction.
+
+13
+00:00:56.217 --> 00:00:58.241
+Med-PaLM M starts from PaLM-E,
+
+14
+00:00:58.241 --> 00:01:02.005
+a Palm language model joined
+to a vision transformer,
+
+15
+00:01:02.005 --> 00:01:06.759
+in sizes from 12 billion
+to 562 billion parameters.
+
+16
+00:01:06.759 --> 00:01:11.334
+It is fine-tuned on 14
+tasks across 7 modalities,
+
+17
+00:01:11.334 --> 00:01:14.683
+with one set of weights for all of them.
+
+18
+00:01:14.883 --> 00:01:20.348
+On 246 chest X-rays, clinicians
+preferred Med-PaLM M's report
+
+19
+00:01:20.348 --> 00:01:27.322
+to the radiologist's in up to 40.5% of
+cases. Without any training examples,
+
+20
+00:01:27.322 --> 00:01:31.875
+it detected tuberculosis
+with 87.7% accuracy,
+
+21
+00:01:31.875 --> 00:01:36.417
+against 92.6 for a specialist model.
+
+22
+00:01:36.617 --> 00:01:41.811
+But this was a side-by-side ranking
+of past cases, not use in the clinic,
+
+23
+00:01:41.811 --> 00:01:46.736
+and in most cases the model's
+report was not the one preferred.
+
+24
+00:01:46.736 --> 00:01:52.147
+We return to evaluation
+and deployment in week 12.
