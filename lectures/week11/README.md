@@ -47,6 +47,18 @@ judgement are the experimental ones: 19% success across five targets, a 28 nM in
 cryo-EM map matching the design to 0.63 Å. The notebook reproduces this problem on purpose, in miniature: its sample
 quality is scored by a classifier trained on the same 4,000 synthetic chains that trained the diffusion model.
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The
+transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1),
+and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. Diffusion, part 1: adding noise | [week11-clip1-forward.md](clips/transcripts/week11-clip1-forward.md) |
+| 2. Diffusion, part 2: learning the way back | [week11-clip2-reverse.md](clips/transcripts/week11-clip2-reverse.md) |
+| 3. Diffusion, part 3: steering the sampler | [week11-clip3-conditioning.md](clips/transcripts/week11-clip3-conditioning.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week11_diffusion.ipynb](../notebooks/week11_diffusion.ipynb). It
