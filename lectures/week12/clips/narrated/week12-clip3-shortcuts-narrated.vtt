@@ -1,0 +1,141 @@
+WEBVTT
+
+NOTE week12-clip3-shortcuts
+NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
+
+1
+00:00:00.150 --> 00:00:03.613 line:2 align:center
+A model can reach a high score
+by reading the wrong thing.
+
+2
+00:00:03.613 --> 00:00:06.645 line:2 align:center
+The score tells you the
+label came out right.
+
+3
+00:00:06.645 --> 00:00:11.083 line:2 align:center
+It does not tell you which
+part of the image produced it.
+
+4
+00:00:11.283 --> 00:00:14.240 line:2 align:center
+DeGrave and colleagues built two datasets.
+
+5
+00:00:14.240 --> 00:00:17.392 line:2 align:center
+The first takes positives
+from GitHub-COVID
+
+6
+00:00:17.392 --> 00:00:20.664 line:2 align:center
+and negatives from ChestX-ray14,
+
+7
+00:00:20.664 --> 00:00:24.274 line:2 align:center
+so source and label
+line up almost exactly.
+
+8
+00:00:24.274 --> 00:00:29.504 line:2 align:center
+The second, from BIMCV and PadChest,
+is one region and one research team:
+
+9
+00:00:29.504 --> 00:00:31.750 line:2 align:center
+the favorable case.
+
+10
+00:00:31.950 --> 00:00:33.910 line:2 align:center
+Saliency maps and generative
+
+11
+00:00:33.910 --> 00:00:36.841 line:2 align:center
+counterfactuals showed
+what the models used:
+
+12
+00:00:36.841 --> 00:00:41.614 line:2 align:center
+laterality markers, arrows and
+text found only in one archive,
+
+13
+00:00:41.614 --> 00:00:45.973 line:2 align:center
+the radiopacity of the image
+borders, and patient positioning.
+
+14
+00:00:45.973 --> 00:00:48.746 line:2 align:center
+Moving the clavicle
+region to the top border
+
+15
+00:00:48.746 --> 00:00:52.817 line:2 align:center
+raised the predicted odds of COVID 19.
+
+16
+00:00:53.017 --> 00:00:55.662 line:2 align:center
+On radiographs from a new hospital system,
+
+17
+00:00:55.662 --> 00:01:00.608 line:2 align:center
+half of the predictive performance
+was lost. The authors concluded
+
+18
+00:01:00.608 --> 00:01:05.739 line:2 align:center
+that only a minority of it was
+ever genuine COVID 19 pathology.
+
+19
+00:01:05.739 --> 00:01:09.350 line:2 align:center
+The rest was the source, not the disease.
+
+20
+00:01:09.550 --> 00:01:15.309 line:2 align:center
+Here is the part that catches people
+out. Some shortcuts do not transfer,
+
+21
+00:01:15.309 --> 00:01:19.827 line:2 align:center
+so the score falls and you see it.
+Others, like patient positioning,
+
+22
+00:01:19.827 --> 00:01:22.191 line:2 align:center
+are consistent in both datasets:
+
+23
+00:01:22.191 --> 00:01:27.398 line:2 align:center
+the score holds up and the model
+is still not reading the lungs.
+
+24
+00:01:27.398 --> 00:01:31.150 line:2 align:center
+External validation is
+necessary, not sufficient.
+
+25
+00:01:31.350 --> 00:01:34.827 line:2 align:center
+An average hides the group
+a model works worst on.
+
+26
+00:01:34.827 --> 00:01:39.872 line:2 align:center
+Sensitivity of 0.85 overall can be 0.90 in
+
+27
+00:01:39.872 --> 00:01:45.617 line:2 align:center
+80% of patients and 0.65 in the other 20.
+
+28
+00:01:45.617 --> 00:01:50.718 line:2 align:center
+Report subgroups with intervals, validate
+externally, look at what the model uses,
+
+29
+00:01:50.718 --> 00:01:55.580 line:2 align:center
+and test whether the site can
+be predicted from its features.

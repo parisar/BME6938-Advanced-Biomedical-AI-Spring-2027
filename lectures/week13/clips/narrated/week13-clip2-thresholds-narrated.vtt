@@ -1,0 +1,108 @@
+WEBVTT
+
+NOTE week13-clip2-thresholds
+NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
+
+1
+00:00:00.150 --> 00:00:05.058 line:2 align:center
+Once the model is trained, one decision
+is left: where to put the threshold.
+
+2
+00:00:05.058 --> 00:00:10.959 line:2 align:center
+These 2 curves are drawn to the same
+height, but sepsis is only 7% of patients,
+
+3
+00:00:10.959 --> 00:00:13.092 line:2 align:center
+so the red 1 is really much smaller.
+
+4
+00:00:13.092 --> 00:00:17.950 line:2 align:center
+Moving the line trades missed
+cases against false alarms.
+
+5
+00:00:18.150 --> 00:00:22.216 line:2 align:center
+At 7% prevalence, sensitivity of 80%
+
+6
+00:00:22.216 --> 00:00:25.188 line:2 align:center
+with a positive predictive value of 10%
+
+7
+00:00:25.188 --> 00:00:29.609 line:2 align:center
+means 56 alerts for every 100 admissions.
+
+8
+00:00:29.609 --> 00:00:33.570 line:2 align:center
+50% with 20% means 17 and a half.
+
+9
+00:00:33.570 --> 00:00:37.950 line:2 align:center
+25% with 35% means 5.
+
+10
+00:00:38.150 --> 00:00:43.234 line:2 align:center
+The honest unit is how many patients a
+clinician reviews for each real case:
+
+11
+00:00:43.234 --> 00:00:49.840 line:2 align:center
+ten, five, and about three at those three
+points. The real sepsis model sat at 8,
+
+12
+00:00:49.840 --> 00:00:54.950 line:2 align:center
+and it alerted on 18%
+of all hospitalizations.
+
+13
+00:00:55.150 --> 00:01:00.598 line:2 align:center
+None of this holds still. A lab changes
+an assay, a diagnosis moves to a new code,
+
+14
+00:01:00.598 --> 00:01:05.708 line:2 align:center
+a unit reopens and the case mix shifts.
+None of these generates a ticket.
+
+15
+00:01:05.708 --> 00:01:11.483 line:2 align:center
+The model keeps producing scores that look
+plausible while the performance moves.
+
+16
+00:01:11.683 --> 00:01:15.445 line:2 align:center
+So watch it. Plot the monthly
+AUC against limits set
+
+17
+00:01:15.445 --> 00:01:17.977 line:2 align:center
+from a period you agree was stable.
+
+18
+00:01:17.977 --> 00:01:23.364 line:2 align:center
+Here it drifts below the lower limit
+and stays there for three months,
+
+19
+00:01:23.364 --> 00:01:26.750 line:2 align:center
+which is a signal rather than a bad month.
+
+20
+00:01:26.950 --> 00:01:31.589 line:2 align:center
+Write the plan before go-live.
+Track inputs, outputs and outcomes.
+
+21
+00:01:31.589 --> 00:01:36.468 line:2 align:center
+Set the limits in advance. Name the
+person who is paged when one is crossed,
+
+22
+00:01:36.468 --> 00:01:42.313 line:2 align:center
+and decide now whether the answer is
+to retrain, retune, or switch it off.

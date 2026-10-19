@@ -1,0 +1,121 @@
+WEBVTT
+
+NOTE week12-clip1-trial
+NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
+
+1
+00:00:00.150 --> 00:00:03.083 line:2 align:center
+A benchmark asks whether
+the model can answer.
+
+2
+00:00:03.083 --> 00:00:08.389 line:2 align:center
+A trial asks whether clinicians do better
+with it. These are different questions,
+
+3
+00:00:08.389 --> 00:00:13.350 line:2 align:center
+and only the second one decides
+whether a tool helps patients.
+
+4
+00:00:13.550 --> 00:00:16.973 line:2 align:center
+Goh and colleagues
+randomized 50 physicians:
+
+5
+00:00:16.973 --> 00:00:24.817 line:2 align:center
+25 to GPT-4 plus their usual resources,
+and 25 to usual resources alone.
+
+6
+00:00:24.817 --> 00:00:29.185 line:2 align:center
+Both groups worked up to
+6 vignettes in 60 minutes,
+
+7
+00:00:29.185 --> 00:00:33.417 line:2 align:center
+graded blind on a structured
+reflection rubric.
+
+8
+00:00:33.617 --> 00:00:36.683 line:2 align:center
+The median diagnostic reasoning score per
+
+9
+00:00:36.683 --> 00:00:41.697 line:2 align:center
+case was 76% with GPT-4 and 74% without.
+
+10
+00:00:41.697 --> 00:00:45.063 line:2 align:center
+The adjusted difference was 2%age points,
+
+11
+00:00:45.063 --> 00:00:51.085 line:2 align:center
+with a 95% interval from minus
+4 to 8 and a P value of 0.60.
+
+12
+00:00:51.085 --> 00:00:54.083 line:2 align:center
+The interval includes zero.
+
+13
+00:00:54.283 --> 00:00:55.918 line:2 align:center
+Nor was it faster.
+
+14
+00:00:55.918 --> 00:01:01.871 line:2 align:center
+Physicians with the model took
+519 seconds per case against 565,
+
+15
+00:01:01.871 --> 00:01:04.879 line:2 align:center
+a difference of minus 82 seconds,
+
+16
+00:01:04.879 --> 00:01:09.801 line:2 align:center
+with a 95% interval from minus 195 to 31.
+
+17
+00:01:09.801 --> 00:01:13.083 line:2 align:center
+That interval includes zero too.
+
+18
+00:01:13.283 --> 00:01:20.161 line:2 align:center
+In an exploratory arm of 3 runs, the
+model alone scored a median of 92%,
+
+19
+00:01:20.161 --> 00:01:22.513 line:2 align:center
+16 points above the control group.
+
+20
+00:01:22.513 --> 00:01:26.867 line:2 align:center
+But the physicians who had
+that same model scored 76.
+
+21
+00:01:26.867 --> 00:01:31.883 line:2 align:center
+The gap is about how people use
+the tool, not about the tool.
+
+22
+00:01:32.083 --> 00:01:37.539 line:2 align:center
+Benchmark, retrospective study,
+reader study, prospective trial,
+
+23
+00:01:37.539 --> 00:01:39.569 line:2 align:center
+then deployment with monitoring.
+
+24
+00:01:39.569 --> 00:01:45.989 line:2 align:center
+Each rung answers a question the one below
+it cannot. This trial is the fourth rung,
+
+25
+00:01:45.989 --> 00:01:50.213 line:2 align:center
+and most published
+results stop at the first.

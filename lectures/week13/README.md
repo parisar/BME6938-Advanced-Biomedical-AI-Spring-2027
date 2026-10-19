@@ -21,7 +21,9 @@ narrated (voice-over plus on-screen captions) and silent (captions only).
 | 2. Thresholds, alert burden, and drift | [1 min 42 s](clips/narrated/week13-clip2-thresholds-narrated.mp4) | [47 s](clips/silent/week13-clip2-thresholds.mp4) |
 | 3. Humans and models together | [2 min 28 s](clips/narrated/week13-clip3-teaming-narrated.mp4) | [55 s](clips/silent/week13-clip3-teaming.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in
+a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read
+sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in
 [animations/](animations/) and the narration script is in [clips.json](clips.json). The storyboard brief is in
 [storyboard.md](storyboard.md).
 

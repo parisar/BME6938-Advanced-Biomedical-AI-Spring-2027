@@ -21,7 +21,9 @@ notebook cannot drift apart. Each clip comes in two versions: narrated (voice-ov
 | 2. How sure are we? The bootstrap | [1 min 53 s](clips/narrated/week12-clip2-bootstrap-narrated.mp4) | [50 s](clips/silent/week12-clip2-bootstrap.mp4) |
 | 3. Shortcuts and hidden subgroups | [1 min 56 s](clips/narrated/week12-clip3-shortcuts-narrated.mp4) | [51 s](clips/silent/week12-clip3-shortcuts.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in
+a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read
+sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in
 [animations/](animations/) and the narration script is in [clips.json](clips.json). The storyboard brief is in
 [storyboard.md](storyboard.md).
 

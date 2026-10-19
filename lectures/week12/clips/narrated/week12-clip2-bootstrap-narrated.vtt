@@ -1,0 +1,110 @@
+WEBVTT
+
+NOTE week12-clip2-bootstrap
+NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
+
+1
+00:00:00.150 --> 00:00:07.119 line:2 align:center
+A synthetic test set of 200
+patients. Model A is right on 170,
+
+2
+00:00:07.119 --> 00:00:11.129 line:2 align:center
+85%, and model B on 164,
+
+3
+00:00:11.129 --> 00:00:15.750 line:2 align:center
+82%. The question is how much
+of that three-point gap is just
+
+4
+00:00:15.750 --> 00:00:19.283 line:2 align:center
+which patients we happened to test.
+
+5
+00:00:19.483 --> 00:00:24.988 line:2 align:center
+The bootstrap answers that by resampling.
+Draw 200 patients with replacement,
+
+6
+00:00:24.988 --> 00:00:31.327 line:2 align:center
+so some appear more than once, recompute
+the accuracy, and repeat 10,000 times.
+
+7
+00:00:31.327 --> 00:00:36.417 line:2 align:center
+The spread of those 10,000
+numbers is the uncertainty.
+
+8
+00:00:36.617 --> 00:00:42.098 line:2 align:center
+Model A's interval runs from 0.80 to 0.90,
+
+9
+00:00:42.098 --> 00:00:47.278 line:2 align:center
+and model B's from 0.77 to 0.87.
+
+10
+00:00:47.278 --> 00:00:51.907 line:2 align:center
+They overlap, but overlapping
+intervals are not a test.
+
+11
+00:00:51.907 --> 00:00:56.750 line:2 align:center
+Each one answers a question
+about one model on its own.
+
+12
+00:00:56.950 --> 00:01:01.005 line:2 align:center
+Both models were graded
+on the same 200 patients.
+
+13
+00:01:01.005 --> 00:01:06.628 line:2 align:center
+A is right where B is wrong 14 times,
+and B is right where A is wrong 8 times.
+
+14
+00:01:06.628 --> 00:01:13.283 line:2 align:center
+14 minus 8 is 6 patients, which is
+exactly the three-point difference.
+
+15
+00:01:13.483 --> 00:01:19.297 line:2 align:center
+Bootstrapping the difference on the
+same resampled patients gives 0.03,
+
+16
+00:01:19.297 --> 00:01:26.406 line:2 align:center
+with a 95% interval from
+minus 0.015 to 0.075.
+
+17
+00:01:26.406 --> 00:01:30.805 line:2 align:center
+It includes zero, so these data
+do not show that A is better.
+
+18
+00:01:30.805 --> 00:01:34.283 line:2 align:center
+They do not show the
+models are equal either.
+
+19
+00:01:34.483 --> 00:01:37.086 line:2 align:center
+Pairing matters. On the same data,
+
+20
+00:01:37.086 --> 00:01:43.824 line:2 align:center
+ignoring it widens the interval
+to minus 0.045 to 0.105,
+
+21
+00:01:43.824 --> 00:01:49.050 line:2 align:center
+about two thirds wider. Report
+intervals rather than point estimates,
+
+22
+00:01:49.050 --> 00:01:52.913 line:2 align:center
+and compare models on the same patients.

@@ -1,0 +1,143 @@
+WEBVTT
+
+NOTE week13-clip3-teaming
+NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
+
+1
+00:00:00.150 --> 00:00:05.578 line:2 align:center
+Put a clinician and a model together
+and there are two obvious rules:
+
+2
+00:00:05.578 --> 00:00:08.946 line:2 align:center
+flag if either flags,
+or flag only if both do.
+
+3
+00:00:08.946 --> 00:00:14.696 line:2 align:center
+Say the clinician catches 80%
+of cases and the model 75.
+
+4
+00:00:14.696 --> 00:00:20.350 line:2 align:center
+Which rule is better depends
+on something nobody measures.
+
+5
+00:00:20.550 --> 00:00:26.847 line:2 align:center
+Assume their errors are independent.
+Of a hundred real cases, both catch 60,
+
+6
+00:00:26.847 --> 00:00:33.434 line:2 align:center
+the clinician alone 20, the model
+alone 15, and 5 are missed by both.
+
+7
+00:00:33.434 --> 00:00:40.283 line:2 align:center
+Either-flags reaches 0.95,
+and both-flags falls to 0.60.
+
+8
+00:00:40.483 --> 00:00:46.719 line:2 align:center
+Now assume the model misses whatever
+the clinician misses. Both catch 75,
+
+9
+00:00:46.719 --> 00:00:51.528 line:2 align:center
+the clinician alone 5,
+and 20 are missed by both.
+
+10
+00:00:51.528 --> 00:00:56.885 line:2 align:center
+Either-flags falls to 0.80,
+which is the clinician alone,
+
+11
+00:00:56.885 --> 00:01:04.076 line:2 align:center
+so the model adds nothing. Both-flags
+rises to 0.75. The same two sensitivities,
+
+12
+00:01:04.076 --> 00:01:06.350 line:2 align:center
+opposite conclusions.
+
+13
+00:01:06.550 --> 00:01:08.673 line:2 align:center
+And people are not rules.
+
+14
+00:01:08.673 --> 00:01:13.241 line:2 align:center
+A confident score can talk a
+clinician out of a correct judgement,
+
+15
+00:01:13.241 --> 00:01:19.125 line:2 align:center
+and at one true case in every eight
+alerts the rational response is
+
+16
+00:01:19.125 --> 00:01:23.300 line:2 align:center
+to stop reading them. Goh and
+colleagues measured exactly this:
+
+17
+00:01:23.300 --> 00:01:30.479 line:2 align:center
+the model alone scored 92%, and
+the physicians using it scored 76,
+
+18
+00:01:30.479 --> 00:01:33.417 line:2 align:center
+against 74 without.
+
+19
+00:01:33.617 --> 00:01:39.176 line:2 align:center
+Ambient intelligence watches the room
+instead of waiting for someone to type.
+
+20
+00:01:39.176 --> 00:01:44.356 line:2 align:center
+16 depth sensors detected hand
+hygiene at 92.1% sensitivity,
+
+21
+00:01:44.356 --> 00:01:51.184 line:2 align:center
+better than the human observers at
+85.2. But that came from only 88 events,
+
+22
+00:01:51.184 --> 00:01:57.027 line:2 align:center
+so read the interval. In an ICU, 7
+sensors detected mobility at 87%,
+
+23
+00:01:57.027 --> 00:02:02.817 line:2 align:center
+and counted the staff involved
+correctly only 69% of the time.
+
+24
+00:02:03.017 --> 00:02:06.627 line:2 align:center
+Sensing a care space is a
+governance question first.
+
+25
+00:02:06.627 --> 00:02:10.935 line:2 align:center
+Depth sensing keeps identifiable
+images out of the room,
+
+26
+00:02:10.935 --> 00:02:16.014 line:2 align:center
+which helps, but it does not settle
+who consents, who sees the data,
+
+27
+00:02:16.014 --> 00:02:21.920 line:2 align:center
+or how long it is kept, and the staff
+are being observed too. Validate locally,
+
+28
+00:02:21.920 --> 00:02:27.713 line:2 align:center
+watch it after go-live, and measure
+the team rather than the model.
