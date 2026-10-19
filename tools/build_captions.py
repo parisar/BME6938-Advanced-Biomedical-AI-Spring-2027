@@ -50,6 +50,10 @@ WEIGHT_MAX = 105      # a cue of about CUE_MAX plain characters, allowing for a 
 TAIL = 0.85           # how far a segment's last cue may run into the silence after it
 PAUSE_MIN = 0.18      # a gap this long in the narration counts as a break between phrases
 PAUSE_DB = -32        # below this level the narration counts as silent
+# The clip draws its own caption along the bottom of the frame, where a player puts
+# subtitles by default, so the cues go near the top instead. Line 2 clears the title in
+# the top left corner.
+CUE_POS = "line:2 align:center"
 
 # where a clause can break, strongest first
 SOFT = [" and ", " but ", " so ", " because ", " which ", " where ", " that ", " then ",
@@ -320,9 +324,11 @@ def build(week, clip, cfg, force=False):
         a, b, body = cues[-1]
         cues[-1] = (a, min(b, duration(mp4) - 0.02), body)
     lines = ["WEBVTT", "", f'NOTE {clip["output"]}',
-             "NOTE Narration read by an AI-generated voice.", ""]
+             "NOTE Narration read by an AI-generated voice.",
+             "NOTE The clip has its own caption along the bottom of the frame, so these cues",
+             "NOTE are placed near the top to keep the two from overlapping.", ""]
     for n, (a, b, body) in enumerate(cues, 1):
-        lines += [str(n), f"{ts(a)} --> {ts(b)}", *body, ""]
+        lines += [str(n), f"{ts(a)} --> {ts(b)} {CUE_POS}", *body, ""]
     return "\n".join(lines), cues
 
 

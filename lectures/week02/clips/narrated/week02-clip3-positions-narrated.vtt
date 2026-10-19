@@ -2,100 +2,102 @@ WEBVTT
 
 NOTE week02-clip3-positions
 NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
 
 1
-00:00:00.150 --> 00:00:04.978
+00:00:00.150 --> 00:00:04.978 line:2 align:center
 Word order matters: chest pain
 and pain chest are not the same.
 
 2
-00:00:04.978 --> 00:00:09.658
+00:00:04.978 --> 00:00:09.658 line:2 align:center
 But attention gives each word the
 same output vector in both orders,
 
 3
-00:00:09.658 --> 00:00:14.283
+00:00:09.658 --> 00:00:14.283 line:2 align:center
 only swapped, so on its own
 it cannot tell them apart.
 
 4
-00:00:14.483 --> 00:00:20.841
+00:00:14.483 --> 00:00:20.841 line:2 align:center
 The fix is to give each position its own
 vector and add it to the token vector.
 
 5
-00:00:20.841 --> 00:00:26.283
+00:00:20.841 --> 00:00:26.283 line:2 align:center
 The sum, the input vector, now carries
 both the word and its position.
 
 6
-00:00:26.483 --> 00:00:32.019
+00:00:26.483 --> 00:00:32.019 line:2 align:center
 The simplest option is to learn a
 table with one vector per position.
 
 7
-00:00:32.019 --> 00:00:37.832
+00:00:32.019 --> 00:00:37.832 line:2 align:center
 BERT learns 512 rows. The patient
 has a cold uses rows one to five,
 
 8
-00:00:37.832 --> 00:00:42.083
+00:00:37.832 --> 00:00:42.083 line:2 align:center
 but a longer input has no row to look up.
 
 9
-00:00:42.283 --> 00:00:48.210
+00:00:42.283 --> 00:00:48.210 line:2 align:center
 The original transformer computes
 position vectors instead of learning them.
 
 10
-00:00:48.210 --> 00:00:51.649
+00:00:48.210 --> 00:00:51.649 line:2 align:center
 It uses waves: a sine and a
 cosine wave at a fast speed,
 
 11
-00:00:51.649 --> 00:00:56.283
+00:00:51.649 --> 00:00:56.283 line:2 align:center
 and another sine and cosine
 pair at a slow speed.
 
 12
-00:00:56.483 --> 00:01:02.304
+00:00:56.483 --> 00:01:02.304 line:2 align:center
 To build the vector for position one, read
 the height of each wave at position one.
 
 13
-00:01:02.304 --> 00:01:07.941
+00:01:02.304 --> 00:01:07.941 line:2 align:center
 The 4 heights, 0.84, 0.54, 0.25,
 
 14
-00:01:07.941 --> 00:01:12.017
+00:01:07.941 --> 00:01:12.017 line:2 align:center
 and 0.97, are the position vector.
 
 15
-00:01:12.217 --> 00:01:15.871
+00:01:12.217 --> 00:01:15.871 line:2 align:center
 Move to position two and
 the fast waves change a lot,
 
 16
-00:01:15.871 --> 00:01:21.896
+00:01:15.871 --> 00:01:21.896 line:2 align:center
 while the slow waves barely move, like the
 second hand and the hour hand of a clock.
 
 17
-00:01:21.896 --> 00:01:26.217
+00:01:21.896 --> 00:01:26.217 line:2 align:center
 Together, they give every
 position its own pattern.
 
 18
-00:01:26.417 --> 00:01:31.012
+00:01:26.417 --> 00:01:31.012 line:2 align:center
 Learned or computed, these
 absolute positions are added once,
 
 19
-00:01:31.012 --> 00:01:35.704
+00:01:31.012 --> 00:01:35.704 line:2 align:center
 at the input, and every later layer
 has to carry that information forward.
 
 20
-00:01:35.704 --> 00:01:41.647
+00:01:35.704 --> 00:01:41.647 line:2 align:center
 Newer models handle position
 differently, inside attention itself.

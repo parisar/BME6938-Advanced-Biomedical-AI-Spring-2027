@@ -2,67 +2,69 @@ WEBVTT
 
 NOTE week03-clip2-causal-mask
 NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
 
 1
-00:00:00.150 --> 00:00:06.205
+00:00:00.150 --> 00:00:06.205 line:2 align:center
 Here are the attention scores for five
 tokens: the patient denies chest pain.
 
 2
-00:00:06.205 --> 00:00:11.483
+00:00:06.205 --> 00:00:11.483 line:2 align:center
 Each row is one token's query,
 and each column is a key.
 
 3
-00:00:11.683 --> 00:00:15.104
+00:00:11.683 --> 00:00:15.104 line:2 align:center
 But a decoder is trained
 to predict the next token.
 
 4
-00:00:15.104 --> 00:00:22.150
+00:00:15.104 --> 00:00:22.150 line:2 align:center
 If patient could look at denies, chest,
 and pain, it would simply copy the answer.
 
 5
-00:00:22.350 --> 00:00:27.738
+00:00:22.350 --> 00:00:27.738 line:2 align:center
 The causal mask fixes this.
 Every score above the diagonal,
 
 6
-00:00:27.738 --> 00:00:34.150
+00:00:27.738 --> 00:00:34.150 line:2 align:center
 where a query would look at a later
 token, is set to minus infinity.
 
 7
-00:00:34.350 --> 00:00:37.949
+00:00:34.350 --> 00:00:37.949 line:2 align:center
 After the softmax, minus
 infinity becomes zero.
 
 8
-00:00:37.949 --> 00:00:42.540
+00:00:37.949 --> 00:00:42.540 line:2 align:center
 Each row now sums to one over
 the tokens it is allowed to see:
 
 9
-00:00:42.540 --> 00:00:45.750
+00:00:42.540 --> 00:00:45.750 line:2 align:center
 itself and the tokens before it.
 
 10
-00:00:45.950 --> 00:00:52.631
+00:00:45.950 --> 00:00:52.631 line:2 align:center
 For example, the row for chest spreads
 its attention over the, patient, denies,
 
 11
-00:00:52.631 --> 00:00:57.083
+00:00:52.631 --> 00:00:57.083 line:2 align:center
 and chest itself, and
 gives nothing to pain.
 
 12
-00:00:57.283 --> 00:01:02.853
+00:00:57.283 --> 00:01:02.853 line:2 align:center
 Because of the mask, a single forward
 pass trains every position at once:
 
 13
-00:01:02.853 --> 00:01:07.747
+00:01:02.853 --> 00:01:07.747 line:2 align:center
 each token's output is used to
 predict the token that follows it.

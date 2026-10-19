@@ -2,93 +2,95 @@ WEBVTT
 
 NOTE week06-clip3-linear-probing
 NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
 
 1
-00:00:00.150 --> 00:00:05.267
+00:00:00.150 --> 00:00:05.267 line:2 align:center
 Now we test what pretraining learned.
 Take the pretrained encoder and freeze it,
 
 2
-00:00:05.267 --> 00:00:08.150
+00:00:05.267 --> 00:00:08.150 line:2 align:center
 so none of its weights can change.
 
 3
-00:00:08.350 --> 00:00:11.670
+00:00:08.350 --> 00:00:11.670 line:2 align:center
 We need only a small labeled dataset.
 
 4
-00:00:11.670 --> 00:00:19.483
+00:00:11.670 --> 00:00:19.483 line:2 align:center
 Here, each ECG is labeled either atrial
 fibrillation, AF, or normal sinus rhythm.
 
 5
-00:00:19.683 --> 00:00:25.109
+00:00:19.683 --> 00:00:25.109 line:2 align:center
 The frozen encoder maps each ECG
 to an embedding of 256 numbers.
 
 6
-00:00:25.109 --> 00:00:29.883
+00:00:25.109 --> 00:00:29.883 line:2 align:center
 We draw these embeddings as
 points in two dimensions.
 
 7
-00:00:30.083 --> 00:00:33.547
+00:00:30.083 --> 00:00:33.547 line:2 align:center
 On top, we add a single
 linear prediction head.
 
 8
-00:00:33.547 --> 00:00:37.675
+00:00:33.547 --> 00:00:37.675 line:2 align:center
 It computes a weighted sum
 of the embedding plus a bias,
 
 9
-00:00:37.675 --> 00:00:42.217
+00:00:37.675 --> 00:00:42.217 line:2 align:center
 and a sigmoid turns that
 into the probability of AF.
 
 10
-00:00:42.417 --> 00:00:47.437
+00:00:42.417 --> 00:00:47.437 line:2 align:center
 During training, gradients flow into
 the head only. The encoder is frozen,
 
 11
-00:00:47.437 --> 00:00:50.017
+00:00:47.437 --> 00:00:50.017 line:2 align:center
 so its weights never change.
 
 12
-00:00:50.217 --> 00:00:53.855
+00:00:50.217 --> 00:00:53.855 line:2 align:center
 If one straight line can
 separate AF from normal,
 
 13
-00:00:53.855 --> 00:00:57.086
+00:00:53.855 --> 00:00:57.086 line:2 align:center
 the information was
 already in the embedding.
 
 14
-00:00:57.086 --> 00:01:00.417
+00:00:57.086 --> 00:01:00.417 line:2 align:center
 The head only has to read it out.
 
 15
-00:01:00.617 --> 00:01:05.042
+00:01:00.617 --> 00:01:05.042 line:2 align:center
 With fine-tuning, every weight is
 trainable, including the encoder.
 
 16
-00:01:05.042 --> 00:01:08.984
+00:01:05.042 --> 00:01:08.984 line:2 align:center
 A linear probe trains only 257 weights,
 
 17
-00:01:08.984 --> 00:01:14.083
+00:01:08.984 --> 00:01:14.083 line:2 align:center
 so it measures what the pretrained
 encoder already learned.
 
 18
-00:01:14.283 --> 00:01:20.613
+00:01:14.283 --> 00:01:20.613 line:2 align:center
 The same linear probe works for pathology.
 A frozen encoder embeds each H&E tile,
 
 19
-00:01:20.613 --> 00:01:25.413
+00:01:20.613 --> 00:01:25.413 line:2 align:center
 and a single linear head separates
 tumor from normal mucosa.

@@ -2,92 +2,94 @@ WEBVTT
 
 NOTE week02-clip1-tokens-to-vectors
 NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
 
 1
-00:00:00.150 --> 00:00:04.280
+00:00:00.150 --> 00:00:04.280 line:2 align:center
 Take a short sentence from a clinical
 note: the patient has a cold.
 
 2
-00:00:04.280 --> 00:00:07.724
+00:00:04.280 --> 00:00:07.724 line:2 align:center
 A transformer cannot
 work with text directly.
 
 3
-00:00:07.724 --> 00:00:11.417
+00:00:07.724 --> 00:00:11.417 line:2 align:center
 Everything has to become numbers first.
 
 4
-00:00:11.617 --> 00:00:17.799
+00:00:11.617 --> 00:00:17.799 line:2 align:center
 First, a tokenizer splits the sentence
 into tokens. Here we get five:
 
 5
-00:00:17.799 --> 00:00:20.483
+00:00:17.799 --> 00:00:20.483 line:2 align:center
 the, patient, has, a, and cold.
 
 6
-00:00:20.683 --> 00:00:25.303
+00:00:20.683 --> 00:00:25.303 line:2 align:center
 Each token is mapped to an integer
 ID from the tokenizer's vocabulary.
 
 7
-00:00:25.303 --> 00:00:29.750
+00:00:25.303 --> 00:00:29.750 line:2 align:center
 The exact numbers on screen
 are only illustrative.
 
 8
-00:00:29.950 --> 00:00:33.879
+00:00:29.950 --> 00:00:33.879 line:2 align:center
 Each ID selects one row of
 a learned embedding table,
 
 9
-00:00:33.879 --> 00:00:37.540
+00:00:33.879 --> 00:00:37.540 line:2 align:center
 which has one row for every
 entry in the vocabulary.
 
 10
-00:00:37.540 --> 00:00:41.713
+00:00:37.540 --> 00:00:41.713 line:2 align:center
 That row becomes the token's vector.
 
 11
-00:00:43.683 --> 00:00:49.646
+00:00:43.683 --> 00:00:49.646 line:2 align:center
 Stacking the five vectors gives a five
 by d matrix, with one row per token.
 
 12
-00:00:49.646 --> 00:00:54.883
+00:00:49.646 --> 00:00:54.883 line:2 align:center
 We draw d as four. In BERT base, d is 768.
 
 13
-00:00:55.083 --> 00:01:00.318
+00:00:55.083 --> 00:01:00.318 line:2 align:center
 But there is a problem. In the patient
 has a cold and the patient feels cold,
 
 14
-00:01:00.318 --> 00:01:07.017
+00:01:00.318 --> 00:01:07.017 line:2 align:center
 the token cold has the same ID,
 3147, so it gets an identical vector.
 
 15
-00:01:07.217 --> 00:01:12.916
+00:01:07.217 --> 00:01:12.916 line:2 align:center
 In the patient has a cold, the word means
 an infection. In the patient feels cold,
 
 16
-00:01:12.916 --> 00:01:18.150
+00:01:12.916 --> 00:01:18.150 line:2 align:center
 it means a low temperature. The
 embedding cannot tell them apart.
 
 17
-00:01:18.350 --> 00:01:19.850
+00:01:18.350 --> 00:01:19.850 line:2 align:center
 Attention solves this.
 
 18
-00:01:19.850 --> 00:01:24.434
+00:01:19.850 --> 00:01:24.434 line:2 align:center
 It updates each token's vector using
 the other tokens in the sentence,
 
 19
-00:01:24.434 --> 00:01:27.280
+00:01:24.434 --> 00:01:27.280 line:2 align:center
 so the vector depends on context.

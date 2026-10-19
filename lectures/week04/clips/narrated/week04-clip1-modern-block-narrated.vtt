@@ -2,87 +2,89 @@ WEBVTT
 
 NOTE week04-clip1-modern-block
 NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
 
 1
-00:00:00.150 --> 00:00:05.634
+00:00:00.150 --> 00:00:05.634 line:2 align:center
 A large language model in 2026 is
 still a stack of decoder blocks,
 
 2
-00:00:05.634 --> 00:00:10.940
+00:00:05.634 --> 00:00:10.940 line:2 align:center
 much like the 2017 transformer:
 attention, then a feed-forward network,
 
 3
-00:00:10.940 --> 00:00:14.150
+00:00:10.940 --> 00:00:14.150 line:2 align:center
 each with a residual connection.
 
 4
-00:00:14.350 --> 00:00:17.411
+00:00:14.350 --> 00:00:17.411 line:2 align:center
 The first change is normalization.
 
 5
-00:00:17.411 --> 00:00:24.371
+00:00:17.411 --> 00:00:24.371 line:2 align:center
 It now comes before each sublayer
 instead of after, and it uses RMS norm,
 
 6
-00:00:24.371 --> 00:00:29.750
+00:00:24.371 --> 00:00:29.750 line:2 align:center
 which only rescales each
 vector by its root mean square.
 
 7
-00:00:29.950 --> 00:00:35.804
+00:00:29.950 --> 00:00:35.804 line:2 align:center
 Second, the feed-forward network becomes
 swig-loo. The token is projected twice,
 
 8
-00:00:35.804 --> 00:00:39.441
+00:00:35.804 --> 00:00:39.441 line:2 align:center
 and one projection passes
 through a smooth activation
 
 9
-00:00:39.441 --> 00:00:42.750
+00:00:39.441 --> 00:00:42.750 line:2 align:center
 and acts as a gate on the other.
 
 10
-00:00:42.950 --> 00:00:46.600
+00:00:42.950 --> 00:00:46.600 line:2 align:center
 Third, positions are no
 longer added at the input.
 
 11
-00:00:46.600 --> 00:00:51.770
+00:00:46.600 --> 00:00:51.770 line:2 align:center
 Instead, RoPE rotates every query
 and key inside each attention layer,
 
 12
-00:00:51.770 --> 00:00:54.350
+00:00:51.770 --> 00:00:54.350 line:2 align:center
 as we saw in week two.
 
 13
-00:00:54.550 --> 00:01:00.103
+00:00:54.550 --> 00:01:00.103 line:2 align:center
 Fourth, attention becomes grouped-query
 attention. In the small Qwen3 model,
 
 14
-00:01:00.103 --> 00:01:04.961
+00:01:00.103 --> 00:01:04.961 line:2 align:center
 16 query heads share
 8 key and value heads,
 
 15
-00:01:04.961 --> 00:01:08.417
+00:01:04.961 --> 00:01:08.417 line:2 align:center
 which saves memory during generation.
 
 16
-00:01:08.617 --> 00:01:15.325
+00:01:08.617 --> 00:01:15.325 line:2 align:center
 The overall shape is unchanged.
 The 2017 decoder stacked 6 blocks,
 
 17
-00:01:15.325 --> 00:01:18.449
+00:01:15.325 --> 00:01:18.449 line:2 align:center
 the small Qwen3 model stacks 28,
 
 18
-00:01:18.449 --> 00:01:23.247
+00:01:18.449 --> 00:01:23.247 line:2 align:center
 and the last block feeds the
 prediction of the next token.

@@ -2,113 +2,115 @@ WEBVTT
 
 NOTE week05-clip1-post-training
 NOTE Narration read by an AI-generated voice.
+NOTE The clip has its own caption along the bottom of the frame, so these cues
+NOTE are placed near the top to keep the two from overlapping.
 
 1
-00:00:00.150 --> 00:00:04.094
+00:00:00.150 --> 00:00:04.094 line:2 align:center
 A pretrained model only
 continues the text it is given.
 
 2
-00:00:04.094 --> 00:00:08.749
+00:00:04.094 --> 00:00:08.749 line:2 align:center
 We gave the base Qwen3 model the
 start of a discharge summary,
 
 3
-00:00:08.749 --> 00:00:13.950
+00:00:08.749 --> 00:00:13.950 line:2 align:center
 and it simply kept writing a
 note about a different patient.
 
 4
-00:00:14.150 --> 00:00:16.755
+00:00:14.150 --> 00:00:16.755 line:2 align:center
 Now we ask it a question about the note.
 
 5
-00:00:16.755 --> 00:00:20.077
+00:00:16.755 --> 00:00:20.077 line:2 align:center
 The base model does not
 answer like an assistant.
 
 6
-00:00:20.077 --> 00:00:25.750
+00:00:20.077 --> 00:00:25.750 line:2 align:center
 It treats the text as a quiz and
 keeps inventing new questions.
 
 7
-00:00:25.950 --> 00:00:31.463
+00:00:25.950 --> 00:00:31.463 line:2 align:center
 The post-trained version of the same
 model answers the question directly.
 
 8
-00:00:31.463 --> 00:00:37.401
+00:00:31.463 --> 00:00:37.401 line:2 align:center
 But here its answer is wrong: the note
 says the patient denies chest pain.
 
 9
-00:00:37.401 --> 00:00:41.683
+00:00:37.401 --> 00:00:41.683 line:2 align:center
 Clips three and four show
 two ways to fix this.
 
 10
-00:00:41.883 --> 00:00:46.701
+00:00:41.883 --> 00:00:46.701 line:2 align:center
 Post-training adds stages after
 pretraining: supervised fine-tuning,
 
 11
-00:00:46.701 --> 00:00:48.331
+00:00:46.701 --> 00:00:48.331 line:2 align:center
 then preference tuning,
 
 12
-00:00:48.331 --> 00:00:53.008
+00:00:48.331 --> 00:00:53.008 line:2 align:center
 then reinforcement learning with
 rewards that a program can check.
 
 13
-00:00:53.008 --> 00:00:56.350
+00:00:53.008 --> 00:00:56.350 line:2 align:center
 We cover the last stage in clip four.
 
 14
-00:00:56.550 --> 00:01:01.151
+00:00:56.550 --> 00:01:01.151 line:2 align:center
 Supervised fine-tuning trains
 on instruction and answer pairs.
 
 15
-00:01:01.151 --> 00:01:04.134
+00:01:01.151 --> 00:01:04.134 line:2 align:center
 Each pair is wrapped in a chat template,
 
 16
-00:01:04.134 --> 00:01:07.723
+00:01:04.134 --> 00:01:07.723 line:2 align:center
 with special markers for
 where the user's turn
 
 17
-00:01:07.723 --> 00:01:11.350
+00:01:07.723 --> 00:01:11.350 line:2 align:center
 and the assistant's turn begin and end.
 
 18
-00:01:11.550 --> 00:01:15.561
+00:01:11.550 --> 00:01:15.561 line:2 align:center
 The loss is the same next-token
 loss as in pretraining.
 
 19
-00:01:15.561 --> 00:01:19.268
+00:01:15.561 --> 00:01:19.268 line:2 align:center
 The only difference is that it
 is counted on the answer tokens,
 
 20
-00:01:19.268 --> 00:01:24.217
+00:01:19.268 --> 00:01:24.217 line:2 align:center
 not on the instruction, so the
 model learns to write answers.
 
 21
-00:01:24.417 --> 00:01:28.696
+00:01:24.417 --> 00:01:28.696 line:2 align:center
 So the architecture is the
 same and the loss is the same.
 
 22
-00:01:28.696 --> 00:01:34.846
+00:01:28.696 --> 00:01:34.846 line:2 align:center
 Only the training data changes, from raw
 text to instruction and answer pairs,
 
 23
-00:01:34.846 --> 00:01:39.780
+00:01:34.846 --> 00:01:39.780 line:2 align:center
 and that is what turns a text
 generator into an assistant.
