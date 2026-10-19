@@ -1,0 +1,27 @@
+# LoRA: fine-tuning with a small fraction of the weights
+
+Week 5, clip 2 of 4. This is the narration of the clip, which an AI-generated voice reads in the
+[narrated version](../narrated/week05-clip2-lora-narrated.mp4); the [silent
+version](../silent/week05-clip2-lora.mp4) shows the same steps with on-screen captions only.
+
+Full fine-tuning with the Adam optimizer stores about 16 bytes for every parameter: the weight, its
+gradient, and 2 optimizer states. That is about ten gigabytes for a small model, and over a thousand
+for a 70B model.
+
+Look at one weight matrix in the small Qwen3 model: a query projection with 2,048 rows and 1,024
+columns, about 2 million weights. With LoRA, it stays frozen.
+
+LoRA adds two thin matrices beside it. A takes the token down to just eight numbers, and B brings it
+back up. The output is W times x, plus B times A times x.
+
+B and A together have 24,576 weights. That is about 1.2% of the frozen matrix, and only these are
+trained.
+
+B starts at zero, so at the first step B times A times x is zero, and the model gives exactly the
+original output. Training then moves only B and A.
+
+Add LoRA to the query, key, value, and output projections in all 28 layers, and it trains 2,293,760
+weights. That is about 0.4% of the model.
+
+Because the base model never changes, one copy can serve many tasks. Each task, such as discharge
+summaries or radiology impressions, needs only its own small adapter, about 4.6 megabytes.

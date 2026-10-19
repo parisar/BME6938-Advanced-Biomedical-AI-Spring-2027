@@ -22,6 +22,17 @@ The narration is an AI-generated voice reading a script written for the course. 
 
 **Note for the lecture (clip 3).** Preference data that always rewards the more cautious answer can teach a model to hedge on everything ("further assessment is recommended") instead of answering. Good clinical preference data rewards the answer that is correct and useful, and includes cases where the confident answer is the right one.
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1), and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. From pretrained model to clinical assistant | [week05-clip1-post-training.md](clips/transcripts/week05-clip1-post-training.md) |
+| 2. LoRA: fine-tuning with a small fraction of the weights | [week05-clip2-lora.md](clips/transcripts/week05-clip2-lora.md) |
+| 3. Preference tuning: RLHF and DPO | [week05-clip3-preference-tuning.md](clips/transcripts/week05-clip3-preference-tuning.md) |
+| 4. Reasoning models | [week05-clip4-reasoning.md](clips/transcripts/week05-clip4-reasoning.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week05_post_training.ipynb](../notebooks/week05_post_training.ipynb). It
