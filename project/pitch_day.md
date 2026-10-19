@@ -4,9 +4,13 @@ Every team gives a 2-minute pitch of its proposal at the start of the Week 7 lec
 own; it is how the class learns what everyone is working on and how peer reviews are assigned. Peer reviews count
 toward participation and are due Thursday, March 4.
 
+Slides are due at 1:00 PM that day, through the Project pitch slide assignment on Canvas. That assignment carries no
+points: it exists so that every pitch runs from one file rather than from ten laptops.
+
 ## What to prepare
 
-One slide, submitted on Canvas before class so that all pitches run from a single file. Put four things on it:
+One slide, submitted on Canvas by **1:00 PM on Tuesday, February 23**, so that all pitches run from a single file.
+Put four things on it:
 
 1. The open problem in one sentence, and why it matters.
 2. The data you will use, and whether you already have access.
@@ -19,7 +23,7 @@ No results are expected. Say what you do not know yet; that is what the reviews 
 
 | Time | What happens |
 |---|---|
-| 1:55 | Instructor opens the pitch file; order is posted on Canvas |
+| 1:55 | Instructor opens the pitch file, assembled from the slides submitted by 1:00 PM; order is posted on Canvas |
 | 1:57-2:17 | Ten pitches, 2 minutes each, no questions between them |
 | 2:17-2:27 | Open questions and suggestions from the class |
 | 2:27-2:45 | Short mini-lecture on vision-language models, continuing from Week 7 |
