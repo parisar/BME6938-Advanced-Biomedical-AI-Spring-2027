@@ -23,7 +23,9 @@ Each clip comes in two versions: narrated (voice-over plus on-screen captions) a
 | 2. Diffusion, part 2: learning the way back | [2 min 5 s](clips/narrated/week11-clip2-reverse-narrated.mp4) | [54 s](clips/silent/week11-clip2-reverse.mp4) |
 | 3. Diffusion, part 3: steering the sampler | [1 min 56 s](clips/narrated/week11-clip3-conditioning-narrated.mp4) | [50 s](clips/silent/week11-clip3-conditioning.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in
+a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read
+sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in
 [animations/](animations/) and the narration script is in [clips.json](clips.json). The storyboard brief is in
 [storyboard.md](storyboard.md).
 
