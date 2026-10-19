@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Shortcuts and hidden subgroups</h1>
+<p>Week 12, clip 3 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week12-clip3-shortcuts-narrated.mp4">narrated version</a>; the <a href="../silent/week12-clip3-shortcuts.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>A model can reach a high score by reading the wrong thing. The score tells you the label came out
+right. It does not tell you which part of the image produced it.</p>
+<p>DeGrave and colleagues built two datasets. The first takes positives from GitHub-COVID and negatives
+from ChestX-ray14, so source and label line up almost exactly. The second, from BIMCV and PadChest,
+is one region and one research team: the favorable case.</p>
+<p>Saliency maps and generative counterfactuals showed what the models used: laterality markers, arrows
+and text found only in one archive, the radiopacity of the image borders, and patient positioning.
+Moving the clavicle region to the top border raised the predicted odds of COVID 19.</p>
+<p>On radiographs from a new hospital system, half of the predictive performance was lost. The authors
+concluded that only a minority of it was ever genuine COVID 19 pathology. The rest was the source,
+not the disease.</p>
+<p>Here is the part that catches people out. Some shortcuts do not transfer, so the score falls and you
+see it. Others, like patient positioning, are consistent in both datasets: the score holds up and
+the model is still not reading the lungs. External validation is necessary, not sufficient.</p>
+<p>An average hides the group a model works worst on. Sensitivity of 0.85 overall can be 0.90 in 80% of
+patients and 0.65 in the other 20. Report subgroups with intervals, validate externally, look at
+what the model uses, and test whether the site can be predicted from its features.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

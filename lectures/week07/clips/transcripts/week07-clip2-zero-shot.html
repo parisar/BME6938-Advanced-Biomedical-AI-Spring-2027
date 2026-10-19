@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Zero-shot classification, and where it breaks</h1>
+<p>Week 7, clip 2 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week07-clip2-zero-shot-narrated.mp4">narrated version</a>; the <a href="../silent/week07-clip2-zero-shot.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>Once images and text share one space, we can classify without any training. We write one text prompt
+for each of the eight tissue classes, such as an H&amp;E image of tumor stroma.</p>
+<p>The text encoder turns each prompt into a vector. Together, the eight vectors act as the weights of
+a linear classifier, written in text instead of learned from labels.</p>
+<p>A new tile goes through the image encoder, its embedding is compared with every class vector, and a
+softmax picks the class. BiomedCLIP gives this tumor tile 0.57 for adenocarcinoma: correct, but not
+confident.</p>
+<p>On natural images this works remarkably well. CLIP's best model reaches 76.2% on ImageNet without a
+single ImageNet label, matching a ResNet-50 trained on 1.28 million labeled images. The same paper
+notes it is weak on lymph node tumor detection.</p>
+<p>On our 5,000 H&amp;E tiles in 8 classes, general CLIP scores between 5.6 and 15.1%, depending only on
+the wording of the prompt. Chance is 12.5%, so the worst prompt is below chance.</p>
+<p>BiomedCLIP, trained on figures and captions from biomedical papers, does much better, at 34 to 39%.
+That is still far from reliable, and the wording of the prompt still changes the result.</p>
+<p>Now train a linear probe on the same frozen embeddings, with only ten labeled tiles per class. It
+reaches 64% with CLIP and 77% with BiomedCLIP. A few labels beat a clever prompt.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

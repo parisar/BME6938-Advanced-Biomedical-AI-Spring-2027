@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>What changed since 2017</h1>
+<p>Week 4, clip 1 of 4. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week04-clip1-modern-block-narrated.mp4">narrated version</a>; the <a href="../silent/week04-clip1-modern-block.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>A large language model in 2026 is still a stack of decoder blocks, much like the 2017 transformer:
+attention, then a feed-forward network, each with a residual connection.</p>
+<p>The first change is normalization. It now comes before each sublayer instead of after, and it uses
+RMS norm, which only rescales each vector by its root mean square.</p>
+<p>Second, the feed-forward network becomes swig-loo. The token is projected twice, and one projection
+passes through a smooth activation and acts as a gate on the other.</p>
+<p>Third, positions are no longer added at the input. Instead, RoPE rotates every query and key inside
+each attention layer, as we saw in week two.</p>
+<p>Fourth, attention becomes grouped-query attention. In the small Qwen3 model, 16 query heads share 8
+key and value heads, which saves memory during generation.</p>
+<p>The overall shape is unchanged. The 2017 decoder stacked 6 blocks, the small Qwen3 model stacks 28,
+and the last block feeds the prediction of the next token.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

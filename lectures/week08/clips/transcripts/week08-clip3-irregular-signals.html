@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Irregular sampling and physiological signals</h1>
+<p>Week 8, clip 3 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week08-clip3-irregular-signals-narrated.mp4">narrated version</a>; the <a href="../silent/week08-clip3-irregular-signals.mp4">silent
+version</a> shows the same steps with on-screen captions
+only.</p>
+<p>In the ICU, measurements arrive at irregular times. Heart rate is charted about every hour, with a
+long gap overnight, and lactate is drawn only three times in the whole day.</p>
+<p>The first option is to put everything on an hourly grid. Empty hours are filled with the last
+measured value, and a mask of ones and zeros records which values were actually measured.</p>
+<p>The mask matters, because missing values carry information. Nobody draws a lactate at two in the
+morning without a reason. The mask lets the model use when a test was ordered, not just its result.</p>
+<p>The second option is the one from clip one: interval tokens between events. The overnight gap is no
+longer missing data. It becomes a token, two to six hours, that the model can read.</p>
+<p>The third option is a time embedding, like the sine and cosine position waves from week two, but
+measured in real hours. At two and a half hours, the eight-hour wave gives 0.92 and minus 0.38, and
+the 24-hour wave gives 0.61 and 0.79.</p>
+<p>Dense signals such as the ECG are cut into patches, exactly as in week six. A ten-second ECG at 500
+samples per second becomes 10 one-second patches of 500 samples each.</p>
+<p>So every clinical data type can become tokens: codes, lab values, time, missing values, and signals.
+Each choice decides what the model can see, and what it cannot.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

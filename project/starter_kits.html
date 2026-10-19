@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Term project | Advanced Biomedical AI</title>
+<meta name="description" content="Term project for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../index.html">Weeks</a><a href="../syllabus/index.html">Syllabus</a><a href="../papers/index.html">Reading list</a><a href="../presentations/index.html">Paper sessions</a><a href="../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Project starter kits</h1>
+<p>Starting points for the suggested problems, for teams that do not arrive with their own topic. Each kit gives a
+question, data and how to get it, a baseline to beat, a plan, how to evaluate, and pitfalls. Treat them as a starting
+point: a good proposal narrows the question, names a hypothesis, and says what result would change your mind.</p>
+<h2>Before you pick: data access</h2>
+<ul>
+<li><strong>Open data</strong> (download now): MedMNIST, the Kather colorectal H&amp;E datasets, PTB-XL, MedQA, PubMedQA, the MIMIC-IV
+  Clinical Database Demo (100 patients), and Synthea synthetic patients.</li>
+<li><strong>Credentialed or registration data</strong> (start in Week 1): MIMIC-IV, MIMIC-IV-Note, MIMIC-CXR, and eICU on PhysioNet
+  need CITI human-subjects training plus a PhysioNet credentialing request, which together can take several weeks. CheXpert
+  needs a free registration with Stanford.</li>
+<li><strong>Rules for credentialed data:</strong> work on HiPerGator, never on Colab or a personal laptop you share; never paste or
+  upload records to online AI services (ChatGPT, Claude, Gemini, or any hosted API); never commit data to GitHub.
+  Use local open models for anything that touches patient text.</li>
+<li><strong>Compute:</strong> every kit below is sized for one GPU on HiPerGator, and most can be prototyped on a CPU.</li>
+</ul>
+<hr />
+<h2>1. Long clinical notes with a small open LLM (Week 4)</h2>
+<p><strong>Question.</strong> For questions about a long discharge summary, does a long-context small model beat a short-context model
+plus retrieval?
+<strong>Data.</strong> MIMIC-IV-Note discharge summaries (credentialed). Build questions whose answers are in the structured MIMIC-IV
+tables (discharge medications, primary diagnosis codes, length of stay), so you get ground truth without manual labels.
+<strong>Baseline.</strong> A small open model (about 1B to 8B parameters) reading only the first part of the note that fits its window.
+<strong>Plan.</strong> Compare (a) the full note in a long context, (b) chunk, embed, and retrieve the top passages into a short
+context, (c) the baseline. Vary note length.
+<strong>Evaluate.</strong> Exact-match or F1 against the structured answers, by note length; also memory and time per note.
+<strong>Pitfalls.</strong> Notes and structured tables can disagree; check a sample by hand. Run models locally on HiPerGator.</p>
+<h2>2. Reasoning versus non-reasoning on medical question answering (Week 5)</h2>
+<p><strong>Question.</strong> When does "thinking" help a small model on medical questions, and is it worth the tokens? Optionally,
+does a short LoRA fine-tune beat prompting?
+<strong>Data.</strong> MedQA (USMLE-style) and PubMedQA (open).
+<strong>Baseline.</strong> The same small model (for example a Qwen3 model with a thinking switch) with thinking off.
+<strong>Plan.</strong> Thinking on versus off; then a LoRA fine-tune on a training split; compare accuracy and tokens per question.
+<strong>Evaluate.</strong> Accuracy with bootstrap confidence intervals; calibration of the model's stated confidence; tokens and time.
+<strong>Pitfalls.</strong> Benchmark contamination (the model may have seen the questions); report it as a limitation and, if
+possible, test on questions you rewrite.</p>
+<h2>3. Label efficiency of imaging foundation models (Week 6)</h2>
+<p><strong>Question.</strong> As labeled data shrinks, how do a linear probe and LoRA fine-tuning of a pretrained encoder compare?
+<strong>Data.</strong> NCT-CRC-HE-100K or the smaller Kather 2016 tiles (colorectal H&amp;E, CC BY 4.0), or a MedMNIST dataset.
+<strong>Baseline.</strong> The same architecture trained from scratch, and the encoder with random weights.
+<strong>Plan.</strong> Encoders: DINOv2 and a pathology encoder if you can get access (UNI is gated on Hugging Face). Label budgets of
+1, 10, 100 per class and the full set.
+<strong>Evaluate.</strong> Balanced accuracy with confidence intervals across several random label samples.
+<strong>Pitfalls.</strong> Tiles from the same slide or patient must not appear in both training and test sets.</p>
+<h2>4. Self-supervised pretraining for ECG (Week 6)</h2>
+<p><strong>Question.</strong> For ECG, does masked reconstruction or contrastive pretraining give better features with few labels?
+<strong>Data.</strong> PTB-XL (PhysioNet, open access, CC BY 4.0): 10-second 12-lead ECGs at 500 Hz, with recommended folds.
+<strong>Baseline.</strong> Supervised training from scratch; a random-weight encoder.
+<strong>Plan.</strong> Pretrain a small 1D encoder both ways on the training folds, then probe and fine-tune on diagnostic labels
+with few labels per class.
+<strong>Evaluate.</strong> Macro AUROC on the official test fold; label-efficiency curves.
+<strong>Pitfalls.</strong> The Week 6 notebook shows a tiny masked autoencoder can learn almost nothing; check reconstructions and
+the loss curve before trusting any probe result. Use the provided folds so patients do not leak.</p>
+<h2>5. Zero-shot versus fine-tuned vision-language models for chest X-ray (Week 7)</h2>
+<p><strong>Question.</strong> How far is zero-shot classification from a few-label linear probe on chest X-ray findings, and do
+subgroups differ?
+<strong>Data.</strong> CheXpert (registration) or MIMIC-CXR (credentialed).
+<strong>Baseline.</strong> A linear probe on a general CLIP image encoder.
+<strong>Plan.</strong> BiomedCLIP or another medical vision-language encoder: zero-shot with several prompt wordings, then linear
+probes with small label budgets.
+<strong>Evaluate.</strong> AUROC per finding with confidence intervals; the same metrics by sex and age group.
+<strong>Pitfalls.</strong> Labels extracted from reports are noisy; uncertain labels need an explicit policy.</p>
+<h2>6. Patient timelines as tokens versus gradient boosting (Week 8)</h2>
+<p><strong>Question.</strong> Does a small timeline transformer beat gradient-boosted trees for an ICU outcome, and which stays
+calibrated when time moves on?
+<strong>Data.</strong> MIMIC-IV (credentialed); its anchor year groups allow a train-on-earlier, test-on-later split. eICU for a
+second site.
+<strong>Baseline.</strong> Gradient-boosted trees on hand-built features from the first 24 hours.
+<strong>Plan.</strong> Tokenize timelines as in ETHOS (codes, quantile tokens, time-gap tokens); train a small decoder; predict
+in-ICU mortality.
+<strong>Evaluate.</strong> AUROC, AUPRC (low prevalence), and calibration, on a random split and on a later-years split.
+<strong>Pitfalls.</strong> Leakage from events after the prediction time; define the prediction time first and cut the timeline there.</p>
+<h2>7. Multimodal fusion when a modality is missing (Week 7)</h2>
+<p><strong>Question.</strong> Does late or intermediate fusion of chest X-rays and EHR data still help when one modality is missing?
+<strong>Data.</strong> MIMIC-IV with MIMIC-CXR (credentialed), linked by patient and time.
+<strong>Baseline.</strong> The best single-modality model.
+<strong>Plan.</strong> Late fusion (average predictions) versus intermediate fusion (combine embeddings), trained with random
+modality dropout; test with each modality removed.
+<strong>Evaluate.</strong> AUROC with confidence intervals for complete and missing-modality test sets.
+<strong>Pitfalls.</strong> Patients with imaging differ from patients without it; missingness itself is a signal.</p>
+<h2>8. Retrieval for clinical question answering (Week 9)</h2>
+<p><strong>Question.</strong> Does retrieval improve accuracy and faithfulness of a small model's answers, and when should it abstain?
+<strong>Data.</strong> PubMedQA (questions with source abstracts) and MedQA; a corpus of PubMed abstracts.
+<strong>Baseline.</strong> The same model without retrieval.
+<strong>Plan.</strong> Embed and retrieve passages; vary top-k and an abstention threshold, as in Almanac.
+<strong>Evaluate.</strong> Accuracy; faithfulness (is each claim supported by a retrieved passage, judged on a sample by hand);
+abstention rate on answerable questions.
+<strong>Pitfalls.</strong> An abstaining system looks safe on adversarial tests; always report how often it abstains on real questions.</p>
+<h2>9. A tool-using agent for a structured clinical task (Week 9)</h2>
+<p><strong>Question.</strong> Where do tool-using agents fail on a structured clinical task, such as medication reconciliation or a
+lab-trend question?
+<strong>Data.</strong> Synthea synthetic patients or the MIMIC-IV Clinical Database Demo (open); no credentialed data needed.
+<strong>Baseline.</strong> The same model answering from a pasted record without tools.
+<strong>Plan.</strong> Build two or three read-only tools (get labs, get medications, get notes); run a ReAct-style loop on 50 to
+100 tasks with known answers.
+<strong>Evaluate.</strong> Task success; a failure taxonomy (wrong tool, wrong arguments, misread result, reasoning error).
+<strong>Pitfalls.</strong> Keep every tool read-only; log full trajectories so failures can be classified.</p>
+<h2>10. Shortcut audit of a medical imaging classifier (Week 12)</h2>
+<p><strong>Question.</strong> Can the hospital or scanner be predicted from an imaging model's features, and does that hurt
+performance at a new site?
+<strong>Data.</strong> Two chest X-ray sources (for example CheXpert and MIMIC-CXR), or two MedMNIST-style sources.
+<strong>Baseline.</strong> Internal test performance.
+<strong>Plan.</strong> Train on one source; probe the features for source; test on the other source; try a mitigation (for example
+balancing or source-adversarial training).
+<strong>Evaluate.</strong> Source-prediction accuracy from features; internal versus external AUROC with confidence intervals.
+<strong>Pitfalls.</strong> Differences in labels between sources can look like a shortcut; compare findings both sources label the same way.</p>
+<h2>11. Uncertainty under distribution shift (Week 12)</h2>
+<p><strong>Question.</strong> Do conformal prediction sets keep their promised coverage when the test data shift?
+<strong>Data.</strong> Any classifier above, with an in-distribution and a shifted test set (another site, later years, or another stain).
+<strong>Baseline.</strong> Coverage and set size in distribution.
+<strong>Plan.</strong> Split conformal prediction at 90% target coverage; measure coverage under shift; try a simple fix such as
+recalibrating on a small sample from the new setting.
+<strong>Evaluate.</strong> Coverage, average set size, and coverage by subgroup.
+<strong>Pitfalls.</strong> Coverage is a promise about averages; report subgroups, where it often fails first.</p>
+<h2>12. Reproduce a key result and extend it (any week)</h2>
+<p><strong>Question.</strong> Does a central result of one course paper hold, and does it survive one change you choose (a new dataset,
+subgroup, or metric)?
+<strong>Plan.</strong> Pick a paper with public code and data; reproduce one table or figure; then make one extension.
+<strong>Evaluate.</strong> How close your reproduction is, with confidence intervals; what the extension changes.
+<strong>Pitfalls.</strong> Budget most of your time for the reproduction; contact the authors early if something does not match.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

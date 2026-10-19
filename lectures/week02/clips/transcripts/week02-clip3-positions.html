@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Giving tokens a position</h1>
+<p>Week 2, clip 3 of 5. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week02-clip3-positions-narrated.mp4">narrated version</a>; the <a href="../silent/week02-clip3-positions.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>Word order matters: chest pain and pain chest are not the same. But attention gives each word the
+same output vector in both orders, only swapped, so on its own it cannot tell them apart.</p>
+<p>The fix is to give each position its own vector and add it to the token vector. The sum, the input
+vector, now carries both the word and its position.</p>
+<p>The simplest option is to learn a table with one vector per position. BERT learns 512 rows. The
+patient has a cold uses rows one to five, but a longer input has no row to look up.</p>
+<p>The original transformer computes position vectors instead of learning them. It uses waves: a sine
+and a cosine wave at a fast speed, and another sine and cosine pair at a slow speed.</p>
+<p>To build the vector for position one, read the height of each wave at position one. The 4 heights,
+0.84, 0.54, 0.25, and 0.97, are the position vector.</p>
+<p>Move to position two and the fast waves change a lot, while the slow waves barely move, like the
+second hand and the hour hand of a clock. Together, they give every position its own pattern.</p>
+<p>Learned or computed, these absolute positions are added once, at the input, and every later layer
+has to carry that information forward. Newer models handle position differently, inside attention
+itself.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

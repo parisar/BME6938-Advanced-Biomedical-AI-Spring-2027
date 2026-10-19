@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Errors compound over steps</h1>
+<p>Week 9, clip 3 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week09-clip3-compounding-narrated.mp4">narrated version</a>; the <a href="../silent/week09-clip3-compounding.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>Every step of an agent is a chance to fail. It can pick the wrong tool, pass the wrong patient
+number, misread a result, or repeat the same call again and again. In ReAct, most failures were
+reasoning errors like these.</p>
+<p>Suppose each step succeeds 95% of the time, and steps fail independently. Then a task of n steps
+succeeds with 0.95 to the power n: 0.77 for 5 steps, 0.6 for 10, and only 0.36 for 20.</p>
+<p>Raise each step to 99%, and 10 steps succeed 90% of the time, 20 steps 82%. A small gain per step
+makes a large difference for long tasks.</p>
+<p>Mitigations start with the tools. The agent checks its own results, for example by re-reading the
+lab table, and a mismatch stops the task. It gets only read-only tools, such as get labs and get
+meds, never one that places orders or sends messages.</p>
+<p>Any action that changes care, such as an order or a message to a patient, stops at a checkpoint. The
+agent proposes it, here a repeat potassium and an ECG, and a clinician approves or rejects it before
+anything happens.</p>
+<p>To sum up: retrieval grounds answers in sources, tools let the model act on real data through text
+it writes, and every added step is another chance to fail. So check results, limit the tools, and
+ask a clinician.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

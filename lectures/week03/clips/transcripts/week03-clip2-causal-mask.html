@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>The causal mask</h1>
+<p>Week 3, clip 2 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week03-clip2-causal-mask-narrated.mp4">narrated version</a>; the <a href="../silent/week03-clip2-causal-mask.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>Here are the attention scores for five tokens: the patient denies chest pain. Each row is one
+token's query, and each column is a key.</p>
+<p>But a decoder is trained to predict the next token. If patient could look at denies, chest, and
+pain, it would simply copy the answer.</p>
+<p>The causal mask fixes this. Every score above the diagonal, where a query would look at a later
+token, is set to minus infinity.</p>
+<p>After the softmax, minus infinity becomes zero. Each row now sums to one over the tokens it is
+allowed to see: itself and the tokens before it.</p>
+<p>For example, the row for chest spreads its attention over the, patient, denies, and chest itself,
+and gives nothing to pain.</p>
+<p>Because of the mask, a single forward pass trains every position at once: each token's output is
+used to predict the token that follows it.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

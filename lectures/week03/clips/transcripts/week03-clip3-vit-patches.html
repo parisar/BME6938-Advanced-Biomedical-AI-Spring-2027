@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Vision transformer: an image as a sequence of patches</h1>
+<p>Week 3, clip 3 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week03-clip3-vit-patches-narrated.mp4">narrated version</a>; the <a href="../silent/week03-clip3-vit-patches.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>A vision transformer, or V i T, reads an image as a sequence of patches. Here is a pathology tile
+stained with H&amp;E, from a colorectal cancer.</p>
+<p>We cut the tile into a four by four grid. That gives 16 square patches, and each patch is handled
+separately from here on.</p>
+<p>The 16 patches are lined up in reading order, from top left to bottom right. Each patch now plays
+the role of a word token.</p>
+<p>Each patch is flattened into a list of pixel values, and a shared linear projection maps it to a
+vector with d dimensions.</p>
+<p>A position vector is added to each patch vector. Without it, the model would not know where in the
+image a patch came from.</p>
+<p>A learnable CLS token is placed at the front of the sequence. Its output will summarize the whole
+image.</p>
+<p>These 17 tokens enter a standard transformer encoder. Nothing in the encoder is specific to images:
+it is the same architecture used for text.</p>
+<p>The output at the CLS position goes to a small prediction head, which classifies the tile as tumor
+or normal.</p>
+<p>In practice, a 224 by 224 image with 16 by 16 pixel patches gives a 14 by 14 grid: 196 tokens.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

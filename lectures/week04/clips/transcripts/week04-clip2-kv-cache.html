@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>The KV cache and how models shrink it</h1>
+<p>Week 4, clip 2 of 4. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week04-clip2-kv-cache-narrated.mp4">narrated version</a>; the <a href="../silent/week04-clip2-kv-cache.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>When a decoder writes the next token, its query is compared with the keys of every earlier token,
+and their values are mixed in. Here the note so far is: the patient denies chest pain.</p>
+<p>Those keys and values do not change, so the model stores them instead of recomputing them at every
+step. This store is the KV cache, and each new token adds its own keys and values.</p>
+<p>The cache grows with every token, in every layer and every head. For a model shaped like Llama 3,
+8B, that is half a megabyte per token, so a patient record of 32,768 tokens needs 16 gigabytes.</p>
+<p>Grouped-query attention shrinks it. 32 query heads share 8 key and value heads, so only 8 are
+stored, and the same record needs 4 gigabytes instead of 16.</p>
+<p>DeepSeek-V3 goes further with multi-head latent attention. It caches one compressed vector of 576
+numbers per token and layer, instead of 40,960: about 71 times smaller.</p>
+<p>Sliding-window attention is a third approach. In Gemma 3, the base of MedGemma, 5 local layers look
+only at the last 1,024 tokens for every global layer that sees everything.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

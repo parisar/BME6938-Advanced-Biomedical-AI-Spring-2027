@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Contrastive learning: two views, one embedding</h1>
+<p>Week 6, clip 2 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week06-clip2-contrastive-learning-narrated.mp4">narrated version</a>; the <a href="../silent/week06-clip2-contrastive-learning.mp4">silent
+version</a> shows the same steps with on-screen
+captions only.</p>
+<p>Contrastive learning starts by making two different views of the same ECG, using random
+augmentations.</p>
+<p>Here, view one is cropped and has added noise, and view two is rescaled with a slow baseline drift.
+The heart rhythm, and so the diagnosis, stays the same.</p>
+<p>Both views pass through the same encoder, with shared weights. Each view becomes one point in the
+embedding space.</p>
+<p>In practice we train on a batch, so the other ECGs in the batch, here B, C, and D, also become
+points.</p>
+<p>Training pulls the two views of ECG A toward each other, and pushes the other ECGs in the batch
+further away.</p>
+<p>The loss turns this into a classification. Compare A1 with every other view in the batch, apply a
+softmax, and its partner, A2, should win, here with 0.59.</p>
+<p>This is the InfoNCE loss. It is a softmax over the similarities, each divided by a temperature tau,
+and we minimize the negative log probability of the true partner.</p>
+<p>After training on many unlabeled ECGs, recordings with similar rhythms tend to land close together,
+even though the model never saw a single diagnosis.</p>
+<p>For pathology tiles, the two views come from random crops, flips and rotations, and changes in stain
+color, because tissue has no fixed orientation and staining varies between labs.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

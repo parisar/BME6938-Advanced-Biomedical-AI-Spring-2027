@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>CLIP: matching images with their captions</h1>
+<p>Week 7, clip 1 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week07-clip1-clip-narrated.mp4">narrated version</a>; the <a href="../silent/week07-clip1-clip.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>In week six, contrastive learning matched two views of the same ECG. CLIP keeps the same idea, but
+matches an image with the text that describes it, such as an H&amp;E tile and its caption.</p>
+<p>CLIP has two encoders. A vision transformer encodes the image, and a text transformer encodes the
+caption. Both produce 512 numbers, scaled to length 1, in the same embedding space.</p>
+<p>Take a batch of four tiles and their four captions. Comparing every tile with every caption gives a
+four by four grid of cosine similarities. The true pairs sit on the diagonal.</p>
+<p>Each row is divided by a temperature, here 0.07, and passed through a softmax. The tumor tile then
+gives its own caption a probability of 0.82.</p>
+<p>The loss is cross-entropy in both directions. Along each row, a tile must pick its caption. Down
+each column, a caption must pick its tile. The 2 are averaged, here to 0.18.</p>
+<p>CLIP was trained on 400 million image and text pairs collected from the web, in batches of 32,768
+pairs. The temperature starts at 0.07 and is learned.</p>
+<p>BiomedCLIP uses the same recipe on biomedical data: 15 million figures and their captions, taken
+from 4.4 million articles in PubMed Central.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

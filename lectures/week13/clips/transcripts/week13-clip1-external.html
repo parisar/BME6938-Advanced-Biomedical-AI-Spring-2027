@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>What external validation found</h1>
+<p>Week 13, clip 1 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week13-clip1-external-narrated.mp4">narrated version</a>; the <a href="../silent/week13-clip1-external.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>The Epic Sepsis Model ships with a widely used health record and runs at hundreds of US hospitals.
+It scores every adult inpatient every 15 minutes and alerts when that score crosses a threshold. Its
+vendor reported an AUC between 0.76 and 0.83.</p>
+<p>Wong and colleagues validated it at Michigan Medicine: 27,697 patients and 38,455 hospitalizations,
+of which 2,552, or 7%, had sepsis.</p>
+<p>The AUC was 0.63, with a 95% interval from 0.62 to 0.64. The authors also report per-horizon AUCs of
+0.72 to 0.76, then explain why those are misleading: the predictions are not independent of each
+other.</p>
+<p>At the vendor's threshold of 6, sensitivity was 33%, so two thirds of sepsis cases were never
+flagged. The positive predictive value was 12%. Alerts fired on 18% of all hospitalizations: 8
+patients to evaluate for every sepsis case.</p>
+<p>Now ask what the alert added. Of the 2,552 sepsis cases, 843 were flagged, and of those only 183 had
+not already received timely antibiotics. Of the 1,709 that were missed, 1,030 were treated in time
+anyway.</p>
+<p>Two lessons. Validate locally before deployment, because a vendor's AUC came from a vendor's
+population, not yours. And measure the increment over current practice, not the model on its own. A
+model is worth deploying only if it changes what happens to a patient.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

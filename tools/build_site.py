@@ -17,7 +17,12 @@ Everything comes from files that already exist: the index table in lectures/READ
 each week's clips.json, the transcripts for the clip titles, the banners, and the
 schedule table in README.md for the papers. There is no second copy to keep in sync.
 """
-import html, json, os, re, subprocess, sys
+import glob, html, json, os, re, subprocess, sys
+
+try:
+    import markdown                                         # pip install markdown
+except ImportError:                                         # the site still builds, minus the doc pages
+    markdown = None
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROW = re.compile(r'^\|\s*(\d+)\s*\|\s*(.+?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*$')
@@ -148,11 +153,18 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:.86rem;padd
 @media(max-width:600px){.wrap{padding:0 16px}}
 '''
 
+REPO = 'https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027'
+
+# Every entry here has to resolve to an HTML page. Pointing one at a .md file or at a
+# directory gives the reader raw markdown or a file listing, because .nojekyll stops
+# GitHub rendering markdown and nothing serves an index for a bare folder.
 NAV = ('<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span>'
        '<a href="{root}index.html">Weeks</a>'
-       '<a href="{root}README.md">Repository</a>'
-       '<a href="{root}papers/">Reading list</a>'
-       '<a href="{root}project/">Term project</a>'
+       '<a href="{root}syllabus/index.html">Syllabus</a>'
+       '<a href="{root}papers/index.html">Reading list</a>'
+       '<a href="{root}presentations/index.html">Paper sessions</a>'
+       '<a href="{root}project/index.html">Term project</a>'
+       f'<a href="{REPO}">Repository &#8599;</a>'
        '</div></header>')
 
 FOOT = ('<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. '
@@ -179,6 +191,97 @@ def page(title, body, root, desc=''):
 </body>
 </html>
 '''
+
+
+DOC_DIRS = {'papers': 'Reading list', 'project': 'Term project',
+            'presentations': 'Paper sessions', 'syllabus': 'Syllabus'}
+
+
+def rendered_md():
+    """Every markdown file the site turns into a page, as repo-relative path -> output path.
+
+    A folder's README.md becomes its index.html; anything else keeps its name. The map is
+    built before any rendering so that links between these files can be rewritten.
+    """
+    out = {}
+    for d in DOC_DIRS:
+        if not os.path.isdir(f'{R}/{d}'):
+            continue
+        for f in sorted(os.listdir(f'{R}/{d}')):
+            if f.endswith('.md'):
+                out[f'{d}/{f}'] = f'{d}/' + ('index.html' if f == 'README.md' else f[:-3] + '.html')
+    for t in sorted(glob.glob(f'{R}/lectures/week*/clips/transcripts/*.md')):
+        rel = os.path.relpath(t, R)
+        out[rel] = rel[:-3] + '.html'
+    return out
+
+
+def rewrite_links(body, src_rel, pages):
+    """Point every link at something a browser can show.
+
+    A link to a .md file renders as raw text in the browser, because .nojekyll stops
+    GitHub rendering markdown. So: a .md we render becomes its .html, the repository
+    README becomes the site home, and anything else we do not publish becomes a link
+    to the file on GitHub.
+    """
+    here = os.path.dirname(src_rel)
+    up = os.path.relpath(R, os.path.join(R, here)) if here else '.'
+
+    def fix(m):
+        href = m.group(1)
+        if href.startswith(('http', 'mailto:', '#')):
+            return m.group(0)
+        base, _, frag = href.partition('#')
+        if not base.endswith('.md'):
+            return m.group(0)
+        tgt = os.path.normpath(os.path.join(here, base)).replace(os.sep, '/')
+        if tgt in pages:
+            new = os.path.relpath(os.path.join(R, pages[tgt]),
+                                  os.path.join(R, here)).replace(os.sep, '/')
+        elif tgt == 'README.md':
+            new = f'{up}/index.html'.lstrip('./') or 'index.html'
+        else:
+            new = f'{REPO}/blob/main/{tgt}'
+        return f'href="{new}{"#" + frag if frag else ""}"'
+
+    return re.sub(r'href="([^"]+)"', fix, body)
+
+
+def doc_pages():
+    """Render the document folders and the clip transcripts into real pages."""
+    if markdown is None:
+        print('markdown not installed: skipping the document pages', file=sys.stderr)
+        return 0
+    pages = rendered_md()
+    made = 0
+    for rel, out in pages.items():
+        body = markdown.markdown(open(f'{R}/{rel}', encoding='utf-8').read(),
+                                 extensions=['tables', 'sane_lists'])
+        body = rewrite_links(body, rel, pages)
+        depth = out.count('/')
+        root = '../' * depth
+        title = DOC_DIRS.get(out.split('/')[0], 'Transcript')
+        open(f'{R}/{out}', 'w', encoding='utf-8').write(
+            page(f'{title} | Advanced Biomedical AI', body, root,
+                 f'{title} for BME 6938 Advanced Biomedical AI, Spring 2027.'))
+        made += 1
+
+    # A folder with no README has no index, so the nav entry pointing at it 404s.
+    for d, title in DOC_DIRS.items():
+        idx = f'{R}/{d}/index.html'
+        if os.path.exists(idx) or not os.path.isdir(f'{R}/{d}'):
+            continue
+        items = sorted((v for k, v in pages.items() if k.startswith(d + '/')))
+        li = ''.join(
+            f'<li><a href="{os.path.basename(v)}">'
+            f'{E(os.path.basename(v)[:-5].replace("_", " ").capitalize())}</a></li>'
+            for v in items)
+        open(idx, 'w', encoding='utf-8').write(
+            page(f'{title} | Advanced Biomedical AI',
+                 f'<h1>{E(title)}</h1><ul>{li}</ul>', '../',
+                 f'{title} for BME 6938 Advanced Biomedical AI, Spring 2027.'))
+        made += 1
+    return made
 
 
 def main():
@@ -233,7 +336,7 @@ def main():
                 if c['silent']:
                     extra.append(f'<a href="{E(c["silent"])}">Silent version</a>')
                 if c['transcript']:
-                    extra.append(f'<a href="{E(c["transcript"])}">Transcript</a>')
+                    extra.append(f'<a href="{E(c["transcript"][:-3])}.html">Transcript</a>')
                 if c['vtt']:
                     extra.append(f'<a href="{E(c["vtt"])}">Captions (.vtt)</a>')
                 if extra:
@@ -241,9 +344,10 @@ def main():
                 parts.append('</div>')
                 b.append(''.join(parts))
 
-        b.append(f'<h2>Everything for this week</h2><p><a href="README.md">'
-                 f'The Week {wk} folder in the repository</a>, with the animation sources, '
-                 f'the slides and the session guide.</p>')
+        b.append(f'<h2>Everything for this week</h2><p>'
+                 f'<a href="{REPO}/tree/main/lectures/week{wk:02d}">'
+                 f'The Week {wk} folder in the repository &#8599;</a>, with the animation '
+                 f'sources, the slides and the session guide.</p>')
         open(f'{d}/index.html', 'w', encoding='utf-8').write(
             page(f'Week {wk}: {r["topic"]} | Advanced Biomedical AI', '\n'.join(b), '../../',
                  f'Week {wk} of BME 6938: {r["topic"]}. Animation clips with captions, '
@@ -270,8 +374,9 @@ def main():
              'Graduate course on current research in biomedical AI at the University of Florida. '
              'Animation clips with captions, slides and notebooks.'))
 
+    docs = doc_pages()
     total = sum(n for _, _, n in made)
-    print(f'index.html and {len(made)} week pages, {total} clips')
+    print(f'index.html, {len(made)} week pages, {docs} document pages, {total} clips')
 
 
 main()

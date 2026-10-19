@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Images as tokens: Med-PaLM M</h1>
+<p>Week 7, clip 3 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week07-clip3-med-palm-m-narrated.mp4">narrated version</a>; the <a href="../silent/week07-clip3-med-palm-m.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>CLIP can score how well each caption fits a chest X-ray, but it can only choose among captions we
+give it. A radiology report has to be written, word by word.</p>
+<p>So we feed the image into a language model. A vision transformer cuts the X-ray into patches and
+turns each one into a vector. A projection then resizes these vectors to the size of the model's
+word tokens.</p>
+<p>The image tokens go in front of the instruction, write the findings for this X-ray, and the whole
+sequence enters the same decoder we saw in weeks four and five. It writes the report one token at a
+time.</p>
+<p>Training uses the same next-token loss as supervised fine-tuning in week five. It is counted only on
+the report tokens, not on the image or the instruction.</p>
+<p>Med-PaLM M starts from PaLM-E, a Palm language model joined to a vision transformer, in sizes from
+12 billion to 562 billion parameters. It is fine-tuned on 14 tasks across 7 modalities, with one set
+of weights for all of them.</p>
+<p>On 246 chest X-rays, clinicians preferred Med-PaLM M's report to the radiologist's in up to 40.5% of
+cases. Without any training examples, it detected tuberculosis with 87.7% accuracy, against 92.6 for
+a specialist model.</p>
+<p>But this was a side-by-side ranking of past cases, not use in the clinic, and in most cases the
+model's report was not the one preferred. We return to evaluation and deployment in week 12.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

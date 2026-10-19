@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>From tokens to vectors</h1>
+<p>Week 2, clip 1 of 5. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week02-clip1-tokens-to-vectors-narrated.mp4">narrated version</a>; the <a href="../silent/week02-clip1-tokens-to-vectors.mp4">silent
+version</a> shows the same steps with on-screen captions
+only.</p>
+<p>Take a short sentence from a clinical note: the patient has a cold. A transformer cannot work with
+text directly. Everything has to become numbers first.</p>
+<p>First, a tokenizer splits the sentence into tokens. Here we get five: the, patient, has, a, and
+cold.</p>
+<p>Each token is mapped to an integer ID from the tokenizer's vocabulary. The exact numbers on screen
+are only illustrative.</p>
+<p>Each ID selects one row of a learned embedding table, which has one row for every entry in the
+vocabulary. That row becomes the token's vector.</p>
+<p>Stacking the five vectors gives a five by d matrix, with one row per token. We draw d as four. In
+BERT base, d is 768.</p>
+<p>But there is a problem. In the patient has a cold and the patient feels cold, the token cold has the
+same ID, 3147, so it gets an identical vector.</p>
+<p>In the patient has a cold, the word means an infection. In the patient feels cold, it means a low
+temperature. The embedding cannot tell them apart.</p>
+<p>Attention solves this. It updates each token's vector using the other tokens in the sentence, so the
+vector depends on context.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

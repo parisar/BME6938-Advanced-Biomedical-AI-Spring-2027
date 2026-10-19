@@ -110,6 +110,12 @@ banners have a light background and will look like a bright panel in GitHub's da
 Pages serves from the root of the default branch rather than from `docs/`, so the week pages sit beside the clips they
 play and nothing is copied. `.nojekyll` is required: Jekyll would hide `lectures/_shared`.
 
+Because `.nojekyll` also stops GitHub rendering markdown, a link to a `.md` file shows the reader raw text. So the
+script renders the document folders (`papers/`, `project/`, `presentations/`, `syllabus/`) and the clip transcripts to
+HTML, rewrites `.md` links between them to `.html`, sends a link to anything unpublished to GitHub, and gives a folder
+with no `README.md` a generated index. Nothing in the navigation may point at a `.md` file or a bare directory. It
+needs `pip install markdown`; without it the week pages still build and the document pages are skipped.
+
 The site exists because GitHub will not play a video from a README. A relative path does not render and
 raw.githubusercontent.com serves `.mp4` as `application/octet-stream`, so the browser downloads it. Pages serves the
 same file as `video/mp4`, which also lets each player carry its `.vtt` as a `<track>`, so the captions finally reach a

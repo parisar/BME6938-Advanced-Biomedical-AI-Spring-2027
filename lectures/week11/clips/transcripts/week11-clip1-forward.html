@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Diffusion, part 1: adding noise</h1>
+<p>Week 11, clip 1 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week11-clip1-forward-narrated.mp4">narrated version</a>; the <a href="../silent/week11-clip1-forward.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>Diffusion models learn to generate by learning to undo noise. We start from a real backbone, x 0,
+drawn here as 16 C-alpha points in a short helix. Training runs in two directions.</p>
+<p>The forward direction adds a little Gaussian noise at every step. Each point drifts by a random
+amount, and after the first few steps the helix is still obvious.</p>
+<p>You never have to take the steps one at a time. After t steps, x t is a single weighted mix: the
+square root of the signal weight times x zero, plus the square root of one minus that weight, times
+one Gaussian draw.</p>
+<p>The schedule fixes those weights. With beta rising from 0.0001 to 0.02 over a thousand steps, the
+signal weight is 0.95 at step 100, 0.72 at 250, and 0.28 at 500.</p>
+<p>By step 999 the signal weight is 0.006: a Gaussian cloud. Every protein ends in the same place,
+which is exactly why sampling can start from noise alone.</p>
+<p>Noising needs no learning at all, just a random number generator. The network only ever learns the
+way back. One real structure gives a thousand training examples, one for every step.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

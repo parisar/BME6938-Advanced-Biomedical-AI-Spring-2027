@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Term project | Advanced Biomedical AI</title>
+<meta name="description" content="Term project for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../index.html">Weeks</a><a href="../syllabus/index.html">Syllabus</a><a href="../papers/index.html">Reading list</a><a href="../presentations/index.html">Paper sessions</a><a href="../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Term project: a research paper on an open problem in biomedical AI</h1>
+<p>Teams of three carry out an original study on an open problem in biomedical AI of their own choosing and report it as a research paper. Topics are approved at the proposal stage. Teams that do not have a topic may choose from the suggested problems below.</p>
+<h2>Evaluation standard</h2>
+<p>Every paper must include:</p>
+<ul>
+<li>a comparison against an appropriate baseline,</li>
+<li>an evaluation that goes beyond a single aggregate metric (for example calibration, subgroup performance, or a distribution-shift or robustness test, as appropriate to the problem),</li>
+<li>a failure analysis.</li>
+</ul>
+<h2>Milestones</h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Date</th>
+<th>Deliverable</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start data-access training (if using credentialed data)</td>
+<td>Jan 14</td>
+<td>CITI training and PhysioNet credentialing started</td>
+<td></td>
+</tr>
+<tr>
+<td>Teams formed</td>
+<td>Jan 28</td>
+<td>Teams of three; names submitted</td>
+<td></td>
+</tr>
+<tr>
+<td>Proposal</td>
+<td>Feb 19</td>
+<td>One page: open problem and why it matters, data, models and methods, hypothesis, evaluation plan. Due 11:59 PM</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>Pitch, then peer review</td>
+<td>Feb 23</td>
+<td>2-min pitch in class Feb 23 (slide due 1:00 PM); written review of one other proposal due Thu Mar 4, 11:59 PM (counts toward participation)</td>
+<td></td>
+</tr>
+<tr>
+<td>Progress report</td>
+<td>Mar 26</td>
+<td>One page with baseline results and remaining plan. Due 11:59 PM</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>Final presentation</td>
+<td>Apr 13</td>
+<td>12 min talk + 4 min questions; Tue Apr 13 (3 teams), Thu Apr 15 (5 teams), Tue Apr 20 (2 teams). Every team's slides due 1:00 PM Tue Apr 13.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Final paper and repository</td>
+<td>Apr 21</td>
+<td>4-page conference-style paper; reproducible GitHub repository with README. Due 11:59 PM</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+<p>Templates: <a href="proposal_template.html">proposal</a>, <a href="peer_review_form.html">peer review</a>, <a href="progress_report_template.html">progress report</a>.</p>
+<p>Pitch day (Tue Feb 23): <a href="pitch_day.html">pitch_day.md</a>. Final talk rubric: <a href="presentation_rubric.html">presentation_rubric.md</a>.</p>
+<h2>Final paper rubric (100 points)</h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Points</th>
+<th>What is assessed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Problem and clinical motivation</td>
+<td>15</td>
+<td>Clear open problem; why it matters; what is new relative to prior work</td>
+</tr>
+<tr>
+<td>Methods</td>
+<td>25</td>
+<td>Sound choice and correct use of data, models, and methods for the stated problem; appropriate baseline</td>
+</tr>
+<tr>
+<td>Evaluation rigor</td>
+<td>25</td>
+<td>Goes beyond a single aggregate metric (for example calibration, subgroups, or a shift or robustness test, as appropriate); proper data splits</td>
+</tr>
+<tr>
+<td>Analysis and limitations</td>
+<td>15</td>
+<td>Failure analysis; honest limitations; what is shown versus claimed</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>10</td>
+<td>Repository runs from README; fixed seeds; environment specified</td>
+</tr>
+<tr>
+<td>Writing and presentation</td>
+<td>10</td>
+<td>Clear figures and tables; conference format; within 4 pages</td>
+</tr>
+</tbody>
+</table>
+<h2>Suggested problems</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Course week</th>
+<th>Possible open data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Long clinical notes with a small open LLM: sliding-window or compressed attention versus retrieval for discharge-summary question answering</td>
+<td>4</td>
+<td>MIMIC-IV-Note (credentialed), MedQA</td>
+</tr>
+<tr>
+<td>Reasoning versus non-reasoning modes on medical question answering: accuracy, token cost, and calibration; LoRA fine-tuning versus prompting</td>
+<td>5</td>
+<td>MedQA, PubMedQA</td>
+</tr>
+<tr>
+<td>Label efficiency of imaging foundation models: linear probe versus LoRA fine-tuning as labeled data shrinks</td>
+<td>6</td>
+<td>MedMNIST, Kather H&amp;E tiles (NCT-CRC-HE-100K)</td>
+</tr>
+<tr>
+<td>Self-supervised pretraining for ECG: masked modeling versus contrastive objectives</td>
+<td>6</td>
+<td>PTB-XL</td>
+</tr>
+<tr>
+<td>Zero-shot versus fine-tuned vision-language models for chest X-ray findings, with a subgroup performance audit</td>
+<td>7</td>
+<td>CheXpert, MIMIC-CXR (credentialed)</td>
+</tr>
+<tr>
+<td>Tokenized-timeline EHR transformer versus gradient-boosted baseline for ICU outcome prediction; calibration under temporal shift</td>
+<td>8</td>
+<td>MIMIC-IV, eICU (credentialed)</td>
+</tr>
+<tr>
+<td>Does multimodal fusion help when a modality is missing? Late versus intermediate fusion of notes, vitals, or images</td>
+<td>7</td>
+<td>MIMIC-IV with MIMIC-CXR (credentialed)</td>
+</tr>
+<tr>
+<td>Retrieval augmentation for clinical question answering: accuracy and faithfulness of cited evidence</td>
+<td>9</td>
+<td>MedQA, PubMedQA</td>
+</tr>
+<tr>
+<td>Tool-using LLM agent for a structured clinical task; taxonomy of failure modes</td>
+<td>9</td>
+<td>Synthea synthetic patients, MIMIC-IV Clinical Database Demo</td>
+</tr>
+<tr>
+<td>Shortcut audit of a medical imaging classifier: can site or scanner be decoded from embeddings, and does it hurt external validity?</td>
+<td>12</td>
+<td>CheXpert, MedMNIST</td>
+</tr>
+<tr>
+<td>Uncertainty under distribution shift: conformal prediction for a medical classifier</td>
+<td>12</td>
+<td>Any of the above</td>
+</tr>
+<tr>
+<td>Reproduce a key result from a course paper and add one extension</td>
+<td>any</td>
+<td>Dataset of the chosen paper</td>
+</tr>
+</tbody>
+</table>
+<p>Each problem has a starter kit (data and access, a baseline to beat, a plan, evaluation, and pitfalls): <a href="starter_kits.html">starter_kits.md</a>.</p>
+<h2>Data and computing</h2>
+<ul>
+<li>Datasets that require credentialed access (for example MIMIC-IV and MIMIC-CXR) need human-subjects training that can take several weeks. Start in Week 1 if you plan to use them.</li>
+<li>Open datasets such as PTB-XL, MedMNIST, and TCGA need no credentialing.</li>
+<li>Never commit patient data, credentials, or credentialed datasets to a repository.</li>
+<li>Computing is provided through HiPerGator.</li>
+</ul>
+<h2>Final submission</h2>
+<ul>
+<li>A 4-page conference-style paper (references do not count toward the limit).</li>
+<li>A GitHub repository that reproduces the main results from its README, with fixed seeds and a specified environment.</li>
+</ul>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

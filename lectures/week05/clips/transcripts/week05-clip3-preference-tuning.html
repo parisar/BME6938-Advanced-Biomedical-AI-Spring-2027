@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Preference tuning: RLHF and DPO</h1>
+<p>Week 5, clip 3 of 4. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week05-clip3-preference-tuning-narrated.mp4">narrated version</a>; the <a href="../silent/week05-clip3-preference-tuning.mp4">silent
+version</a> shows the same steps with on-screen captions
+only.</p>
+<p>Preference data pairs one question with two answers. A clinician marks one as chosen and the other
+as rejected. Here the rejected answer gets the negation wrong.</p>
+<p>Right now, the small Qwen3 model rates the wrong answer as far more likely. Its log-probability is
+minus 1.12, while the correct answer gets minus 21.37.</p>
+<p>The classic method is RLHF. First, a separate reward model learns to score answers from many such
+choices. Then reinforcement learning, usually PPO, updates the language model to earn high scores.
+That means two models to train, and the training can be unstable.</p>
+<p>DPO skips the reward model. It keeps a frozen copy of the starting model, and for each answer it
+measures a gain: how much more likely the model in training makes that answer than the frozen copy
+does. The frozen copy keeps the model close to what it already knew.</p>
+<p>The DPO loss takes the chosen gain minus the rejected gain, scales it by a small number called beta,
+here 0.1, and passes it through a sigmoid. The loss gets smaller as the chosen gain pulls ahead.</p>
+<p>At the start, the model is identical to its frozen copy, so both gains are zero. The sigmoid of 0 is
+one half, and the loss is minus the log of one half, which is 0.69.</p>
+<p>After some training, the chosen answer has gained four and the rejected answer has lost six. Beta
+times the gap of 10 is 1, the sigmoid of 1 is 0.73, and the loss falls to 0.31.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

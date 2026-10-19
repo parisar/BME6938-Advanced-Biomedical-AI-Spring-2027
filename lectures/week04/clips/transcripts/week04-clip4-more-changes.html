@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>More 2026 changes</h1>
+<p>Week 4, clip 4 of 4. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week04-clip4-more-changes-narrated.mp4">narrated version</a>; the <a href="../silent/week04-clip4-more-changes.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>Vocabularies have grown. GPT-2, from 2019, splits this clinical sentence into 21 tokens and cuts
+tachycardia into 4 pieces. DeepSeek-V3, with about 129,000 tokens in its vocabulary, needs only 14.</p>
+<p>Long patient records need long context. A model is trained on shorter text; rotating 8 times slower
+lets position 32,768 land where 4,096 was. DeepSeek-V3 was stretched from 4,000 to 32,000, then
+128,000 tokens.</p>
+<p>Multi-token prediction adds a second target during training. From the patient denies chest, the main
+head predicts pain, and an extra module predicts the token after next: and. This gives more training
+signal and can speed up generation.</p>
+<p>This week's paper, MedGemma, starts from Gemma 3 and continues training on medical text and medical
+images. It comes in 4 billion and 27 billion parameter versions, built from the pieces in these
+clips.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

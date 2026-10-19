@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Generating text one token at a time</h1>
+<p>Week 3, clip 1 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week03-clip1-next-token-generation-narrated.mp4">narrated version</a>; the <a href="../silent/week03-clip1-next-token-generation.mp4">silent
+version</a> shows the same steps with on-screen
+captions only.</p>
+<p>A decoder, like the one in GPT, writes text one token at a time from left to right. Here the note so
+far reads: the patient denies chest.</p>
+<p>Given everything written so far, the decoder outputs a probability for every token in its
+vocabulary. The numbers on screen are illustrative.</p>
+<p>Greedy decoding simply takes the most likely token, so the model writes pain, with a probability of
+0.62.</p>
+<p>The chosen token, pain, is appended to the input. In step two, the decoder runs again on the longer
+sequence and writes the next token: and.</p>
+<p>Each forward pass adds exactly one token. In step three, the model runs once more and adds dyspnea,
+meaning shortness of breath.</p>
+<p>Greedy decoding always takes the top token. Sampling draws a token according to the probabilities,
+and the temperature controls how random that draw is: low is nearly greedy, high is more varied.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>

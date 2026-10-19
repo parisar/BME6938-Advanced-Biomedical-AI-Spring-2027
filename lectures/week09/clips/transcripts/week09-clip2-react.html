@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript | Advanced Biomedical AI</title>
+<meta name="description" content="Transcript for BME 6938 Advanced Biomedical AI, Spring 2027.">
+<link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Advanced Biomedical AI</span><a href="../../../../index.html">Weeks</a><a href="../../../../syllabus/index.html">Syllabus</a><a href="../../../../papers/index.html">Reading list</a><a href="../../../../presentations/index.html">Paper sessions</a><a href="../../../../project/index.html">Term project</a><a href="https://github.com/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027">Repository &#8599;</a></div></header>
+<main><div class="wrap">
+<h1>Reason, act, observe: tool calls</h1>
+<p>Week 9, clip 2 of 3. This is the narration of the clip, which an AI-generated voice reads in the
+<a href="../narrated/week09-clip2-react-narrated.mp4">narrated version</a>; the <a href="../silent/week09-clip2-react.mp4">silent
+version</a> shows the same steps with on-screen captions only.</p>
+<p>An agent works in a loop of thought, action, and observation. Our task, for the synthetic patient
+P001: is the potassium rising, and is it abnormal?</p>
+<p>First the model writes a thought: I need the last three potassium results. Then it writes an action,
+a tool call in JSON, naming the tool, get labs, and its arguments: the patient, the test, and how
+many results.</p>
+<p>The program, not the model, runs the tool against the record and appends the result to the context:
+4.6, 5.1, and 5.6 millimoles per liter.</p>
+<p>The model reads the observation and writes a new thought: the potassium is rising, and 5.6 is above
+the usual upper limit of about 5.0. Its last action is finish, with the answer and the values.</p>
+<p>A tool call is just text that the model writes in an agreed format. ReAct got this behavior from a
+few worked examples in the prompt, with no training at all. Today's models are post-trained to write
+tool calls, as in week five.</p>
+<p>On ALFWorld, a text-based benchmark of household tasks, the best of 6 ReAct prompts succeeded 71% of
+the time, versus 45 for acting without thoughts. Even the worst ReAct prompt beat the best
+acting-only one.</p>
+<p>On HotpotQA, multi-hop questions answered from Wikipedia, ReAct alone scored 27.4, below chain of
+thought at 29.4. Falling back to chain of thought with self-consistency when ReAct got stuck did
+best, at 35.1.</p>
+<p>The authors labelled 50 failed runs of each method by hand. Hallucination caused 56% of
+chain-of-thought failures and none of ReAct's. But 47% of ReAct's failures were reasoning errors,
+such as repeating the same step.</p>
+</div></main>
+<footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
+</body>
+</html>
