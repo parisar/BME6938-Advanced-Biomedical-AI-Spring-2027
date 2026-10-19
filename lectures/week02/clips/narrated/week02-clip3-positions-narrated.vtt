@@ -1,0 +1,101 @@
+WEBVTT
+
+NOTE week02-clip3-positions
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:04.978
+Word order matters: chest pain
+and pain chest are not the same.
+
+2
+00:00:04.978 --> 00:00:09.658
+But attention gives each word the
+same output vector in both orders,
+
+3
+00:00:09.658 --> 00:00:14.283
+only swapped, so on its own
+it cannot tell them apart.
+
+4
+00:00:14.483 --> 00:00:20.841
+The fix is to give each position its own
+vector and add it to the token vector.
+
+5
+00:00:20.841 --> 00:00:26.283
+The sum, the input vector, now carries
+both the word and its position.
+
+6
+00:00:26.483 --> 00:00:32.019
+The simplest option is to learn a
+table with one vector per position.
+
+7
+00:00:32.019 --> 00:00:37.832
+BERT learns 512 rows. The patient
+has a cold uses rows one to five,
+
+8
+00:00:37.832 --> 00:00:42.083
+but a longer input has no row to look up.
+
+9
+00:00:42.283 --> 00:00:48.210
+The original transformer computes
+position vectors instead of learning them.
+
+10
+00:00:48.210 --> 00:00:51.649
+It uses waves: a sine and a
+cosine wave at a fast speed,
+
+11
+00:00:51.649 --> 00:00:56.283
+and another sine and cosine
+pair at a slow speed.
+
+12
+00:00:56.483 --> 00:01:02.304
+To build the vector for position one, read
+the height of each wave at position one.
+
+13
+00:01:02.304 --> 00:01:07.941
+The 4 heights, 0.84, 0.54, 0.25,
+
+14
+00:01:07.941 --> 00:01:12.017
+and 0.97, are the position vector.
+
+15
+00:01:12.217 --> 00:01:15.871
+Move to position two and
+the fast waves change a lot,
+
+16
+00:01:15.871 --> 00:01:21.896
+while the slow waves barely move, like the
+second hand and the hour hand of a clock.
+
+17
+00:01:21.896 --> 00:01:26.217
+Together, they give every
+position its own pattern.
+
+18
+00:01:26.417 --> 00:01:31.012
+Learned or computed, these
+absolute positions are added once,
+
+19
+00:01:31.012 --> 00:01:35.704
+at the input, and every later layer
+has to carry that information forward.
+
+20
+00:01:35.704 --> 00:01:41.647
+Newer models handle position
+differently, inside attention itself.

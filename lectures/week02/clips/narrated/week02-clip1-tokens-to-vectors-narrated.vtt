@@ -1,0 +1,93 @@
+WEBVTT
+
+NOTE week02-clip1-tokens-to-vectors
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:04.280
+Take a short sentence from a clinical
+note: the patient has a cold.
+
+2
+00:00:04.280 --> 00:00:07.724
+A transformer cannot
+work with text directly.
+
+3
+00:00:07.724 --> 00:00:11.417
+Everything has to become numbers first.
+
+4
+00:00:11.617 --> 00:00:17.799
+First, a tokenizer splits the sentence
+into tokens. Here we get five:
+
+5
+00:00:17.799 --> 00:00:20.483
+the, patient, has, a, and cold.
+
+6
+00:00:20.683 --> 00:00:25.303
+Each token is mapped to an integer
+ID from the tokenizer's vocabulary.
+
+7
+00:00:25.303 --> 00:00:29.750
+The exact numbers on screen
+are only illustrative.
+
+8
+00:00:29.950 --> 00:00:33.879
+Each ID selects one row of
+a learned embedding table,
+
+9
+00:00:33.879 --> 00:00:37.540
+which has one row for every
+entry in the vocabulary.
+
+10
+00:00:37.540 --> 00:00:41.713
+That row becomes the token's vector.
+
+11
+00:00:43.683 --> 00:00:49.646
+Stacking the five vectors gives a five
+by d matrix, with one row per token.
+
+12
+00:00:49.646 --> 00:00:54.883
+We draw d as four. In BERT base, d is 768.
+
+13
+00:00:55.083 --> 00:01:00.318
+But there is a problem. In the patient
+has a cold and the patient feels cold,
+
+14
+00:01:00.318 --> 00:01:07.017
+the token cold has the same ID,
+3147, so it gets an identical vector.
+
+15
+00:01:07.217 --> 00:01:12.916
+In the patient has a cold, the word means
+an infection. In the patient feels cold,
+
+16
+00:01:12.916 --> 00:01:18.150
+it means a low temperature. The
+embedding cannot tell them apart.
+
+17
+00:01:18.350 --> 00:01:19.850
+Attention solves this.
+
+18
+00:01:19.850 --> 00:01:24.434
+It updates each token's vector using
+the other tokens in the sentence,
+
+19
+00:01:24.434 --> 00:01:27.280
+so the vector depends on context.

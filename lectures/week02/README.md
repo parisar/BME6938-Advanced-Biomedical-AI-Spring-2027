@@ -19,7 +19,7 @@ The running example is the sentence "The patient has a cold" (clip 3 also contra
 | 4. Relative positions: RoPE and ALiBi | [2 min 42 s](clips/narrated/week02-clip4-relative-positions-narrated.mp4) | [56 s](clips/silent/week02-clip4-relative-positions.mp4) |
 | 5. Inside the encoder block | [1 min 14 s](clips/narrated/week02-clip5-encoder-block-narrated.mp4) | [54 s](clips/silent/week02-clip5-encoder-block.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
 ## Notebook
 
