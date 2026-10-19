@@ -22,6 +22,57 @@ A graduate course on current research in biomedical AI: modern LLM architectures
 | Weeks 2 and 3 | The Tuesday lectures review the transformer architecture in two parts; student paper sessions start on the Thursday of Week 2 |
 | Final two weeks | Reserved for project presentations: no lectures or paper sessions |
 
+## Course map
+
+Every week of the course. Click a week for its slides, clips, and notebook.
+
+[![Week 1: Course logistics; how to read, present, and critique papers](assets/banners/week01.png)](lectures/week01/)
+
+Slides: [1-1](lectures/week01/slides/1-1-course-logistics.pdf) · [1-2](lectures/week01/slides/1-2-reading-presenting-critiquing-papers.pdf)
+
+[![Week 2: Transformer review, Part 1: attention and the encoder](assets/banners/week02.png)](lectures/week02/)
+
+[Slides (PDF)](lectures/week02/slides/2-1-transformer-review-part-1.pdf) · [5 clips](lectures/week02/) · [Part 1 notebook](lectures/notebooks/week02_transformer_review_part1.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week02_transformer_review_part1.ipynb)
+
+[![Week 3: Transformer review, Part 2: decoder, masking, and model families](assets/banners/week03.png)](lectures/week03/)
+
+[Slides (PDF)](lectures/week03/slides/3-1-transformer-review-part-2.pdf) · [3 clips](lectures/week03/) · [Part 2 notebook](lectures/notebooks/week03_transformer_review_part2.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week03_transformer_review_part2.ipynb)
+
+[![Week 4: Inside modern LLMs: architectures in 2026](assets/banners/week04.png)](lectures/week04/)
+
+[Slides (PDF)](lectures/week04/slides/4-1-inside-modern-llms.pdf) · [4 clips](lectures/week04/) · [Week 4 notebook](lectures/notebooks/week04_modern_llms.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week04_modern_llms.ipynb)
+
+[![Week 5: Post-training and reasoning: from pretrained model to clinical assistant](assets/banners/week05.png)](lectures/week05/)
+
+[Slides (PDF)](lectures/week05/slides/5-1-post-training-and-reasoning.pdf) · [4 clips](lectures/week05/) · [Week 5 notebook](lectures/notebooks/week05_post_training.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week05_post_training.ipynb)
+
+[![Week 6: Self-supervised learning and imaging foundation models](assets/banners/week06.png)](lectures/week06/)
+
+[Slides (PDF)](lectures/week06/slides/6-1-self-supervised-learning-and-imaging-foundation-models.pdf) · [3 clips](lectures/week06/) · [Week 6 notebook](lectures/notebooks/week06_self_supervised_learning.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week06_self_supervised_learning.ipynb)
+
+[![Week 7: Vision-language and multimodal models](assets/banners/week07.png)](lectures/week07/)
+
+[Slides (PDF)](lectures/week07/slides/7-1-vision-language-and-multimodal-models.pdf) · [3 clips](lectures/week07/) · [Week 7 notebook](lectures/notebooks/week07_vision_language.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week07_vision_language.ipynb)
+
+[![Week 8: Foundation models for EHR and physiological time series](assets/banners/week08.png)](lectures/week08/)
+
+[Slides (PDF)](lectures/week08/slides/8-1-foundation-models-for-ehr-and-time-series.pdf) · [3 clips](lectures/week08/) · [Week 8 notebook](lectures/notebooks/week08_ehr_time_series.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week08_ehr_time_series.ipynb)
+
+[![Week 9: Retrieval, tool use, and agentic systems](assets/banners/week09.png)](lectures/week09/)
+
+[Slides (PDF)](lectures/week09/slides/9-1-retrieval-tool-use-and-agentic-systems.pdf) · [3 clips](lectures/week09/) · [Week 9 notebook](lectures/notebooks/week09_retrieval_agents.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week09_retrieval_agents.ipynb)
+
+[![Week 11: Generative models and AI for science](assets/banners/week11.png)](lectures/week11/)
+
+[Slides (PDF)](lectures/week11/slides/11-1-generative-models-and-ai-for-science.pdf) · [3 clips](lectures/week11/) · [Week 11 notebook](lectures/notebooks/week11_diffusion.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week11_diffusion.ipynb)
+
+[![Week 12: Evaluation, robustness, and fairness](assets/banners/week12.png)](lectures/week12/)
+
+[Slides (PDF)](lectures/week12/slides/12-1-evaluation-robustness-and-fairness.pdf) · [3 clips](lectures/week12/) · [Week 12 notebook](lectures/notebooks/week12_evaluation.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week12_evaluation.ipynb)
+
+[![Week 13: Deployment, human-AI teaming, and ambient intelligence](assets/banners/week13.png)](lectures/week13/)
+
+[Slides (PDF)](lectures/week13/slides/13-1-deployment-and-human-ai-teaming.pdf) · [3 clips](lectures/week13/) · [Week 13 notebook](lectures/notebooks/week13_deployment.ipynb) · [Open in Colab](https://colab.research.google.com/github/parisar/BME6938-Advanced-Biomedical-AI-Spring-2027/blob/main/lectures/notebooks/week13_deployment.ipynb)
 ## Where things are
 
 | Folder | Contents |

@@ -5,6 +5,10 @@
 
 
 
+
+
+
+
 ![An event timeline with coloured markers above three ECG beats.](../../assets/banners/week08.png)
 
 | Session | Content |

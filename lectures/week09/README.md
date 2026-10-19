@@ -5,6 +5,10 @@
 
 
 
+
+
+
+
 ![Document chunks becoming a vector, beside a thought, action, observe loop.](../../assets/banners/week09.png)
 
 | Session | Content |

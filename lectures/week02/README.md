@@ -5,6 +5,10 @@
 
 
 
+
+
+
+
 ![Five word tokens with coloured vectors below them and two attention arcs above.](../../assets/banners/week02.png)
 
 | Session | Content |

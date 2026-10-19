@@ -91,15 +91,16 @@ or reworded clip is not finished until its transcript is rebuilt and committed, 
 
 `assets/banners/` holds the course banner and one per week, the same artwork Canvas shows on the course map and at
 the top of each module, so the repository and the Canvas course look like one course. `tools/build_banners.py`
-rewrites the visual course map in `lectures/README.md` from that file's own index table, and puts each week's banner
-under the heading of its week README. Run it after changing a week's title or links; it is idempotent, so running it
-twice changes nothing.
+writes the "Course map" section of the top-level `README.md`, where the course map belongs, and puts each week's
+banner under the heading of its week README. It reads the week titles and links from the index table in
+`lectures/README.md`, which stays a plain table. Run it after gen.py, and after changing a week's title or links; it
+is idempotent, so running it twice changes nothing.
 
 The banner on a week README repeats the heading beside it, so its alt text describes the drawing instead. In the
-course map the banner is a link, so its alt names the week and topic it leads to. The top-level README's banner
+course map the banner is a link, so its alt names the week and topic it leads to. The top-level README's own banner
 repeats the title and instructor underneath it and has empty alt, which is what stops a screen reader saying all of
-it twice. `assets/banners/alt.json` holds the descriptions. The week banners have a light background and will look
-like a bright panel in GitHub's dark theme.
+it twice. `assets/banners/alt.json` holds the descriptions, and the Canvas package reads the same file. The week
+banners have a light background and will look like a bright panel in GitHub's dark theme.
 
 ## Clip conventions
 

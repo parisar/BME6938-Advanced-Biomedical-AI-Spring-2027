@@ -5,6 +5,10 @@
 
 
 
+
+
+
+
 ![A structured chain, a partly noised chain, and a cloud of noise.](../../assets/banners/week11.png)
 
 | Session | Content |
