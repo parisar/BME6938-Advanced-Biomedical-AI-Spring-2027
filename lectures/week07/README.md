@@ -1,5 +1,12 @@
 # Week 7: Vision-language and multimodal models
 
+
+
+
+
+
+![An image box and a text box feeding into one shared embedding space.](../../assets/banners/week07.png)
+
 | Session | Content |
 |---|---|
 | Tue Feb 23 | Project pitches (2 minutes each) and a short lecture on vision-language models with three animation clips |

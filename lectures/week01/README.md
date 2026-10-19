@@ -1,5 +1,12 @@
 # Week 1: Course introduction
 
+
+
+
+
+
+![Five document outlines beside a question mark.](../../assets/banners/week01.png)
+
 | Session | Content |
 |---|---|
 | Tue Jan 12 | Course logistics: how the course works, grading, the term project, and how to get started |

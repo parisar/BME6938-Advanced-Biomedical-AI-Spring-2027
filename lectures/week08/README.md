@@ -1,5 +1,12 @@
 # Week 8: Foundation models for EHR and physiological time series
 
+
+
+
+
+
+![An event timeline with coloured markers above three ECG beats.](../../assets/banners/week08.png)
+
 | Session | Content |
 |---|---|
 | Tue Mar 2 | Foundation models for EHR and physiological time series, with three animation clips |

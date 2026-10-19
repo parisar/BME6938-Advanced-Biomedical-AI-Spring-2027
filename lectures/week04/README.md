@@ -1,5 +1,12 @@
 # Week 4: Inside modern LLMs: architectures in 2026
 
+
+
+
+
+
+![A stack of transformer block labels, a growing cache, and three expert circles.](../../assets/banners/week04.png)
+
 | Session | Content |
 |---|---|
 | Tue Feb 2 | Inside modern LLMs, with four animation clips |

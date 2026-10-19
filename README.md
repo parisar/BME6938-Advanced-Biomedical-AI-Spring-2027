@@ -1,3 +1,5 @@
+![](assets/banners/course-banner.png)
+
 # Advanced Biomedical AI (BME 6938)
 
 University of Florida, J. Crayton Pruitt Family Department of Biomedical Engineering, Spring 2027

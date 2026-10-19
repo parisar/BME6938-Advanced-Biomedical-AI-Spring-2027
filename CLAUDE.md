@@ -13,6 +13,7 @@ The weekly plan is in `README.md`.
 | `lectures/weekNN/` | One folder per week: `clips.json`, `animations/`, `clips/`, `slides/` (deck PDF), a README |
 | `lectures/notebooks/` | Ungraded reference notebooks, one per lecture |
 | `lectures/_shared/kit.py` | Shared Manim kit used by every clip (colors, caption bar, token boxes, matrices) |
+| `assets/banners/` | Course and week banner images, shared with the Canvas course map and modules |
 | `tools/build_clips.py` | Builds a week's clips end to end |
 | `local_config.json` | Local only, never committed: ElevenLabs voice ID and an optional copy destination |
 
@@ -85,6 +86,20 @@ python tools/build_transcripts.py week06 --readme   print the table for the week
 It reads `clips.json` and the scene files only: no audio, no Manim, no API call. The text goes through the same
 `caption_text.py` glossary as the captions, so a transcript and the `.vtt` beside it always say the same words. A new
 or reworded clip is not finished until its transcript is rebuilt and committed, like its captions.
+
+## Banners
+
+`assets/banners/` holds the course banner and one per week, the same artwork Canvas shows on the course map and at
+the top of each module, so the repository and the Canvas course look like one course. `tools/build_banners.py`
+rewrites the visual course map in `lectures/README.md` from that file's own index table, and puts each week's banner
+under the heading of its week README. Run it after changing a week's title or links; it is idempotent, so running it
+twice changes nothing.
+
+The banner on a week README repeats the heading beside it, so its alt text describes the drawing instead. In the
+course map the banner is a link, so its alt names the week and topic it leads to. The top-level README's banner
+repeats the title and instructor underneath it and has empty alt, which is what stops a screen reader saying all of
+it twice. `assets/banners/alt.json` holds the descriptions. The week banners have a light background and will look
+like a bright panel in GitHub's dark theme.
 
 ## Clip conventions
 

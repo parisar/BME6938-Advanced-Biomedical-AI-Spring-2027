@@ -1,5 +1,12 @@
 # Week 2: Transformer review, Part 1: attention and the encoder
 
+
+
+
+
+
+![Five word tokens with coloured vectors below them and two attention arcs above.](../../assets/banners/week02.png)
+
 | Session | Content |
 |---|---|
 | Tue Jan 19 | Transformer review, Part 1, with five animation clips |
