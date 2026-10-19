@@ -23,6 +23,16 @@ The narration is an AI-generated voice reading a script written for the course. 
 
 **Note for the lecture (clip 2).** ReAct used few-shot prompting of PaLM 540B with no training; today's models are post-trained to write tool calls. The ALFWorld comparison uses the best of six prompts for both methods (71% versus 45%), and even the worst ReAct prompt (48%) beat the best acting-only prompt. The failure analysis was done by hand on 50 failed HotpotQA runs per method.
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1), and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. Retrieval-augmented generation | [week09-clip1-rag.md](clips/transcripts/week09-clip1-rag.md) |
+| 2. Reason, act, observe: tool calls | [week09-clip2-react.md](clips/transcripts/week09-clip2-react.md) |
+| 3. Errors compound over steps | [week09-clip3-compounding.md](clips/transcripts/week09-clip3-compounding.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week09_retrieval_agents.ipynb](../notebooks/week09_retrieval_agents.ipynb). It
