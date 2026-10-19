@@ -47,6 +47,18 @@ negatives from NIH ChestX-ray14, so source and label almost coincide. Dataset II
 research team, which is closer to how a careful study would collect data, and shortcut learning still happened. The
 lesson is not only about careless data collection.
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The
+transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1),
+and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. A benchmark score is not a clinical effect | [week12-clip1-trial.md](clips/transcripts/week12-clip1-trial.md) |
+| 2. How sure are we? The bootstrap | [week12-clip2-bootstrap.md](clips/transcripts/week12-clip2-bootstrap.md) |
+| 3. Shortcuts and hidden subgroups | [week12-clip3-shortcuts.md](clips/transcripts/week12-clip3-shortcuts.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week12_evaluation.ipynb](../notebooks/week12_evaluation.ipynb). It
