@@ -21,6 +21,18 @@ The running example is the sentence "The patient has a cold" (clip 3 also contra
 
 The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1), and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. From tokens to vectors | [week02-clip1-tokens-to-vectors.md](clips/transcripts/week02-clip1-tokens-to-vectors.md) |
+| 2. Attention for one token | [week02-clip2-attention-one-token.md](clips/transcripts/week02-clip2-attention-one-token.md) |
+| 3. Giving tokens a position | [week02-clip3-positions.md](clips/transcripts/week02-clip3-positions.md) |
+| 4. Relative positions: RoPE and ALiBi | [week02-clip4-relative-positions.md](clips/transcripts/week02-clip4-relative-positions.md) |
+| 5. Inside the encoder block | [week02-clip5-encoder-block.md](clips/transcripts/week02-clip5-encoder-block.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week02_transformer_review_part1.ipynb](../notebooks/week02_transformer_review_part1.ipynb).
