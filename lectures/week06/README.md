@@ -19,6 +19,16 @@ The running examples are a single-lead ECG and H&E pathology tiles. The ECG is s
 
 The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1), and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. Masked reconstruction: learning by filling in gaps | [week06-clip1-masked-reconstruction.md](clips/transcripts/week06-clip1-masked-reconstruction.md) |
+| 2. Contrastive learning: two views, one embedding | [week06-clip2-contrastive-learning.md](clips/transcripts/week06-clip2-contrastive-learning.md) |
+| 3. Linear probing: what did the encoder learn? | [week06-clip3-linear-probing.md](clips/transcripts/week06-clip3-linear-probing.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week06_self_supervised_learning.ipynb](../notebooks/week06_self_supervised_learning.ipynb). It
