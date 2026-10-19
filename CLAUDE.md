@@ -45,9 +45,30 @@ The API key comes from the `ELEVENLABS_API_KEY` environment variable. Never prin
 3. Add the clip to `lectures/weekNN/clips.json` with `id`, `scene_file`, `scene`, `output`, and one `segments` entry
    per caption, in order. The number of segments must equal the number of `self.cap` calls.
 4. Preview with `--quality l`, look at frames from the result, fix layout problems, then build at full quality.
-5. Update `lectures/weekNN/README.md` and the table in `lectures/README.md`.
+5. Build the captions: `python tools/build_captions.py weekNN --verify` (see below).
+6. Update `lectures/weekNN/README.md` and the table in `lectures/README.md`.
 
 Use `lectures/week06` as the reference for all of this.
+
+## Captions
+
+Every narrated clip needs a WebVTT caption file next to its video, for accessibility:
+`lectures/weekNN/clips/narrated/<output>-narrated.vtt`. A new or reworded narrated clip is not finished until its
+`.vtt` is rebuilt the same way, and the file is committed with the video.
+
+```
+python tools/build_captions.py week06            all clips of the week, and copy to "copy_clips_to"
+python tools/build_captions.py week06 --verify   also check the cues against the mp4's own audio
+```
+
+The script makes no API call. It takes the cue text from the narration in `clips.json`, undoing the pronunciation
+respellings and writing the spelled-out numbers as digits, because captions are read rather than heard
+(`tools/caption_text.py` holds the glossary and the per-clip exceptions; add to it rather than hand-editing a `.vtt`).
+
+The cue times come from the same segment start times the kit records when the narrated video is built, which the
+script regenerates by replaying the scene with Manim's `--dry_run`. Do not time captions by adding up the narration
+lengths: a narrated video is not the segments joined end to end, and the gaps hold the animations, so the error grows
+to several seconds by the end of a clip.
 
 ## Clip conventions
 
