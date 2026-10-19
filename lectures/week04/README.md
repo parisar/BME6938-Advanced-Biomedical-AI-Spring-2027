@@ -20,6 +20,17 @@ The running example continues Week 3: a decoder writing the clinical note "The p
 
 The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
+## Transcripts
+
+Each clip also has a plain-text transcript of its narration in [clips/transcripts/](clips/transcripts/). The transcript is the text alternative for the silent version, which has no audio track at all (WCAG 2.1 criterion 1.2.1), and it is the quickest way to review what a clip says when revising.
+
+| Clip | Transcript |
+|---|---|
+| 1. What changed since 2017 | [week04-clip1-modern-block.md](clips/transcripts/week04-clip1-modern-block.md) |
+| 2. The KV cache and how models shrink it | [week04-clip2-kv-cache.md](clips/transcripts/week04-clip2-kv-cache.md) |
+| 3. Mixture of experts | [week04-clip3-mixture-of-experts.md](clips/transcripts/week04-clip3-mixture-of-experts.md) |
+| 4. More 2026 changes | [week04-clip4-more-changes.md](clips/transcripts/week04-clip4-more-changes.md) |
+
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week04_modern_llms.ipynb](../notebooks/week04_modern_llms.ipynb). It opens
