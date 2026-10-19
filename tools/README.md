@@ -23,6 +23,19 @@ respellings undone by `caption_text.py`), and the cue times come from the segmen
 the video was built, which the script regenerates by replaying the scene with Manim's `--dry_run`. The timings are
 cached in `.cache/marks`. `--verify` reports whether each cue change lands on a break in the narration audio.
 
+## build_transcripts.py
+
+Writes a plain-text transcript of every clip of a week to `lectures/weekNN/clips/transcripts/<output>.md`.
+
+```
+python tools/build_transcripts.py week06
+```
+
+The clip title comes from the scene class's `TITLE`, and the body is the narration from `clips.json`, one paragraph
+per segment, with no timestamps. It needs nothing but those two files: no audio, no Manim, no ElevenLabs call. The
+text goes through the same `caption_text.py` glossary as the captions, so a transcript and the `.vtt` beside it say
+the same words. `--readme` prints the transcripts table for the week README.
+
 ## One-time setup
 
 1. Install Python 3.10 or later, Manim and ffmpeg:

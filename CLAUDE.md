@@ -46,7 +46,8 @@ The API key comes from the `ELEVENLABS_API_KEY` environment variable. Never prin
    per caption, in order. The number of segments must equal the number of `self.cap` calls.
 4. Preview with `--quality l`, look at frames from the result, fix layout problems, then build at full quality.
 5. Build the captions: `python tools/build_captions.py weekNN --verify` (see below).
-6. Update `lectures/weekNN/README.md` and the table in `lectures/README.md`.
+6. Build the transcripts: `python tools/build_transcripts.py weekNN` (see below).
+7. Update `lectures/weekNN/README.md` and the table in `lectures/README.md`.
 
 Use `lectures/week06` as the reference for all of this.
 
@@ -69,6 +70,21 @@ The cue times come from the same segment start times the kit records when the na
 script regenerates by replaying the scene with Manim's `--dry_run`. Do not time captions by adding up the narration
 lengths: a narrated video is not the segments joined end to end, and the gaps hold the animations, so the error grows
 to several seconds by the end of a clip.
+
+## Transcripts
+
+Every clip also needs a plain-text transcript at `lectures/weekNN/clips/transcripts/<output>.md`: the clip title as a
+heading, then the narration, one paragraph per segment, in order and without timestamps. The silent version has no
+audio, so the transcript is its text alternative (WCAG 2.1 criterion 1.2.1), and students use it to revise.
+
+```
+python tools/build_transcripts.py week06            every clip, and copy to "copy_clips_to"
+python tools/build_transcripts.py week06 --readme   print the table for the week README
+```
+
+It reads `clips.json` and the scene files only: no audio, no Manim, no API call. The text goes through the same
+`caption_text.py` glossary as the captions, so a transcript and the `.vtt` beside it always say the same words. A new
+or reworded clip is not finished until its transcript is rebuilt and committed, like its captions.
 
 ## Clip conventions
 
