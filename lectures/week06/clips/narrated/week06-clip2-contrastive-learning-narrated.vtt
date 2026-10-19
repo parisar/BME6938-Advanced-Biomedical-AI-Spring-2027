@@ -1,0 +1,111 @@
+WEBVTT
+
+NOTE week06-clip2-contrastive-learning
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:05.422
+Contrastive learning starts by making
+two different views of the same ECG,
+
+2
+00:00:05.422 --> 00:00:08.617
+using random augmentations.
+
+3
+00:00:08.817 --> 00:00:11.929
+Here, view one is cropped
+and has added noise,
+
+4
+00:00:11.929 --> 00:00:16.883
+and view two is rescaled with a slow
+baseline drift. The heart rhythm,
+
+5
+00:00:16.883 --> 00:00:20.550
+and so the diagnosis, stays the same.
+
+6
+00:00:20.750 --> 00:00:24.694
+Both views pass through the same
+encoder, with shared weights.
+
+7
+00:00:24.694 --> 00:00:29.350
+Each view becomes one point
+in the embedding space.
+
+8
+00:00:29.550 --> 00:00:36.859
+In practice we train on a batch, so the
+other ECGs in the batch, here B, C, and D,
+
+9
+00:00:36.859 --> 00:00:39.350
+also become points.
+
+10
+00:00:39.550 --> 00:00:43.091
+Training pulls the two views
+of ECG A toward each other,
+
+11
+00:00:43.091 --> 00:00:47.350
+and pushes the other ECGs
+in the batch further away.
+
+12
+00:00:47.550 --> 00:00:50.184
+The loss turns this into a classification.
+
+13
+00:00:50.184 --> 00:00:56.472
+Compare A1 with every other view in the
+batch, apply a softmax, and its partner,
+
+14
+00:00:56.472 --> 00:01:00.683
+A2, should win, here with 0.59.
+
+15
+00:01:00.883 --> 00:01:05.861
+This is the InfoNCE loss. It is
+a softmax over the similarities,
+
+16
+00:01:05.861 --> 00:01:09.050
+each divided by a temperature tau,
+
+17
+00:01:09.050 --> 00:01:14.283
+and we minimize the negative log
+probability of the true partner.
+
+18
+00:01:14.483 --> 00:01:17.376
+After training on many unlabeled ECGs,
+
+19
+00:01:17.376 --> 00:01:21.316
+recordings with similar rhythms
+tend to land close together,
+
+20
+00:01:21.316 --> 00:01:25.883
+even though the model never
+saw a single diagnosis.
+
+21
+00:01:26.083 --> 00:01:31.862
+For pathology tiles, the two views come
+from random crops, flips and rotations,
+
+22
+00:01:31.862 --> 00:01:33.819
+and changes in stain color,
+
+23
+00:01:33.819 --> 00:01:39.813
+because tissue has no fixed orientation
+and staining varies between labs.

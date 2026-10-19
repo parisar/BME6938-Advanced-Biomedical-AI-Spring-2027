@@ -1,0 +1,105 @@
+WEBVTT
+
+NOTE week06-clip1-masked-reconstruction
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:04.376
+We start with a single lead ECG
+recording, ten seconds long.
+
+2
+00:00:04.376 --> 00:00:10.483
+Nobody has labeled it with a diagnosis,
+so all we have is the raw signal.
+
+3
+00:00:10.683 --> 00:00:15.771
+We cut the signal into one second
+patches. Just like words in a sentence,
+
+4
+00:00:15.771 --> 00:00:20.750
+each patch becomes one token
+for a transformer encoder.
+
+5
+00:00:20.950 --> 00:00:24.299
+Then we hide most of
+the patches at random.
+
+6
+00:00:24.299 --> 00:00:29.017
+Here, six of the ten
+patches are masked out.
+
+7
+00:00:29.217 --> 00:00:32.594
+The encoder sees only
+the four visible patches,
+
+8
+00:00:32.594 --> 00:00:36.750
+and turns each of them
+into an embedding vector.
+
+9
+00:00:36.950 --> 00:00:39.444
+A small decoder takes these embeddings,
+
+10
+00:00:39.444 --> 00:00:43.361
+plus a placeholder mask
+token for every hidden patch,
+
+11
+00:00:43.361 --> 00:00:46.350
+and predicts the missing waveform.
+
+12
+00:00:46.550 --> 00:00:51.677
+The loss is the mean squared error between
+the prediction and the true signal,
+
+13
+00:00:51.677 --> 00:00:56.017
+computed only on the
+patches that were hidden.
+
+14
+00:00:56.217 --> 00:01:02.065
+Over many training steps, the predictions
+improve. To fill the gaps well,
+
+15
+00:01:02.065 --> 00:01:07.737
+the encoder has to learn the structure of
+a heartbeat: the P wave, the QRS complex,
+
+16
+00:01:07.737 --> 00:01:10.617
+and the T wave.
+
+17
+00:01:10.817 --> 00:01:15.047
+After pretraining, the decoder
+has done its job and is discarded.
+
+18
+00:01:15.047 --> 00:01:22.017
+We keep the encoder, which now produces
+useful representations of ECG signals.
+
+19
+00:01:22.217 --> 00:01:24.153
+The same recipe works for pathology.
+
+20
+00:01:24.153 --> 00:01:30.847
+A masked autoencoder hides most
+patches of an H&E tile, here 12 of 16,
+
+21
+00:01:30.847 --> 00:01:34.647
+and learns to reconstruct
+the missing pixels.

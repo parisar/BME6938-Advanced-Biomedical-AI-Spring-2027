@@ -17,7 +17,7 @@ The running examples are a single-lead ECG and H&E pathology tiles. The ECG is s
 | 2. Contrastive learning: two views, one embedding | [1 min 40 s](clips/narrated/week06-clip2-contrastive-learning-narrated.mp4) | [58 s](clips/silent/week06-clip2-contrastive-learning.mp4) |
 | 3. Linear probing: what did the encoder learn? | [1 min 25 s](clips/narrated/week06-clip3-linear-probing-narrated.mp4) | [49 s](clips/silent/week06-clip3-linear-probing.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
 ## Notebook
 
