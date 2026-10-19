@@ -1,0 +1,99 @@
+WEBVTT
+
+NOTE week03-clip3-vit-patches
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:05.675
+A vision transformer, or V i T, reads
+an image as a sequence of patches.
+
+2
+00:00:05.675 --> 00:00:12.417
+Here is a pathology tile stained
+with H&E, from a colorectal cancer.
+
+3
+00:00:12.617 --> 00:00:17.326
+We cut the tile into a four by four
+grid. That gives 16 square patches,
+
+4
+00:00:17.326 --> 00:00:20.950
+and each patch is handled
+separately from here on.
+
+5
+00:00:21.150 --> 00:00:26.747
+The 16 patches are lined up in reading
+order, from top left to bottom right.
+
+6
+00:00:26.747 --> 00:00:30.417
+Each patch now plays the
+role of a word token.
+
+7
+00:00:30.617 --> 00:00:34.113
+Each patch is flattened
+into a list of pixel values,
+
+8
+00:00:34.113 --> 00:00:40.483
+and a shared linear projection maps
+it to a vector with d dimensions.
+
+9
+00:00:40.683 --> 00:00:43.949
+A position vector is added
+to each patch vector.
+
+10
+00:00:43.949 --> 00:00:49.817
+Without it, the model would not know
+where in the image a patch came from.
+
+11
+00:00:50.017 --> 00:00:54.709
+A learnable CLS token is placed
+at the front of the sequence.
+
+12
+00:00:54.709 --> 00:00:58.817
+Its output will summarize the whole image.
+
+13
+00:00:59.017 --> 00:01:03.386
+These 17 tokens enter a
+standard transformer encoder.
+
+14
+00:01:03.386 --> 00:01:06.507
+Nothing in the encoder
+is specific to images:
+
+15
+00:01:06.507 --> 00:01:10.150
+it is the same architecture used for text.
+
+16
+00:01:10.350 --> 00:01:15.036
+The output at the CLS position
+goes to a small prediction head,
+
+17
+00:01:15.036 --> 00:01:19.350
+which classifies the
+tile as tumor or normal.
+
+18
+00:01:19.550 --> 00:01:24.143
+In practice, a 224 by 224 image
+
+19
+00:01:24.143 --> 00:01:26.780
+with 16 by 16 pixel patches gives
+
+20
+00:01:26.780 --> 00:01:32.313
+a 14 by 14 grid: 196 tokens.

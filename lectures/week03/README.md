@@ -17,7 +17,7 @@ The running examples are the clinical phrase "The patient denies chest pain" and
 | 2. The causal mask | [1 min 8 s](clips/narrated/week03-clip2-causal-mask-narrated.mp4) | [54 s](clips/silent/week03-clip2-causal-mask.mp4) |
 | 3. Vision transformer: an image as a sequence of patches | [1 min 32 s](clips/narrated/week03-clip3-vit-patches-narrated.mp4) | [50 s](clips/silent/week03-clip3-vit-patches.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
 ## Notebook
 
