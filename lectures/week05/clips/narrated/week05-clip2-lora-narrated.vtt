@@ -1,0 +1,99 @@
+WEBVTT
+
+NOTE week05-clip2-lora
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:06.572
+Full fine-tuning with the Adam optimizer
+stores about 16 bytes for every parameter:
+
+2
+00:00:06.572 --> 00:00:10.535
+the weight, its gradient,
+and 2 optimizer states.
+
+3
+00:00:10.535 --> 00:00:14.209
+That is about ten gigabytes
+for a small model,
+
+4
+00:00:14.209 --> 00:00:18.350
+and over a thousand for a 70B model.
+
+5
+00:00:18.550 --> 00:00:22.694
+Look at one weight matrix
+in the small Qwen3 model:
+
+6
+00:00:22.694 --> 00:00:29.030
+a query projection with
+2,048 rows and 1,024 columns,
+
+7
+00:00:29.030 --> 00:00:33.750
+about 2 million weights.
+With LoRA, it stays frozen.
+
+8
+00:00:33.950 --> 00:00:37.355
+LoRA adds two thin matrices beside it.
+
+9
+00:00:37.355 --> 00:00:43.627
+A takes the token down to just eight
+numbers, and B brings it back up.
+
+10
+00:00:43.627 --> 00:00:48.617
+The output is W times x,
+plus B times A times x.
+
+11
+00:00:48.817 --> 00:00:53.536
+B and A together have 24,576 weights.
+
+12
+00:00:53.536 --> 00:00:59.617
+That is about 1.2% of the frozen
+matrix, and only these are trained.
+
+13
+00:00:59.817 --> 00:01:05.065
+B starts at zero, so at the first
+step B times A times x is zero,
+
+14
+00:01:05.065 --> 00:01:12.683
+and the model gives exactly the original
+output. Training then moves only B and A.
+
+15
+00:01:12.883 --> 00:01:19.199
+Add LoRA to the query, key, value, and
+output projections in all 28 layers,
+
+16
+00:01:19.199 --> 00:01:24.177
+and it trains 2,293,760 weights.
+
+17
+00:01:24.177 --> 00:01:28.417
+That is about 0.4% of the model.
+
+18
+00:01:28.617 --> 00:01:34.438
+Because the base model never changes,
+one copy can serve many tasks.
+
+19
+00:01:34.438 --> 00:01:39.538
+Each task, such as discharge
+summaries or radiology impressions,
+
+20
+00:01:39.538 --> 00:01:44.847
+needs only its own small
+adapter, about 4.6 megabytes.

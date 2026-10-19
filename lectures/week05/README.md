@@ -18,7 +18,7 @@ The running example continues Week 4: the note "The patient denies chest pain" a
 | 3. Preference tuning: RLHF and DPO | [1 min 56 s](clips/narrated/week05-clip3-preference-tuning-narrated.mp4) | [48 s](clips/silent/week05-clip3-preference-tuning.mp4) |
 | 4. Reasoning models | [2 min 31 s](clips/narrated/week05-clip4-reasoning-narrated.mp4) | [1 min](clips/silent/week05-clip4-reasoning.mp4) |
 
-The narration is an AI-generated voice reading a script written for the course. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
+The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 
 **Note for the lecture (clip 3).** Preference data that always rewards the more cautious answer can teach a model to hedge on everything ("further assessment is recommended") instead of answering. Good clinical preference data rewards the answer that is correct and useful, and includes cases where the confident answer is the right one.
 

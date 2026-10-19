@@ -1,0 +1,125 @@
+WEBVTT
+
+NOTE week05-clip3-preference-tuning
+NOTE Narration read by an AI-generated voice.
+
+1
+00:00:00.150 --> 00:00:05.122
+Preference data pairs one
+question with two answers.
+
+2
+00:00:05.122 --> 00:00:09.512
+A clinician marks one as chosen
+and the other as rejected.
+
+3
+00:00:09.512 --> 00:00:14.483
+Here the rejected answer
+gets the negation wrong.
+
+4
+00:00:14.683 --> 00:00:20.297
+Right now, the small Qwen3 model rates
+the wrong answer as far more likely.
+
+5
+00:00:20.297 --> 00:00:23.888
+Its log-probability is minus 1.12,
+
+6
+00:00:23.888 --> 00:00:28.283
+while the correct answer gets minus 21.37.
+
+7
+00:00:28.483 --> 00:00:30.233
+The classic method is RLHF.
+
+8
+00:00:30.233 --> 00:00:36.564
+First, a separate reward model learns
+to score answers from many such choices.
+
+9
+00:00:36.564 --> 00:00:38.571
+Then reinforcement learning,
+
+10
+00:00:38.571 --> 00:00:43.345
+usually PPO, updates the language
+model to earn high scores.
+
+11
+00:00:43.345 --> 00:00:49.550
+That means two models to train,
+and the training can be unstable.
+
+12
+00:00:49.750 --> 00:00:54.718
+DPO skips the reward model. It keeps
+a frozen copy of the starting model,
+
+13
+00:00:54.718 --> 00:00:57.372
+and for each answer it measures a gain:
+
+14
+00:00:57.372 --> 00:01:00.577
+how much more likely the
+model in training makes
+
+15
+00:01:00.577 --> 00:01:03.566
+that answer than the frozen copy does.
+
+16
+00:01:03.566 --> 00:01:08.150
+The frozen copy keeps the model
+close to what it already knew.
+
+17
+00:01:08.350 --> 00:01:12.555
+The DPO loss takes the chosen
+gain minus the rejected gain,
+
+18
+00:01:12.555 --> 00:01:19.463
+scales it by a small number called beta,
+here 0.1, and passes it through a sigmoid.
+
+19
+00:01:19.463 --> 00:01:23.817
+The loss gets smaller as
+the chosen gain pulls ahead.
+
+20
+00:01:24.017 --> 00:01:30.213
+At the start, the model is identical to
+its frozen copy, so both gains are zero.
+
+21
+00:01:30.213 --> 00:01:35.831
+The sigmoid of 0 is one half, and the
+loss is minus the log of one half,
+
+22
+00:01:35.831 --> 00:01:38.683
+which is 0.69.
+
+23
+00:01:38.883 --> 00:01:42.113
+After some training,
+
+24
+00:01:42.113 --> 00:01:45.518
+the chosen answer has gained four
+and the rejected answer has lost six.
+
+25
+00:01:45.518 --> 00:01:51.903
+Beta times the gap of 10 is
+1, the sigmoid of 1 is 0.73,
+
+26
+00:01:51.903 --> 00:01:55.947
+and the loss falls to 0.31.
