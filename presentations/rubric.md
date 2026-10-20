@@ -35,3 +35,7 @@ Each criterion is worth 20 points and is scored in one of four bands.
 | **Constructive suggestions**<br>Concrete, realistic improvements | Concrete, feasible experiments or analyses that would address the main critiques. | Reasonable suggestions, but vague. | Generic ("use more data"). | None, or purely negative. |
 
 Critique the paper, not the presentation group. Show you understand the paper before critiquing it, and end constructively.
+
+Use slides. A critique that points at a specific figure, table or section stays concrete; one delivered without slides
+tends to drift into general objections that could be made about any paper. Both groups upload their slides to Canvas by
+12:00 PM on the day of the session.

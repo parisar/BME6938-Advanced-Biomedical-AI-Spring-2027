@@ -9,6 +9,7 @@
 
 
 
+
 ![A patch grid with most patches hidden, an arrow, and the full grid restored.](../../assets/banners/week06.png)
 
 | Session | Content |

@@ -9,6 +9,7 @@
 
 
 
+
 ![A stack of transformer block labels, a growing cache, and three expert circles.](../../assets/banners/week04.png)
 
 | Session | Content |

@@ -9,6 +9,7 @@
 
 
 
+
 ![A grey base model, an arrow, a blue aligned model, and three reward markers.](../../assets/banners/week05.png)
 
 | Session | Content |

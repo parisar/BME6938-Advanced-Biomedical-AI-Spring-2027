@@ -9,6 +9,7 @@
 
 
 
+
 ![Three bars with confidence interval whiskers, beside a group of subgroup dots.](../../assets/banners/week12.png)
 
 | Session | Content |

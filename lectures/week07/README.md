@@ -9,6 +9,7 @@
 
 
 
+
 ![An image box and a text box feeding into one shared embedding space.](../../assets/banners/week07.png)
 
 | Session | Content |

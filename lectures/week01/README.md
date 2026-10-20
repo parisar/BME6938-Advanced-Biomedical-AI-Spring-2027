@@ -9,6 +9,7 @@
 
 
 
+
 ![Five document outlines beside a question mark.](../../assets/banners/week01.png)
 
 | Session | Content |

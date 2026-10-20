@@ -9,6 +9,7 @@
 
 
 
+
 ![A triangular causal mask grid beside a row of image patches.](../../assets/banners/week03.png)
 
 | Session | Content |

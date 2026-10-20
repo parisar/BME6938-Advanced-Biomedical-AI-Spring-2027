@@ -85,7 +85,7 @@ Slides: [1-1](lectures/week01/slides/1-1-course-logistics.pdf) · [1-2](lectures
 
 Submissions, grades, and announcements are on Canvas.
 
-**Deadlines.** Reading responses are due at 1:00 PM on Thursday and the survey locks then. Written work is due at 11:59 PM on the stated day. Anything presented in class is due at 1:00 PM that day. Late work loses 5% per late day unless the assignment says otherwise.
+**Deadlines.** Reading responses are due at 1:00 PM on Thursday and the survey locks then. Written work is due at 11:59 PM on the stated day. Anything presented in class is due at 1:00 PM that day, except the slides for a Thursday paper session, which are due at 12:00 PM so that both sessions can be loaded onto the room computer before class. Late work loses 5% per late day unless the assignment says otherwise.
 
 ## Schedule
 
