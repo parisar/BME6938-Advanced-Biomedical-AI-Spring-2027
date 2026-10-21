@@ -18,7 +18,7 @@ narration being synthetic is stated wherever the clips appear.
 | 1.2.2 Captions (Prerecorded) | A | Narrated clips | Met. 37 WebVTT files, one per clip. |
 | 1.2.3 Audio Description or Media Alternative | A | Narrated clips | Met by the text alternative. |
 | 1.2.5 Audio Description (Prerecorded) | AA | Narrated clips | Exemption claimed, see below. |
-| 1.4.1 Use of Colour | A | Both | Met, with one exception noted below. |
+| 1.4.1 Use of Colour | A | Both | Met. |
 
 A silent clip is video-only, so its text alternative is a transcript, which is
 `lectures/weekNN/clips/transcripts/<output>.md`. A narrated clip is synchronized media, so it
@@ -57,27 +57,27 @@ As of this review, across all 37 clips:
 
 | Category | Count | What it is |
 |---|---|---|
-| caveat | 25 | A label such as "illustrative", "schematic" or "real output" |
-| citation | 13 | An "X et al." credit whose first author is never named aloud |
-| colour | 1 | Something the narration identifies by colour alone |
-| other | 317 | Headings, axis labels and structural text |
+| caveat | 0 | A label such as "illustrative", "schematic" or "real output" |
+| citation | 0 | An "X et al." credit whose first author is never named aloud |
+| colour | 0 | Something the narration identifies by colour alone |
+| other | 325 | Headings, axis labels and structural text |
 
-The 317 in the last category are the reason the number looks alarming and mostly do not matter: a
+The 325 in the last category are the reason the number looks large and mostly do not matter: a
 slide heading, an axis label, a formula that the narration states in words instead of symbols. The
 caption line already carries that content.
 
-The first two categories are the real residual, and the caveat labels are the ones worth closing.
-The risk there is academic rather than legal. Several clips use invented numbers to teach a method
-and mark them on screen as illustrative, and a listener who does not hear that label may take a
-teaching figure for a published result. In a graduate course that reads primary literature, that
-is a worse failure than the compliance question. Four clips do say it aloud, which shows the fix
-is a sentence, not a redesign.
+The first three categories were not zero when the check was first run on 21 October 2026. There
+were 25 caveat labels, 13 citations and one colour-only reference, and they were closed the same
+day by rewording 32 narration segments across 17 clips.
 
-The colour case is `week13 clip2`, where the narration says "the red one is really much smaller"
-of two curves. The sentence makes red and sepsis line up by implication, but it is the one place
-where colour does the naming, and it is also the single 1.4.1 exception. Everywhere else the
-narration names the thing and treats colour as reinforcement, as in "its query vector, in red, is
-compared with the key vector of every token, in green".
+The caveat labels were the ones worth closing, and the reason was academic rather than legal.
+Several clips use invented numbers to teach a method and mark them on screen as illustrative, so a
+listener who does not hear that label may take a teaching figure for a published result. In a
+graduate course that reads primary literature that is a worse failure than the compliance
+question. The colour case was in `week13 clip2`, where the narration said "the red one is really
+much smaller" of two curves; it now names the sepsis curve and lets the colour reinforce it, which
+is how the rest of the course does it, as in "its query vector, in red, is compared with the key
+vector of every token, in green".
 
 ## The position taken
 
@@ -86,7 +86,8 @@ this file. That is a reading of the criterion rather than a ruling from UF's acc
 and anyone who reads it differently is welcome to raise it, in which case the remedy is a
 description track for 37 clips.
 
-Closing the caveat and citation gaps is worth doing either way, and it is a bounded job. It means
-rewording about 15 clips in `clips.json`, regenerating the narration audio for the changed lines
-only, since the cache is keyed by text, re-rendering those narrated videos, and rebuilding their
-captions and transcripts.
+One caveat about the counts above. They are read from `clips.json`, which is the narration script,
+and the 21 October rewording is in it. The published videos, their `.vtt` files and their
+transcripts still carry the previous wording until the 17 affected clips are rendered again, which
+regenerates only the changed narration lines, since the audio cache is keyed by text. Until that
+render lands, the check reports zero and the files on disk do not yet agree with it.
