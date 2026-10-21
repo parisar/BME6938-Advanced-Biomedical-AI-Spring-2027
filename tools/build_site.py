@@ -269,8 +269,8 @@ def doc_pages():
     # A folder with no README has no index, so the nav entry pointing at it 404s.
     for d, title in DOC_DIRS.items():
         idx = f'{R}/{d}/index.html'
-        if os.path.exists(idx) or not os.path.isdir(f'{R}/{d}'):
-            continue
+        if f'{d}/README.md' in pages or not os.path.isdir(f'{R}/{d}'):
+            continue                                         # it has a README, which is its index
         items = sorted((v for k, v in pages.items() if k.startswith(d + '/')))
         li = ''.join(
             f'<li><a href="{os.path.basename(v)}">'
@@ -303,11 +303,31 @@ def main():
              f'alt="{E(alt.get(str(wk), ""))}">',
              f'<h1>Week {wk}: {E(r["topic"])}</h1>']
 
-        links = md_links(r['slides'], '../../lectures/') + md_links(r['nb'], '../../lectures/')
-        links = [(t, h.replace('../../lectures/week', '../week')) for t, h in links]
-        if links:
-            b.append('<p class="meta">' +
-                     ' &middot; '.join(f'<a href="{E(h)}">{E(t)}</a>' for t, h in links) + '</p>')
+        # Slides on one line and code on the next, because they are different
+        # errands. "PDF" said the file format rather than what the file is.
+        def line(label, cell, relabel=None):
+            got = [(relabel(t) if relabel else t,
+                    h.replace('../../lectures/week', '../week'))
+                   for t, h in md_links(cell, '../../lectures/')]
+            if not got:
+                return None
+            return (f'<p class="meta"><strong>{label}</strong> ' +
+                    ' &middot; '.join(f'<a href="{E(h)}">{E(t)}</a>' for t, h in got) + '</p>')
+
+        # Decks are labelled by their number, 1-1 and 1-2 in Week 1, 6-1 in Week 6.
+        # The index table calls a lone deck "PDF", which names the file format rather
+        # than the thing, so the number is taken from the filename instead.
+        def deck_no(t):
+            m = re.match(r'(\d+-\d+)', t)
+            return m.group(1) if m else t
+        for ln in (line('Slides', r['slides'],
+                        relabel=lambda t: deck_no(t) if t != 'PDF' else
+                                deck_no(os.path.basename(
+                                    md_links(r['slides'])[0][1]).split('-slides')[0])),
+                   line('Code', r['nb'],
+                        relabel=lambda t: 'Notebook' if t.lower().endswith('notebook') else t)):
+            if ln:
+                b.append(ln)
 
         if papers.get(wk):
             b.append('<h2>Papers for Thursday</h2><ul>' +
