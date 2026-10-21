@@ -79,14 +79,14 @@ where colour does the naming, and it is also the single 1.4.1 exception. Everywh
 narration names the thing and treats colour as reinforcement, as in "its query vector, in red, is
 compared with the key vector of every token, in green".
 
-## The open question
+## The position taken
 
-Whether the narration already counts as audio description under 1.2.5 is a judgement for UF's
-accessibility office, not something more files can settle. The evidence above is what they need in
-order to answer it, and the answer decides between two outcomes: the clips conform at AA as they
-are, or 37 clips need a separate description track.
+The course treats the narration as satisfying 1.2.5 under the exemption above, on the evidence in
+this file. That is a reading of the criterion rather than a ruling from UF's accessibility office,
+and anyone who reads it differently is welcome to raise it, in which case the remedy is a
+description track for 37 clips.
 
-Closing the caveat and citation gaps is worth doing whichever way that goes, and it is a bounded
-job. It means rewording about 15 clips in `clips.json`, regenerating the narration audio for the
-changed lines only, since the cache is keyed by text, re-rendering those narrated videos, and
-rebuilding their captions and transcripts.
+Closing the caveat and citation gaps is worth doing either way, and it is a bounded job. It means
+rewording about 15 clips in `clips.json`, regenerating the narration audio for the changed lines
+only, since the cache is keyed by text, re-rendering those narrated videos, and rebuilding their
+captions and transcripts.
