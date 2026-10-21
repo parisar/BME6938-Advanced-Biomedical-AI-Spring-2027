@@ -1,21 +1,11 @@
 # Week 4: Inside modern LLMs: architectures in 2026
 
-
-
-
-
-
-
-
-
-
-
 ![A stack of transformer block labels, a growing cache, and three expert circles.](../../assets/banners/week04.png)
 
 | Session | Content |
 |---|---|
 | Tue Feb 2 | Inside modern LLMs, with four animation clips |
-| Thu Feb 4 | Paper sessions: [DeepSeek-AI, DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437) and [Sellergren et al., MedGemma Technical Report](https://arxiv.org/abs/2507.05201) |
+| Thu Feb 4 | Paper session: [Sellergren et al., MedGemma Technical Report](https://arxiv.org/abs/2507.05201) (Period 7), then a HiPerGator overview from Research Computing (Period 8) |
 
 Slides: [4-1 slides (PDF)](slides/4-1-inside-modern-llms.pdf)
 

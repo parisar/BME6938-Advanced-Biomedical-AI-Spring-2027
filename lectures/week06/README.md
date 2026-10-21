@@ -1,15 +1,5 @@
 # Week 6: Self-supervised learning and imaging foundation models
 
-
-
-
-
-
-
-
-
-
-
 ![A patch grid with most patches hidden, an arrow, and the full grid restored.](../../assets/banners/week06.png)
 
 | Session | Content |

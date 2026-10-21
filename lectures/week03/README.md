@@ -1,15 +1,5 @@
 # Week 3: Transformer review, Part 2: decoder, masking, and model families
 
-
-
-
-
-
-
-
-
-
-
 ![A triangular causal mask grid beside a row of image patches.](../../assets/banners/week03.png)
 
 | Session | Content |

@@ -9,8 +9,7 @@ Every paper is linked to its publisher or arXiv page. PDFs are not stored in thi
 | 2 | Jan 21 | Period 8 | Yang et al., [A large language model for electronic health records (GatorTron)](https://doi.org/10.1038/s41746-022-00742-2) | npj Digital Medicine, 2022 |
 | 3 | Jan 28 | Period 7 | Luo et al., [BioGPT: generative pre-trained transformer for biomedical text generation and mining](https://doi.org/10.1093/bib/bbac409) | Briefings in Bioinformatics, 2022 |
 | 3 | Jan 28 | Period 8 | Dosovitskiy et al., [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/abs/2010.11929) | ICLR, 2021 |
-| 4 | Feb 4 | Period 7 | DeepSeek-AI, [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437) | arXiv, 2024 |
-| 4 | Feb 4 | Period 8 | Sellergren et al., [MedGemma Technical Report](https://arxiv.org/abs/2507.05201) | arXiv, 2025 |
+| 4 | Feb 4 | Period 7 | Sellergren et al., [MedGemma Technical Report](https://arxiv.org/abs/2507.05201) | arXiv, 2025 |
 | 5 | Feb 11 | Period 7 | Guo et al., [DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning](https://doi.org/10.1038/s41586-025-09422-z) | Nature, 2025 |
 | 5 | Feb 11 | Period 8 | Singhal et al., [Toward expert-level medical question answering with large language models (Med-PaLM 2)](https://doi.org/10.1038/s41591-024-03423-7) | Nature Medicine, 2025 |
 | 6 | Feb 18 | Period 7 | He et al., [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/abs/2111.06377) | CVPR, 2022 |
@@ -43,6 +42,7 @@ Week 1 is an instructor-led model session. All other sessions are student-led; t
 
 ### LLM architectures (Weeks 4 and 5)
 
+- DeepSeek-AI, [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437), arXiv, 2024: the MLA and mixture-of-experts design covered in the Week 4 clips
 - Raschka, [A Visual Guide to Attention Variants in Modern LLMs](https://magazine.sebastianraschka.com/p/visual-attention-variants), Ahead of AI, 2026
 - Raschka, [Recent Developments in LLM Architectures: KV Sharing, mHC, and Compressed Attention](https://magazine.sebastianraschka.com/p/recent-developments-in-llm-architectures), Ahead of AI, 2026
 - Raschka, [A Dream of Spring for Open-Weight LLMs: 10 Architectures from Jan-Feb 2026](https://magazine.sebastianraschka.com/p/a-dream-of-spring-for-open-weight), Ahead of AI, 2026

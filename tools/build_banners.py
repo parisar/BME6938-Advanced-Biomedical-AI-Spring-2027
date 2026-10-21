@@ -92,9 +92,13 @@ def main():
         lines = [l for l in open(q, encoding='utf-8').read().splitlines()
                  if '/assets/banners/' not in l]     # drop an earlier run's banner
         i = next(j for j, l in enumerate(lines) if l.startswith('# ')) + 1
-        while i < len(lines) and not lines[i].strip():
-            i += 1
-        lines[i:i] = [f'![{alt.get(str(r["wk"]), "")}](../../assets/banners/week{wk}.png)', '']
+        j = i
+        while j < len(lines) and not lines[j].strip():
+            j += 1
+        # Replace the blank run under the heading rather than skipping past it. Skipping is
+        # what made this script add one blank line on every run: dropping the previous
+        # banner above left its blank line behind, and the new banner brought another.
+        lines[i:j] = ['', f'![{alt.get(str(r["wk"]), "")}](../../assets/banners/week{wk}.png)', '']
         open(q, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
         n += 1
     print(f'{n} week READMEs')

@@ -1,15 +1,5 @@
 # Week 5: Post-training and reasoning: from pretrained model to clinical assistant
 
-
-
-
-
-
-
-
-
-
-
 ![A grey base model, an arrow, a blue aligned model, and three reward markers.](../../assets/banners/week05.png)
 
 | Session | Content |
