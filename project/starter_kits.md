@@ -35,8 +35,8 @@ context, (c) the baseline. Vary note length.
 **Question.** When does "thinking" help a small model on medical questions, and is it worth the tokens? Optionally,
 does a short LoRA fine-tune beat prompting?
 **Data.** MedQA (USMLE-style) and PubMedQA (open).
-**Baseline.** The same small model (for example a Qwen3 model with a thinking switch) with thinking off.
-**Plan.** Thinking on versus off; then a LoRA fine-tune on a training split; compare accuracy and tokens per question.
+**Baseline.** The same small open model answering directly, with no reasoning prompt.
+**Plan.** A reasoning prompt versus a direct answer; then a LoRA fine-tune on a training split; compare accuracy and tokens per question.
 **Evaluate.** Accuracy with bootstrap confidence intervals; calibration of the model's stated confidence; tokens and time.
 **Pitfalls.** Benchmark contamination (the model may have seen the questions); report it as a limitation and, if
 possible, test on questions you rewrite.

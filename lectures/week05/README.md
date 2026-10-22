@@ -5,7 +5,7 @@
 | Session | Content |
 |---|---|
 | Tue Feb 9 | Post-training and reasoning, with four animation clips |
-| Thu Feb 11 | Paper sessions: [Guo et al., DeepSeek-R1](https://doi.org/10.1038/s41586-025-09422-z) and [Singhal et al., Med-PaLM 2](https://doi.org/10.1038/s41591-024-03423-7) |
+| Thu Feb 11 | Paper sessions: [Hu et al., LoRA](https://arxiv.org/abs/2106.09685) and [Singhal et al., Med-PaLM 2](https://doi.org/10.1038/s41591-024-03423-7) |
 
 Slides: [5-1 slides (PDF)](slides/5-1-post-training-and-reasoning.pdf)
 
