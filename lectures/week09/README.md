@@ -49,10 +49,11 @@ Each clip also has a plain-text transcript of its narration in [clips/transcript
 
 The ungraded reference notebook for this lecture is [week09_retrieval_agents.ipynb](../notebooks/week09_retrieval_agents.ipynb). It
 embeds 12 synthetic protocol chunks with a small open embedding model, scores questions by cosine similarity, and chooses a
-threshold for that model (Almanac's 0.83 belongs to its own embedding model). A ReAct loop then runs Qwen3-0.6B with two read-only
-tools on three synthetic patients, with a JSON parser and a scripted fallback. On our CPU run the model's tool calls parsed 22 of 22
-times, but it finished 5 of 8 tasks and answered 3 correctly (it called 5.6 mmol/L potassium normal and looped on the
-medication questions). A guard against repeated calls raised this to 8 finished and 6 right. The notebook ends with a simulation of
+threshold for that model (Almanac's 0.83 belongs to its own embedding model). A ReAct loop then runs SmolLM2-360M-Instruct with two read-only
+tools on three synthetic patients, with a JSON parser and a scripted fallback. On our CPU run the model's tool calls parsed 19 of
+26 times, it finished 3 of 8 tasks, and it answered none correctly: it repeats a lab call until the step limit, writes its own
+observation lines, and calls the medication tool with arguments it does not take. A guard against repeated calls lifts parsing to
+22 of 26 and stops the loops, but leaves the answers where they were. The notebook ends with a simulation of
 error compounding and a clinician checkpoint. It runs on CPU in about 6 minutes, including two model downloads (about 1.6 GB);
 with `USE_LLM = False` it runs in seconds with the scripted agent.
 
