@@ -48,8 +48,8 @@ Each clip also has a plain-text transcript of its narration in [clips/transcript
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week05_post_training.ipynb](../notebooks/week05_post_training.ipynb). It
-compares Qwen3-0.6B-Base with Qwen3-0.6B, writes LoRA, the masked fine-tuning loss, the DPO loss, and the GRPO advantage from
-scratch, and trains small LoRA adapters that fix the negation error. It runs on Colab or HiPerGator, on CPU or GPU. The code
+compares SmolLM2-360M with SmolLM2-360M-Instruct, writes LoRA, the masked fine-tuning loss, the DPO loss, and the GRPO
+advantage from scratch, and trains small LoRA adapters that fix the negation error. It runs on Colab or HiPerGator, on CPU or GPU. The code
 follows Sebastian Raschka's [LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) and
 [reasoning-from-scratch](https://github.com/rasbt/reasoning-from-scratch) (both Apache 2.0).
 
