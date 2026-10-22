@@ -46,7 +46,8 @@ Each clip also has a plain-text transcript of its narration in [clips/transcript
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week04_modern_llms.ipynb](../notebooks/week04_modern_llms.ipynb). It opens
-Qwen3-0.6B and a small mixture-of-experts model (Granite 3.1 1B-A400M), and reproduces every number in the clips. It runs on
+SmolLM2-360M-Instruct and a small mixture-of-experts model (Granite 3.1 1B-A400M), and reproduces every number in the
+clips. It runs on
 Colab or HiPerGator, on CPU or GPU.
 
 ## Further reading
