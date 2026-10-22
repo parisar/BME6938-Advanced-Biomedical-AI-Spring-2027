@@ -15,7 +15,7 @@ The running example continues Week 3: a decoder writing the clinical note "The p
 
 | Clip | Narrated | Silent |
 |---|---|---|
-| 1. What changed since 2017 | [1 min 23 s](clips/narrated/week04-clip1-modern-block-narrated.mp4) | [39 s](clips/silent/week04-clip1-modern-block.mp4) |
+| 1. What changed since 2017 | [1 min 22 s](clips/narrated/week04-clip1-modern-block-narrated.mp4) | [39 s](clips/silent/week04-clip1-modern-block.mp4) |
 | 2. The KV cache and how models shrink it | [1 min 32 s](clips/narrated/week04-clip2-kv-cache-narrated.mp4) | [46 s](clips/silent/week04-clip2-kv-cache.mp4) |
 | 3. Mixture of experts | [1 min 21 s](clips/narrated/week04-clip3-mixture-of-experts-narrated.mp4) | [43 s](clips/silent/week04-clip3-mixture-of-experts.mp4) |
 | 4. More 2026 changes | [1 min 17 s](clips/narrated/week04-clip4-more-changes-narrated.mp4) | [36 s](clips/silent/week04-clip4-more-changes.mp4) |

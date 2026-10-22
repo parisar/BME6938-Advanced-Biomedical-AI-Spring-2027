@@ -62,29 +62,25 @@ and key inside each attention layer,
 as we saw in week two.
 
 13
-00:00:54.550 --> 00:01:00.103
-Fourth, attention becomes grouped-query
-attention. In the small Qwen3 model,
+00:00:54.550 --> 00:00:58.621
+Fourth, attention becomes
+grouped-query attention.
 
 14
-00:01:00.103 --> 00:01:04.961
-16 query heads share
-8 key and value heads,
+00:00:58.621 --> 00:01:04.180
+In SmolLM2, 15 query heads
+share 5 key and value heads,
 
 15
-00:01:04.961 --> 00:01:08.417
+00:01:04.180 --> 00:01:08.417
 which saves memory during generation.
 
 16
-00:01:08.617 --> 00:01:15.325
+00:01:08.617 --> 00:01:14.987
 The overall shape is unchanged.
 The 2017 decoder stacked 6 blocks,
 
 17
-00:01:15.325 --> 00:01:18.449
-the small Qwen3 model stacks 28,
-
-18
-00:01:18.449 --> 00:01:23.247
-and the last block feeds the
-prediction of the next token.
+00:01:14.987 --> 00:01:22.113
+SmolLM2 stacks 32, and the last block
+feeds the prediction of the next token.
