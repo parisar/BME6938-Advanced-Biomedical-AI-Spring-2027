@@ -97,7 +97,7 @@ def clips_of(wk):
     if not os.path.exists(man):
         return []
     out = []
-    for c in json.load(open(man))['clips']:
+    for c in json.load(open(man, encoding="utf-8"))["clips"]:
         o = c['output']
         nar = f'clips/narrated/{o}-narrated.mp4'
         vtt = f'clips/narrated/{o}-narrated.vtt'
@@ -286,7 +286,7 @@ def doc_pages():
 
 def main():
     rows, papers = index_rows(), schedule_papers()
-    alt = json.load(open(f'{R}/assets/banners/alt.json'))
+    alt = json.load(open(f'{R}/assets/banners/alt.json', encoding='utf-8'))
     os.makedirs(f'{R}/assets', exist_ok=True)
     open(f'{R}/assets/site.css', 'w', encoding='utf-8').write(CSS)
     open(f'{R}/.nojekyll', 'w').write('')                    # or Jekyll hides lectures/_shared
