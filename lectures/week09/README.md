@@ -39,13 +39,14 @@ Each clip also has a plain-text transcript of its narration in [clips/transcript
 
 The ungraded reference notebook for this lecture is [week09_retrieval_agents.ipynb](../notebooks/week09_retrieval_agents.ipynb). It
 embeds 12 synthetic protocol chunks with a small open embedding model, scores questions by cosine similarity, and chooses a
-threshold for that model (Almanac's 0.83 belongs to its own embedding model). A ReAct loop then runs SmolLM2-360M-Instruct with two read-only
-tools on three synthetic patients, with a JSON parser and a scripted fallback. On our CPU run the model's tool calls parsed 19 of
-26 times, it finished 3 of 8 tasks, and it answered none correctly: it repeats a lab call until the step limit, writes its own
-observation lines, and calls the medication tool with arguments it does not take. A guard against repeated calls lifts parsing to
-22 of 26 and stops the loops, but leaves the answers where they were. The notebook ends with a simulation of
-error compounding and a clinician checkpoint. It runs on CPU in about 6 minutes, including two model downloads (about 1.6 GB);
-with `USE_LLM = False` it runs in seconds with the scripted agent.
+threshold for that model (Almanac's 0.83 belongs to its own embedding model). A ReAct loop then runs SmolLM2-1.7B-Instruct with two read-only
+tools on three synthetic patients, with a JSON parser and a scripted fallback. On our CPU run all 18 of the model's tool calls
+parsed, it finished 7 of the 8 tasks, and 7 answers passed our check. The eighth is the clip's own task: the model writes an
+`Observation:` line of its own with lab values no tool returned, then repeats the same call until the step limit. A guard against
+repeated calls changes none of those numbers, because the model is not reading the observations it is given. One of the seven
+right answers reports creatinine in mmol/L rather than mg/dL, which our check does not catch. The notebook ends with a simulation
+of error compounding and a clinician checkpoint. It runs on CPU in about 14 minutes on a fast machine and longer on a shared one,
+including two model downloads (about 3.5 GB); with `USE_LLM = False` it runs in seconds with the scripted agent.
 
 ## Further reading
 
