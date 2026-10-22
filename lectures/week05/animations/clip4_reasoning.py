@@ -69,13 +69,18 @@ class C4(Clip):
         self.play(FadeOut(st), run_time=0.3)
         self.play(LaggedStart(*[GrowArrow(a) for a in arr], lag_ratio=0.2), cards[0][0].animate.set_stroke(OKC, 5), run_time=1.0)
         self.rest(2.4)
-        # 6. thinking at test time (real Qwen3-0.6B outputs)
-        self.cap("Thinking longer at test time can fix an error, at the cost of more tokens.", hold=0)
+        # 6. test-time reasoning: the cost arrives, the benefit does not (real SmolLM2 outputs)
+        self.cap("A prompt can buy more tokens at test time, but not the ability to reason.", hold=0)
         self.play(*[FadeOut(m) for m in (cards, rl, av, al, arr, TL, TLh)], run_time=0.5)
         nq = qbox(["Note: The patient denies chest pain.", "Question: Does the patient report chest pain?"], 24).move_to([0, 1.85, 0])
-        off = VGroup(T("Qwen3-0.6B, thinking off", 22, GREY, BOLD), T("“Yes, the patient reports chest pain.”", 24, INK), T("9 tokens, wrong", 22, BAD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.16).move_to([-6.6, 0.45, 0], aligned_edge=UL)
-        on = VGroup(T("Qwen3-0.6B, thinking on", 22, TH, BOLD), T("“The patient does not report chest pain.”", 24, INK), T("119 tokens, correct", 22, OKC, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.16).move_to([0.3, 0.45, 0], aligned_edge=UL)
-        rr = T("real outputs; on a CPU, 0.9 s vs 11.4 s", 20, GREY).move_to([0, -1.55, 0])
+        off = VGroup(T("SmolLM2, asked directly", 22, GREY, BOLD), T("“Yes, the patient reports chest pain.”", 24, INK), T("9 tokens, wrong", 22, BAD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.16).move_to([-6.6, 0.45, 0], aligned_edge=UL)
+        on = VGroup(T("SmolLM2, asked to reason first", 22, TH, BOLD),
+                    T("“Step 1: Identify the patient's statement", 22, INK),
+                    T("The patient denies chest pain.", 22, INK),
+                    T("Step 2: Determine if the patient reports chest pain", 22, INK),
+                    T("The patient denies chest pain. …”", 22, INK),
+                    T("600 tokens, 28 steps, never answers", 22, BAD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.13).move_to([-0.6, 0.45, 0], aligned_edge=UL)
+        rr = T("real outputs on a CPU", 20, GREY).move_to([0, -1.9, 0])
         self.play(FadeIn(nq), run_time=0.6)
         self.play(FadeIn(off, shift=RIGHT * 0.1), run_time=0.8)
         self.play(FadeIn(on, shift=RIGHT * 0.1), run_time=0.8)
@@ -99,15 +104,16 @@ class C4(Clip):
         self.play(GrowArrow(a3), FadeIn(ans), run_time=0.6)
         self.play(FadeIn(sc), FadeIn(sn), run_time=0.7)
         self.rest(2.6)
-        # 8. a fluent rationale is not proof (real Qwen3-0.6B outputs)
-        self.cap("A fluent explanation is not proof: thinking can also lead a model to a wrong answer.", hold=0)
+        # 8. a fluent rationale is not proof (real SmolLM2 outputs)
+        self.cap("A fluent explanation is not proof: the rationale need not even match the answer.", hold=0)
         self.play(*[FadeOut(m) for m in (q7, paths, ref, ans, a1, a2, a3, sc, sn)], run_time=0.5)
         Q8 = qbox(ECG_Q, 20).move_to([-3.6, 1.5, 0])
-        o1 = VGroup(T("Qwen3-0.6B, thinking off", 22, GREY, BOLD), T("Answer: B, right coronary", 24, INK), T("correct", 22, OKC, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.14).move_to([0.6, 2.25, 0], aligned_edge=UL)
-        o2 = VGroup(T("Qwen3-0.6B, thinking on", 22, TH, BOLD),
-                    T("“ST elevation in the inferior leads is most commonly due to a blockage", 22, INK),
-                    T("in the left anterior descending artery.”", 22, INK),
-                    T("after 1,500 tokens: still unsure, leaning to A (wrong)", 22, BAD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.14).move_to([-6.6, -0.05, 0], aligned_edge=UL)
+        o1 = VGroup(T("SmolLM2, asked directly", 22, GREY, BOLD), T("Answer: D, left main", 24, INK), T("wrong", 22, BAD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.14).move_to([0.6, 2.25, 0], aligned_edge=UL)
+        o2 = VGroup(T("SmolLM2, asked to reason first", 22, TH, BOLD),
+                    T("“ST elevation in leads I, II, and aVF …”", 22, INK),
+                    T("a finding that was never in the question", 22, BAD),
+                    T("argues its way to the left anterior descending,", 22, INK),
+                    T("then answers D anyway (187 tokens)", 22, BAD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.14).move_to([-6.6, -0.05, 0], aligned_edge=UL)
         rr8 = T("real outputs; checking reasoning returns in Week 12 on evaluation", 20, GREY).move_to([0, -2.3, 0])
         self.play(FadeIn(Q8), run_time=0.6)
         self.play(FadeIn(o1, shift=RIGHT * 0.1), run_time=0.8)

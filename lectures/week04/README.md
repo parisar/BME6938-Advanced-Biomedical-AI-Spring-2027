@@ -11,7 +11,7 @@ Slides: [4-1 slides (PDF)](slides/4-1-inside-modern-llms.pdf)
 
 ## Animation clips
 
-The running example continues Week 3: a decoder writing the clinical note "The patient denies chest pain". Architecture numbers come from the published configurations of Qwen3-0.6B, Llama 3, DeepSeek-V3, and Gemma 3; the token splits come from the real GPT-2 and DeepSeek-V3 tokenizers. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
+The running example continues Week 3: a decoder writing the clinical note "The patient denies chest pain". Architecture numbers come from the published configurations of SmolLM2-360M, Llama 3, DeepSeek-V3, and Gemma 3; the token splits come from the real GPT-2 and SmolLM2 tokenizers. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
 
 | Clip | Narrated | Silent |
 |---|---|---|

@@ -6,7 +6,7 @@ version](../silent/week05-clip4-reasoning.mp4) shows the same steps with on-scre
 
 A reasoning model writes out its thinking before it answers. For this ECG question, it reasons that
 ST elevation in leads II, III, and aVF points to the inferior wall, usually supplied by the right
-coronary artery, and answers B.
+coronary artery, and answers B. The trace shown is illustrative.
 
 DeepSeek-R1 learned this with rewards that a simple program can check: one point if the final answer
 is correct, and one point if the reasoning sits inside the think tags. R1-Zero used reinforcement
@@ -23,14 +23,16 @@ The model is then updated so that answers above their group's average become mor
 answers below it become less likely. Over many questions, reasoning that reaches correct answers is
 reinforced.
 
-Thinking can also help at test time. With thinking off, the small Qwen3 model gets the chest pain
-question wrong in nine tokens. With thinking on, it writes 119 tokens and gets it right, but it
-takes much longer.
+Test time is different. Asked directly, SmolLM2 gets the chest pain question wrong in nine tokens.
+Asked to reason first, it spends all 600 tokens looping through 28 numbered steps and never reaches
+an answer. The cost arrives, the benefit does not. Reasoning is something a model is trained to do,
+not something a prompt adds. Both are real output from the model.
 
 Med-PaLM 2 samples several reasoning paths for a medical question, then reads them all to write one
 refined answer. Together with a stronger base model and medical fine-tuning, this raised MedQA
 accuracy from 67.2 to 86.5%.
 
-But a fluent explanation is not proof. On the ECG question, the same small model picks the right
-artery with thinking off. With thinking on, it argues confidently for the wrong artery, and after
-1,500 tokens it is still unsure. We return to checking reasoning in week 12.
+And a fluent explanation is not proof. On the ECG question, the same model answers D, the left main,
+which is wrong. Asked to reason, it invents a finding that was never in the question, argues its way
+to the left anterior descending, and then answers D anyway. The rationale does not even agree with
+the letter beside it. We return to checking reasoning in week 12.

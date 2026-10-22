@@ -15,4 +15,4 @@ Build all four clips, silent and narrated, from the repository root:
 python tools/build_clips.py week04
 ```
 
-The narration lines are in [`../clips.json`](../clips.json). See [`tools/README.md`](../../../tools/README.md) for setup. The clips use only text objects, so LaTeX is not required. Architecture numbers come from the published model configurations and reports (Qwen3-0.6B, DeepSeek-V3, Gemma 3, Llama 3); the token splits in clip 4 come from the real GPT-2 and DeepSeek-V3 tokenizers. The router weights and the 16 experts in clip 3 are illustrative.
+The narration lines are in [`../clips.json`](../clips.json). See [`tools/README.md`](../../../tools/README.md) for setup. The clips use only text objects, so LaTeX is not required. Architecture numbers come from the published model configurations and reports (SmolLM2-360M, DeepSeek-V3, Gemma 3, Llama 3); the token splits in clip 4 come from the real GPT-2 and SmolLM2 tokenizers. The router weights and the 16 experts in clip 3 are illustrative.

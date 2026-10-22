@@ -12,8 +12,8 @@
         {"caption": "Normalization moves before each sublayer and becomes RMSNorm.", "text": "The first change is normalization. It now comes before each sublayer instead of after, and it uses R M S norm, which only rescales each vector by its root mean square."},
         {"caption": "The feed-forward network becomes SwiGLU, a gated version.", "text": "Second, the feed-forward network becomes swig-loo. The token is projected twice, and one projection passes through a smooth activation and acts as a gate on the other."},
         {"caption": "Positions move inside attention: RoPE rotates each query and key.", "text": "Third, positions are no longer added at the input. Instead, rope rotates every query and key inside each attention layer, as we saw in week two."},
-        {"caption": "Attention becomes grouped-query attention: query heads share keys and values.", "text": "Fourth, attention becomes grouped-query attention. In the small Kwen three model, sixteen query heads share eight key and value heads, which saves memory during generation."},
-        {"caption": "The shape is unchanged: stack the blocks, then predict the next token.", "text": "The overall shape is unchanged. The twenty seventeen decoder stacked six blocks, the small Kwen three model stacks twenty-eight, and the last block feeds the prediction of the next token."}
+        {"caption": "Attention becomes grouped-query attention: query heads share keys and values.", "text": "Fourth, attention becomes grouped-query attention. In Smol L M two, fifteen query heads share five key and value heads, which saves memory during generation."},
+        {"caption": "The shape is unchanged: stack the blocks, then predict the next token.", "text": "The overall shape is unchanged. The twenty seventeen decoder stacked six blocks, Smol L M two stacks thirty-two, and the last block feeds the prediction of the next token."}
       ]
     },
     {

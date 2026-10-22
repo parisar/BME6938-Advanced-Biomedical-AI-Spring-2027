@@ -11,7 +11,7 @@ Slides: [5-1 slides (PDF)](slides/5-1-post-training-and-reasoning.pdf)
 
 ## Animation clips
 
-The running example continues Week 4: the note "The patient denies chest pain" and the question "Does the patient report chest pain?", which the post-trained Qwen3-0.6B answers wrongly. The model outputs, log-probabilities, and token counts in the clips are real outputs of Qwen3-0.6B-Base and Qwen3-0.6B (greedy decoding, 32-bit, CPU), reproduced in the notebook. The thinking text in clip 4, segment 1, the DPO gains of +4 and −6, and the four GRPO samples are illustrative. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
+The running example continues Week 4: the note "The patient denies chest pain" and the question "Does the patient report chest pain?", which post-trained SmolLM2-360M answers wrongly. The model outputs, log-probabilities, and token counts in the clips are real outputs of SmolLM2-360M and SmolLM2-360M-Instruct (greedy decoding, 32-bit, CPU), reproduced in the notebook. The thinking text in clip 4, segment 1, the DPO gains of +4 and −6, and the four GRPO samples are illustrative. Each clip comes in two versions: narrated (voice-over plus on-screen captions) and silent (captions only).
 
 | Clip | Narrated | Silent |
 |---|---|---|

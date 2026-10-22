@@ -5,11 +5,12 @@ Week 5, clip 1 of 4. This is the narration of the clip, which an AI-generated vo
 version](../silent/week05-clip1-post-training.mp4) shows the same steps with on-screen captions
 only.
 
-A pretrained model only continues the text it is given. We gave the base Qwen3 model the start of a
-discharge summary, and it simply kept writing a note about a different patient.
+A pretrained model only continues the text it is given. We gave the base SmolLM2 model the start of
+a discharge summary, and it simply kept going, repeating the same sentence about a myocardial
+infarction twice over. The model text in this clip is real output, not written for the slide.
 
-Now we ask it a question about the note. The base model does not answer like an assistant. It treats
-the text as a quiz and keeps inventing new questions.
+Now we ask it a question about the note. The base model does not answer like an assistant. It just
+repeats the question back, because continuing text is all it was trained to do.
 
 The post-trained version of the same model answers the question directly. But here its answer is
 wrong: the note says the patient denies chest pain. Clips three and four show two ways to fix this.

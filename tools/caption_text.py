@@ -59,7 +59,7 @@ GLOSS = {
     "Chest X ray": "Chest X-ray", "Lora": "LoRA", "Q Lora": "QLoRA",
     # pronunciation respellings
     "co-sine": "cosine", "Co-sine": "Cosine", "rope": "RoPE", "Rope": "RoPE",
-    "Alibi": "ALiBi", "Kwen": "Qwen", "Mamba": "Mamba",
+    "Alibi": "ALiBi", "Kwen": "Qwen", "Mamba": "Mamba", "Smol L M": "SmolLM",
 }
 
 # versions spoken as words: "DeepSeek V three" -> "DeepSeek-V3"
@@ -71,6 +71,7 @@ VERSION = [
     (r"\bAlphaFold (two)\b", "AlphaFold 2"), (r"\bAlphaFold (three)\b", "AlphaFold 3"),
     (r"\bResNet fifty\b", "ResNet-50"), (r"\bResNet 50\b", "ResNet-50"),
     (r"\bQwen three\b", "Qwen3"), (r"\bQwen two\b", "Qwen2"),
+    (r"\bSmolLM two\b", "SmolLM2"),
     (r"\bBERT base\b", "BERT base"), (r"\beight B\b", "8B"),
 ]
 

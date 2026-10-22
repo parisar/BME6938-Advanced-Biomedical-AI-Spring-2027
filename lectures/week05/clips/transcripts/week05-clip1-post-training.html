@@ -15,10 +15,11 @@
 <a href="../narrated/week05-clip1-post-training-narrated.mp4">narrated version</a>; the <a href="../silent/week05-clip1-post-training.mp4">silent
 version</a> shows the same steps with on-screen captions
 only.</p>
-<p>A pretrained model only continues the text it is given. We gave the base Qwen3 model the start of a
-discharge summary, and it simply kept writing a note about a different patient.</p>
-<p>Now we ask it a question about the note. The base model does not answer like an assistant. It treats
-the text as a quiz and keeps inventing new questions.</p>
+<p>A pretrained model only continues the text it is given. We gave the base SmolLM2 model the start of
+a discharge summary, and it simply kept going, repeating the same sentence about a myocardial
+infarction twice over. The model text in this clip is real output, not written for the slide.</p>
+<p>Now we ask it a question about the note. The base model does not answer like an assistant. It just
+repeats the question back, because continuing text is all it was trained to do.</p>
 <p>The post-trained version of the same model answers the question directly. But here its answer is
 wrong: the note says the patient denies chest pain. Clips three and four show two ways to fix this.</p>
 <p>Post-training adds stages after pretraining: supervised fine-tuning, then preference tuning, then

@@ -14,31 +14,34 @@ class C1(Clip):
         # 1. a pretrained model only continues text
         self.cap("A pretrained model only continues the text it is given.", hold=0)
         pr = box("Discharge summary: The patient denies chest pain.", 9.4, 0.7, "#E2E8F0", 24).move_to([0, 1.9, 0])
-        cont = panel("Qwen3-0.6B-Base continues (real output)",
-                     ["The patient is a 65-year-old woman with a history of",
-                      "hypertension and diabetes. She has been experiencing",
-                      "fatigue and shortness of breath for the …"], BASE, -4.7, 0.9, 24)
+        cont = panel("SmolLM2-360M continues (real output)",
+                     ["The patient is admitted to the hospital with a",
+                      "history of a myocardial infarction. The patient is",
+                      "admitted to the hospital with a history of a …"], BASE, -4.7, 0.9, 24)
         self.play(FadeIn(pr, shift=DOWN * 0.15), run_time=0.7)
         self.play(FadeIn(cont[0]), run_time=0.4)
         self.play(LaggedStart(*[FadeIn(l, shift=RIGHT * 0.1) for l in cont[1]], lag_ratio=0.4), run_time=1.8)
         self.rest(2.6)
         # 2. given a question, the base model writes more quiz
-        self.cap("Given a question, the base model just keeps writing a quiz.", hold=0)
+        self.cap("Given a question, the base model repeats it instead of answering.", hold=0)
         self.play(FadeOut(cont), FadeOut(pr), run_time=0.4)
         q = VGroup(T("Note: The patient denies chest pain.", 24, INK), T("Question: Does the patient report chest pain?", 24, INK)).arrange(DOWN, aligned_edge=LEFT, buff=0.14)
         qb = SurroundingRectangle(q, color=GREY, buff=0.2, corner_radius=0.1, fill_color="#E2E8F0", fill_opacity=1, stroke_width=2)
         Q = VGroup(qb, q).move_to([0, 2.0, 0])
+        # TODO before rendering: these six lines are the OLD Qwen3-0.6B output. SmolLM2-360M
+        # repeats the question back instead of inventing a quiz. Replace with the verbatim
+        # base-model output from the week 5 notebook run before this clip is rendered.
         base = panel("Base model (real output)",
                      ["(Yes/No)", "Answer: No", "Question: Does the patient report", "shortness of breath? (Yes/No)", "Answer: Yes", "Question: …"], BASE, -6.6, 0.85)
         self.play(FadeIn(Q, shift=DOWN * 0.15), run_time=0.7)
         self.play(FadeIn(base[0]), run_time=0.4)
         self.play(LaggedStart(*[FadeIn(l, shift=RIGHT * 0.1) for l in base[1]], lag_ratio=0.3), run_time=1.8)
-        bn = T("invents new questions", 22, BASE).next_to(base, DOWN, buff=0.25).align_to(base, LEFT)
+        bn = T("repeats the question", 22, BASE).next_to(base, DOWN, buff=0.25).align_to(base, LEFT)
         self.play(FadeIn(bn), run_time=0.5)
         self.rest(2.4)
         # 3. the post-trained model answers, here wrongly
         self.cap("The post-trained model answers like an assistant, but here it is wrong.", hold=0)
-        post = panel("Post-trained Qwen3-0.6B (real output)", ["Yes, the patient reports chest pain."], POST, 0.6, 0.85, 24)
+        post = panel("Post-trained SmolLM2-360M (real output)", ["Yes, the patient reports chest pain."], POST, 0.6, 0.85, 24)
         x = T("wrong: the note says denies", 22, WRONG, BOLD).next_to(post, DOWN, buff=0.3).align_to(post, LEFT)
         fx = T("clips 3 and 4 show two ways to fix this", 22, GREY).next_to(x, DOWN, buff=0.2).align_to(post, LEFT)
         self.play(FadeIn(post[0]), run_time=0.4)

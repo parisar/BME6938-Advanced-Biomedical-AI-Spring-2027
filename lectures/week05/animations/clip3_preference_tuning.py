@@ -30,10 +30,10 @@ class C3(Clip):
         self.play(FadeIn(who), run_time=0.5)
         self.rest(2.4)
         # 2. what the model prefers now
-        self.cap("Right now, Qwen3-0.6B rates the wrong answer as far more likely.", hold=0)
+        self.cap("Right now, SmolLM2-360M-Instruct rates the wrong answer as far more likely.", hold=0)
         self.play(FadeOut(who), run_time=0.3)
-        lc = T("log-probability −21.37", 24, CH, BOLD).next_to(c, RIGHT, buff=0.3)
-        lr = T("log-probability −1.12", 24, RJ, BOLD).next_to(r, RIGHT, buff=0.3)
+        lc = T("log-probability −21.09", 24, CH, BOLD).next_to(c, RIGHT, buff=0.3)
+        lr = T("log-probability −2.24", 24, RJ, BOLD).next_to(r, RIGHT, buff=0.3)
         grp = VGroup(c, r, lc, lr)
         if grp.width > 13.4: grp.scale_to_fit_width(13.4)
         grp.move_to([0, 0.0, 0])

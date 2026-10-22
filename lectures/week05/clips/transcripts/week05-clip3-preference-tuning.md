@@ -8,8 +8,8 @@ only.
 Preference data pairs one question with two answers. A clinician marks one as chosen and the other
 as rejected. Here the rejected answer gets the negation wrong.
 
-Right now, the small Qwen3 model rates the wrong answer as far more likely. Its log-probability is
-minus 1.12, while the correct answer gets minus 21.37.
+Right now, SmolLM2 rates the wrong answer as far more likely. Its log-probability is minus 2.24,
+while the correct answer gets minus 21.09.
 
 The classic method is RLHF. First, a separate reward model learns to score answers from many such
 choices. Then reinforcement learning, usually PPO, updates the language model to earn high scores.

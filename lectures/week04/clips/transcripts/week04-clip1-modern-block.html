@@ -22,10 +22,10 @@ RMS norm, which only rescales each vector by its root mean square.</p>
 passes through a smooth activation and acts as a gate on the other.</p>
 <p>Third, positions are no longer added at the input. Instead, RoPE rotates every query and key inside
 each attention layer, as we saw in week two.</p>
-<p>Fourth, attention becomes grouped-query attention. In the small Qwen3 model, 16 query heads share 8
-key and value heads, which saves memory during generation.</p>
-<p>The overall shape is unchanged. The 2017 decoder stacked 6 blocks, the small Qwen3 model stacks 28,
-and the last block feeds the prediction of the next token.</p>
+<p>Fourth, attention becomes grouped-query attention. In SmolLM2, 15 query heads share 5 key and value
+heads, which saves memory during generation.</p>
+<p>The overall shape is unchanged. The 2017 decoder stacked 6 blocks, SmolLM2 stacks 32, and the last
+block feeds the prediction of the next token.</p>
 </div></main>
 <footer><div class="wrap">BME 6938, University of Florida, Spring 2027. Taught by Dr. Parisa Rashidi.<br>The narration in the clips is an AI-generated voice. Captions are provided for every narrated clip.</div></footer>
 </body>
