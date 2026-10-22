@@ -21,17 +21,17 @@ Here the rejected answer
 gets the negation wrong.
 
 4
-00:00:14.683 --> 00:00:20.297
-Right now, the small Qwen3 model rates
-the wrong answer as far more likely.
+00:00:14.683 --> 00:00:20.001
+Right now, SmolLM2 rates the
+wrong answer as far more likely.
 
 5
-00:00:20.297 --> 00:00:23.888
-Its log-probability is minus 1.12,
+00:00:20.001 --> 00:00:23.071
+Its log-probability is minus 2.24,
 
 6
-00:00:23.888 --> 00:00:28.283
-while the correct answer gets minus 21.37.
+00:00:23.071 --> 00:00:28.283
+while the correct answer gets minus 21.09.
 
 7
 00:00:28.483 --> 00:00:30.233
@@ -123,5 +123,5 @@ Beta times the gap of 10 is
 1, the sigmoid of 1 is 0.73,
 
 26
-00:01:51.903 --> 00:01:55.947
+00:01:51.903 --> 00:01:56.033
 and the loss falls to 0.31.

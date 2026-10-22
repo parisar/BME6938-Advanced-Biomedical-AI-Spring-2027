@@ -15,10 +15,10 @@ The running example continues Week 4: the note "The patient denies chest pain" a
 
 | Clip | Narrated | Silent |
 |---|---|---|
-| 1. From pretrained model to clinical assistant | [1 min 40 s](clips/narrated/week05-clip1-post-training-narrated.mp4) | [50 s](clips/silent/week05-clip1-post-training.mp4) |
-| 2. LoRA: fine-tuning with a small fraction of the weights | [1 min 45 s](clips/narrated/week05-clip2-lora-narrated.mp4) | [51 s](clips/silent/week05-clip2-lora.mp4) |
+| 1. From pretrained model to clinical assistant | [1 min 49 s](clips/narrated/week05-clip1-post-training-narrated.mp4) | [50 s](clips/silent/week05-clip1-post-training.mp4) |
+| 2. LoRA: fine-tuning with a small fraction of the weights | [1 min 46 s](clips/narrated/week05-clip2-lora-narrated.mp4) | [51 s](clips/silent/week05-clip2-lora.mp4) |
 | 3. Preference tuning: RLHF and DPO | [1 min 56 s](clips/narrated/week05-clip3-preference-tuning-narrated.mp4) | [48 s](clips/silent/week05-clip3-preference-tuning.mp4) |
-| 4. Reasoning models | [2 min 31 s](clips/narrated/week05-clip4-reasoning-narrated.mp4) | [1 min](clips/silent/week05-clip4-reasoning.mp4) |
+| 4. Reasoning models | [2 min 51 s](clips/narrated/week05-clip4-reasoning-narrated.mp4) | [1 min](clips/silent/week05-clip4-reasoning.mp4) |
 
 The narration is an AI-generated voice reading a script written for the course. Captions for the narrated clips are in a WebVTT file beside each video (`clips/narrated/*.vtt`), which covers WCAG 2.1 criterion 1.2.2; players that read sidecar subtitle files, such as VLC, load them automatically. The source code for the clips is in [animations/](animations/) and the narration script is in [clips.json](clips.json).
 

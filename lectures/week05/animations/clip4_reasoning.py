@@ -80,7 +80,7 @@ class C4(Clip):
                     T("Step 2: Determine if the patient reports chest pain", 22, INK),
                     T("The patient denies chest pain. …”", 22, INK),
                     T("600 tokens, 28 steps, never answers", 22, BAD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.13).move_to([-0.6, 0.45, 0], aligned_edge=UL)
-        rr = T("real outputs on a CPU", 20, GREY).move_to([0, -1.9, 0])
+        rr = T("real outputs on a CPU", 20, GREY).next_to(on, DOWN, buff=0.3).set_x(0)   # below the taller panel
         self.play(FadeIn(nq), run_time=0.6)
         self.play(FadeIn(off, shift=RIGHT * 0.1), run_time=0.8)
         self.play(FadeIn(on, shift=RIGHT * 0.1), run_time=0.8)

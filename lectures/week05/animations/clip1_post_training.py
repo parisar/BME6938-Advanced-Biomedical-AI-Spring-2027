@@ -28,11 +28,10 @@ class C1(Clip):
         q = VGroup(T("Note: The patient denies chest pain.", 24, INK), T("Question: Does the patient report chest pain?", 24, INK)).arrange(DOWN, aligned_edge=LEFT, buff=0.14)
         qb = SurroundingRectangle(q, color=GREY, buff=0.2, corner_radius=0.1, fill_color="#E2E8F0", fill_opacity=1, stroke_width=2)
         Q = VGroup(qb, q).move_to([0, 2.0, 0])
-        # TODO before rendering: these six lines are the OLD Qwen3-0.6B output. SmolLM2-360M
-        # repeats the question back instead of inventing a quiz. Replace with the verbatim
-        # base-model output from the week 5 notebook run before this clip is rendered.
+        # The verbatim SmolLM2-360M output from the week 5 notebook, wrapped to fit the panel.
+        # It opens with two blank lines, then repeats the question until it runs out of tokens.
         base = panel("Base model (real output)",
-                     ["(Yes/No)", "Answer: No", "Question: Does the patient report", "shortness of breath? (Yes/No)", "Answer: Yes", "Question: …"], BASE, -6.6, 0.85)
+                     ["Question: Does the patient report", "chest pain?", "Question: Does the patient report", "chest pain?", "Question: Does the patient report", "…"], BASE, -6.6, 0.85)
         self.play(FadeIn(Q, shift=DOWN * 0.15), run_time=0.7)
         self.play(FadeIn(base[0]), run_time=0.4)
         self.play(LaggedStart(*[FadeIn(l, shift=RIGHT * 0.1) for l in base[1]], lag_ratio=0.3), run_time=1.8)
