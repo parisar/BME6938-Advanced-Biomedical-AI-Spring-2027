@@ -64,31 +64,30 @@ and it is the quickest way to review what a clip says when revising.
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week12_evaluation.ipynb](../notebooks/week12_evaluation.ipynb). It
-has three parts, and reports every number as it came out.
+has three parts, and reports every number as it came out. The figures are in the notebook rather than repeated here,
+so there is one copy to keep true.
 
 **The bootstrap.** On the same 200-patient agreement table as clip 2 (156 both right, 14 only A, 8 only B, 22 both
-wrong), the marginal intervals are 0.800 to 0.900 and 0.765 to 0.870 and the paired difference is 0.03 with a 95% CI of
-−0.015 to 0.075. Two extras the clip had no room for: a hypothetical pair with the same accuracies and the same
-marginal intervals but only 6 disagreements, whose paired interval is 0.010 to 0.055 and excludes zero, which shows
-directly that marginal intervals carry no information about the difference; and a rough sample-size calculation, about
-466 patients, with its assumption stated.
+wrong), it computes the two marginal intervals and the paired difference with its own interval. Two extras the clip
+had no room for: a hypothetical pair with the same accuracies and the same marginal intervals but far fewer
+disagreements, whose paired interval excludes zero, which shows directly that marginal intervals carry no information
+about the difference; and a rough sample-size calculation with its assumption stated.
 
-**The shortcut.** A 17,682-parameter convolutional network on synthetic 32 by 32 films where the genuine signal is a
-faint lung opacity and the shortcut is a bright corner marker. It scores 1.000 on the internal test set and 1.000 at a
-second site that uses the same marker convention, so external validation passes, and 0.502 at a site that does not use
-it. Three checks catch it without needing that third site: painting out the marker drops site C from 1.000 to 0.500,
-stamping a marker onto negative films raises the mean predicted probability of disease from 0.001 to 0.696, and a probe
-reads the site from the model's features at 0.695 against a chance level of 0.50. The same architecture trained where no
-marker exists reaches 0.947, 0.925 and 0.895 across the three sites, so the genuine signal was learnable all along. The
-toy is deliberately more extreme than the paper: our model lands at chance without its shortcut, while the real
-classifiers lost about half their performance.
+**The shortcut.** A small convolutional network on synthetic 32 by 32 films where the genuine signal is a faint lung
+opacity and the shortcut is a bright corner marker. It scores perfectly on the internal test set and at a second site
+that uses the same marker convention, so external validation passes, and at chance at a site that does not. Three
+checks catch it without needing that third site: painting out the marker, stamping a marker onto negative films and
+watching the predicted probability of disease rise, and a probe that reads the site from the model's features well
+above chance. The same architecture trained where no marker exists performs well at all three sites, so the genuine
+signal was learnable all along. The toy is deliberately more extreme than the paper: our model lands at chance without
+its shortcut, while the real classifiers lost about half their performance.
 
 **Subgroups.** A cohort whose true sensitivities are 0.90 and 0.65 in groups that are 80% and 20% of patients. In our
-draw of 400, group B got 74 patients, an estimate of 0.743, and a 95% CI of 0.635 to 0.838. The estimate missed the
-truth by nearly 10 points and only the interval kept it in view, which is the argument for never reporting a subgroup
-number without one.
+draw of 400, the smaller group lands on a handful of patients, and its point estimate misses the truth by several
+points while the interval keeps the truth in view. That is the argument for never reporting a subgroup number without
+one.
 
-It runs on CPU in about 15 seconds with no downloads.
+It needs no downloads.
 
 ## Further reading
 

@@ -69,29 +69,30 @@ and it is the quickest way to review what a clip says when revising.
 ## Notebook
 
 The ungraded reference notebook for this lecture is [week13_deployment.ipynb](../notebooks/week13_deployment.ipynb). It
-covers what happens after a model is trained, and two of its four results are less comfortable than the clips.
+covers what happens after a model is trained, and two of its four results are less comfortable than the clips. The
+figures are in the notebook rather than repeated here, so there is one copy to keep true.
 
-**Thresholds.** A synthetic risk score at 7% prevalence with an AUC of 0.78, deliberately better than the deployed
-model's 0.63. Sweeping the threshold gives sensitivity 0.82 at a positive predictive value of 0.13 and 46 alerts per 100
-admissions, or a PPV of 0.38 at a sensitivity of 0.11. The number needed to evaluate in that first row is 8.0, which is
-exactly what Wong et al. report for the real model. A substantially better model lands in the same place, because at 7%
-prevalence the positive predictive value is governed by how rare the outcome is rather than by discrimination.
+**Thresholds.** A synthetic risk score at 7% prevalence, with an AUC deliberately better than the deployed model's
+0.63. Sweeping the threshold trades sensitivity against positive predictive value and alert volume, and the notebook
+compares the number needed to evaluate at that operating point with what Wong et al. report for the real model. A
+substantially better model lands in the same place, because at 7% prevalence the positive predictive value is governed
+by how rare the outcome is rather than by discrimination.
 
 **Drift.** Eighteen months, 2,000 hospitalizations each, with a drift starting in month 10 and control limits set from
-the first nine months. The three-sigma rule does not fire until month 15, five months late. A run of three consecutive
-months below the centre line fires in month 12, three months earlier. Monitoring converts a slow drift into a dated
-signal and still leaves months of exposure, and the notebook says so.
+the first nine months. The three-sigma rule fires months after the drift begins; a run of consecutive months below the
+centre line fires earlier. Monitoring converts a slow drift into a dated signal and still leaves months of exposure,
+and the notebook says so.
 
 **Teaming.** The clinician at 0.80 and the model at 0.75 from clip 3, with the correlation between their errors swept
-from 0 to nearly 1. "Flag if either flags" falls from 0.951 to 0.800, which is the clinician working alone, while "flag
-only if both flag" rises from 0.603 to 0.750. The simulation reproduces both closed forms exactly, and the whole result
-lives in a quantity that cannot be computed from the two sensitivities.
+from 0 to nearly 1. "Flag if either flags" falls towards the clinician working alone, while "flag only if both flag"
+rises. The simulation reproduces both closed forms exactly, and the whole result lives in a quantity that cannot be
+computed from the two sensitivities.
 
-**The 88-event test set.** A paired bootstrap reconstructing the hand-hygiene comparison gives the algorithm 0.864 to
-0.977 and human observers 0.773 to 0.920, close to the published intervals, and a difference of 0.000 to 0.136. The
-algorithm came out ahead in 96.7% of resamples. The published claim is not wrong and it is not firm either.
+**The 88-event test set.** A paired bootstrap reconstructing the hand-hygiene comparison recovers intervals close to
+the published ones, and a difference whose lower end sits at zero. The published claim is not wrong and it is not firm
+either.
 
-It runs on CPU in about 3 seconds with no downloads.
+It needs no downloads.
 
 ## Further reading
 

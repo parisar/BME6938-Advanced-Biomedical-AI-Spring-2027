@@ -65,19 +65,16 @@ and it is the quickest way to review what a clip says when revising.
 
 The ungraded reference notebook for this lecture is [week11_diffusion.ipynb](../notebooks/week11_diffusion.ipynb). It
 builds a complete diffusion model from scratch on a two-dimensional stand-in for a protein backbone: synthetic 16-point
-chains that are either helix-like or hairpin-like. It recomputes the schedule weights from clip 1, trains a
-153,000-parameter MLP denoiser in about 30 seconds on CPU, samples from pure noise, conditions on a fixed four-point
-motif, and sweeps the guidance strength.
+chains that are either helix-like or hairpin-like. It recomputes the schedule weights from clip 1, trains a small MLP
+denoiser, samples from pure noise, conditions on a fixed four-point motif, and sweeps the guidance strength.
 
-The measured results are reported as they came out, including where they disagree with the clips. Generated chains are
-classified correctly 100% of the time by a rotation-invariant logistic regression, with bond lengths slightly short
-(0.46 against 0.52 for helices, 0.74 against 0.77 for hairpins). Conditioning holds the motif to an RMSE of 0.026
-against a mean coordinate magnitude of 0.80, but the twelve scaffolds generated for one motif spread only 0.65 apart
-against 5.66 for free samples: in a toy with two shape families and sixteen points, a four-point motif nearly determines
-the chain, which is not true of real motif scaffolding. The guidance sweep does not reproduce the textbook trade-off
-either: realism is best at w = 2 and gets worse from there, and diversity falls from w = 1 to w = 2 and then rises again
-by w = 8 as the samples distort. The notebook says all of this in section 3.3 and suggests what to change. It runs on
-CPU in about 40 seconds with no downloads.
+The notebook reports its measured results as they came out, including where they disagree with the clips. Generated
+chains are classified reliably by a rotation-invariant logistic regression, with bond lengths slightly short.
+Conditioning holds the motif closely, but the scaffolds generated for one motif are far less varied than free samples:
+in a toy with two shape families and sixteen points, a four-point motif nearly determines the chain, which is not true
+of real motif scaffolding. The guidance sweep does not reproduce the textbook trade-off either. Section 3.3 states
+what it found and suggests what to change. The figures are in the notebook rather than repeated here, so there is one
+copy to keep true. It needs no downloads.
 
 ## Further reading
 
