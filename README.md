@@ -91,7 +91,7 @@ Submissions, grades, and announcements are on Canvas.
 
 | Week | Topic | Thursday papers | Project |
 |---|---|---|---|
-| 1 | Course logistics; how to read, present, and critique papers | Model session: [Moor et al.: GMAI](https://doi.org/10.1038/s41586-023-05881-4) | Paper and group assignments posted on Canvas by Fri Jan 15. Start data-access training (MIMIC credentialing). |
+| 1 | Course logistics; how to read, present, and critique papers | Model session: [Moor et al.: GMAI](https://doi.org/10.1038/s41586-023-05881-4) | Paper and group assignments posted on Canvas by Fri Jan 15. |
 | 2 | Transformer review, Part 1: attention and the encoder | [Devlin et al.: BERT](https://aclanthology.org/N19-1423/)<br>[Yang et al.: GatorTron](https://doi.org/10.1038/s41746-022-00742-2) |  |
 | 3 | Transformer review, Part 2: decoder, masking, and model families | [Luo et al.: BioGPT](https://doi.org/10.1093/bib/bbac409)<br>[Dosovitskiy et al.: ViT](https://arxiv.org/abs/2010.11929) | Teams formed (Thu Jan 28) |
 | 4 | Inside modern LLMs: architectures in 2026 | [Sellergren et al.: MedGemma](https://arxiv.org/abs/2507.05201)<br>HiPerGator overview (Research Computing), Period 8 |  |

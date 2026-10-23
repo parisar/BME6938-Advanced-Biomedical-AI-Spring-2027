@@ -6,13 +6,16 @@ point: a good proposal narrows the question, names a hypothesis, and says what r
 
 ## Before you pick: data access
 
-- **Open data** (download now): MedMNIST, the Kather colorectal H&E datasets, PTB-XL, MedQA, PubMedQA, the MIMIC-IV
-  Clinical Database Demo (100 patients), and Synthea synthetic patients.
-- **Credentialed or registration data** (start in Week 1): MIMIC-IV, MIMIC-IV-Note, MIMIC-CXR, and eICU on PhysioNet
-  need CITI human-subjects training plus a PhysioNet credentialing request, which together can take several weeks. CheXpert
-  needs a free registration with Stanford.
-- **Rules for credentialed data:** work on HiPerGator, never on Colab or a personal laptop you share; never paste or
-  upload records to online AI services (ChatGPT, Claude, Gemini, or any hosted API); never commit data to GitHub.
+- **Open data is the default** (download now): MedMNIST, the Kather colorectal H&E datasets, PTB-XL, MedQA, PubMedQA,
+  the MIMIC-IV Clinical Database Demo (100 patients), and Synthea synthetic patients. Most kits below are built around
+  these, and a project on open data is not a lesser project.
+- **Credentialed PhysioNet data is not provisioned for this course.** The kits marked *credentialed* are open only to a
+  student who already holds their own PhysioNet credentials. Do not plan a project expecting credentialing to arrive:
+  CITI human-subjects training plus a PhysioNet request takes several weeks and is not guaranteed. CheXpert needs a
+  free registration with Stanford, which is quicker but still not instant.
+- **If you do use credentialed data:** it stays in your own storage under your own agreement, never in a shared course
+  directory, because the agreement does not permit sharing it with people who are not credentialed. Never paste or
+  upload records to a hosted AI service (ChatGPT, Claude, Gemini, or any hosted API); never commit data to GitHub.
   Use local open models for anything that touches patient text.
 - **Compute:** every kit below is sized for one GPU on HiPerGator, and most can be prototyped on a CPU.
 
@@ -22,7 +25,7 @@ point: a good proposal narrows the question, names a hypothesis, and says what r
 
 **Question.** For questions about a long discharge summary, does a long-context small model beat a short-context model
 plus retrieval?
-**Data.** MIMIC-IV-Note discharge summaries (credentialed). Build questions whose answers are in the structured MIMIC-IV
+**Data.** MIMIC-IV-Note discharge summaries (*credentialed*: only if you already hold PhysioNet credentials). Build questions whose answers are in the structured MIMIC-IV
 tables (discharge medications, primary diagnosis codes, length of stay), so you get ground truth without manual labels.
 **Baseline.** A small open model (about 1B to 8B parameters) reading only the first part of the note that fits its window.
 **Plan.** Compare (a) the full note in a long context, (b) chunk, embed, and retrieve the top passages into a short
@@ -66,7 +69,7 @@ the loss curve before trusting any probe result. Use the provided folds so patie
 
 **Question.** How far is zero-shot classification from a few-label linear probe on chest X-ray findings, and do
 subgroups differ?
-**Data.** CheXpert (registration) or MIMIC-CXR (credentialed).
+**Data.** CheXpert (free registration) or MIMIC-CXR (*credentialed*: only if you already hold PhysioNet credentials).
 **Baseline.** A linear probe on a general CLIP image encoder.
 **Plan.** BiomedCLIP or another medical vision-language encoder: zero-shot with several prompt wordings, then linear
 probes with small label budgets.
@@ -77,7 +80,7 @@ probes with small label budgets.
 
 **Question.** Does a small timeline transformer beat gradient-boosted trees for an ICU outcome, and which stays
 calibrated when time moves on?
-**Data.** MIMIC-IV (credentialed); its anchor year groups allow a train-on-earlier, test-on-later split. eICU for a
+**Data.** MIMIC-IV (*credentialed*: only if you already hold PhysioNet credentials); its anchor year groups allow a train-on-earlier, test-on-later split. eICU for a
 second site.
 **Baseline.** Gradient-boosted trees on hand-built features from the first 24 hours.
 **Plan.** Tokenize timelines as in ETHOS (codes, quantile tokens, time-gap tokens); train a small decoder; predict
@@ -88,7 +91,7 @@ in-ICU mortality.
 ## 7. Multimodal fusion when a modality is missing (Week 7)
 
 **Question.** Does late or intermediate fusion of chest X-rays and EHR data still help when one modality is missing?
-**Data.** MIMIC-IV with MIMIC-CXR (credentialed), linked by patient and time.
+**Data.** MIMIC-IV with MIMIC-CXR (*credentialed*: only if you already hold PhysioNet credentials), linked by patient and time.
 **Baseline.** The best single-modality model.
 **Plan.** Late fusion (average predictions) versus intermediate fusion (combine embeddings), trained with random
 modality dropout; test with each modality removed.
@@ -109,7 +112,7 @@ abstention rate on answerable questions.
 
 **Question.** Where do tool-using agents fail on a structured clinical task, such as medication reconciliation or a
 lab-trend question?
-**Data.** Synthea synthetic patients or the MIMIC-IV Clinical Database Demo (open); no credentialed data needed.
+**Data.** Synthea synthetic patients or the MIMIC-IV Clinical Database Demo. Fully open: nothing to request.
 **Baseline.** The same model answering from a pasted record without tools.
 **Plan.** Build two or three read-only tools (get labs, get medications, get notes); run a ReAct-style loop on 50 to
 100 tasks with known answers.

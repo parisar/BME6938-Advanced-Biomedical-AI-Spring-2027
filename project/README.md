@@ -14,7 +14,6 @@ Every paper must include:
 
 | Milestone | Date | Deliverable | Weight |
 |---|---|---|---|
-| Start data-access training (if using credentialed data) | Jan 14 | CITI training and PhysioNet credentialing started |  |
 | Teams formed | Jan 28 | Teams of three; names submitted |  |
 | Proposal | Feb 19 | One page: open problem and why it matters, data, models and methods, hypothesis, evaluation plan. Due 11:59 PM | 5% |
 | Pitch, then peer review | Feb 23 | 2-min pitch in class Feb 23 (slide due 1:00 PM); written review of one other proposal due Thu Mar 4, 11:59 PM (counts toward participation) |  |
@@ -60,9 +59,9 @@ Each problem has a starter kit (data and access, a baseline to beat, a plan, eva
 
 ## Data and computing
 
-- Datasets that require credentialed access (for example MIMIC-IV and MIMIC-CXR) need human-subjects training that can take several weeks. Start in Week 1 if you plan to use them.
-- Open datasets such as PTB-XL, MedMNIST, and TCGA need no credentialing.
-- Never commit patient data, credentials, or credentialed datasets to a repository.
+- Projects use open-access data. PTB-XL, MedMNIST, the Kather tiles, MedQA, PubMedQA, Synthea, and the MIMIC-IV Clinical Database Demo need no credentialing and can be downloaded today.
+- Credentialed PhysioNet data is not provisioned for this course. A student who already holds their own PhysioNet credentials may use them in their own storage, but do not plan a project around credentialing that has not already been granted: CITI training plus a PhysioNet request takes several weeks and may not arrive before the work starts.
+- Never commit patient data, credentials, or credentialed datasets to a repository, and never paste them into a hosted AI service.
 - Computing is provided through HiPerGator.
 
 ## Final submission
