@@ -24,7 +24,9 @@ Every paper must include:
 
 Templates: [proposal](proposal_template.md), [peer review](peer_review_form.md), [progress report](progress_report_template.md).
 
-Pitch day (Tue Feb 23): [pitch_day.md](pitch_day.md). Final talk rubric: [presentation_rubric.md](presentation_rubric.md).
+Pitch day (Tue Feb 23): [pitch_day.md](pitch_day.md).
+
+Rubrics: [proposal](proposal_rubric.md), [progress report](progress_report_rubric.md), [final talk](presentation_rubric.md).
 
 ## Final paper rubric (100 points)
 
