@@ -45,8 +45,9 @@ parsed, it finished 7 of the 8 tasks, and 7 answers passed our check. The eighth
 `Observation:` line of its own with lab values no tool returned, then repeats the same call until the step limit. A guard against
 repeated calls changes none of those numbers, because the model is not reading the observations it is given. One of the seven
 right answers reports creatinine in mmol/L rather than mg/dL, which our check does not catch. The notebook ends with a simulation
-of error compounding and a clinician checkpoint. It runs on CPU in about 14 minutes on a fast machine and longer on a shared one,
-including two model downloads (about 3.5 GB); with `USE_LLM = False` it runs in seconds with the scripted agent.
+of error compounding and a clinician checkpoint. It took about 14 minutes of CPU time on a 20-thread desktop with the models
+already downloaded, and will take longer on a shared machine such as Colab's free CPU runtime; the first run also downloads
+about 3.5 GB of models. With `USE_LLM = False` it runs in seconds with the scripted agent.
 
 ## Further reading
 
